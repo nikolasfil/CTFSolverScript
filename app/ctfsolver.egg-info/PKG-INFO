@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: ctfsolver
+Version: 0.0.1
+Summary: An all in one library for solving CTF challenges
+Home-page: https://github.com/nikolasfil/CTFSolverScript
+Author: Nikolas Filippatos
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE
+
+Python Solver
+
+More documentation in the [docs](docs/) folder.
