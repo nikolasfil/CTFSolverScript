@@ -6,7 +6,7 @@ with open("app/README.md", "r") as fh:
 
 setuptools.setup(
     name="ctfsolver",
-    version="0.0.1",
+    version="0.0.2",
     description="An all in one library for solving CTF challenges",
     package_dir={"": "app"},
     packages=setuptools.find_packages(where="app"),

@@ -1,5 +1,6 @@
 from pathlib import Path
 import pwn
+import inspect
 
 
 class CTFSolver:
@@ -22,7 +23,9 @@ class CTFSolver:
         self.folder_data = None
         self.folder_files = None
 
-        self.parent = Path(__file__).parent
+        self.file_called_frame = inspect.stack()
+        self.file_called_path = Path(self.file_called_frame[-1].filename)
+        self.parent = Path(self.file_called_path).parent
         if self.parent.name == "payloads":
             self.folder_payloads = self.parent
             self.parent = self.parent.parent
