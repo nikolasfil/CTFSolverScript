@@ -49,14 +49,13 @@ class CTFSolver:
         self.folder_data = Path(self.parent, "data")
         self.folder_files = Path(self.parent, "files")
 
-    def prepare_space(self, **kwargs):
+    def prepare_space(self, files=None, folder=None, test_text="picoCTF{test}"):
         """
         Description:
         Prepare the space for the challenge by creating the folders if they don't exist
         """
-        files = kwargs.get("files", [])
-        folder = kwargs.get("folder", self.folder_files)
-        test_text = kwargs.get("test_text", "picoCTF{test}")
+        files = files if files else []
+        folder = folder if folder else self.folder_files
 
         for file in files:
             if not Path(folder, file).exists():
