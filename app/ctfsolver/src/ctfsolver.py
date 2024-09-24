@@ -5,10 +5,23 @@ import inspect
 
 class CTFSolver:
     def __init__(self, *args, **kwargs) -> None:
+        self.pwn = pwn
         self.get_parent()
         self.connect_to_challenge(kwargs)
 
     def connect_to_challenge(self, kwargs):
+        """
+        Description:
+        Connect to the challenge using the given arguments that are passed to the class instance
+
+        Args:
+            kwargs (_type_): arguments parsed to the class instance
+                file (_type_): local file name of the challenge
+                url (_type_): url of the challenge
+                port (_type_): port of the challenge
+                conn (_type_): connection type (local/remote)
+        """
+
         self.file = kwargs.get("file")
         self.get_challenge_file()
         self.url = kwargs.get("url")
@@ -18,6 +31,10 @@ class CTFSolver:
         self.connect(self.conn_type)
 
     def get_parent(self):
+        """
+        Description:
+        Create object for the class for parent, payloads, data and files folder paths for the challenge
+        """
         self.parent = None
         self.folder_payloads = None
         self.folder_data = None
@@ -31,6 +48,20 @@ class CTFSolver:
             self.parent = self.parent.parent
         self.folder_data = Path(self.parent, "data")
         self.folder_files = Path(self.parent, "files")
+
+    def prepare_space(self, **kwargs):
+        """
+        Description:
+        Prepare the space for the challenge by creating the folders if they don't exist
+        """
+        files = kwargs.get("files", [])
+        folder = kwargs.get("folder", self.folder_files)
+        test_text = kwargs.get("test_text", "picoCTF{test}")
+
+        for file in files:
+            if not Path(folder, file).exists():
+                with open(Path(folder, file), "w") as f:
+                    f.write(test_text)
 
     def get_challenge_file(self):
         if self.file and self.folder_data:

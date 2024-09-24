@@ -5,6 +5,7 @@ import inspect
 
 class CTFSolver:
     def __init__(self, *args, **kwargs) -> None:
+        self.pwn = pwn
         self.get_parent()
         self.connect_to_challenge(kwargs)
 
