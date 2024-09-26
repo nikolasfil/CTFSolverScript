@@ -14,7 +14,7 @@ class CTFSolver:
         self.port = kwargs.get("port")
         self.conn_type = kwargs.get("conn")
         self.conn = None
-        self.initiate_connection()
+        # self.initiate_connection()
 
     def initiate_connection(self):
         self.connect(self.conn_type)

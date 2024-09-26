@@ -7,20 +7,6 @@ class CTFSolver:
     def __init__(self, *args, **kwargs) -> None:
         self.pwn = pwn
         self.get_parent()
-        self.connect_to_challenge(kwargs)
-
-    def connect_to_challenge(self, kwargs):
-        """
-        Description:
-        Connect to the challenge using the given arguments that are passed to the class instance
-
-        Args:
-            kwargs (_type_): arguments parsed to the class instance
-                file (_type_): local file name of the challenge
-                url (_type_): url of the challenge
-                port (_type_): port of the challenge
-                conn (_type_): connection type (local/remote)
-        """
 
         self.file = kwargs.get("file")
         self.get_challenge_file()
@@ -28,6 +14,9 @@ class CTFSolver:
         self.port = kwargs.get("port")
         self.conn_type = kwargs.get("conn")
         self.conn = None
+        self.initiate_connection()
+
+    def initiate_connection(self):
         self.connect(self.conn_type)
 
     def get_parent(self):
