@@ -14,6 +14,8 @@ class CTFSolver:
         self.port = kwargs.get("port")
         self.conn_type = kwargs.get("conn")
         self.conn = None
+        self.menu_num = None
+        self.menu_text = None
         # self.initiate_connection()
 
     def initiate_connection(self):
@@ -62,6 +64,38 @@ class CTFSolver:
             self.conn = pwn.remote(self.url, self.port)
         elif self.conn_type == "local" and self.file:
             self.conn = pwn.process(str(self.challenge_file))
+
+    def recv_menu(self, number=1, display=False, save=False):
+        if save:
+            result = []
+        for _ in range(number):
+            out = self.conn.recvline()
+            if display:
+                print(out)
+            if save:
+                result.append(out)
+        if save:
+            return result
+
+    def send_menu(
+        self, choice, menu_num=None, menu_text=None, display=False, save=False
+    ):
+        if (not menu_num and not self.menu_num) or (not self.menu_num):
+            return
+        if menu_num:
+            self.menu_num = menu_num
+
+        if (not menu_text and not self.menu_text) or (not self.menu_text):
+            return
+        if menu_text:
+            self.menu_text = menu_text
+
+        self.recv_menu(number=self.menu_num, display=display, save=save)
+
+        out = self.conn.recvuntil(self.menu_text.encode())
+        if display:
+            print(out)
+        self.conn.sendline(str(choice).encode())
 
     def main(self):
         pass
