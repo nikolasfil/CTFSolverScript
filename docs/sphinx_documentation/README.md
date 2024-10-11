@@ -1,40 +1,8 @@
-
-## tree python_documentation
-
-```
-python_documentation/
-├── command.sh
-├── files_keeping
-│   ├── command.sh
-│   ├── conf.py
-│   ├── conf.py.bak2
-│   ├── index.rst
-│   ├── Makefile
-│   └── README.md
-├── README.md
-└── sphinx_documentation
-    ├── broker.rst
-    ├── button_sensor.rst
-    ├── conf.py
-    ├── connector_server.rst
-    ├── context_provider.rst
-    ├── index.rst
-    ├── Makefile
-    ├── modules.rst
-    ├── publisher_broker.rst
-    ├── sensor_context_provider.rst
-    ├── subscriber_broker.rst
-    ├── tracker_sensor.rst
-    └── virtual_sensor.rst
-
-3 directories, 21 files
-```
-
-
+## tree python_documentatio
 
 ## Sphinx Documentation
 
-After activating the venv 
+After activating the venv
 
 ```bash
 cd python_servers
@@ -47,10 +15,9 @@ source app_venv/bin/activate
 pip install sphinx
 ```
 
-
 ### Documentation
 
-Run the command and fill out the necessary information about the project 
+Run the command and fill out the necessary information about the project
 
 ```bash
 sphinx-quickstart
@@ -123,9 +90,7 @@ Lastly Run the make command to start the process.
 make clean html
 ```
 
-
 ### View
-
 
 To view it simply run a python server insided the python_documentation
 
@@ -135,9 +100,6 @@ python -m http.server 8080
 
 and go to the [url](http://localhost:8080/_build/html/)
 
-
 ### Resources
 
 [yt-tutorial](https://www.youtube.com/watch?v=5s3JvVqwESA)
-
-
