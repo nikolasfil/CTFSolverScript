@@ -8,6 +8,8 @@ app/ctfsolver.egg-info/SOURCES.txt
 app/ctfsolver.egg-info/dependency_links.txt
 app/ctfsolver.egg-info/requires.txt
 app/ctfsolver.egg-info/top_level.txt
+app/ctfsolver/folders/__init__.py
+app/ctfsolver/folders/__main__.py
 app/ctfsolver/src/__init__.py
 app/ctfsolver/src/ctfsolver.py
 app/ctfsolver/test/__init__.py

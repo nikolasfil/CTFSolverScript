@@ -23,7 +23,6 @@ class CTFSolver:
         self.connect(self.conn_type)
 
     def create_parent_folder(self):
-        """ """
 
         self.folder_data = Path(self.parent, "data")
         self.folder_files = Path(self.parent, "files")
@@ -36,6 +35,7 @@ class CTFSolver:
         ]
 
         for folder in folder_list:
+            print(folder)
             if not folder.exists():
                 folder.mkdir()
 
@@ -156,6 +156,11 @@ class CTFSolver:
     # Todo
     # Add cryptography solutions
     # Add web solutions
+
+
+class FolderSetup:
+    def __init__(self) -> None:
+        pass
 
 
 if __name__ == "__main__":
