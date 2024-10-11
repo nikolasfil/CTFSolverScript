@@ -14,6 +14,11 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
+Modules
+=======
+
+.. include:: modules.rst
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
