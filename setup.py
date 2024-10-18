@@ -60,4 +60,11 @@ setuptools.setup(
         "dev": ["pytest>=6.2.4", "twine>=3.4.2"],
     },
     python_requires=">=3.11",
+    entry_points={
+        "console_scripts": [
+            # "folders=ctfsolver.folders.__main__:main",
+            "folders=ctfsolver.scripts.run_folders:main",
+            "run=ctfsolver.scripts.run_solution:main",
+        ]
+    },
 )

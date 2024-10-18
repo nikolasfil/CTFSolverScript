@@ -6,6 +6,7 @@ import inspect
 class CTFSolver:
     def __init__(self, *args, **kwargs) -> None:
         self.pwn = pwn
+        self.Path = Path
         self.get_parent()
 
         self.file = kwargs.get("file")
@@ -23,6 +24,7 @@ class CTFSolver:
         self.connect(self.conn_type)
 
     def create_parent_folder(self):
+        """ """
 
         self.folder_data = Path(self.parent, "data")
         self.folder_files = Path(self.parent, "files")
@@ -35,7 +37,6 @@ class CTFSolver:
         ]
 
         for folder in folder_list:
-            print(folder)
             if not folder.exists():
                 folder.mkdir()
 
@@ -52,11 +53,13 @@ class CTFSolver:
         self.file_called_frame = inspect.stack()
         self.file_called_path = Path(self.file_called_frame[-1].filename)
         self.parent = Path(self.file_called_path).parent
+
         if self.parent.name == "payloads":
             self.folder_payloads = self.parent
             self.parent = self.parent.parent
         self.folder_data = Path(self.parent, "data")
         self.folder_files = Path(self.parent, "files")
+        self.folder_payloads = Path(self.parent, "payloads")
 
     def prepare_space(self, files=None, folder=None, test_text="picoCTF{test}"):
         """
@@ -157,10 +160,8 @@ class CTFSolver:
     # Add cryptography solutions
     # Add web solutions
 
-
-class FolderSetup:
-    def __init__(self) -> None:
-        pass
+    def __str__(self):
+        return f"CTFSolver({self.parent})"
 
 
 if __name__ == "__main__":

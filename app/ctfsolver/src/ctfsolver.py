@@ -6,6 +6,7 @@ import inspect
 class CTFSolver:
     def __init__(self, *args, **kwargs) -> None:
         self.pwn = pwn
+        self.Path = Path
         self.get_parent()
 
         self.file = kwargs.get("file")
@@ -52,6 +53,7 @@ class CTFSolver:
         self.file_called_frame = inspect.stack()
         self.file_called_path = Path(self.file_called_frame[-1].filename)
         self.parent = Path(self.file_called_path).parent
+
         if self.parent.name == "payloads":
             self.folder_payloads = self.parent
             self.parent = self.parent.parent
@@ -156,6 +158,9 @@ class CTFSolver:
     # Todo
     # Add cryptography solutions
     # Add web solutions
+
+    def __str__(self):
+        return f"CTFSolver({self.parent})"
 
 
 if __name__ == "__main__":

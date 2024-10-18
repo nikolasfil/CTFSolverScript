@@ -1,0 +1,3 @@
+[console_scripts]
+folders = ctfsolver.scripts.run_folders:main
+run = ctfsolver.scripts.run_solution:main
