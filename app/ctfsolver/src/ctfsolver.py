@@ -156,7 +156,7 @@ class CTFSolver:
         if not file:
             file = self.challenge_file
 
-        self.packets = rdpcap(file)
+        self.packets = rdpcap(file.as_posix())
 
     def searching_text_in_packets(self, text, packets=None, display=False):
         """
