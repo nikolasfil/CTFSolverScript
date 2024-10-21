@@ -19,4 +19,7 @@ app/ctfsolver/scripts/run_folders.py
 app/ctfsolver/scripts/run_solution.py
 app/ctfsolver/src/__init__.py
 app/ctfsolver/src/ctfsolver.py
+app/ctfsolver/template/__init__.py
+app/ctfsolver/template/__main__.py
+app/ctfsolver/template/solution_template.py
 app/ctfsolver/test/__init__.py

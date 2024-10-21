@@ -65,6 +65,7 @@ setuptools.setup(
             # "folders=ctfsolver.folders.__main__:main",
             "folders=ctfsolver.scripts.run_folders:main",
             "run=ctfsolver.scripts.run_solution:main",
+            "templ=ctfsolver.scripts.__main__:run_template",
         ]
     },
 )

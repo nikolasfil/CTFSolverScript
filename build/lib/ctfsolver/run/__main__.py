@@ -5,6 +5,10 @@ from ..src.ctfsolver import CTFSolver
 
 
 def main():
+    """
+    Description:
+        Gets the path of the solution flle and runs it
+    """
     s = CTFSolver()
 
     solution_path = Path(s.folder_payloads, "solution.py")

@@ -60,6 +60,7 @@ class CTFSolver:
             self.parent = self.parent.parent
         self.folder_data = Path(self.parent, "data")
         self.folder_files = Path(self.parent, "files")
+        self.folder_payloads = Path(self.parent, "payloads")
 
     def prepare_space(self, files=None, folder=None, test_text="picoCTF{test}"):
         """
