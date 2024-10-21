@@ -121,14 +121,15 @@ class CTFSolver:
         """
         if save:
             result = []
+        if menu_num is None and self.menu_num is None:
+            raise ValueError("Menu number not provided")
 
-        if (not menu_num and not self.menu_num) or (not self.menu_num):
-            return
         if menu_num:
             self.menu_num = menu_num
 
-        if (not menu_text and not self.menu_text) or (not self.menu_text):
-            return
+        if menu_text is None and self.menu_text is None:
+            raise ValueError("Menu text not provided")
+
         if menu_text:
             self.menu_text = menu_text
 
