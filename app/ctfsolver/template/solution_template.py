@@ -11,5 +11,5 @@ if __name__ == "__main__":
     file = None
     url = None
     port = None
-    solution = Solution()
+    solution = Solution(conn=conn, file=file, url=url, port=port)
     solution.main()

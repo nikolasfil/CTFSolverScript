@@ -2,6 +2,9 @@ from pathlib import Path
 import pwn
 import inspect
 from scapy.all import rdpcap
+import Evtx.Evtx as evtx
+import re
+import base64
 
 
 class CTFSolver:
@@ -121,14 +124,15 @@ class CTFSolver:
         """
         if save:
             result = []
+        if menu_num is None and self.menu_num is None:
+            raise ValueError("Menu number not provided")
 
-        if (not menu_num and not self.menu_num) or (not self.menu_num):
-            return
         if menu_num:
             self.menu_num = menu_num
 
-        if (not menu_text and not self.menu_text) or (not self.menu_text):
-            return
+        if menu_text is None and self.menu_text is None:
+            raise ValueError("Menu text not provided")
+
         if menu_text:
             self.menu_text = menu_text
 
@@ -184,6 +188,149 @@ class CTFSolver:
                         print(packet.show())
                         print(packet.summary())
                     return packet["Raw"].load.decode("utf-8")
+
+    def decode_base64(self, text):
+        """
+        Description:
+        Decode the base64 text
+
+        Args:
+            text (str): Base64 encoded text
+
+        Returns:
+            str: Decoded text
+        """
+        try:
+            return base64.b64decode(text).decode("utf-8")
+        except Exception as e:
+            print(e)
+            return None
+
+    def re_match_base64_string(self, text):
+        """
+        Description:
+        Find the base64 string in the text
+
+        Args:
+            text (str): Text to search for base64 string
+            strict (bool, optional): If True, it will only return the base64 string. Defaults to False.
+
+        Returns:
+            str: list of Base64 string found in the text
+        """
+        base64_pattern = r"[A-Za-z0-9+/]{4,}={0,2}"
+        base64_strings = re.findall(base64_pattern, text)
+        return base64_strings
+
+    def re_match_flag(self, text, origin):
+        """
+        Description:
+        Find the flag in the text
+
+        Args:
+            text (str): Text to search for the flag
+            origin (str): Origin of the flag
+
+        Returns:
+            str: list of flag found in the text
+        """
+        flag_pattern = rf"{origin}{{[A-Za-z0-9_]+}}"
+        return re.findall(flag_pattern, text)
+
+    def re_match_partial_flag(self, text, origin):
+        """
+        Description:
+        Find the flag in the text or partial flag
+
+        Args:
+            text (str): Text to search for the flag
+            origin (str): Origin of the flag
+
+        Returns:
+            str: list of flag found in the text
+        """
+        flag_pattern = rf"({origin}{{[^ ]*|[^ ]*}})"
+        return re.findall(flag_pattern, text)
+
+    def search_for_pattern_in_file(
+        self, file, func=None, display=False, save=False, *args, **kwargs
+    ):
+        """
+        Description:
+        Search for a pattern in the file and return the output
+
+        Args:
+            file (str): File to search for the pattern
+            func (function, optional): Function to search for the pattern. Defaults to None.
+            display (bool, optional): Display the output. Defaults to False.
+            save (bool, optional): Save the output. Defaults to False.
+
+        Returns:
+            list: List of output if save is True
+
+        """
+        if save:
+            output = []
+        if func is None:
+            return None
+
+        with open(file, "r") as f:
+            for line in f:
+                result = func(line, *args, **kwargs)
+                if result is not None:
+                    if display:
+                        print(result)
+                    if save:
+                        output.extend(result)
+        if save:
+            return output
+
+    def search_for_base64(self, file, display=False, save=False):
+        """
+        Description:
+        Search for base64 string in the file
+
+        Args:
+            file (str): File to search for the base64 string
+            display (bool, optional): Display the output. Defaults to False.
+            save (bool, optional): Save the output. Defaults to False.
+
+        Returns:
+            list: List of output if save is True
+        """
+        out = self.search_for_pattern_in_file(
+            file, self.re_match_base64_string, display=display, save=save
+        )
+        if display:
+            print(out)
+        if save:
+            return out
+
+    def exec_on_files(self, folder, func, *args, **kwargs):
+        """
+        Description:
+        Execute a function on all the files in the folder with the arguments provided
+
+        Args:
+            folder (str): Folder to execute the function
+            func (function): Function to execute
+
+        Returns:
+            list: List of output of the function
+        """
+
+        save = kwargs.get("save", False)
+        display = kwargs.get("display", False)
+        if save:
+            output = []
+        for file in folder.iterdir():
+            out = func(file, *args, **kwargs)
+            if save and out is not None:
+                output.extend(out)
+            if display and out is not None:
+                print(out)
+        if save:
+            return output
 
     def main(self):
         pass
