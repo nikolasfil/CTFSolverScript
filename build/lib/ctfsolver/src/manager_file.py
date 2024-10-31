@@ -141,7 +141,26 @@ class ManagerFile:
 
         self.packets = rdpcap(file.as_posix())
 
-    def search_files(self, directory, exclude_dirs, search_string):
+    def search_files(
+        self, directory, exclude_dirs, search_string, save=False, display=False
+    ):
+        """
+        Description:
+        Search for a string in the files in the directory
+
+        Args:
+            directory (str): Directory to search for the string
+            exclude_dirs (list): List of directories to exclude
+            search_string (str): String to search for
+            save (bool, optional): Save the output. Defaults to False.
+            display (bool, optional): Display the output. Defaults to False.
+
+        Returns:
+            list: List of output if save is True
+        """
+        if save:
+            output = []
+
         for root, dirs, files in os.walk(directory):
             # Exclude specified directories
             dirs[:] = [d for d in dirs if d not in exclude_dirs]
@@ -152,7 +171,13 @@ class ManagerFile:
                     with open(file_path, "r") as f:
                         # Check if the search string is in the file
                         if search_string in f.read():
-                            print(file_path)
+                            if display:
+                                print(file_path)
+                            if save:
+                                output.append(file_path)
                 except (IOError, UnicodeDecodeError):
                     # Handle files that cannot be opened or read
                     continue
+
+        if save:
+            return output

@@ -7,4 +7,15 @@ if __name__ == "__main__":
     exclude_dirs = ["app_venv", ".git"]
     current_directory = "."
 
-    solver.search_files(current_directory, exclude_dirs, search_string)
+    try:
+
+        solver.search_files(
+            directory=current_directory,
+            exclude_dirs=exclude_dirs,
+            search_string=search_string,
+            display=True,
+        )
+    except KeyboardInterrupt as k:
+        print("Stopping the search")
+    except Exception as e:
+        print(e)
