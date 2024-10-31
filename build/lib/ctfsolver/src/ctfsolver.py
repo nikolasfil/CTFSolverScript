@@ -14,9 +14,9 @@ class CTFSolver(ManagerFile, ManagerConnections, ManagerCrypto):
         #     if i == 0 or i == len(self.__class__.mro()) - 1:
         #         continue
         #     ancestor.__init__(self, *args, **kwargs)
-        ManagerConnections.__init__(self, *args, **kwargs)
         ManagerFile.__init__(self, *args, **kwargs)
         ManagerCrypto.__init__(self, *args, **kwargs)
+        ManagerConnections.__init__(self, *args, **kwargs)
 
     def search_for_base64(self, file, *args, **kwargs):
         """

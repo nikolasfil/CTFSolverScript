@@ -1,6 +1,7 @@
 from pathlib import Path
 import inspect
 from scapy.all import rdpcap
+import os
 
 
 class ManagerFile:
@@ -28,7 +29,7 @@ class ManagerFile:
         if self.parent.name == "payloads":
             self.folder_payloads = self.parent
             self.parent = self.parent.parent
-            
+
         self.folder_data = Path(self.parent, "data")
         self.folder_files = Path(self.parent, "files")
         self.folder_payloads = Path(self.parent, "payloads")
@@ -139,3 +140,44 @@ class ManagerFile:
             file = self.challenge_file
 
         self.packets = rdpcap(file.as_posix())
+
+    def search_files(
+        self, directory, exclude_dirs, search_string, save=False, display=False
+    ):
+        """
+        Description:
+        Search for a string in the files in the directory
+
+        Args:
+            directory (str): Directory to search for the string
+            exclude_dirs (list): List of directories to exclude
+            search_string (str): String to search for
+            save (bool, optional): Save the output. Defaults to False.
+            display (bool, optional): Display the output. Defaults to False.
+
+        Returns:
+            list: List of output if save is True
+        """
+        if save:
+            output = []
+
+        for root, dirs, files in os.walk(directory):
+            # Exclude specified directories
+            dirs[:] = [d for d in dirs if d not in exclude_dirs]
+
+            for file in files:
+                file_path = os.path.join(root, file)
+                try:
+                    with open(file_path, "r") as f:
+                        # Check if the search string is in the file
+                        if search_string in f.read():
+                            if display:
+                                print(file_path)
+                            if save:
+                                output.append(file_path)
+                except (IOError, UnicodeDecodeError):
+                    # Handle files that cannot be opened or read
+                    continue
+
+        if save:
+            return output
