@@ -206,7 +206,7 @@ class CTFSolver:
             print(e)
             return None
 
-    def re_match_base64_string(self, text):
+    def re_match_base64_string(self, text, strict=False):
         """
         Description:
         Find the base64 string in the text
@@ -218,7 +218,10 @@ class CTFSolver:
         Returns:
             str: list of Base64 string found in the text
         """
-        base64_pattern = r"[A-Za-z0-9+/]{4,}={0,2}"
+        if strict:
+            base64_pattern = r"[A-Za-z0-9+/]{4,}={1,2}"
+        else:
+            base64_pattern = r"[A-Za-z0-9+/]{4,}={0,2}"
         base64_strings = re.findall(base64_pattern, text)
         return base64_strings
 
@@ -285,7 +288,7 @@ class CTFSolver:
         if save:
             return output
 
-    def search_for_base64(self, file, display=False, save=False):
+    def search_for_base64(self, file, *args, **kwargs):
         """
         Description:
         Search for base64 string in the file
@@ -298,8 +301,12 @@ class CTFSolver:
         Returns:
             list: List of output if save is True
         """
+        display = kwargs.get("display", False)
+        save = kwargs.get("save", False)
+        strict = kwargs.get("strict", False)
+
         out = self.search_for_pattern_in_file(
-            file, self.re_match_base64_string, display=display, save=save
+            file, self.re_match_base64_string, display=display, save=save, strict=strict
         )
         if display:
             print(out)
