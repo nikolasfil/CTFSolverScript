@@ -66,7 +66,7 @@ setuptools.setup(
             "folders=ctfsolver.scripts.run_folders:main",
             "run=ctfsolver.scripts.run_solution:main",
             "templ=ctfsolver.scripts.__main__:run_template",
-            "find_usage=ctfsolver.scripts.__main__:run_find_usage",
+            "find_usage=ctfsolver.scripts.run_find_usage:main",
         ]
     },
 )
