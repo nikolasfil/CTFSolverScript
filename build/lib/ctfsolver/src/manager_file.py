@@ -28,6 +28,7 @@ class ManagerFile:
         if self.parent.name == "payloads":
             self.folder_payloads = self.parent
             self.parent = self.parent.parent
+            
         self.folder_data = Path(self.parent, "data")
         self.folder_files = Path(self.parent, "files")
         self.folder_payloads = Path(self.parent, "payloads")
