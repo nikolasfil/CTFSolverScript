@@ -181,3 +181,28 @@ class ManagerFile:
 
         if save:
             return output
+
+    def search_for_base64(self, file, *args, **kwargs):
+        """
+        Description:
+        Search for base64 string in the file
+
+        Args:
+            file (str): File to search for the base64 string
+            display (bool, optional): Display the output. Defaults to False.
+            save (bool, optional): Save the output. Defaults to False.
+
+        Returns:
+            list: List of output if save is True
+        """
+        display = kwargs.get("display", False)
+        save = kwargs.get("save", False)
+        strict = kwargs.get("strict", False)
+
+        out = self.search_for_pattern_in_file(
+            file, self.re_match_base64_string, display=display, save=save, strict=strict
+        )
+        if display:
+            print(out)
+        if save:
+            return out
