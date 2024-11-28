@@ -7,8 +7,12 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
+   ctfsolver.find_usage
+   ctfsolver.folders
+   ctfsolver.run
+   ctfsolver.scripts
    ctfsolver.src
-   ctfsolver.test
+   ctfsolver.template
 
 Module contents
 ---------------
