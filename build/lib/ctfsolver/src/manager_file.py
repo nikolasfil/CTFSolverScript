@@ -206,3 +206,25 @@ class ManagerFile:
             print(out)
         if save:
             return out
+
+    def get_self_functions(self):
+        """
+        Description:
+        Get the functions of the class
+        """
+
+        return [
+            func
+            for func in dir(self)
+            if callable(getattr(self, func)) and not func.startswith("__")
+        ]
+
+    def get_functions(self):
+        """
+        Description:
+        Get the functions in the file
+        """
+        with open(self.file, "r") as f:
+            lines = f.readlines()
+            functions = [line for line in lines if "def " in line]
+            return functions

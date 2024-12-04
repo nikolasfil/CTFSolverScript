@@ -11,6 +11,7 @@ app/ctfsolver.egg-info/requires.txt
 app/ctfsolver.egg-info/top_level.txt
 app/ctfsolver/find_usage/__init__.py
 app/ctfsolver/find_usage/__main__.py
+app/ctfsolver/find_usage/find_function_test.py
 app/ctfsolver/folders/__init__.py
 app/ctfsolver/folders/__main__.py
 app/ctfsolver/run/__init__.py

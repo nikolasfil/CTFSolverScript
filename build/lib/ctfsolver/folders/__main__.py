@@ -10,7 +10,6 @@ def main():
         ```
 
         And creates the folders for the file
-
     """
     s = CTFSolver()
     s.create_parent_folder()

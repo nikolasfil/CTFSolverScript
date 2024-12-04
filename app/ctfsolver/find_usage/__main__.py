@@ -1,7 +1,10 @@
 from ..src.ctfsolver import CTFSolver
 
 
-if __name__ == "__main__":
+def find_usage():
+    """
+    Description: This function is used to find the usage of the CTFSolver class in the current directory
+    """
     solver = CTFSolver()
     search_string = "from ctfsolver import CTFSolver"
     exclude_dirs = ["app_venv", ".git"]
@@ -19,3 +22,8 @@ if __name__ == "__main__":
         print("Stopping the search")
     except Exception as e:
         print(e)
+
+
+if __name__ == "__main__":
+
+    find_usage()

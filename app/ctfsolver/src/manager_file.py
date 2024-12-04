@@ -2,6 +2,7 @@ from pathlib import Path
 import inspect
 from scapy.all import rdpcap
 import os
+import ast
 
 
 class ManagerFile:
@@ -206,3 +207,96 @@ class ManagerFile:
             print(out)
         if save:
             return out
+
+    def get_self_functions(self):
+        """
+        Description:
+        Get the functions of the class
+        """
+
+        return [
+            func
+            for func in dir(self)
+            if callable(getattr(self, func)) and not func.startswith("__")
+        ]
+
+    def get_function_reference(self, function, file):
+        """
+        Description:
+        Get the reference of the function in the file
+        """
+
+        if function not in self.get_self_functions():
+            raise ValueError(f"Function {function} not found in the class")
+
+        output = []
+
+        with open(file, "r") as f:
+            lines = f.readlines()
+            for i, line in enumerate(lines):
+                if function in line:
+                    output.append(line)
+        return output
+
+    def get_functions_from_file(self, file_path):
+        """
+        Description:
+        Get the functions from the file
+        """
+
+        output = []
+        with open(file_path, "r") as file_path:
+            file_content = file_path.read()
+
+        # Parse the file content into an AST
+        tree = ast.parse(file_content)
+
+        # Define a visitor class to find the function definition
+        class FunctionDefFinder(ast.NodeVisitor):
+            def __init__(self):
+                self.function_def = None
+
+            def visit_FunctionDef(self, node):
+                output.append(node.name)
+                # Continue visiting other nodes
+                self.generic_visit(node)
+
+        # Create an instance of the visitor and visit the AST
+        finder = FunctionDefFinder()
+        finder.visit(tree)
+
+        # If the function was found, return its definition
+        return output
+
+    def find_function_from_file(self, file_path, function_name):
+        """
+        Description:
+        Get the functions from the file
+        """
+
+        with open(file_path, "r") as file_path:
+            file_content = file_path.read()
+
+        # Parse the file content into an AST
+        tree = ast.parse(file_content)
+
+        # Define a visitor class to find the function definition
+        class FunctionDefFinder(ast.NodeVisitor):
+            def __init__(self):
+                self.function_def = None
+
+            def visit_FunctionDef(self, node):
+                if node.name == function_name:
+                    self.function_def = node
+                # Continue visiting other nodes
+                self.generic_visit(node)
+
+        # Create an instance of the visitor and visit the AST
+        finder = FunctionDefFinder()
+        finder.visit(tree)
+
+        # If the function was found, return its definition
+        if finder.function_def:
+            return ast.unparse(finder.function_def)
+        else:
+            return None
