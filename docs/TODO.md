@@ -19,3 +19,7 @@
 
 - Automate the sphynx api documentation ( perhaps a git precommit ) 
 
+
+## Refactor the bash shortcut
+- change the way the bash shortcuts are called 
+- find a way to add bash autocompletion to the venv 
