@@ -1,0 +1,1080 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.4">
+<title>ctfsolver.src.ctfsolver_original API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>ctfsolver.src.ctfsolver_original</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="ctfsolver.src.ctfsolver_original.CTFSolver"><code class="flex name class">
+<span>class <span class="ident">CTFSolver</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class CTFSolver:
+    def __init__(self, *args, **kwargs) -&gt; None:
+        self.pwn = pwn
+        self.Path = Path
+        self.get_parent()
+
+        self.file = kwargs.get(&#34;file&#34;)
+        self.get_challenge_file()
+        self.url = kwargs.get(&#34;url&#34;)
+        self.port = kwargs.get(&#34;port&#34;)
+        self.conn_type = kwargs.get(&#34;conn&#34;)
+        self.conn = None
+        self.menu_num = None
+        self.menu_text = None
+        self.debug = kwargs.get(&#34;debug&#34;, False)
+        # self.initiate_connection()
+
+    def initiate_connection(self):
+        self.connect(self.conn_type)
+
+    def create_parent_folder(self):
+        &#34;&#34;&#34; &#34;&#34;&#34;
+
+        self.folder_data = Path(self.parent, &#34;data&#34;)
+        self.folder_files = Path(self.parent, &#34;files&#34;)
+        self.folder_payloads = Path(self.parent, &#34;payloads&#34;)
+
+        folder_list = [
+            self.folder_payloads,
+            self.folder_data,
+            self.folder_files,
+        ]
+
+        for folder in folder_list:
+            if not folder.exists():
+                folder.mkdir()
+
+    def get_parent(self):
+        &#34;&#34;&#34;
+        Description:
+        Create object for the class for parent, payloads, data and files folder paths for the challenge
+        &#34;&#34;&#34;
+        self.parent = None
+        self.folder_payloads = None
+        self.folder_data = None
+        self.folder_files = None
+
+        self.file_called_frame = inspect.stack()
+        self.file_called_path = Path(self.file_called_frame[-1].filename)
+        self.parent = Path(self.file_called_path).parent
+
+        if self.parent.name == &#34;payloads&#34;:
+            self.folder_payloads = self.parent
+            self.parent = self.parent.parent
+        self.folder_data = Path(self.parent, &#34;data&#34;)
+        self.folder_files = Path(self.parent, &#34;files&#34;)
+        self.folder_payloads = Path(self.parent, &#34;payloads&#34;)
+
+    def prepare_space(self, files=None, folder=None, test_text=&#34;picoCTF{test}&#34;):
+        &#34;&#34;&#34;
+        Description:
+        Prepare the space for the challenge by creating the folders if they don&#39;t exist
+        &#34;&#34;&#34;
+        files = files if files else []
+        folder = folder if folder else self.folder_files
+
+        for file in files:
+            if not Path(folder, file).exists():
+                with open(Path(folder, file), &#34;w&#34;) as f:
+                    f.write(test_text)
+
+    def get_challenge_file(self):
+        if self.file and self.folder_data:
+            self.challenge_file = Path(self.folder_files, self.file)
+        elif not self.folder_data:
+            if self.debug:
+                print(&#34;Data folder not found&#34;)
+
+    def connect(self, *args, **kwargs) -&gt; None:
+        if self.conn_type == &#34;remote&#34; and self.url and self.port:
+            self.conn = pwn.remote(self.url, self.port)
+        elif self.conn_type == &#34;local&#34; and self.file:
+            self.conn = pwn.process(str(self.challenge_file))
+
+    def recv_menu(self, number=1, display=False, save=False):
+        if save:
+            result = []
+        for _ in range(number):
+            out = self.conn.recvline()
+            if display:
+                print(out)
+            if save:
+                result.append(out)
+        if save:
+            return result
+
+    def send_menu(
+        self, choice, menu_num=None, menu_text=None, display=False, save=False
+    ):
+        &#34;&#34;&#34;
+        Description:
+            Gets the menu num either from the class or from the function call and saves it to the class.
+            Gets the menu text that the menu is providing, receives until the menu asks for choice and then send out the choice.
+            If save is True, it saves the output of the menu in a list and returns it.
+            If display is True, it prints the output of everything received.
+
+        Args:
+            choice (int or str): Choice to send to the menu
+            menu_num (int, optional): Number of options printed in the menu. Defaults to None.
+            menu_text (str, optional): Text that the menu asks before sending your choice. Defaults to None.
+            display (bool, optional): Variable to print every received line. Defaults to False.
+            save (bool, optional): . Defaults to False.
+        Returns:
+            list: List of output of the menu if save is True
+        &#34;&#34;&#34;
+        if save:
+            result = []
+        if menu_num is None and self.menu_num is None:
+            raise ValueError(&#34;Menu number not provided&#34;)
+
+        if menu_num:
+            self.menu_num = menu_num
+
+        if menu_text is None and self.menu_text is None:
+            raise ValueError(&#34;Menu text not provided&#34;)
+
+        if menu_text:
+            self.menu_text = menu_text
+
+        out = self.recv_menu(number=self.menu_num, display=display, save=save)
+        if save:
+            result.extend(out)
+
+        out = self.conn.recvuntil(self.menu_text.encode())
+        if save:
+            result.append(out)
+
+        if display:
+            print(out)
+
+        self.conn.sendline(str(choice).encode())
+
+        if save:
+            return result
+
+    def pcap_open(self, file=None):
+        &#34;&#34;&#34;
+        Description:
+        Open the pcap file with scapy and saves it in self.packets
+        &#34;&#34;&#34;
+
+        if not file:
+            file = self.challenge_file
+
+        self.packets = rdpcap(file.as_posix())
+
+    def searching_text_in_packets(self, text, packets=None, display=False):
+        &#34;&#34;&#34;
+        Description:
+        Search for a text in the packets that have been opened with scapy
+
+        Args:
+            text (str): Text to search in the packets
+            packets (list, optional): List of packets to search in. Defaults to None.
+            display (bool, optional): Display the packet if the text is found. Defaults to False.
+
+        Returns:
+            str: Text found in the packet if found
+        &#34;&#34;&#34;
+
+        if not packets:
+            packets = self.packets
+
+        for i, packet in enumerate(packets):
+            if packet.haslayer(&#34;Raw&#34;):
+                if text.encode() in packet[&#34;Raw&#34;].load:
+                    if display:
+                        print(f&#34;Found {text} in packet {i}&#34;)
+                        print(packet.show())
+                        print(packet.summary())
+                    return packet[&#34;Raw&#34;].load.decode(&#34;utf-8&#34;)
+
+    def decode_base64(self, text):
+        &#34;&#34;&#34;
+        Description:
+        Decode the base64 text
+
+        Args:
+            text (str): Base64 encoded text
+
+        Returns:
+            str: Decoded text
+        &#34;&#34;&#34;
+        try:
+            return base64.b64decode(text).decode(&#34;utf-8&#34;)
+        except Exception as e:
+            print(e)
+            return None
+
+    def re_match_base64_string(self, text, strict=False):
+        &#34;&#34;&#34;
+        Description:
+        Find the base64 string in the text
+
+        Args:
+            text (str): Text to search for base64 string
+            strict (bool, optional): If True, it will only return the base64 string. Defaults to False.
+
+        Returns:
+            str: list of Base64 string found in the text
+        &#34;&#34;&#34;
+        if strict:
+            base64_pattern = r&#34;[A-Za-z0-9+/]{4,}={1,2}&#34;
+        else:
+            base64_pattern = r&#34;[A-Za-z0-9+/]{4,}={0,2}&#34;
+        base64_strings = re.findall(base64_pattern, text)
+        return base64_strings
+
+    def re_match_flag(self, text, origin):
+        &#34;&#34;&#34;
+        Description:
+        Find the flag in the text
+
+        Args:
+            text (str): Text to search for the flag
+            origin (str): Origin of the flag
+
+        Returns:
+            str: list of flag found in the text
+        &#34;&#34;&#34;
+        flag_pattern = rf&#34;{origin}{{[A-Za-z0-9_]+}}&#34;
+        return re.findall(flag_pattern, text)
+
+    def re_match_partial_flag(self, text, origin):
+        &#34;&#34;&#34;
+        Description:
+        Find the flag in the text or partial flag
+
+        Args:
+            text (str): Text to search for the flag
+            origin (str): Origin of the flag
+
+        Returns:
+            str: list of flag found in the text
+        &#34;&#34;&#34;
+        flag_pattern = rf&#34;({origin}{{[^ ]*|[^ ]*}})&#34;
+        return re.findall(flag_pattern, text)
+
+    def search_for_pattern_in_file(
+        self, file, func=None, display=False, save=False, *args, **kwargs
+    ):
+        &#34;&#34;&#34;
+        Description:
+        Search for a pattern in the file and return the output
+
+        Args:
+            file (str): File to search for the pattern
+            func (function, optional): Function to search for the pattern. Defaults to None.
+            display (bool, optional): Display the output. Defaults to False.
+            save (bool, optional): Save the output. Defaults to False.
+
+        Returns:
+            list: List of output if save is True
+
+        &#34;&#34;&#34;
+        if save:
+            output = []
+        if func is None:
+            return None
+
+        with open(file, &#34;r&#34;) as f:
+            for line in f:
+                result = func(line, *args, **kwargs)
+                if result is not None:
+                    if display:
+                        print(result)
+                    if save:
+                        output.extend(result)
+        if save:
+            return output
+
+    def search_for_base64(self, file, *args, **kwargs):
+        &#34;&#34;&#34;
+        Description:
+        Search for base64 string in the file
+
+        Args:
+            file (str): File to search for the base64 string
+            display (bool, optional): Display the output. Defaults to False.
+            save (bool, optional): Save the output. Defaults to False.
+
+        Returns:
+            list: List of output if save is True
+        &#34;&#34;&#34;
+        display = kwargs.get(&#34;display&#34;, False)
+        save = kwargs.get(&#34;save&#34;, False)
+        strict = kwargs.get(&#34;strict&#34;, False)
+
+        out = self.search_for_pattern_in_file(
+            file, self.re_match_base64_string, display=display, save=save, strict=strict
+        )
+        if display:
+            print(out)
+        if save:
+            return out
+
+    def exec_on_files(self, folder, func, *args, **kwargs):
+        &#34;&#34;&#34;
+        Description:
+        Execute a function on all the files in the folder with the arguments provided
+
+        Args:
+            folder (str): Folder to execute the function
+            func (function): Function to execute
+
+        Returns:
+            list: List of output of the function
+        &#34;&#34;&#34;
+
+        save = kwargs.get(&#34;save&#34;, False)
+        display = kwargs.get(&#34;display&#34;, False)
+        if save:
+            output = []
+        for file in folder.iterdir():
+            out = func(file, *args, **kwargs)
+            if save and out is not None:
+                output.extend(out)
+            if display and out is not None:
+                print(out)
+        if save:
+            return output
+
+    def main(self):
+        pass
+
+    # def __del__(self):
+    #     self.conn.close()
+
+    # def __exit__(self, exc_type, exc_value, traceback):
+    #     self.conn.close()
+
+    # Todo
+    # Add cryptography solutions
+    # Add web solutions
+
+    def __str__(self):
+        return f&#34;CTFSolver({self.parent})&#34;</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="ctfsolver.src.ctfsolver_original.CTFSolver.connect"><code class="name flex">
+<span>def <span class="ident">connect</span></span>(<span>self, *args, **kwargs) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def connect(self, *args, **kwargs) -&gt; None:
+    if self.conn_type == &#34;remote&#34; and self.url and self.port:
+        self.conn = pwn.remote(self.url, self.port)
+    elif self.conn_type == &#34;local&#34; and self.file:
+        self.conn = pwn.process(str(self.challenge_file))</code></pre>
+</details>
+</dd>
+<dt id="ctfsolver.src.ctfsolver_original.CTFSolver.create_parent_folder"><code class="name flex">
+<span>def <span class="ident">create_parent_folder</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_parent_folder(self):
+    &#34;&#34;&#34; &#34;&#34;&#34;
+
+    self.folder_data = Path(self.parent, &#34;data&#34;)
+    self.folder_files = Path(self.parent, &#34;files&#34;)
+    self.folder_payloads = Path(self.parent, &#34;payloads&#34;)
+
+    folder_list = [
+        self.folder_payloads,
+        self.folder_data,
+        self.folder_files,
+    ]
+
+    for folder in folder_list:
+        if not folder.exists():
+            folder.mkdir()</code></pre>
+</details>
+</dd>
+<dt id="ctfsolver.src.ctfsolver_original.CTFSolver.decode_base64"><code class="name flex">
+<span>def <span class="ident">decode_base64</span></span>(<span>self, text)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Description:
+Decode the base64 text</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>text</code></strong> :&ensp;<code>str</code></dt>
+<dd>Base64 encoded text</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>Decoded text</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def decode_base64(self, text):
+    &#34;&#34;&#34;
+    Description:
+    Decode the base64 text
+
+    Args:
+        text (str): Base64 encoded text
+
+    Returns:
+        str: Decoded text
+    &#34;&#34;&#34;
+    try:
+        return base64.b64decode(text).decode(&#34;utf-8&#34;)
+    except Exception as e:
+        print(e)
+        return None</code></pre>
+</details>
+</dd>
+<dt id="ctfsolver.src.ctfsolver_original.CTFSolver.exec_on_files"><code class="name flex">
+<span>def <span class="ident">exec_on_files</span></span>(<span>self, folder, func, *args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Description:
+Execute a function on all the files in the folder with the arguments provided</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>folder</code></strong> :&ensp;<code>str</code></dt>
+<dd>Folder to execute the function</dd>
+<dt><strong><code>func</code></strong> :&ensp;<code>function</code></dt>
+<dd>Function to execute</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>List of output of the function</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def exec_on_files(self, folder, func, *args, **kwargs):
+    &#34;&#34;&#34;
+    Description:
+    Execute a function on all the files in the folder with the arguments provided
+
+    Args:
+        folder (str): Folder to execute the function
+        func (function): Function to execute
+
+    Returns:
+        list: List of output of the function
+    &#34;&#34;&#34;
+
+    save = kwargs.get(&#34;save&#34;, False)
+    display = kwargs.get(&#34;display&#34;, False)
+    if save:
+        output = []
+    for file in folder.iterdir():
+        out = func(file, *args, **kwargs)
+        if save and out is not None:
+            output.extend(out)
+        if display and out is not None:
+            print(out)
+    if save:
+        return output</code></pre>
+</details>
+</dd>
+<dt id="ctfsolver.src.ctfsolver_original.CTFSolver.get_challenge_file"><code class="name flex">
+<span>def <span class="ident">get_challenge_file</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_challenge_file(self):
+    if self.file and self.folder_data:
+        self.challenge_file = Path(self.folder_files, self.file)
+    elif not self.folder_data:
+        if self.debug:
+            print(&#34;Data folder not found&#34;)</code></pre>
+</details>
+</dd>
+<dt id="ctfsolver.src.ctfsolver_original.CTFSolver.get_parent"><code class="name flex">
+<span>def <span class="ident">get_parent</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Description:
+Create object for the class for parent, payloads, data and files folder paths for the challenge</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_parent(self):
+    &#34;&#34;&#34;
+    Description:
+    Create object for the class for parent, payloads, data and files folder paths for the challenge
+    &#34;&#34;&#34;
+    self.parent = None
+    self.folder_payloads = None
+    self.folder_data = None
+    self.folder_files = None
+
+    self.file_called_frame = inspect.stack()
+    self.file_called_path = Path(self.file_called_frame[-1].filename)
+    self.parent = Path(self.file_called_path).parent
+
+    if self.parent.name == &#34;payloads&#34;:
+        self.folder_payloads = self.parent
+        self.parent = self.parent.parent
+    self.folder_data = Path(self.parent, &#34;data&#34;)
+    self.folder_files = Path(self.parent, &#34;files&#34;)
+    self.folder_payloads = Path(self.parent, &#34;payloads&#34;)</code></pre>
+</details>
+</dd>
+<dt id="ctfsolver.src.ctfsolver_original.CTFSolver.initiate_connection"><code class="name flex">
+<span>def <span class="ident">initiate_connection</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def initiate_connection(self):
+    self.connect(self.conn_type)</code></pre>
+</details>
+</dd>
+<dt id="ctfsolver.src.ctfsolver_original.CTFSolver.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def main(self):
+    pass</code></pre>
+</details>
+</dd>
+<dt id="ctfsolver.src.ctfsolver_original.CTFSolver.pcap_open"><code class="name flex">
+<span>def <span class="ident">pcap_open</span></span>(<span>self, file=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Description:
+Open the pcap file with scapy and saves it in self.packets</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def pcap_open(self, file=None):
+    &#34;&#34;&#34;
+    Description:
+    Open the pcap file with scapy and saves it in self.packets
+    &#34;&#34;&#34;
+
+    if not file:
+        file = self.challenge_file
+
+    self.packets = rdpcap(file.as_posix())</code></pre>
+</details>
+</dd>
+<dt id="ctfsolver.src.ctfsolver_original.CTFSolver.prepare_space"><code class="name flex">
+<span>def <span class="ident">prepare_space</span></span>(<span>self, files=None, folder=None, test_text='picoCTF{test}')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Description:
+Prepare the space for the challenge by creating the folders if they don't exist</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def prepare_space(self, files=None, folder=None, test_text=&#34;picoCTF{test}&#34;):
+    &#34;&#34;&#34;
+    Description:
+    Prepare the space for the challenge by creating the folders if they don&#39;t exist
+    &#34;&#34;&#34;
+    files = files if files else []
+    folder = folder if folder else self.folder_files
+
+    for file in files:
+        if not Path(folder, file).exists():
+            with open(Path(folder, file), &#34;w&#34;) as f:
+                f.write(test_text)</code></pre>
+</details>
+</dd>
+<dt id="ctfsolver.src.ctfsolver_original.CTFSolver.re_match_base64_string"><code class="name flex">
+<span>def <span class="ident">re_match_base64_string</span></span>(<span>self, text, strict=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Description:
+Find the base64 string in the text</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>text</code></strong> :&ensp;<code>str</code></dt>
+<dd>Text to search for base64 string</dd>
+<dt><strong><code>strict</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>If True, it will only return the base64 string. Defaults to False.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>list of Base64 string found in the text</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def re_match_base64_string(self, text, strict=False):
+    &#34;&#34;&#34;
+    Description:
+    Find the base64 string in the text
+
+    Args:
+        text (str): Text to search for base64 string
+        strict (bool, optional): If True, it will only return the base64 string. Defaults to False.
+
+    Returns:
+        str: list of Base64 string found in the text
+    &#34;&#34;&#34;
+    if strict:
+        base64_pattern = r&#34;[A-Za-z0-9+/]{4,}={1,2}&#34;
+    else:
+        base64_pattern = r&#34;[A-Za-z0-9+/]{4,}={0,2}&#34;
+    base64_strings = re.findall(base64_pattern, text)
+    return base64_strings</code></pre>
+</details>
+</dd>
+<dt id="ctfsolver.src.ctfsolver_original.CTFSolver.re_match_flag"><code class="name flex">
+<span>def <span class="ident">re_match_flag</span></span>(<span>self, text, origin)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Description:
+Find the flag in the text</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>text</code></strong> :&ensp;<code>str</code></dt>
+<dd>Text to search for the flag</dd>
+<dt><strong><code>origin</code></strong> :&ensp;<code>str</code></dt>
+<dd>Origin of the flag</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>list of flag found in the text</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def re_match_flag(self, text, origin):
+    &#34;&#34;&#34;
+    Description:
+    Find the flag in the text
+
+    Args:
+        text (str): Text to search for the flag
+        origin (str): Origin of the flag
+
+    Returns:
+        str: list of flag found in the text
+    &#34;&#34;&#34;
+    flag_pattern = rf&#34;{origin}{{[A-Za-z0-9_]+}}&#34;
+    return re.findall(flag_pattern, text)</code></pre>
+</details>
+</dd>
+<dt id="ctfsolver.src.ctfsolver_original.CTFSolver.re_match_partial_flag"><code class="name flex">
+<span>def <span class="ident">re_match_partial_flag</span></span>(<span>self, text, origin)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Description:
+Find the flag in the text or partial flag</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>text</code></strong> :&ensp;<code>str</code></dt>
+<dd>Text to search for the flag</dd>
+<dt><strong><code>origin</code></strong> :&ensp;<code>str</code></dt>
+<dd>Origin of the flag</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>list of flag found in the text</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def re_match_partial_flag(self, text, origin):
+    &#34;&#34;&#34;
+    Description:
+    Find the flag in the text or partial flag
+
+    Args:
+        text (str): Text to search for the flag
+        origin (str): Origin of the flag
+
+    Returns:
+        str: list of flag found in the text
+    &#34;&#34;&#34;
+    flag_pattern = rf&#34;({origin}{{[^ ]*|[^ ]*}})&#34;
+    return re.findall(flag_pattern, text)</code></pre>
+</details>
+</dd>
+<dt id="ctfsolver.src.ctfsolver_original.CTFSolver.recv_menu"><code class="name flex">
+<span>def <span class="ident">recv_menu</span></span>(<span>self, number=1, display=False, save=False)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def recv_menu(self, number=1, display=False, save=False):
+    if save:
+        result = []
+    for _ in range(number):
+        out = self.conn.recvline()
+        if display:
+            print(out)
+        if save:
+            result.append(out)
+    if save:
+        return result</code></pre>
+</details>
+</dd>
+<dt id="ctfsolver.src.ctfsolver_original.CTFSolver.search_for_base64"><code class="name flex">
+<span>def <span class="ident">search_for_base64</span></span>(<span>self, file, *args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Description:
+Search for base64 string in the file</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>file</code></strong> :&ensp;<code>str</code></dt>
+<dd>File to search for the base64 string</dd>
+<dt><strong><code>display</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Display the output. Defaults to False.</dd>
+<dt><strong><code>save</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Save the output. Defaults to False.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>List of output if save is True</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def search_for_base64(self, file, *args, **kwargs):
+    &#34;&#34;&#34;
+    Description:
+    Search for base64 string in the file
+
+    Args:
+        file (str): File to search for the base64 string
+        display (bool, optional): Display the output. Defaults to False.
+        save (bool, optional): Save the output. Defaults to False.
+
+    Returns:
+        list: List of output if save is True
+    &#34;&#34;&#34;
+    display = kwargs.get(&#34;display&#34;, False)
+    save = kwargs.get(&#34;save&#34;, False)
+    strict = kwargs.get(&#34;strict&#34;, False)
+
+    out = self.search_for_pattern_in_file(
+        file, self.re_match_base64_string, display=display, save=save, strict=strict
+    )
+    if display:
+        print(out)
+    if save:
+        return out</code></pre>
+</details>
+</dd>
+<dt id="ctfsolver.src.ctfsolver_original.CTFSolver.search_for_pattern_in_file"><code class="name flex">
+<span>def <span class="ident">search_for_pattern_in_file</span></span>(<span>self, file, func=None, display=False, save=False, *args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Description:
+Search for a pattern in the file and return the output</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>file</code></strong> :&ensp;<code>str</code></dt>
+<dd>File to search for the pattern</dd>
+<dt><strong><code>func</code></strong> :&ensp;<code>function</code>, optional</dt>
+<dd>Function to search for the pattern. Defaults to None.</dd>
+<dt><strong><code>display</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Display the output. Defaults to False.</dd>
+<dt><strong><code>save</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Save the output. Defaults to False.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>List of output if save is True</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def search_for_pattern_in_file(
+    self, file, func=None, display=False, save=False, *args, **kwargs
+):
+    &#34;&#34;&#34;
+    Description:
+    Search for a pattern in the file and return the output
+
+    Args:
+        file (str): File to search for the pattern
+        func (function, optional): Function to search for the pattern. Defaults to None.
+        display (bool, optional): Display the output. Defaults to False.
+        save (bool, optional): Save the output. Defaults to False.
+
+    Returns:
+        list: List of output if save is True
+
+    &#34;&#34;&#34;
+    if save:
+        output = []
+    if func is None:
+        return None
+
+    with open(file, &#34;r&#34;) as f:
+        for line in f:
+            result = func(line, *args, **kwargs)
+            if result is not None:
+                if display:
+                    print(result)
+                if save:
+                    output.extend(result)
+    if save:
+        return output</code></pre>
+</details>
+</dd>
+<dt id="ctfsolver.src.ctfsolver_original.CTFSolver.searching_text_in_packets"><code class="name flex">
+<span>def <span class="ident">searching_text_in_packets</span></span>(<span>self, text, packets=None, display=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Description:
+Search for a text in the packets that have been opened with scapy</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>text</code></strong> :&ensp;<code>str</code></dt>
+<dd>Text to search in the packets</dd>
+<dt><strong><code>packets</code></strong> :&ensp;<code>list</code>, optional</dt>
+<dd>List of packets to search in. Defaults to None.</dd>
+<dt><strong><code>display</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Display the packet if the text is found. Defaults to False.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>Text found in the packet if found</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def searching_text_in_packets(self, text, packets=None, display=False):
+    &#34;&#34;&#34;
+    Description:
+    Search for a text in the packets that have been opened with scapy
+
+    Args:
+        text (str): Text to search in the packets
+        packets (list, optional): List of packets to search in. Defaults to None.
+        display (bool, optional): Display the packet if the text is found. Defaults to False.
+
+    Returns:
+        str: Text found in the packet if found
+    &#34;&#34;&#34;
+
+    if not packets:
+        packets = self.packets
+
+    for i, packet in enumerate(packets):
+        if packet.haslayer(&#34;Raw&#34;):
+            if text.encode() in packet[&#34;Raw&#34;].load:
+                if display:
+                    print(f&#34;Found {text} in packet {i}&#34;)
+                    print(packet.show())
+                    print(packet.summary())
+                return packet[&#34;Raw&#34;].load.decode(&#34;utf-8&#34;)</code></pre>
+</details>
+</dd>
+<dt id="ctfsolver.src.ctfsolver_original.CTFSolver.send_menu"><code class="name flex">
+<span>def <span class="ident">send_menu</span></span>(<span>self, choice, menu_num=None, menu_text=None, display=False, save=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><h2 id="description">Description</h2>
+<p>Gets the menu num either from the class or from the function call and saves it to the class.
+Gets the menu text that the menu is providing, receives until the menu asks for choice and then send out the choice.
+If save is True, it saves the output of the menu in a list and returns it.
+If display is True, it prints the output of everything received.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>choice</code></strong> :&ensp;<code>int</code> or <code>str</code></dt>
+<dd>Choice to send to the menu</dd>
+<dt><strong><code>menu_num</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>Number of options printed in the menu. Defaults to None.</dd>
+<dt><strong><code>menu_text</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Text that the menu asks before sending your choice. Defaults to None.</dd>
+<dt><strong><code>display</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Variable to print every received line. Defaults to False.</dd>
+<dt><strong><code>save</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>. Defaults to False.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>List of output of the menu if save is True</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def send_menu(
+    self, choice, menu_num=None, menu_text=None, display=False, save=False
+):
+    &#34;&#34;&#34;
+    Description:
+        Gets the menu num either from the class or from the function call and saves it to the class.
+        Gets the menu text that the menu is providing, receives until the menu asks for choice and then send out the choice.
+        If save is True, it saves the output of the menu in a list and returns it.
+        If display is True, it prints the output of everything received.
+
+    Args:
+        choice (int or str): Choice to send to the menu
+        menu_num (int, optional): Number of options printed in the menu. Defaults to None.
+        menu_text (str, optional): Text that the menu asks before sending your choice. Defaults to None.
+        display (bool, optional): Variable to print every received line. Defaults to False.
+        save (bool, optional): . Defaults to False.
+    Returns:
+        list: List of output of the menu if save is True
+    &#34;&#34;&#34;
+    if save:
+        result = []
+    if menu_num is None and self.menu_num is None:
+        raise ValueError(&#34;Menu number not provided&#34;)
+
+    if menu_num:
+        self.menu_num = menu_num
+
+    if menu_text is None and self.menu_text is None:
+        raise ValueError(&#34;Menu text not provided&#34;)
+
+    if menu_text:
+        self.menu_text = menu_text
+
+    out = self.recv_menu(number=self.menu_num, display=display, save=save)
+    if save:
+        result.extend(out)
+
+    out = self.conn.recvuntil(self.menu_text.encode())
+    if save:
+        result.append(out)
+
+    if display:
+        print(out)
+
+    self.conn.sendline(str(choice).encode())
+
+    if save:
+        return result</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="ctfsolver.src" href="index.html">ctfsolver.src</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="ctfsolver.src.ctfsolver_original.CTFSolver" href="#ctfsolver.src.ctfsolver_original.CTFSolver">CTFSolver</a></code></h4>
+<ul class="">
+<li><code><a title="ctfsolver.src.ctfsolver_original.CTFSolver.connect" href="#ctfsolver.src.ctfsolver_original.CTFSolver.connect">connect</a></code></li>
+<li><code><a title="ctfsolver.src.ctfsolver_original.CTFSolver.create_parent_folder" href="#ctfsolver.src.ctfsolver_original.CTFSolver.create_parent_folder">create_parent_folder</a></code></li>
+<li><code><a title="ctfsolver.src.ctfsolver_original.CTFSolver.decode_base64" href="#ctfsolver.src.ctfsolver_original.CTFSolver.decode_base64">decode_base64</a></code></li>
+<li><code><a title="ctfsolver.src.ctfsolver_original.CTFSolver.exec_on_files" href="#ctfsolver.src.ctfsolver_original.CTFSolver.exec_on_files">exec_on_files</a></code></li>
+<li><code><a title="ctfsolver.src.ctfsolver_original.CTFSolver.get_challenge_file" href="#ctfsolver.src.ctfsolver_original.CTFSolver.get_challenge_file">get_challenge_file</a></code></li>
+<li><code><a title="ctfsolver.src.ctfsolver_original.CTFSolver.get_parent" href="#ctfsolver.src.ctfsolver_original.CTFSolver.get_parent">get_parent</a></code></li>
+<li><code><a title="ctfsolver.src.ctfsolver_original.CTFSolver.initiate_connection" href="#ctfsolver.src.ctfsolver_original.CTFSolver.initiate_connection">initiate_connection</a></code></li>
+<li><code><a title="ctfsolver.src.ctfsolver_original.CTFSolver.main" href="#ctfsolver.src.ctfsolver_original.CTFSolver.main">main</a></code></li>
+<li><code><a title="ctfsolver.src.ctfsolver_original.CTFSolver.pcap_open" href="#ctfsolver.src.ctfsolver_original.CTFSolver.pcap_open">pcap_open</a></code></li>
+<li><code><a title="ctfsolver.src.ctfsolver_original.CTFSolver.prepare_space" href="#ctfsolver.src.ctfsolver_original.CTFSolver.prepare_space">prepare_space</a></code></li>
+<li><code><a title="ctfsolver.src.ctfsolver_original.CTFSolver.re_match_base64_string" href="#ctfsolver.src.ctfsolver_original.CTFSolver.re_match_base64_string">re_match_base64_string</a></code></li>
+<li><code><a title="ctfsolver.src.ctfsolver_original.CTFSolver.re_match_flag" href="#ctfsolver.src.ctfsolver_original.CTFSolver.re_match_flag">re_match_flag</a></code></li>
+<li><code><a title="ctfsolver.src.ctfsolver_original.CTFSolver.re_match_partial_flag" href="#ctfsolver.src.ctfsolver_original.CTFSolver.re_match_partial_flag">re_match_partial_flag</a></code></li>
+<li><code><a title="ctfsolver.src.ctfsolver_original.CTFSolver.recv_menu" href="#ctfsolver.src.ctfsolver_original.CTFSolver.recv_menu">recv_menu</a></code></li>
+<li><code><a title="ctfsolver.src.ctfsolver_original.CTFSolver.search_for_base64" href="#ctfsolver.src.ctfsolver_original.CTFSolver.search_for_base64">search_for_base64</a></code></li>
+<li><code><a title="ctfsolver.src.ctfsolver_original.CTFSolver.search_for_pattern_in_file" href="#ctfsolver.src.ctfsolver_original.CTFSolver.search_for_pattern_in_file">search_for_pattern_in_file</a></code></li>
+<li><code><a title="ctfsolver.src.ctfsolver_original.CTFSolver.searching_text_in_packets" href="#ctfsolver.src.ctfsolver_original.CTFSolver.searching_text_in_packets">searching_text_in_packets</a></code></li>
+<li><code><a title="ctfsolver.src.ctfsolver_original.CTFSolver.send_menu" href="#ctfsolver.src.ctfsolver_original.CTFSolver.send_menu">send_menu</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.4</a>.</p>
+</footer>
+</body>
+</html>

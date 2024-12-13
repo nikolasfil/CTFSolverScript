@@ -1,5 +1,6 @@
-## Python Sphinx Documentation
+## Pdoc 
 
-Inside `docs/sphinx_documentation/_build/html`
+Autodocumentation with pdoc 
 
-## Modules Documentation
+pdoc ctfsolver --html -o ./docs/pdoc_html/ 
+
