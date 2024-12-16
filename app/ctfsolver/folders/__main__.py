@@ -1,4 +1,4 @@
-from ..src.ctfsolver import CTFSolver
+from ctfsolver.src.ctfsolver import CTFSolver
 
 
 def main():

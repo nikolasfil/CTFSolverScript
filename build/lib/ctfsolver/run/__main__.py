@@ -1,7 +1,7 @@
 import subprocess
 import sys
 from pathlib import Path
-from ..src.ctfsolver import CTFSolver
+from ctfsolver.src.ctfsolver import CTFSolver
 
 
 def main():
