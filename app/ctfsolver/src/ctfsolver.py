@@ -1,94 +1,39 @@
-from pathlib import Path
-import pwn
-import inspect
+from .manager_file import ManagerFile
+from .manager_connections import ManagerConnections
+from .manager_crypto import ManagerCrypto
 
 
-class CTFSolver:
+class CTFSolver(ManagerFile, ManagerConnections, ManagerCrypto):
     def __init__(self, *args, **kwargs) -> None:
-        self.pwn = pwn
-        self.get_parent()
-        self.connect_to_challenge(kwargs)
+        self.initializing_all_ancestors(*args, **kwargs)
+        self.debug = kwargs.get("debug", False)
 
-    def connect_to_challenge(self, kwargs):
+    def initializing_all_ancestors(self, *args, **kwargs):
         """
         Description:
-        Connect to the challenge using the given arguments that are passed to the class instance
-
-        Args:
-            kwargs (_type_): arguments parsed to the class instance
-                file (_type_): local file name of the challenge
-                url (_type_): url of the challenge
-                port (_type_): port of the challenge
-                conn (_type_): connection type (local/remote)
+            Initializes all the ancestors of the class
         """
-
-        self.file = kwargs.get("file")
-        self.get_challenge_file()
-        self.url = kwargs.get("url")
-        self.port = kwargs.get("port")
-        self.conn_type = kwargs.get("conn")
-        self.conn = None
-        self.connect(self.conn_type)
-
-    def get_parent(self):
-        """
-        Description:
-        Create object for the class for parent, payloads, data and files folder paths for the challenge
-        """
-        self.parent = None
-        self.folder_payloads = None
-        self.folder_data = None
-        self.folder_files = None
-
-        self.file_called_frame = inspect.stack()
-        self.file_called_path = Path(self.file_called_frame[-1].filename)
-        self.parent = Path(self.file_called_path).parent
-        if self.parent.name == "payloads":
-            self.folder_payloads = self.parent
-            self.parent = self.parent.parent
-        self.folder_data = Path(self.parent, "data")
-        self.folder_files = Path(self.parent, "files")
-
-    def prepare_space(self, **kwargs):
-        """
-        Description:
-        Prepare the space for the challenge by creating the folders if they don't exist
-        """
-        files = kwargs.get("files", [])
-        folder = kwargs.get("folder", self.folder_files)
-        test_text = kwargs.get("test_text", "picoCTF{test}")
-
-        for file in files:
-            if not Path(folder, file).exists():
-                with open(Path(folder, file), "w") as f:
-                    f.write(test_text)
-
-    def get_challenge_file(self):
-        if self.file and self.folder_data:
-            self.challenge_file = Path(self.folder_files, self.file)
-        elif not self.folder_data:
-            print("Data folder not found")
-
-    def connect(self, *args, **kwargs) -> None:
-        if self.conn_type == "remote" and self.url and self.port:
-            self.conn = pwn.remote(self.url, self.port)
-        elif self.conn_type == "local" and self.file:
-            self.conn = pwn.process(str(self.challenge_file))
+        ManagerFile.__init__(self, *args, **kwargs)
+        ManagerCrypto.__init__(self, *args, **kwargs)
+        ManagerConnections.__init__(self, *args, **kwargs)
 
     def main(self):
+        """
+        Description:
+            Placeholder for the main function
+        """
         pass
 
-    # def __del__(self):
-    #     self.conn.close()
+    def __str__(self):
+        """
+        Description:
+            Returns the string representation of the class, mainly the name of the parent folder
 
-    # def __exit__(self, exc_type, exc_value, traceback):
-    #     self.conn.close()
-
-    # Todo
-    # Add cryptography solutions
-    # Add web solutions
+        Returns:
+            _type_: _description_
+        """
+        return f"CTFSolver({self.parent})"
 
 
 if __name__ == "__main__":
-    s = CTFSolver(conn="remote")
-    s.main()
+    s = CTFSolver()
