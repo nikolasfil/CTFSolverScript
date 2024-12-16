@@ -4,9 +4,13 @@ import os
 with open("app/README.md", "r") as fh:
     long_description = fh.read()
 
+version = "0.0.1"
+with open("VERSION","r") as fv: 
+    version = fv.read()
+
 setuptools.setup(
     name="ctfsolver",
-    version="0.0.4",
+    version=version,
     description="An all in one library for solving CTF challenges",
     package_dir={"": "app"},
     packages=setuptools.find_packages(where="app"),
