@@ -51,6 +51,7 @@ class ManagerCrypto:
             str: Text found in the packet if found
         """
 
+        # Todo : Transfer into a different class that will be mainly for packet analysis
         if not packets:
             packets = self.packets
 

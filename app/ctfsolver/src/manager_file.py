@@ -32,6 +32,10 @@ class ManagerFile:
             self.parent = self.parent.parent
 
     def setup_named_folder_list(self):
+        """
+        Description:
+        Setup the main named folder list. If the user has provided a list, add the must folders to it
+        """
         if self.folders_name_list is None:
             self.folders_name_list = self.folders_names_must
         elif len(self.folders_name_list) > 1:
@@ -41,7 +45,7 @@ class ManagerFile:
     def setup_named_folders(self):
         """
         Description:
-        Create folders for the challenge
+        Create folders for the challenge. (data, files, payloads)
         """
 
         self.folder_payloads = None
@@ -53,7 +57,10 @@ class ManagerFile:
         self.folder_payloads = Path(self.parent, "payloads")
 
     def create_parent_folder(self):
-        """ """
+        """
+        Description:
+            Create the parent folder of the file that called the class if they don't exist
+        """
 
         self.folder_data = Path(self.parent, "data")
         self.folder_files = Path(self.parent, "files")
@@ -65,9 +72,6 @@ class ManagerFile:
             self.folder_files,
         ]
 
-        # add the folders that are in the named_list but are not in the folder_list
-        # Make the folder_list public
-
         for folder in folder_list:
             if not folder.exists():
                 folder.mkdir()
@@ -75,7 +79,7 @@ class ManagerFile:
     def prepare_space(self, files=None, folder=None, test_text="picoCTF{test}"):
         """
         Description:
-        Prepare the space for the challenge by creating the folders if they don't exist
+           Prepare the space for the challenge by creating the folders if they don't exist, create files from the file list provided
         """
         files = files if files else []
         folder = folder if folder else self.folder_files
@@ -86,9 +90,13 @@ class ManagerFile:
                     f.write(test_text)
 
     def get_challenge_file(self):
-        if self.file and self.folder_data:
+        """
+        Description:
+            Get the challenge file and assign it to the self.challenge_file for ease of access
+        """
+        if self.file and self.folder_files:
             self.challenge_file = Path(self.folder_files, self.file)
-        elif not self.folder_data:
+        elif not self.folder_files:
             if self.debug:
                 print("Data folder not found")
 
@@ -156,6 +164,7 @@ class ManagerFile:
         Description:
         Open the pcap file with scapy and saves it in self.packets
         """
+        # Todo : Transfer into a different class that will be mainly for packet analysis
 
         if not file:
             file = self.challenge_file
@@ -204,6 +213,12 @@ class ManagerFile:
             return output
 
     def search_for_base64(self, file, *args, **kwargs):
+        """
+        Depracated, checkout search_for_base64_file
+        """
+        return self.search_for_base64_file(file, *args, **kwargs)
+
+    def search_for_base64_file(self, file, *args, **kwargs):
         """
         Description:
         Search for base64 string in the file
