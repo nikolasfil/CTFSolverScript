@@ -134,7 +134,7 @@ class ManagerConnections:
             result.extend(out_lines)
 
         if text_until:
-            out_text_until = self.recv_until(text_until)
+            out_text_until = self.recv_until(text=text_until)
 
         if save:
             result.append(out_text_until)

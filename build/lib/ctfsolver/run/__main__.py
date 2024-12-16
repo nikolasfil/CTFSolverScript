@@ -10,7 +10,7 @@ def main():
         Gets the path of the solution flle and runs it
     """
     s = CTFSolver()
-    
+
     solution_path = Path(s.folder_payloads, "solution.py")
 
     if not solution_path.exists():

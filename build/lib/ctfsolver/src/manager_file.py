@@ -28,8 +28,6 @@ class ManagerFile:
         self.file_called_path = Path(self.file_called_frame[-1].filename)
         self.parent = Path(self.file_called_path).parent
 
-        self.setup_named_folder_list()
-
         if self.parent.name in self.folders_name_list:
             self.parent = self.parent.parent
 
