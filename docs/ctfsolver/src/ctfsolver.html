@@ -51,10 +51,6 @@ hljs.highlightAll();
         self.debug = kwargs.get(&#34;debug&#34;, False)
 
     def initializing_all_ancestors(self, *args, **kwargs):
-        # for i, ancestor in enumerate(self.__class__.mro()):
-        #     if i == 0 or i == len(self.__class__.mro()) - 1:
-        #         continue
-        #     ancestor.__init__(self, *args, **kwargs)
         ManagerFile.__init__(self, *args, **kwargs)
         ManagerCrypto.__init__(self, *args, **kwargs)
         ManagerConnections.__init__(self, *args, **kwargs)
@@ -62,15 +58,8 @@ hljs.highlightAll();
     def main(self):
         pass
 
-    # def __del__(self):
-    #     self.conn.close()
-
-    # def __exit__(self, exc_type, exc_value, traceback):
-    #     self.conn.close()
-
-    # Todo
-    # Add cryptography solutions
-    # Add web solutions
+    def __str__(self):
+        return f&#34;CTFSolver({self.parent})&#34;
 
     def __str__(self):
         return f&#34;CTFSolver({self.parent})&#34;</code></pre>
@@ -97,10 +86,6 @@ hljs.highlightAll();
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def initializing_all_ancestors(self, *args, **kwargs):
-    # for i, ancestor in enumerate(self.__class__.mro()):
-    #     if i == 0 or i == len(self.__class__.mro()) - 1:
-    #         continue
-    #     ancestor.__init__(self, *args, **kwargs)
     ManagerFile.__init__(self, *args, **kwargs)
     ManagerCrypto.__init__(self, *args, **kwargs)
     ManagerConnections.__init__(self, *args, **kwargs)</code></pre>
@@ -125,7 +110,9 @@ hljs.highlightAll();
 <li><code><b><a title="ctfsolver.src.manager_file.ManagerFile" href="manager_file.html#ctfsolver.src.manager_file.ManagerFile">ManagerFile</a></b></code>:
 <ul class="hlist">
 <li><code><a title="ctfsolver.src.manager_file.ManagerFile.exec_on_files" href="manager_file.html#ctfsolver.src.manager_file.ManagerFile.exec_on_files">exec_on_files</a></code></li>
-<li><code><a title="ctfsolver.src.manager_file.ManagerFile.get_functions" href="manager_file.html#ctfsolver.src.manager_file.ManagerFile.get_functions">get_functions</a></code></li>
+<li><code><a title="ctfsolver.src.manager_file.ManagerFile.find_function_from_file" href="manager_file.html#ctfsolver.src.manager_file.ManagerFile.find_function_from_file">find_function_from_file</a></code></li>
+<li><code><a title="ctfsolver.src.manager_file.ManagerFile.get_function_reference" href="manager_file.html#ctfsolver.src.manager_file.ManagerFile.get_function_reference">get_function_reference</a></code></li>
+<li><code><a title="ctfsolver.src.manager_file.ManagerFile.get_functions_from_file" href="manager_file.html#ctfsolver.src.manager_file.ManagerFile.get_functions_from_file">get_functions_from_file</a></code></li>
 <li><code><a title="ctfsolver.src.manager_file.ManagerFile.get_parent" href="manager_file.html#ctfsolver.src.manager_file.ManagerFile.get_parent">get_parent</a></code></li>
 <li><code><a title="ctfsolver.src.manager_file.ManagerFile.get_self_functions" href="manager_file.html#ctfsolver.src.manager_file.ManagerFile.get_self_functions">get_self_functions</a></code></li>
 <li><code><a title="ctfsolver.src.manager_file.ManagerFile.pcap_open" href="manager_file.html#ctfsolver.src.manager_file.ManagerFile.pcap_open">pcap_open</a></code></li>
@@ -133,10 +120,18 @@ hljs.highlightAll();
 <li><code><a title="ctfsolver.src.manager_file.ManagerFile.search_files" href="manager_file.html#ctfsolver.src.manager_file.ManagerFile.search_files">search_files</a></code></li>
 <li><code><a title="ctfsolver.src.manager_file.ManagerFile.search_for_base64" href="manager_file.html#ctfsolver.src.manager_file.ManagerFile.search_for_base64">search_for_base64</a></code></li>
 <li><code><a title="ctfsolver.src.manager_file.ManagerFile.search_for_pattern_in_file" href="manager_file.html#ctfsolver.src.manager_file.ManagerFile.search_for_pattern_in_file">search_for_pattern_in_file</a></code></li>
+<li><code><a title="ctfsolver.src.manager_file.ManagerFile.setup_named_folders" href="manager_file.html#ctfsolver.src.manager_file.ManagerFile.setup_named_folders">setup_named_folders</a></code></li>
 </ul>
 </li>
 <li><code><b><a title="ctfsolver.src.manager_connections.ManagerConnections" href="manager_connections.html#ctfsolver.src.manager_connections.ManagerConnections">ManagerConnections</a></b></code>:
 <ul class="hlist">
+<li><code><a title="ctfsolver.src.manager_connections.ManagerConnections.connect" href="manager_connections.html#ctfsolver.src.manager_connections.ManagerConnections.connect">connect</a></code></li>
+<li><code><a title="ctfsolver.src.manager_connections.ManagerConnections.initiate_connection" href="manager_connections.html#ctfsolver.src.manager_connections.ManagerConnections.initiate_connection">initiate_connection</a></code></li>
+<li><code><a title="ctfsolver.src.manager_connections.ManagerConnections.recv_lines" href="manager_connections.html#ctfsolver.src.manager_connections.ManagerConnections.recv_lines">recv_lines</a></code></li>
+<li><code><a title="ctfsolver.src.manager_connections.ManagerConnections.recv_menu" href="manager_connections.html#ctfsolver.src.manager_connections.ManagerConnections.recv_menu">recv_menu</a></code></li>
+<li><code><a title="ctfsolver.src.manager_connections.ManagerConnections.recv_send" href="manager_connections.html#ctfsolver.src.manager_connections.ManagerConnections.recv_send">recv_send</a></code></li>
+<li><code><a title="ctfsolver.src.manager_connections.ManagerConnections.recv_until" href="manager_connections.html#ctfsolver.src.manager_connections.ManagerConnections.recv_until">recv_until</a></code></li>
+<li><code><a title="ctfsolver.src.manager_connections.ManagerConnections.send" href="manager_connections.html#ctfsolver.src.manager_connections.ManagerConnections.send">send</a></code></li>
 <li><code><a title="ctfsolver.src.manager_connections.ManagerConnections.send_menu" href="manager_connections.html#ctfsolver.src.manager_connections.ManagerConnections.send_menu">send_menu</a></code></li>
 </ul>
 </li>

@@ -48,28 +48,46 @@ hljs.highlightAll();
 <pre><code class="python">class ManagerFile:
     def __init__(self, *args, **kwargs):
         self.Path = Path
-        self.get_parent()
         self.file = kwargs.get(&#34;file&#34;)
-        self.get_challenge_file()
         self.debug = kwargs.get(&#34;debug&#34;, False)
+        self.folders_name_list = kwargs.get(&#34;folders_name_list&#34;, None)
+        self.folders_names_must = [&#34;data&#34;, &#34;files&#34;, &#34;payloads&#34;]
+        self.get_parent()
+        self.setup_named_folders()
+        self.get_challenge_file()
 
     def get_parent(self):
         &#34;&#34;&#34;
         Description:
-        Create object for the class for parent, payloads, data and files folder paths for the challenge
+            Get the parent folder of the file that called the class
         &#34;&#34;&#34;
         self.parent = None
-        self.folder_payloads = None
-        self.folder_data = None
-        self.folder_files = None
 
         self.file_called_frame = inspect.stack()
         self.file_called_path = Path(self.file_called_frame[-1].filename)
         self.parent = Path(self.file_called_path).parent
 
-        if self.parent.name == &#34;payloads&#34;:
-            self.folder_payloads = self.parent
+        self.setup_named_folder_list()
+
+        if self.parent.name in self.folders_name_list:
             self.parent = self.parent.parent
+
+    def setup_named_folder_list(self):
+        if self.folders_name_list is None:
+            self.folders_name_list = self.folders_names_must
+        elif len(self.folders_name_list) &gt; 1:
+            self.folders_name_list.extend(self.folders_names_must)
+            self.folders_name_list = list(set(self.folders_name_list))
+
+    def setup_named_folders(self):
+        &#34;&#34;&#34;
+        Description:
+        Create folders for the challenge
+        &#34;&#34;&#34;
+
+        self.folder_payloads = None
+        self.folder_data = None
+        self.folder_files = None
 
         self.folder_data = Path(self.parent, &#34;data&#34;)
         self.folder_files = Path(self.parent, &#34;files&#34;)
@@ -87,6 +105,9 @@ hljs.highlightAll();
             self.folder_data,
             self.folder_files,
         ]
+
+        # add the folders that are in the named_list but are not in the folder_list
+        # Make the folder_list public
 
         for folder in folder_list:
             if not folder.exists():
@@ -260,15 +281,86 @@ hljs.highlightAll();
             if callable(getattr(self, func)) and not func.startswith(&#34;__&#34;)
         ]
 
-    def get_functions(self):
+    def get_function_reference(self, function, file):
         &#34;&#34;&#34;
         Description:
-        Get the functions in the file
+        Get the reference of the function in the file
         &#34;&#34;&#34;
-        with open(self.file, &#34;r&#34;) as f:
+
+        if function not in self.get_self_functions():
+            raise ValueError(f&#34;Function {function} not found in the class&#34;)
+
+        output = []
+
+        with open(file, &#34;r&#34;) as f:
             lines = f.readlines()
-            functions = [line for line in lines if &#34;def &#34; in line]
-            return functions</code></pre>
+            for i, line in enumerate(lines):
+                if function in line:
+                    output.append(line)
+        return output
+
+    def get_functions_from_file(self, file_path):
+        &#34;&#34;&#34;
+        Description:
+        Get the functions from the file
+        &#34;&#34;&#34;
+
+        output = []
+        with open(file_path, &#34;r&#34;) as file_path:
+            file_content = file_path.read()
+
+        # Parse the file content into an AST
+        tree = ast.parse(file_content)
+
+        # Define a visitor class to find the function definition
+        class FunctionDefFinder(ast.NodeVisitor):
+            def __init__(self):
+                self.function_def = None
+
+            def visit_FunctionDef(self, node):
+                output.append(node.name)
+                # Continue visiting other nodes
+                self.generic_visit(node)
+
+        # Create an instance of the visitor and visit the AST
+        finder = FunctionDefFinder()
+        finder.visit(tree)
+
+        # If the function was found, return its definition
+        return output
+
+    def find_function_from_file(self, file_path, function_name):
+        &#34;&#34;&#34;
+        Description:
+        Get the functions from the file
+        &#34;&#34;&#34;
+
+        with open(file_path, &#34;r&#34;) as file_path:
+            file_content = file_path.read()
+
+        # Parse the file content into an AST
+        tree = ast.parse(file_content)
+
+        # Define a visitor class to find the function definition
+        class FunctionDefFinder(ast.NodeVisitor):
+            def __init__(self):
+                self.function_def = None
+
+            def visit_FunctionDef(self, node):
+                if node.name == function_name:
+                    self.function_def = node
+                # Continue visiting other nodes
+                self.generic_visit(node)
+
+        # Create an instance of the visitor and visit the AST
+        finder = FunctionDefFinder()
+        finder.visit(tree)
+
+        # If the function was found, return its definition
+        if finder.function_def:
+            return ast.unparse(finder.function_def)
+        else:
+            return None</code></pre>
 </details>
 <h3>Subclasses</h3>
 <ul class="hlist">
@@ -298,6 +390,9 @@ hljs.highlightAll();
         self.folder_data,
         self.folder_files,
     ]
+
+    # add the folders that are in the named_list but are not in the folder_list
+    # Make the folder_list public
 
     for folder in folder_list:
         if not folder.exists():
@@ -353,6 +448,50 @@ Execute a function on all the files in the folder with the arguments provided</p
         return output</code></pre>
 </details>
 </dd>
+<dt id="ctfsolver.src.manager_file.ManagerFile.find_function_from_file"><code class="name flex">
+<span>def <span class="ident">find_function_from_file</span></span>(<span>self, file_path, function_name)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Description:
+Get the functions from the file</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def find_function_from_file(self, file_path, function_name):
+    &#34;&#34;&#34;
+    Description:
+    Get the functions from the file
+    &#34;&#34;&#34;
+
+    with open(file_path, &#34;r&#34;) as file_path:
+        file_content = file_path.read()
+
+    # Parse the file content into an AST
+    tree = ast.parse(file_content)
+
+    # Define a visitor class to find the function definition
+    class FunctionDefFinder(ast.NodeVisitor):
+        def __init__(self):
+            self.function_def = None
+
+        def visit_FunctionDef(self, node):
+            if node.name == function_name:
+                self.function_def = node
+            # Continue visiting other nodes
+            self.generic_visit(node)
+
+    # Create an instance of the visitor and visit the AST
+    finder = FunctionDefFinder()
+    finder.visit(tree)
+
+    # If the function was found, return its definition
+    if finder.function_def:
+        return ast.unparse(finder.function_def)
+    else:
+        return None</code></pre>
+</details>
+</dd>
 <dt id="ctfsolver.src.manager_file.ManagerFile.get_challenge_file"><code class="name flex">
 <span>def <span class="ident">get_challenge_file</span></span>(<span>self)</span>
 </code></dt>
@@ -370,33 +509,82 @@ Execute a function on all the files in the folder with the arguments provided</p
             print(&#34;Data folder not found&#34;)</code></pre>
 </details>
 </dd>
-<dt id="ctfsolver.src.manager_file.ManagerFile.get_functions"><code class="name flex">
-<span>def <span class="ident">get_functions</span></span>(<span>self)</span>
+<dt id="ctfsolver.src.manager_file.ManagerFile.get_function_reference"><code class="name flex">
+<span>def <span class="ident">get_function_reference</span></span>(<span>self, function, file)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Description:
-Get the functions in the file</p></div>
+Get the reference of the function in the file</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def get_functions(self):
+<pre><code class="python">def get_function_reference(self, function, file):
     &#34;&#34;&#34;
     Description:
-    Get the functions in the file
+    Get the reference of the function in the file
     &#34;&#34;&#34;
-    with open(self.file, &#34;r&#34;) as f:
+
+    if function not in self.get_self_functions():
+        raise ValueError(f&#34;Function {function} not found in the class&#34;)
+
+    output = []
+
+    with open(file, &#34;r&#34;) as f:
         lines = f.readlines()
-        functions = [line for line in lines if &#34;def &#34; in line]
-        return functions</code></pre>
+        for i, line in enumerate(lines):
+            if function in line:
+                output.append(line)
+    return output</code></pre>
+</details>
+</dd>
+<dt id="ctfsolver.src.manager_file.ManagerFile.get_functions_from_file"><code class="name flex">
+<span>def <span class="ident">get_functions_from_file</span></span>(<span>self, file_path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Description:
+Get the functions from the file</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_functions_from_file(self, file_path):
+    &#34;&#34;&#34;
+    Description:
+    Get the functions from the file
+    &#34;&#34;&#34;
+
+    output = []
+    with open(file_path, &#34;r&#34;) as file_path:
+        file_content = file_path.read()
+
+    # Parse the file content into an AST
+    tree = ast.parse(file_content)
+
+    # Define a visitor class to find the function definition
+    class FunctionDefFinder(ast.NodeVisitor):
+        def __init__(self):
+            self.function_def = None
+
+        def visit_FunctionDef(self, node):
+            output.append(node.name)
+            # Continue visiting other nodes
+            self.generic_visit(node)
+
+    # Create an instance of the visitor and visit the AST
+    finder = FunctionDefFinder()
+    finder.visit(tree)
+
+    # If the function was found, return its definition
+    return output</code></pre>
 </details>
 </dd>
 <dt id="ctfsolver.src.manager_file.ManagerFile.get_parent"><code class="name flex">
 <span>def <span class="ident">get_parent</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Description:
-Create object for the class for parent, payloads, data and files folder paths for the challenge</p></div>
+<div class="desc"><h2 id="description">Description</h2>
+<p>Get the parent folder of the file that called the class</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -404,24 +592,18 @@ Create object for the class for parent, payloads, data and files folder paths fo
 <pre><code class="python">def get_parent(self):
     &#34;&#34;&#34;
     Description:
-    Create object for the class for parent, payloads, data and files folder paths for the challenge
+        Get the parent folder of the file that called the class
     &#34;&#34;&#34;
     self.parent = None
-    self.folder_payloads = None
-    self.folder_data = None
-    self.folder_files = None
 
     self.file_called_frame = inspect.stack()
     self.file_called_path = Path(self.file_called_frame[-1].filename)
     self.parent = Path(self.file_called_path).parent
 
-    if self.parent.name == &#34;payloads&#34;:
-        self.folder_payloads = self.parent
-        self.parent = self.parent.parent
+    self.setup_named_folder_list()
 
-    self.folder_data = Path(self.parent, &#34;data&#34;)
-    self.folder_files = Path(self.parent, &#34;files&#34;)
-    self.folder_payloads = Path(self.parent, &#34;payloads&#34;)</code></pre>
+    if self.parent.name in self.folders_name_list:
+        self.parent = self.parent.parent</code></pre>
 </details>
 </dd>
 <dt id="ctfsolver.src.manager_file.ManagerFile.get_self_functions"><code class="name flex">
@@ -673,6 +855,48 @@ Search for a pattern in the file and return the output</p>
         return output</code></pre>
 </details>
 </dd>
+<dt id="ctfsolver.src.manager_file.ManagerFile.setup_named_folder_list"><code class="name flex">
+<span>def <span class="ident">setup_named_folder_list</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setup_named_folder_list(self):
+    if self.folders_name_list is None:
+        self.folders_name_list = self.folders_names_must
+    elif len(self.folders_name_list) &gt; 1:
+        self.folders_name_list.extend(self.folders_names_must)
+        self.folders_name_list = list(set(self.folders_name_list))</code></pre>
+</details>
+</dd>
+<dt id="ctfsolver.src.manager_file.ManagerFile.setup_named_folders"><code class="name flex">
+<span>def <span class="ident">setup_named_folders</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Description:
+Create folders for the challenge</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setup_named_folders(self):
+    &#34;&#34;&#34;
+    Description:
+    Create folders for the challenge
+    &#34;&#34;&#34;
+
+    self.folder_payloads = None
+    self.folder_data = None
+    self.folder_files = None
+
+    self.folder_data = Path(self.parent, &#34;data&#34;)
+    self.folder_files = Path(self.parent, &#34;files&#34;)
+    self.folder_payloads = Path(self.parent, &#34;payloads&#34;)</code></pre>
+</details>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -695,8 +919,10 @@ Search for a pattern in the file and return the output</p>
 <ul class="">
 <li><code><a title="ctfsolver.src.manager_file.ManagerFile.create_parent_folder" href="#ctfsolver.src.manager_file.ManagerFile.create_parent_folder">create_parent_folder</a></code></li>
 <li><code><a title="ctfsolver.src.manager_file.ManagerFile.exec_on_files" href="#ctfsolver.src.manager_file.ManagerFile.exec_on_files">exec_on_files</a></code></li>
+<li><code><a title="ctfsolver.src.manager_file.ManagerFile.find_function_from_file" href="#ctfsolver.src.manager_file.ManagerFile.find_function_from_file">find_function_from_file</a></code></li>
 <li><code><a title="ctfsolver.src.manager_file.ManagerFile.get_challenge_file" href="#ctfsolver.src.manager_file.ManagerFile.get_challenge_file">get_challenge_file</a></code></li>
-<li><code><a title="ctfsolver.src.manager_file.ManagerFile.get_functions" href="#ctfsolver.src.manager_file.ManagerFile.get_functions">get_functions</a></code></li>
+<li><code><a title="ctfsolver.src.manager_file.ManagerFile.get_function_reference" href="#ctfsolver.src.manager_file.ManagerFile.get_function_reference">get_function_reference</a></code></li>
+<li><code><a title="ctfsolver.src.manager_file.ManagerFile.get_functions_from_file" href="#ctfsolver.src.manager_file.ManagerFile.get_functions_from_file">get_functions_from_file</a></code></li>
 <li><code><a title="ctfsolver.src.manager_file.ManagerFile.get_parent" href="#ctfsolver.src.manager_file.ManagerFile.get_parent">get_parent</a></code></li>
 <li><code><a title="ctfsolver.src.manager_file.ManagerFile.get_self_functions" href="#ctfsolver.src.manager_file.ManagerFile.get_self_functions">get_self_functions</a></code></li>
 <li><code><a title="ctfsolver.src.manager_file.ManagerFile.pcap_open" href="#ctfsolver.src.manager_file.ManagerFile.pcap_open">pcap_open</a></code></li>
@@ -704,6 +930,8 @@ Search for a pattern in the file and return the output</p>
 <li><code><a title="ctfsolver.src.manager_file.ManagerFile.search_files" href="#ctfsolver.src.manager_file.ManagerFile.search_files">search_files</a></code></li>
 <li><code><a title="ctfsolver.src.manager_file.ManagerFile.search_for_base64" href="#ctfsolver.src.manager_file.ManagerFile.search_for_base64">search_for_base64</a></code></li>
 <li><code><a title="ctfsolver.src.manager_file.ManagerFile.search_for_pattern_in_file" href="#ctfsolver.src.manager_file.ManagerFile.search_for_pattern_in_file">search_for_pattern_in_file</a></code></li>
+<li><code><a title="ctfsolver.src.manager_file.ManagerFile.setup_named_folder_list" href="#ctfsolver.src.manager_file.ManagerFile.setup_named_folder_list">setup_named_folder_list</a></code></li>
+<li><code><a title="ctfsolver.src.manager_file.ManagerFile.setup_named_folders" href="#ctfsolver.src.manager_file.ManagerFile.setup_named_folders">setup_named_folders</a></code></li>
 </ul>
 </li>
 </ul>
