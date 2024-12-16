@@ -22,7 +22,6 @@ app/ctfsolver/scripts/run_folders.py
 app/ctfsolver/scripts/run_solution.py
 app/ctfsolver/src/__init__.py
 app/ctfsolver/src/ctfsolver.py
-app/ctfsolver/src/ctfsolver_original.py
 app/ctfsolver/src/manager_connections.py
 app/ctfsolver/src/manager_crypto.py
 app/ctfsolver/src/manager_file.py

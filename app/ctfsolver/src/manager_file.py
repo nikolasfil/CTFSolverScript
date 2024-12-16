@@ -8,28 +8,45 @@ import ast
 class ManagerFile:
     def __init__(self, *args, **kwargs):
         self.Path = Path
-        self.get_parent()
         self.file = kwargs.get("file")
-        self.get_challenge_file()
         self.debug = kwargs.get("debug", False)
+        self.folders_name_list = kwargs.get("folders_name_list", None)
+        self.folders_names_must = ["data", "files", "payloads"]
+        self.setup_named_folder_list()
+        self.get_parent()
+        self.setup_named_folders()
+        self.get_challenge_file()
 
     def get_parent(self):
         """
         Description:
-        Create object for the class for parent, payloads, data and files folder paths for the challenge
+            Get the parent folder of the file that called the class
         """
         self.parent = None
-        self.folder_payloads = None
-        self.folder_data = None
-        self.folder_files = None
 
         self.file_called_frame = inspect.stack()
         self.file_called_path = Path(self.file_called_frame[-1].filename)
         self.parent = Path(self.file_called_path).parent
 
-        if self.parent.name == "payloads":
-            self.folder_payloads = self.parent
+        if self.parent.name in self.folders_name_list:
             self.parent = self.parent.parent
+
+    def setup_named_folder_list(self):
+        if self.folders_name_list is None:
+            self.folders_name_list = self.folders_names_must
+        elif len(self.folders_name_list) > 1:
+            self.folders_name_list.extend(self.folders_names_must)
+            self.folders_name_list = list(set(self.folders_name_list))
+
+    def setup_named_folders(self):
+        """
+        Description:
+        Create folders for the challenge
+        """
+
+        self.folder_payloads = None
+        self.folder_data = None
+        self.folder_files = None
 
         self.folder_data = Path(self.parent, "data")
         self.folder_files = Path(self.parent, "files")
@@ -47,6 +64,9 @@ class ManagerFile:
             self.folder_data,
             self.folder_files,
         ]
+
+        # add the folders that are in the named_list but are not in the folder_list
+        # Make the folder_list public
 
         for folder in folder_list:
             if not folder.exists():

@@ -9,10 +9,6 @@ class CTFSolver(ManagerFile, ManagerConnections, ManagerCrypto):
         self.debug = kwargs.get("debug", False)
 
     def initializing_all_ancestors(self, *args, **kwargs):
-        # for i, ancestor in enumerate(self.__class__.mro()):
-        #     if i == 0 or i == len(self.__class__.mro()) - 1:
-        #         continue
-        #     ancestor.__init__(self, *args, **kwargs)
         ManagerFile.__init__(self, *args, **kwargs)
         ManagerCrypto.__init__(self, *args, **kwargs)
         ManagerConnections.__init__(self, *args, **kwargs)
@@ -20,15 +16,8 @@ class CTFSolver(ManagerFile, ManagerConnections, ManagerCrypto):
     def main(self):
         pass
 
-    # def __del__(self):
-    #     self.conn.close()
-
-    # def __exit__(self, exc_type, exc_value, traceback):
-    #     self.conn.close()
-
-    # Todo
-    # Add cryptography solutions
-    # Add web solutions
+    def __str__(self):
+        return f"CTFSolver({self.parent})"
 
     def __str__(self):
         return f"CTFSolver({self.parent})"
@@ -36,5 +25,3 @@ class CTFSolver(ManagerFile, ManagerConnections, ManagerCrypto):
 
 if __name__ == "__main__":
     s = CTFSolver()
-    # s.main()
-    # print(CTFSolver.mro())

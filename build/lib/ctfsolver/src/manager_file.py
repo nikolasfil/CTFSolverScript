@@ -2,33 +2,53 @@ from pathlib import Path
 import inspect
 from scapy.all import rdpcap
 import os
+import ast
 
 
 class ManagerFile:
     def __init__(self, *args, **kwargs):
         self.Path = Path
-        self.get_parent()
         self.file = kwargs.get("file")
-        self.get_challenge_file()
         self.debug = kwargs.get("debug", False)
+        self.folders_name_list = kwargs.get("folders_name_list", None)
+        self.folders_names_must = ["data", "files", "payloads"]
+        self.setup_named_folder_list()
+        self.get_parent()
+        self.setup_named_folders()
+        self.get_challenge_file()
 
     def get_parent(self):
         """
         Description:
-        Create object for the class for parent, payloads, data and files folder paths for the challenge
+            Get the parent folder of the file that called the class
         """
         self.parent = None
-        self.folder_payloads = None
-        self.folder_data = None
-        self.folder_files = None
 
         self.file_called_frame = inspect.stack()
         self.file_called_path = Path(self.file_called_frame[-1].filename)
         self.parent = Path(self.file_called_path).parent
 
-        if self.parent.name == "payloads":
-            self.folder_payloads = self.parent
+        self.setup_named_folder_list()
+
+        if self.parent.name in self.folders_name_list:
             self.parent = self.parent.parent
+
+    def setup_named_folder_list(self):
+        if self.folders_name_list is None:
+            self.folders_name_list = self.folders_names_must
+        elif len(self.folders_name_list) > 1:
+            self.folders_name_list.extend(self.folders_names_must)
+            self.folders_name_list = list(set(self.folders_name_list))
+
+    def setup_named_folders(self):
+        """
+        Description:
+        Create folders for the challenge
+        """
+
+        self.folder_payloads = None
+        self.folder_data = None
+        self.folder_files = None
 
         self.folder_data = Path(self.parent, "data")
         self.folder_files = Path(self.parent, "files")
@@ -46,6 +66,9 @@ class ManagerFile:
             self.folder_data,
             self.folder_files,
         ]
+
+        # add the folders that are in the named_list but are not in the folder_list
+        # Make the folder_list public
 
         for folder in folder_list:
             if not folder.exists():
@@ -219,12 +242,83 @@ class ManagerFile:
             if callable(getattr(self, func)) and not func.startswith("__")
         ]
 
-    def get_functions(self):
+    def get_function_reference(self, function, file):
         """
         Description:
-        Get the functions in the file
+        Get the reference of the function in the file
         """
-        with open(self.file, "r") as f:
+
+        if function not in self.get_self_functions():
+            raise ValueError(f"Function {function} not found in the class")
+
+        output = []
+
+        with open(file, "r") as f:
             lines = f.readlines()
-            functions = [line for line in lines if "def " in line]
-            return functions
+            for i, line in enumerate(lines):
+                if function in line:
+                    output.append(line)
+        return output
+
+    def get_functions_from_file(self, file_path):
+        """
+        Description:
+        Get the functions from the file
+        """
+
+        output = []
+        with open(file_path, "r") as file_path:
+            file_content = file_path.read()
+
+        # Parse the file content into an AST
+        tree = ast.parse(file_content)
+
+        # Define a visitor class to find the function definition
+        class FunctionDefFinder(ast.NodeVisitor):
+            def __init__(self):
+                self.function_def = None
+
+            def visit_FunctionDef(self, node):
+                output.append(node.name)
+                # Continue visiting other nodes
+                self.generic_visit(node)
+
+        # Create an instance of the visitor and visit the AST
+        finder = FunctionDefFinder()
+        finder.visit(tree)
+
+        # If the function was found, return its definition
+        return output
+
+    def find_function_from_file(self, file_path, function_name):
+        """
+        Description:
+        Get the functions from the file
+        """
+
+        with open(file_path, "r") as file_path:
+            file_content = file_path.read()
+
+        # Parse the file content into an AST
+        tree = ast.parse(file_content)
+
+        # Define a visitor class to find the function definition
+        class FunctionDefFinder(ast.NodeVisitor):
+            def __init__(self):
+                self.function_def = None
+
+            def visit_FunctionDef(self, node):
+                if node.name == function_name:
+                    self.function_def = node
+                # Continue visiting other nodes
+                self.generic_visit(node)
+
+        # Create an instance of the visitor and visit the AST
+        finder = FunctionDefFinder()
+        finder.visit(tree)
+
+        # If the function was found, return its definition
+        if finder.function_def:
+            return ast.unparse(finder.function_def)
+        else:
+            return None
