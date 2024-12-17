@@ -2,5 +2,6 @@
 
 Autodocumentation with pdoc 
 
-pdoc ctfsolver --html -o ./docs/pdoc_html/ 
-
+```bash
+pdoc3 ctfsolver --html -o ./docs/ 
+```
