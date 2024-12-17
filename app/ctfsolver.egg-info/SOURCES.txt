@@ -1,5 +1,6 @@
 LICENSE
 README.md
+pyproject.toml
 setup.cfg
 setup.py
 app/ctfsolver/__init__.py
@@ -25,6 +26,7 @@ app/ctfsolver/src/ctfsolver.py
 app/ctfsolver/src/manager_connections.py
 app/ctfsolver/src/manager_crypto.py
 app/ctfsolver/src/manager_file.py
+app/ctfsolver/src/manager_files_evtx.py
 app/ctfsolver/src/manager_files_pcap.py
 app/ctfsolver/template/__init__.py
 app/ctfsolver/template/__main__.py

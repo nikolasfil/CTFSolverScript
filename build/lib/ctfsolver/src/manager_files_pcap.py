@@ -1,8 +1,4 @@
-from pathlib import Path
-import inspect
 from scapy.all import rdpcap
-import os
-import ast
 
 
 class ManagerFilePcap:
@@ -33,3 +29,29 @@ class ManagerFilePcap:
 
         if save:
             return self.packets
+
+    def searching_text_in_packets(self, text, packets=None, display=False):
+        """
+        Description:
+        Search for a text in the packets that have been opened with scapy
+
+        Args:
+            text (str): Text to search in the packets
+            packets (list, optional): List of packets to search in. Defaults to None.
+            display (bool, optional): Display the packet if the text is found. Defaults to False.
+
+        Returns:
+            str: Text found in the packet if found
+        """
+
+        if packets is None:
+            packets = self.packets
+
+        for i, packet in enumerate(packets):
+            if packet.haslayer("Raw"):
+                if text.encode() in packet["Raw"].load:
+                    if display:
+                        print(f"Found {text} in packet {i}")
+                        print(packet.show())
+                        print(packet.summary())
+                    return packet["Raw"].load.decode("utf-8")

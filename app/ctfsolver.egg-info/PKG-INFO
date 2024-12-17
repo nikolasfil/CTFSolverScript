@@ -10,8 +10,13 @@ Classifier: Programming Language :: Python :: 3.11
 Classifier: Operating System :: OS Independent
 Requires-Python: >=3.11
 Description-Content-Type: text/markdown
-Provides-Extra: dev
 License-File: LICENSE
+Requires-Dist: setuptools>=67.7.0
+Provides-Extra: dev
+Requires-Dist: pytest>=6.2.4; extra == "dev"
+Requires-Dist: twine>=3.4.2; extra == "dev"
+Provides-Extra: docs
+Requires-Dist: pdoc3>=0.11.4; extra == "docs"
 
 Python Solver
 

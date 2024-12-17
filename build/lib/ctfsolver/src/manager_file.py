@@ -1,6 +1,5 @@
 from pathlib import Path
 import inspect
-from scapy.all import rdpcap
 import os
 import ast
 from .manager_files_pcap import ManagerFilePcap
@@ -166,18 +165,6 @@ class ManagerFile(ManagerFilePcap):
                 print(out)
         if save:
             return output
-
-    def pcap_open(self, file=None):
-        """
-        Description:
-        Open the pcap file with scapy and saves it in self.packets
-        """
-        # Todo : Transfer into a different class that will be mainly for packet analysis
-
-        if not file:
-            file = self.challenge_file
-
-        self.packets = rdpcap(file.as_posix())
 
     def search_files(
         self, directory, exclude_dirs, search_string, save=False, display=False
