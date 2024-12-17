@@ -1,8 +1,4 @@
-from pathlib import Path
-import inspect
 from scapy.all import rdpcap
-import os
-import ast
 
 
 class ManagerFilePcap:
