@@ -3,6 +3,7 @@ import inspect
 import os
 import ast
 from .manager_files_pcap import ManagerFilePcap
+from warnings import depracated
 
 
 class ManagerFile(ManagerFilePcap):
@@ -207,10 +208,8 @@ class ManagerFile(ManagerFilePcap):
         if save:
             return output
 
+    @depracated("Depracated, checkout search_for_base64_file")
     def search_for_base64(self, file, *args, **kwargs):
-        """
-        Depracated, checkout search_for_base64_file
-        """
         return self.search_for_base64_file(file, *args, **kwargs)
 
     def search_for_base64_file(self, file, *args, **kwargs):
