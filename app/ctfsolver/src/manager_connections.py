@@ -26,11 +26,34 @@ class ManagerConnections:
             Connects to the challenge based on the connection type.
             If the connection type is remote, it connects to the url and port provided.
             If the connection type is local, it starts a process with the file provided.
+
+
+            local:
+                kwargs :
+                    argv: Any | None = None,
+                    shell: bool = False,
+                    executable: Any | None = None,
+                    cwd: Any | None = None,
+                    env: Any | None = None,
+                    ignore_environ: Any | None = None,
+                    stdin: int = PIPE,
+                    stdout: PTY | int = PTY if not IS_WINDOWS else PIPE,
+                    stderr: int = STDOUT,
+                    close_fds: bool = True,
+                    preexec_fn: Any = lambda : None,
+                    raw: bool = True,
+                    aslr: Any | None = None,
+                    setuid: Any | None = None,
+                    where: str = 'local',
+                    display: Any | None = None,
+                    alarm: Any | None = None,
+                    creationflags: int = 0
+
         """
         if self.conn_type == "remote" and self.url and self.port:
             self.conn = self.pwn.remote(self.url, self.port)
         elif self.conn_type == "local" and self.file:
-            self.conn = self.pwn.process(str(self.challenge_file))
+            self.conn = self.pwn.process(str(self.challenge_file), **kwargs)
 
     def recv_menu(self, number=1, display=False, save=False):
         """

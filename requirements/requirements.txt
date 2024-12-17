@@ -1,1 +1,5 @@
+build>=0.7.0
+pwntools>=4.0.0
+scapy>=2.0.0
 setuptools>=67.7.0
+wheel>=0.37.0
