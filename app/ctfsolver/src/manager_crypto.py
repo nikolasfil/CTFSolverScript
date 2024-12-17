@@ -6,7 +6,15 @@ class ManagerCrypto:
     def __init__(self, *args, **kwargs) -> None:
         pass
 
-    def xor(self, text, key):
+    def initializing_all_ancestors(self, *args, **kwargs):
+        """
+        Description:
+            Initializes all the ancestors of the class
+
+        """
+        pass
+
+    def xor(self, text: str, key: str) -> str:
         """
         Description:
         XOR the text with the key
@@ -37,34 +45,7 @@ class ManagerCrypto:
             print(e)
             return None
 
-    def searching_text_in_packets(self, text, packets=None, display=False):
-        """
-        Description:
-        Search for a text in the packets that have been opened with scapy
-
-        Args:
-            text (str): Text to search in the packets
-            packets (list, optional): List of packets to search in. Defaults to None.
-            display (bool, optional): Display the packet if the text is found. Defaults to False.
-
-        Returns:
-            str: Text found in the packet if found
-        """
-
-        # Todo : Transfer into a different class that will be mainly for packet analysis
-        if not packets:
-            packets = self.packets
-
-        for i, packet in enumerate(packets):
-            if packet.haslayer("Raw"):
-                if text.encode() in packet["Raw"].load:
-                    if display:
-                        print(f"Found {text} in packet {i}")
-                        print(packet.show())
-                        print(packet.summary())
-                    return packet["Raw"].load.decode("utf-8")
-
-    def re_match_base64_string(self, text, strict=False):
+    def re_match_base64_string(self, text: str, strict=False) -> list[str]:
         """
         Description:
         Find the base64 string in the text
@@ -83,7 +64,7 @@ class ManagerCrypto:
         base64_strings = re.findall(base64_pattern, text)
         return base64_strings
 
-    def re_match_flag(self, text, origin):
+    def re_match_flag(self, text: str, origin: str) -> list[str]:
         """
         Description:
         Find the flag in the text
@@ -98,7 +79,7 @@ class ManagerCrypto:
         flag_pattern = rf"{origin}{{[A-Za-z0-9_]+}}"
         return re.findall(flag_pattern, text)
 
-    def re_match_partial_flag(self, text, origin):
+    def re_match_partial_flag(self, text: str, origin: str) -> list[str]:
         """
         Description:
         Find the flag in the text or partial flag
