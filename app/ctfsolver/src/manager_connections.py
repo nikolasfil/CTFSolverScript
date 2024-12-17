@@ -28,9 +28,9 @@ class ManagerConnections:
             If the connection type is local, it starts a process with the file provided.
         """
         if self.conn_type == "remote" and self.url and self.port:
-            self.conn = pwn.remote(self.url, self.port)
+            self.conn = self.pwn.remote(self.url, self.port)
         elif self.conn_type == "local" and self.file:
-            self.conn = pwn.process(str(self.challenge_file))
+            self.conn = self.pwn.process(str(self.challenge_file))
 
     def recv_menu(self, number=1, display=False, save=False):
         """
