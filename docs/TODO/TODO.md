@@ -12,7 +12,7 @@
 
 ## Publish in pip ?
 
-## Autoamted solver
+## Automated solver
 
 - ~Automate the sphynx api documentation ( perhaps a git precommit )~
 
