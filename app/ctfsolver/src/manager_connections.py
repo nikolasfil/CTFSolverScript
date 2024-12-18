@@ -1,5 +1,4 @@
 import pwn
-from warnings import deprecated
 
 
 class ManagerConnections:
@@ -56,9 +55,8 @@ class ManagerConnections:
         elif self.conn_type == "local" and self.file:
             self.conn = self.pwn.process(str(self.challenge_file), **kwargs)
 
-    @deprecated("Depracated function. Use recv_lines instead.")
     def recv_menu(self, number=1, display=False, save=False):
-        pass
+        raise DeprecationWarning("Depracated function. Use recv_lines instead.")
 
     def recv_lines(self, number=1, display=False, save=False):
         """

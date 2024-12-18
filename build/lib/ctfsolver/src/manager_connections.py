@@ -56,10 +56,7 @@ class ManagerConnections:
             self.conn = self.pwn.process(str(self.challenge_file), **kwargs)
 
     def recv_menu(self, number=1, display=False, save=False):
-        """
-        Depracated function. Use recv_lines instead.
-        """
-        raise DeprecationWarning("recv_menu is deprecated. Use recv_lines instead.")
+        raise DeprecationWarning("Depracated function. Use recv_lines instead.")
 
     def recv_lines(self, number=1, display=False, save=False):
         """
