@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ctfsolver — Introduction Page Examples (MyST & RST)</title>
+  <style>
+    :root{
+      --bg:#0f1220; --panel:#151a2e; --text:#e6e9ef; --muted:#aab0c0; --code:#c9d1ff; --border:#2a3358; --accent:#8aadf4;
+    }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,Cantarell,"Noto Sans",Arial;}
+    header{position:sticky;top:0;background:linear-gradient(180deg,rgba(21,26,46,.96),rgba(21,26,46,.85));backdrop-filter:blur(8px);border-bottom:1px solid var(--border);z-index:10}
+    header .inner{max-width:1000px;margin:0 auto;padding:16px 20px;display:flex;gap:14px;align-items:center}
+    h1{font-size:22px;margin:0}
+    main{max-width:1000px;margin:0 auto;padding:28px 20px 60px}
+    .card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px;margin-bottom:22px}
+    h2{margin:8px 0 14px}
+    .desc{color:var(--muted)}
+    pre{background:#0b0e1a;border:1px solid var(--border);border-radius:12px;padding:14px;overflow:auto}
+    code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;color:var(--code)}
+    .copy{float:right;font-size:12px;background:transparent;color:var(--muted);border:1px solid var(--border);border-radius:8px;padding:4px 8px;cursor:pointer}
+    .copy:hover{color:var(--text);border-color:var(--accent)}
+    .hint{color:var(--muted);font-size:14px;margin-top:8px}
+    footer{margin-top:36px;color:var(--muted);font-size:13px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="inner">
+      <h1>ctfsolver — Introduction Page Examples (drop‑in for Sphinx docs)</h1>
+    </div>
+  </header>
+  <main>
+    <div class="card">
+      <h2>How to use this file</h2>
+      <p class="desc">Copy one of the following blocks into your project as:
+      <code>docs/source/introduction.md</code> (MyST) or <code>docs/source/introduction.rst</code> (RST), then reference it from your <code>index.md</code>/<code>index.rst</code> via a <em>toctree</em>.</p>
+    </div>
+
+    <div class="card">
+      <button class="copy" data-copy="#myst">Copy MyST block</button>
+      <h2>Option 1 — <code>introduction.md</code> (MyST Markdown)</h2>
+      <pre id="myst"><code># Welcome to ctfsolver Documentation
+
+```{note}
+This library is designed for **CTF enthusiasts**, pentesters, and security researchers.
+```
+
+## Features
+
+- Automated tooling for common CTF categories
+- Forensics, crypto, and steganography helpers
+- Scriptable workflows with Python API
+- Extensible via plugins
+
+## Installation
+
+```bash
+python -m pip install ctfsolver
+```
+
+```{tip}
+Use editable mode during development:
+```bash
+python -m pip install -e .
+```
+```
+
+## Quick Start
+
+```python
+from ctfsolver.managers import manager_crypto
+result = manager_crypto.encrypt_caesar("HELLO", shift=3)
+print(result)  # 'KHOOR'
+```
+
+## Code Block with Line Numbers
+
+```{code-block} python
+:linenos:
+
+from ctfsolver.inline import inline_tool
+inline_tool.run()
+```
+
+## Admonitions
+
+```{warning}
+Experimental modules may change without notice.
+```
+
+```{important}
+Always test functions on **sample data** before production use.
+```
+
+## Lists and Tables
+
+**Numbered list:**
+1. Install the package
+2. Import the module
+3. Run the function
+
+**Table:**
+
+| Module               | Description                  |
+|----------------------|------------------------------|
+| `manager_crypto`     | Cryptography utilities       |
+| `manager_file`       | File handling and analysis   |
+
+## Including Other Docs
+
+```{include} ../../README.md
+:relative-docs: docs/source/
+:relative-images:
+```
+</code></pre>
+      <p class="hint">Requires <code>myst_parser</code> enabled in <code>conf.py</code>. The fenced directives above (e.g., <code>{note}</code>, <code>{include}</code>) are MyST features.</p>
+    </div>
+
+    <div class="card">
+      <button class="copy" data-copy="#rst">Copy RST block</button>
+      <h2>Option 2 — <code>introduction.rst</code> (reStructuredText)</h2>
+      <pre id="rst"><code>Welcome to ctfsolver Documentation
+==================================
+
+.. note::
+   This library is designed for **CTF enthusiasts**, pentesters, and security researchers.
+
+Features
+--------
+- Automated tooling for common CTF categories
+- Forensics, crypto, and steganography helpers
+- Scriptable workflows with Python API
+- Extensible via plugins
+
+Installation
+------------
+.. code-block:: bash
+
+   python -m pip install ctfsolver
+
+.. tip::
+   Use editable mode during development:
+
+   .. code-block:: bash
+
+      python -m pip install -e .
+
+Quick Start
+-----------
+.. code-block:: python
+
+   from ctfsolver.managers import manager_crypto
+   result = manager_crypto.encrypt_caesar("HELLO", shift=3)
+   print(result)  # 'KHOOR'
+
+Code Block with Line Numbers
+----------------------------
+.. code-block:: python
+   :linenos:
+
+   from ctfsolver.inline import inline_tool
+   inline_tool.run()
+
+Admonitions
+-----------
+.. warning::
+   Experimental modules may change without notice.
+
+.. important::
+   Always test functions on **sample data** before production use.
+
+Lists and Tables
+----------------
+**Numbered list:**
+
+#. Install the package
+#. Import the module
+#. Run the function
+
+**Table:**
+
++-------------------+--------------------------------+
+| Module            | Description                    |
++===================+================================+
+| ``manager_crypto``| Cryptography utilities         |
++-------------------+--------------------------------+
+| ``manager_file``  | File handling and analysis     |
++-------------------+--------------------------------+
+
+Including Other Docs
+--------------------
+.. include:: ../../README.md
+   :parser: myst_parser.sphinx_
+</code></pre>
+      <p class="hint">The <code>:parser:</code> option lets you include Markdown <code>README.md</code> from an RST page when using MyST.</p>
+    </div>
+
+    <footer>
+      Save this HTML anywhere (e.g., <code>docs/introduction_examples.html</code>) for reference. Copy a block above into your Sphinx <code>docs/source/</code>.
+    </footer>
+  </main>
+  <script>
+    document.querySelectorAll('.copy').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const sel = btn.getAttribute('data-copy');
+        const el = document.querySelector(sel);
+        if (!el) return;
+        const text = el.innerText;
+        navigator.clipboard.writeText(text).then(() =>{
+          const old = btn.textContent; btn.textContent = 'Copied!';
+          setTimeout(()=> btn.textContent = old, 1200);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

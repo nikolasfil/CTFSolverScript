@@ -1,0 +1,187 @@
+ctfsolver.managers.manager_crypto
+=================================
+
+.. py:module:: ctfsolver.managers.manager_crypto
+
+.. autoapi-nested-parse::
+
+   manager_crypto.py
+
+   This module provides cryptographic utility functions for CTF (Capture The Flag) challenges,
+   including XOR encryption, Base64 decoding, and regular expression-based extraction of flags
+   and encoded strings from text.
+
+   Classes:
+       ManagerCrypto: A class containing methods for cryptographic operations and pattern matching.
+
+   Typical usage example:
+       crypto = ManagerCrypto()
+       decoded = crypto.decode_base64(encoded_text)
+       flags = crypto.re_match_flag(text, "FLAG")
+
+   .. method:: initializing_all_ancestors(*args, **kwargs)
+
+      
+      Initializes all ancestors of the class (placeholder).
+      
+
+   .. method:: xor(text
+
+      str, key: str) -> str:
+      XORs the input text with the provided key.
+      
+
+   .. method:: decode_base64(text
+
+      str) -> str:
+      Decodes a Base64-encoded string.
+      
+
+   .. method:: re_match_base64_string(text
+
+      str, strict=False) -> list[str]:
+      Finds Base64 strings in the input text using regular expressions.
+      
+
+   .. method:: re_match_flag(text
+
+      str, origin: str) -> list[str]:
+      Extracts flags matching the given origin from the text.
+      
+
+   .. method:: re_match_partial_flag(text
+
+      str, origin: str) -> list[str]:
+      Extracts partial or complete flags matching the given origin from the text.
+      
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   ctfsolver.managers.manager_crypto.ManagerCrypto
+
+
+Module Contents
+---------------
+
+.. py:class:: ManagerCrypto(*args, **kwargs)
+
+   ManagerCrypto provides utility methods for common cryptographic operations and flag extraction used in CTF challenges.
+   .. method:: initializing_all_ancestors(*args, **kwargs)
+
+      
+      Initializes all ancestors of the class. (Currently a placeholder.)
+
+   .. method:: xor(text
+
+      str, key: str) -> str:
+      XORs the input text with the provided key and returns the result as a string.
+
+   .. method:: decode_base64(text
+
+      str) -> str:
+      Decodes a base64-encoded string and returns the decoded text.
+
+   .. method:: re_match_base64_string(text
+
+      str, strict: bool = False) -> list[str]:
+      Finds and returns all base64 strings in the input text. If strict is True, matches only strings with padding.
+
+   .. method:: re_match_flag(text
+
+      str, origin: str) -> list[str]:
+      Searches for flags in the input text matching the pattern '{origin}{...}' and returns all matches.
+
+   .. method:: re_match_partial_flag(text
+
+      str, origin: str) -> list[str]:
+      Searches for partial flags in the input text matching the pattern '{origin}{...}' or '{...}' and returns all matches.
+      
+      
+
+
+   .. py:method:: initializing_all_ancestors(*args, **kwargs)
+
+      Description:
+          Initializes all the ancestors of the class
+
+
+
+
+   .. py:method:: xor(text: str, key: str) -> str
+
+      Description:
+      XOR the text with the key
+
+      :param text: Text to XOR
+      :type text: str
+      :param key: Key to XOR
+      :type key: str
+
+      :returns: XORed text
+      :rtype: str
+
+
+
+   .. py:method:: decode_base64(text)
+
+      Description:
+      Decode the base64 text
+
+      :param text: Base64 encoded text
+      :type text: str
+
+      :returns: Decoded text
+      :rtype: str
+
+
+
+   .. py:method:: re_match_base64_string(text: str, strict=False) -> list[str]
+
+      Description:
+      Find the base64 string in the text
+
+      :param text: Text to search for base64 string
+      :type text: str
+      :param strict: If True, it will only return the base64 string. Defaults to False.
+      :type strict: bool, optional
+
+      :returns: list of Base64 string found in the text
+      :rtype: str
+
+
+
+   .. py:method:: re_match_flag(text: str, origin: str) -> list[str]
+
+      Description:
+      Find the flag in the text
+
+      :param text: Text to search for the flag
+      :type text: str
+      :param origin: Origin of the flag
+      :type origin: str
+
+      :returns: list of flag found in the text
+      :rtype: str
+
+
+
+   .. py:method:: re_match_partial_flag(text: str, origin: str) -> list[str]
+
+      Description:
+      Find the flag in the text or partial flag
+
+      :param text: Text to search for the flag
+      :type text: str
+      :param origin: Origin of the flag
+      :type origin: str
+
+      :returns: list of flag found in the text
+      :rtype: str
+
+
+

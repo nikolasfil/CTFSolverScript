@@ -1,0 +1,56 @@
+ctfsolver.folders.link_ctf_folders
+==================================
+
+.. py:module:: ctfsolver.folders.link_ctf_folders
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   ctfsolver.folders.link_ctf_folders.linking
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   ctfsolver.folders.link_ctf_folders.Linking
+
+
+Module Contents
+---------------
+
+.. py:class:: Linking(*args, **kwargs)
+
+   Bases: :py:obj:`ctfsolver.managers.manager_file.ManagerFile`
+
+
+   .. py:attribute:: categories
+
+
+   .. py:attribute:: site
+
+
+   .. py:method:: handling_global_config()
+
+
+   .. py:method:: get_categories()
+
+
+   .. py:method:: get_all_sites()
+
+
+   .. py:method:: get_challenges(category=None, site=None, folder=True)
+
+
+   .. py:method:: temp()
+
+
+   .. py:method:: main()
+
+
+.. py:data:: linking
+

@@ -1,0 +1,52 @@
+ctfsolver.folders.finding_writeups
+==================================
+
+.. py:module:: ctfsolver.folders.finding_writeups
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   ctfsolver.folders.finding_writeups.Folder_Structure
+
+
+Module Contents
+---------------
+
+.. py:class:: Folder_Structure(*args, **kwargs)
+
+   Bases: :py:obj:`ctfsolver.CTFSolver`
+
+
+   Descritpion:
+
+   Display a table for all the ctfs that don't have a proper folder structure
+
+
+   .. py:method:: printing_table(challenges)
+
+
+   .. py:method:: printing_table_diff(challenges)
+
+
+   .. py:method:: getting_challenges(path=None, folder=True)
+
+
+   .. py:method:: writeup_cleanup(writeups, exclude=None)
+
+
+   .. py:method:: lowering(challenges)
+
+
+   .. py:method:: differ(challenges, writeups)
+
+
+   .. py:method:: main()
+
+      Description:
+          Placeholder for the main function
+
+
+

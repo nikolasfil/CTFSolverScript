@@ -1,0 +1,29 @@
+ctfsolver.find_usage.__main__
+=============================
+
+.. py:module:: ctfsolver.find_usage.__main__
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   ctfsolver.find_usage.__main__.find_usage
+
+
+Module Contents
+---------------
+
+.. py:function:: find_usage()
+
+   Searches for the usage of a specific import statement within the project files.
+   This function initializes folder and error managers, then searches for files containing
+   the specified import statement, excluding certain directories. Results are displayed.
+   :param None:
+
+   :returns: None
+
+   :raises Any exceptions raised by `ManagerFolder.search_files` are handled by `ManagerError.try_function`.:
+
+

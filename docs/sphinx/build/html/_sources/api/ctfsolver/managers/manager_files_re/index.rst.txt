@@ -1,0 +1,65 @@
+ctfsolver.managers.manager_files_re
+===================================
+
+.. py:module:: ctfsolver.managers.manager_files_re
+
+.. autoapi-nested-parse::
+
+   manager_files_re.py
+
+   This module provides the ManagerFileRegex class for extracting printable strings from files using regular expressions.
+
+   Classes:
+       ManagerFileRegex:
+           A manager class for file operations involving regular expressions,
+           including extracting printable ASCII strings from binary files.
+
+   Usage:
+       Instantiate ManagerFileRegex and use its methods to process files for printable string extraction.
+
+   .. rubric:: Example
+
+   manager = ManagerFileRegex()
+   strings = manager.extract_strings("/path/to/file", min_length=4)
+
+   .. attribute:: None
+
+      
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   ctfsolver.managers.manager_files_re.ManagerFileRegex
+
+
+Module Contents
+---------------
+
+.. py:class:: ManagerFileRegex(*args, **kwargs)
+
+   .. py:method:: initializing_all_ancestors(*args, **kwargs)
+
+      Description:
+          Initializes all the ancestors of the class
+
+
+
+   .. py:method:: extract_strings(file_path, min_length=4)
+
+      Description:
+          Extracts printable strings from a file
+
+      :param file_path: The path to the file
+      :type file_path: str
+      :param min_length: The minimum length of the string to extract
+      :type min_length: int
+
+      :returns: The list of strings
+      :rtype: list
+
+
+

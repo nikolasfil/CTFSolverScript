@@ -1,0 +1,26 @@
+ctfsolver.src.data.data
+=======================
+
+.. py:module:: ctfsolver.src.data.data
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   ctfsolver.src.data.data.categories
+   ctfsolver.src.data.data.sites
+
+
+Module Contents
+---------------
+
+.. py:data:: categories
+   :value: ['Coding', 'Notes', 'Osint', 'Resources', 'Stego', 'Binary', 'Blockchain', 'Cryptography',...
+
+
+.. py:data:: sites
+   :value: ['ECSC', 'ctflearn', 'picoCTF', 'TryHackMe', 'HackTheBox', 'OverTheWire', 'RootMe', 'HTB',...
+
+

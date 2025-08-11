@@ -1,0 +1,15 @@
+ctfsolver.forensics
+===================
+
+.. py:module:: ctfsolver.forensics
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /api/ctfsolver/forensics/manager_dash/index
+
+

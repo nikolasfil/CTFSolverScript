@@ -1,0 +1,15 @@
+ctfsolver.error
+===============
+
+.. py:module:: ctfsolver.error
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /api/ctfsolver/error/manager_error/index
+
+

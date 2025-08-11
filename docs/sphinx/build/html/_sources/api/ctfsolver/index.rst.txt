@@ -1,0 +1,590 @@
+ctfsolver
+=========
+
+.. py:module:: ctfsolver
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /api/ctfsolver/config/index
+   /api/ctfsolver/error/index
+   /api/ctfsolver/find_usage/index
+   /api/ctfsolver/folders/index
+   /api/ctfsolver/forensics/index
+   /api/ctfsolver/inline/index
+   /api/ctfsolver/managers/index
+   /api/ctfsolver/scripts/index
+   /api/ctfsolver/src/index
+   /api/ctfsolver/template/index
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   ctfsolver.CTFSolver
+   ctfsolver.ManagerConnections
+   ctfsolver.ManagerCrypto
+   ctfsolver.ManagerFile
+
+
+Package Contents
+----------------
+
+.. py:class:: CTFSolver(*args, **kwargs)
+
+   Bases: :py:obj:`ctfsolver.managers.manager_file.ManagerFile`, :py:obj:`ctfsolver.managers.manager_connections.ManagerConnections`, :py:obj:`ctfsolver.managers.manager_crypto.ManagerCrypto`, :py:obj:`ctfsolver.error.manager_error.ManagerError`
+
+
+   CTFSolver is a composite manager class designed to facilitate solving Capture The Flag (CTF) challenges.
+   It inherits functionality from ManagerFile, ManagerConnections, ManagerCrypto, and ManagerError, providing
+   a unified interface for file management, network connections, cryptographic operations, and error handling.
+   .. attribute:: debug
+
+      Enables or disables debug mode for verbose output.
+
+      :type: bool
+
+   .. attribute:: parent
+
+      The name of the parent folder (inherited from ManagerFile).
+
+      :type: str
+
+   .. method:: __init__(*args, **kwargs)
+
+      
+      Initializes all ancestor classes and sets up the CTFSolver instance.
+
+   .. method:: initializing_all_ancestors(*args, **kwargs)
+
+      
+      Initializes all ancestor classes (ManagerFile, ManagerCrypto, ManagerConnections, ManagerError).
+
+   .. method:: main()
+
+      
+      Placeholder for the main logic of the solver. Should be implemented with challenge-specific logic.
+
+   .. method:: try_main()
+
+      
+      Executes the main function, handling exceptions and user interruptions gracefully.
+
+   .. method:: __str__()
+
+      
+      Returns a string representation of the CTFSolver instance, including the parent folder name.
+      
+
+
+   .. py:attribute:: debug
+
+
+   .. py:method:: initializing_all_ancestors(*args, **kwargs)
+
+      Description:
+          Initializes all the ancestors of the class
+
+
+
+   .. py:method:: main()
+
+      Description:
+          Placeholder for the main function
+
+
+
+   .. py:method:: try_main()
+
+      Attempts to execute the main function of the class, handling exceptions gracefully.
+      This method wraps the execution of the `main` method in a try-except block to handle
+      any unexpected errors or user interruptions. If an exception occurs, it prints an
+      error message with the exception details. If the process is interrupted by the user
+      (e.g., via a keyboard interrupt), it prints a corresponding message.
+      Exceptions:
+          Exception: Catches and prints any general exceptions that occur during the
+                     execution of the `main` method.
+          KeyboardInterrupt: Handles user-initiated interruptions and prints a message.
+
+
+
+   .. py:method:: __str__()
+
+      Description:
+          Returns the string representation of the class, mainly the name of the parent folder
+
+      :returns: _description_
+      :rtype: _type_
+
+
+
+.. py:class:: ManagerConnections(*args, **kwargs)
+
+   Manages connections to CTF challenges, supporting both local and remote modes.
+   This class provides methods to initiate and manage connections to CTF challenges,
+   either by spawning a local process or connecting to a remote host. It also offers
+   utilities for interacting with typical menu-driven CTF binaries, including sending
+   choices, receiving lines, and handling menu prompts.
+   .. attribute:: pwn
+
+      The pwntools module or object used for process and remote connections.
+
+   .. attribute:: url
+
+      The remote host URL or IP address.
+
+      :type: str
+
+   .. attribute:: port
+
+      The remote host port.
+
+      :type: int
+
+   .. attribute:: conn_type
+
+      Type of connection, either 'local' or 'remote'.
+
+      :type: str
+
+   .. attribute:: conn
+
+      The active connection object (process or remote).
+
+   .. attribute:: menu_num
+
+      Number of menu options expected.
+
+      :type: int
+
+   .. attribute:: menu_text
+
+      Text prompt expected before sending a menu choice.
+
+      :type: str
+
+   .. attribute:: debug
+
+      Flag to enable debug mode.
+
+      :type: bool
+
+   .. method:: __init__(*args, **kwargs)
+
+      
+      Initializes the ManagerConnections instance with connection parameters.
+
+   .. method:: initiate_connection(*args, **kwargs)
+
+      
+      Initiates the connection based on the specified connection type.
+
+   .. method:: connect(*args, **kwargs)
+
+      
+      Connects to the challenge locally or remotely, depending on conn_type.
+
+   .. method:: recv_menu(number=1, display=False, save=False)
+
+      
+      Deprecated. Use recv_lines instead.
+
+   .. method:: recv_lines(number=1, display=False, save=False)
+
+      
+      Receives a specified number of lines from the connection.
+
+   .. method:: send_menu(choice, menu_num=None, menu_text=None, display=False, save=False)
+
+      
+      Sends a choice to a menu-driven binary, handling menu prompts and output.
+
+   .. method:: recv_send(text, lines=None, text_until=None, display=False, save=False)
+
+      
+      Receives lines and/or text until a prompt, then sends a response.
+
+   .. method:: send(text, encode=True)
+
+      
+      Sends text to the connection, optionally encoding it.
+
+   .. method:: recv_until(text, **kwargs)
+
+      
+      Receives data until a specified delimiter is encountered.
+      
+
+
+   .. py:attribute:: pwn
+
+
+   .. py:attribute:: url
+
+
+   .. py:attribute:: port
+
+
+   .. py:attribute:: conn_type
+
+
+   .. py:attribute:: conn
+      :value: None
+
+
+
+   .. py:attribute:: menu_num
+      :value: None
+
+
+
+   .. py:attribute:: menu_text
+      :value: None
+
+
+
+   .. py:attribute:: debug
+
+
+   .. py:method:: initiate_connection(*args, **kwargs) -> None
+
+      Initiates a connection using the specified connection type and parameters.
+      :param \*args: Variable length argument list to be passed to the connection method.
+      :param \*\*kwargs: Arbitrary keyword arguments to be passed to the connection method.
+
+      :returns: None
+
+
+
+   .. py:method:: connect(*args, **kwargs) -> None
+
+      Description:
+          Connects to the challenge based on the connection type.
+          If the connection type is remote, it connects to the url and port provided.
+          If the connection type is local, it starts a process with the file provided.
+
+
+          local:
+              kwargs :
+                  argv: Any | None = None,
+                  shell: bool = False,
+                  executable: Any | None = None,
+                  cwd: Any | None = None,
+                  env: Any | None = None,
+                  ignore_environ: Any | None = None,
+                  stdin: int = PIPE,
+                  stdout: PTY | int = PTY if not IS_WINDOWS else PIPE,
+                  stderr: int = STDOUT,
+                  close_fds: bool = True,
+                  preexec_fn: Any = lambda : None,
+                  raw: bool = True,
+                  aslr: Any | None = None,
+                  setuid: Any | None = None,
+                  where: str = 'local',
+                  display: Any | None = None,
+                  alarm: Any | None = None,
+                  creationflags: int = 0
+
+
+
+
+   .. py:method:: recv_menu(number=1, display=False, save=False)
+
+
+   .. py:method:: recv_lines(number=1, display=False, save=False)
+
+      Description:
+          Receives the output of the menu based on the number of lines provided.
+          If display is True, it prints the output of everything received.
+          If save is True, it saves the output in a list and returns it.
+
+      :param number: Number of lines to receive . Defaults to 1.
+      :type number: int, optional
+      :param display: Displayes the lines received. Defaults to False.
+      :type display: bool, optional
+      :param save: Saves the lines received to a list. Defaults to False.
+      :type save: bool, optional
+
+      :returns: list of the lines received if save is True
+      :rtype: list
+
+
+
+   .. py:method:: send_menu(choice, menu_num=None, menu_text=None, display=False, save=False)
+
+      Description:
+          Gets the menu num either from the class or from the function call and saves it to the class.
+          Gets the menu text that the menu is providing, receives until the menu asks for choice and then send out the choice.
+          If save is True, it saves the output of the menu in a list and returns it.
+          If display is True, it prints the output of everything received.
+
+      :param choice: Choice to send to the menu
+      :type choice: int or str
+      :param menu_num: Number of options printed in the menu. Defaults to None.
+      :type menu_num: int, optional
+      :param menu_text: Text that the menu asks before sending your choice. Defaults to None.
+      :type menu_text: str, optional
+      :param display: Variable to print every received line. Defaults to False.
+      :type display: bool, optional
+      :param save: . Defaults to False.
+      :type save: bool, optional
+
+      :returns: List of output of the menu if save is True
+      :rtype: list
+
+
+
+   .. py:method:: recv_send(text, lines=None, text_until=None, display=False, save=False)
+
+      Description:
+          Receives lines and sends a response.
+          It can receive a number or lines, and/or specific text.
+          If save is True, it saves the output of the menu in a list and returns it.
+          If display is True, it prints the output of everything received.
+
+      :param choice: Choice to send to the menu
+      :type choice: int or str
+      :param menu_num: Number of options printed in the menu. Defaults to None.
+      :type menu_num: int, optional
+      :param menu_text: Text that the menu asks before sending your choice. Defaults to None.
+      :type menu_text: str, optional
+      :param display: Variable to print every received line. Defaults to False.
+      :type display: bool, optional
+      :param save: . Defaults to False.
+      :type save: bool, optional
+
+      :returns: List of output of the menu if save is True
+      :rtype: list
+
+
+
+   .. py:method:: send(text, encode=True) -> None
+
+      Description:
+          Sends the text to the connection after it encodes it.
+          Wrapper for self.conn.sendline(str(text).encode())
+
+      :param text: Text to send
+      :type text: str
+
+
+
+   .. py:method:: recv_until(text, **kwargs) -> bytes
+
+      Description:
+          Receive data until one of `delims`(text) provided is encountered. It encodes the text before sending it.
+          Wrapper for self.conn.recvuntil(text.encode())
+          Can also drop the ending if drop is True. If the request is not satisfied before ``timeout`` seconds pass, all data is buffered and an empty string (``''``) is returned.
+      :param text: Text to receive until
+      :type text: str
+      :param \*\*kwargs: Additional keyword arguments to pass to the recv
+                         - drop (bool, optional): Drop the ending.  If :const:`True` it is removed from the end of the return value. Defaults to False.
+                         - timeout (int, optional): Timeout in seconds. Defaults to default.
+
+      :raises exceptions.EOFError: The connection closed before the request could be satisfied
+
+      :returns: A string containing bytes received from the socket,
+                or ``''`` if a timeout occurred while waiting.
+
+
+
+.. py:class:: ManagerCrypto(*args, **kwargs)
+
+   ManagerCrypto provides utility methods for common cryptographic operations and flag extraction used in CTF challenges.
+   .. method:: initializing_all_ancestors(*args, **kwargs)
+
+      
+      Initializes all ancestors of the class. (Currently a placeholder.)
+
+   .. method:: xor(text
+
+      str, key: str) -> str:
+      XORs the input text with the provided key and returns the result as a string.
+
+   .. method:: decode_base64(text
+
+      str) -> str:
+      Decodes a base64-encoded string and returns the decoded text.
+
+   .. method:: re_match_base64_string(text
+
+      str, strict: bool = False) -> list[str]:
+      Finds and returns all base64 strings in the input text. If strict is True, matches only strings with padding.
+
+   .. method:: re_match_flag(text
+
+      str, origin: str) -> list[str]:
+      Searches for flags in the input text matching the pattern '{origin}{...}' and returns all matches.
+
+   .. method:: re_match_partial_flag(text
+
+      str, origin: str) -> list[str]:
+      Searches for partial flags in the input text matching the pattern '{origin}{...}' or '{...}' and returns all matches.
+      
+      
+
+
+   .. py:method:: initializing_all_ancestors(*args, **kwargs)
+
+      Description:
+          Initializes all the ancestors of the class
+
+
+
+
+   .. py:method:: xor(text: str, key: str) -> str
+
+      Description:
+      XOR the text with the key
+
+      :param text: Text to XOR
+      :type text: str
+      :param key: Key to XOR
+      :type key: str
+
+      :returns: XORed text
+      :rtype: str
+
+
+
+   .. py:method:: decode_base64(text)
+
+      Description:
+      Decode the base64 text
+
+      :param text: Base64 encoded text
+      :type text: str
+
+      :returns: Decoded text
+      :rtype: str
+
+
+
+   .. py:method:: re_match_base64_string(text: str, strict=False) -> list[str]
+
+      Description:
+      Find the base64 string in the text
+
+      :param text: Text to search for base64 string
+      :type text: str
+      :param strict: If True, it will only return the base64 string. Defaults to False.
+      :type strict: bool, optional
+
+      :returns: list of Base64 string found in the text
+      :rtype: str
+
+
+
+   .. py:method:: re_match_flag(text: str, origin: str) -> list[str]
+
+      Description:
+      Find the flag in the text
+
+      :param text: Text to search for the flag
+      :type text: str
+      :param origin: Origin of the flag
+      :type origin: str
+
+      :returns: list of flag found in the text
+      :rtype: str
+
+
+
+   .. py:method:: re_match_partial_flag(text: str, origin: str) -> list[str]
+
+      Description:
+      Find the flag in the text or partial flag
+
+      :param text: Text to search for the flag
+      :type text: str
+      :param origin: Origin of the flag
+      :type origin: str
+
+      :returns: list of flag found in the text
+      :rtype: str
+
+
+
+.. py:class:: ManagerFile(*args, **kwargs)
+
+   Bases: :py:obj:`ctfsolver.managers.manager_files_pcap.ManagerFilePcap`, :py:obj:`ctfsolver.managers.manager_files_re.ManagerFileRegex`, :py:obj:`ctfsolver.managers.manager_folder.ManagerFolder`
+
+
+   ManagerFile class for handling file operations in CTF solving context.
+   This class inherits from ManagerFilePcap, ManagerFileRegex, and ManagerFolder,
+   providing methods for initializing file-related ancestors and searching for base64
+   strings within files.
+   .. attribute:: None
+
+      
+
+   .. method:: __init__(*args, **kwargs)
+
+      
+      Initializes the ManagerFile instance and its relevant ancestors.
+
+   .. method:: initializing_file_ancestors(*args, **kwargs)
+
+      
+      Initializes ManagerFolder and ManagerFilePcap ancestors.
+
+   .. method:: search_for_base64(file, *args, **kwargs)
+
+      
+      Deprecated. Use search_for_base64_file instead.
+
+   .. method:: search_for_base64_file(file, *args, **kwargs)
+
+      
+      Searches for base64 strings in the specified file.
+          file (str): Path to the file to search.
+          display (bool, optional): If True, prints the output. Defaults to False.
+          save (bool, optional): If True, returns the output as a list. Defaults to False.
+          strict (bool, optional): If True, applies strict matching. Defaults to False.
+          list: List of matched base64 strings if save is True; otherwise, None.
+      
+      
+
+
+   .. py:method:: initializing_file_ancestors(*args, **kwargs)
+
+      Initializes the file ancestor managers for the current instance.
+      This method explicitly calls the initializers of `ManagerFolder` and `ManagerFilePcap`
+      with the provided arguments, ensuring that the current object is properly set up
+      with folder and file pcap management capabilities.
+      :param \*args: Variable length argument list passed to the ancestor initializers.
+      :param \*\*kwargs: Arbitrary keyword arguments passed to the ancestor initializers.
+
+      :returns: None
+
+
+
+   .. py:method:: search_for_base64(file, *args, **kwargs)
+
+      Deprecated: Use search_for_base64_file
+
+
+
+   .. py:method:: search_for_base64_file(file, *args, **kwargs)
+
+      Description:
+      Search for base64 string in the file
+
+      :param file: File to search for the base64 string
+      :type file: str
+      :param display: Display the output. Defaults to False.
+      :type display: bool, optional
+      :param save: Save the output. Defaults to False.
+      :type save: bool, optional
+
+      :returns: List of output if save is True
+      :rtype: list
+
+
+

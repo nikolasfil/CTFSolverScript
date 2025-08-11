@@ -1,0 +1,16 @@
+ctfsolver.template
+==================
+
+.. py:module:: ctfsolver.template
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /api/ctfsolver/template/__main__/index
+   /api/ctfsolver/template/solution_template/index
+
+

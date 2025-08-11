@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sphinx Setup & Usage — Complete Standalone Guide</title>
+  <style>
+    :root {
+      --bg: #0f1220; /* dark indigo */
+      --panel: #14182b;
+      --text: #e6e9ef;
+      --muted: #aab0c0;
+      --accent: #7aa2f7;
+      --accent-2: #9ece6a;
+      --code-bg: #0b0e1a;
+      --border: #273050;
+    }
+    html, body { margin:0; padding:0; background:var(--bg); color:var(--text); font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 32px 20px 80px; }
+    header { position: sticky; top:0; background: linear-gradient(180deg, rgba(20,24,43,.97), rgba(20,24,43,.85)); backdrop-filter: blur(8px); border-bottom:1px solid var(--border); z-index: 10; }
+    header .inner { max-width: 980px; margin: 0 auto; padding: 16px 20px; display:flex; gap:16px; align-items:center; }
+    h1 { font-size: 28px; margin: 0; }
+    nav { margin: 16px 0 24px; background: var(--panel); border:1px solid var(--border); border-radius: 14px; padding: 16px; }
+    nav .title { font-weight: 600; color: var(--muted); margin-bottom: 8px; }
+    nav ol { margin:0; padding-left: 20px; }
+    nav a { color: var(--accent); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    h2 { margin-top: 36px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 22px; }
+    h3 { margin-top: 28px; font-size: 18px; }
+    p, li { color: var(--text); }
+    .panel { background: var(--panel); border:1px solid var(--border); border-radius: 16px; padding: 18px; }
+    .tip, .note, .warn { border-left: 4px solid var(--accent); padding: 12px 14px; background: rgba(122,162,247,.08); border-radius: 8px; }
+    .warn { border-color: #f7768e; background: rgba(247,118,142,.08); }
+    .note { border-color: var(--accent-2); background: rgba(158,206,106,.08); }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 12px; padding: 14px; overflow:auto; }
+    pre code { color: #c0d0ff; }
+    code.inline { background: var(--code-bg); border: 1px solid var(--border); border-radius: 6px; padding: 0 4px; }
+    .kbd { border:1px solid var(--border); background: var(--panel); border-radius:6px; padding:2px 6px; font-family:inherit; }
+    .grid { display:grid; gap:16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .small { color: var(--muted); font-size: 14px; }
+    .copy { float:right; font-size:12px; background:transparent; color:var(--muted); border:1px solid var(--border); border-radius:8px; padding:4px 8px; cursor:pointer; }
+    .copy:hover { color: var(--text); border-color: var(--accent); }
+    footer { margin-top: 48px; color: var(--muted); font-size: 13px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="inner">
+      <h1>Sphinx Setup & Usage — Complete Standalone Guide</h1>
+    </div>
+  </header>
+
+  <div class="wrap">
+
+    <nav>
+      <div class="title">Contents</div>
+      <ol>
+        <li><a href="#prereqs">Prerequisites & Installation</a></li>
+        <li><a href="#project-layout">Recommended Project Layout</a></li>
+        <li><a href="#docstrings">Writing High‑Quality Docstrings</a></li>
+        <li><a href="#quickstart">Create Sphinx Skeleton</a></li>
+        <li><a href="#confpy">Configure <code class="inline">conf.py</code></a></li>
+        <li><a href="#pages">Hand‑Written Pages (MD/RST)</a></li>
+        <li><a href="#api">Auto‑Generated API (autosummary or apidoc)</a></li>
+        <li><a href="#readme">Include README on Homepage (MyST)</a></li>
+        <li><a href="#build">Build, Live Reload & Validation</a></li>
+        <li><a href="#automation">Automation (extras, scripts, CI)</a></li>
+        <li><a href="#tips">Editing Tips, Cross‑refs, Admonitions</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+      </ol>
+    </nav>
+
+    <section id="prereqs">
+      <h2>1) Prerequisites &amp; Installation</h2>
+      <div class="grid">
+        <div class="panel">
+          <h3>Install core tools</h3>
+          <button class="copy" data-copy="#sh-install">Copy</button>
+          <pre id="sh-install"><code>python -m pip install -U sphinx myst-parser sphinx-autobuild sphinx-rtd-theme sphinx-copybutton sphinx-autodoc-typehints</code></pre>
+          <p class="small">Optional themes: <code class="inline">furo</code>, <code class="inline">pydata-sphinx-theme</code></p>
+        </div>
+        <div class="panel">
+          <h3>Why these packages?</h3>
+          <ul>
+            <li><strong>Sphinx</strong>: documentation engine</li>
+            <li><strong>MyST</strong>: Markdown support</li>
+            <li><strong>autobuild</strong>: live reload while editing</li>
+            <li><strong>RTD theme</strong>: clean default theme</li>
+            <li><strong>copybutton</strong>: adds copy buttons to code blocks</li>
+            <li><strong>autodoc-typehints</strong>: renders type hints nicely</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="project-layout">
+      <h2>2) Recommended Project Layout</h2>
+      <pre><code>your-repo/
+├─ pyproject.toml        # or setup.cfg / setup.py
+├─ README.md
+├─ yourpkg/              # your Python package
+│  ├─ __init__.py
+│  └─ ...
+└─ docs/
+   └─ source/
+      ├─ conf.py
+      └─ index.md (or index.rst)
+</code></pre>
+    </section>
+
+    <section id="docstrings">
+      <h2>3) Writing High‑Quality Docstrings</h2>
+      <div class="panel note"><strong>Pick a style</strong>: Google or NumPy. Enable <em>napoleon</em> in <code class="inline">conf.py</code>. Prefer type hints.</div>
+
+      <h3>Module docstring</h3>
+      <pre><code class="language-python">"""
+yourpkg.utils
+=============
+
+Utility helpers for parsing and formatting.
+"""
+</code></pre>
+
+      <h3>Function (Google style)</h3>
+      <pre><code class="language-python">from __future__ import annotations
+
+def slugify(text: str, /, *, sep: str = "-") -&gt; str:
+    """Convert text into a filesystem-friendly slug.
+
+    Args:
+        text: Input text.
+        sep: Separator to use between words.
+
+    Returns:
+        The slugified string.
+
+    Raises:
+        ValueError: If `text` is empty.
+
+    Examples:
+        &gt;&gt;&gt; slugify("Hello World")
+        'hello-world'
+    """
+    if not text:
+        raise ValueError("text cannot be empty")
+    return sep.join(text.lower().split())
+</code></pre>
+
+      <h3>Class (attributes + method)</h3>
+      <pre><code class="language-python">class CostItem:
+    """Represents a single cost entry.
+
+    Attributes:
+        amount: The numeric amount (EUR).
+        category: One of {"card", "cash", "transfer"}.
+        date: ISO date string "YYYY-MM-DD".
+    """
+
+    def __init__(self, amount: float, category: str, date: str):
+        self.amount = amount
+        self.category = category
+        self.date = date
+
+    def yearly(self) -&gt; float:
+        """Return the yearly cost estimation.
+
+        Returns:
+            Estimated yearly cost (float).
+        """
+        return self.amount * 12
+</code></pre>
+
+      <h3>NumPy style alternative</h3>
+      <pre><code class="language-python">def foo(x, y=0):
+    """
+    Do the thing.
+
+    Parameters
+    ----------
+    x : int
+        First value.
+    y : int, optional
+        Offset, by default 0.
+
+    Returns
+    -------
+    int
+        Resulting value.
+    """
+    return x + y
+</code></pre>
+    </section>
+
+    <section id="quickstart">
+      <h2>4) Create Sphinx Skeleton</h2>
+      <p>From the repo root, run:</p>
+      <button class="copy" data-copy="#sh-quickstart">Copy</button>
+      <pre id="sh-quickstart"><code>sphinx-quickstart docs
+# Separate source and build dirs? y
+# Project name: yourpkg
+# Author: You
+# Project release: 0.1.0</code></pre>
+      <p>It creates <code class="inline">docs/source/conf.py</code> and <code class="inline">docs/source/index.rst</code> (or you can use <strong>index.md</strong> with MyST).</p>
+    </section>
+
+    <section id="confpy">
+      <h2>5) Configure <code class="inline">conf.py</code></h2>
+      <div class="panel">
+        <button class="copy" data-copy="#confpy-block">Copy</button>
+        <pre id="confpy-block"><code class="language-python">from __future__ import annotations
+import os, sys
+from datetime import datetime
+
+# Make package importable
+sys.path.insert(0, os.path.abspath("../.."))  # repo root
+
+project = "yourpkg"
+author = "Your Name"
+release = "0.1.0"
+copyright = f"{datetime.now():%Y}, {author}"
+
+extensions = [
+    "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.viewcode",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.autosectionlabel",
+    "sphinx.ext.todo",
+    "sphinx.ext.doctest",
+    "myst_parser",
+    "sphinx_copybutton",
+    "sphinx_autodoc_typehints",
+]
+
+autosummary_generate = True
+
+autodoc_default_options = {
+    "members": True,
+    "undoc-members": False,
+    "inherited-members": True,
+    "show-inheritance": True,
+}
+
+autoclass_content = "class"  # or "both"
+add_module_names = False
+
+napoleon_google_docstring = True
+napoleon_numpy_docstring = False
+
+myst_enable_extensions = ["colon_fence", "deflist", "substitution", "fieldlist"]
+
+intersphinx_mapping = {"python": ("https://docs.python.org/3", {})}
+
+html_theme = "sphinx_rtd_theme"
+html_static_path = ["_static"]
+templates_path = ["_templates"]
+
+todo_include_todos = True
+nitpicky = True  # warn on broken cross-refs
+</code></pre>
+      </div>
+    </section>
+
+    <section id="pages">
+      <h2>6) Hand‑Written Pages (MD/RST)</h2>
+      <p>Create narrative pages in <code class="inline">docs/source/</code> such as <code class="inline">installation.md</code>, <code class="inline">usage.md</code>, <code class="inline">architecture.md</code>, <code class="inline">contributing.md</code>, <code class="inline">changelog.md</code>.</p>
+      <h3>Markdown index (MyST)</h3>
+      <button class="copy" data-copy="#index-md">Copy</button>
+      <pre id="index-md"><code class="language-md"># yourpkg Documentation
+
+Welcome to the documentation for **yourpkg**.
+
+```{toctree}
+:maxdepth: 2
+:hidden:
+
+installation
+usage
+architecture
+api/index
+changelog
+contributing
+```
+</code></pre>
+    </section>
+
+    <section id="api">
+      <h2>7) Auto‑Generated API</h2>
+      <h3>A) autosummary (recommended)</h3>
+      <p>Create the entry point at <code class="inline">docs/source/api/index.rst</code>:</p>
+      <pre><code class="language-rst">API Reference
+=============
+
+.. toctree::
+   :maxdepth: 2
+
+   generated/modules
+</code></pre>
+
+      <p>Add module list at <code class="inline">docs/source/api/modules.rst</code>:</p>
+      <pre><code class="language-rst">.. currentmodule:: yourpkg
+
+.. autosummary::
+   :toctree: generated
+   :recursive:
+
+   yourpkg
+   yourpkg.utils
+   yourpkg.core
+   yourpkg.subpkg
+</code></pre>
+
+      <div class="note">With <code class="inline">autosummary_generate = True</code> in <code class="inline">conf.py</code>, pages under <code class="inline">api/generated/</code> are created during build.</div>
+
+      <h3>B) sphinx-apidoc (CLI)</h3>
+      <button class="copy" data-copy="#apidoc">Copy</button>
+      <pre id="apidoc"><code>sphinx-apidoc -o docs/source/api yourpkg --force</code></pre>
+      <p>Then include <code class="inline">api/modules</code> in your index ToC.</p>
+    </section>
+
+    <section id="readme">
+      <h2>8) Include README on Homepage (MyST)</h2>
+      <p>Append this to <code class="inline">docs/source/index.md</code> to surface your repo README:</p>
+      <button class="copy" data-copy="#readme-code">Copy</button>
+      <pre id="readme-code"><code class="language-md">```{include} ../../README.md
+:relative-docs: docs/source/
+:relative-images:
+```</code></pre>
+      <p class="small">If you use <em>index.rst</em> instead, include with MyST parsing:
+      <code class="inline">.. include:: ../../README.md</code> and <code class="inline">:parser: myst_parser.sphinx_</code>.</p>
+    </section>
+
+    <section id="build">
+      <h2>9) Build, Live Reload &amp; Validation</h2>
+      <div class="grid">
+        <div class="panel">
+          <h3>One‑off build</h3>
+          <button class="copy" data-copy="#build1">Copy</button>
+          <pre id="build1"><code>sphinx-build -b html docs/source docs/_build/html</code></pre>
+          <p class="small">Or inside <code class="inline">docs/</code>: <span class="kbd">make html</span></p>
+        </div>
+        <div class="panel">
+          <h3>Live reload while editing</h3>
+          <button class="copy" data-copy="#build2">Copy</button>
+          <pre id="build2"><code>sphinx-autobuild docs/source docs/_build/html</code></pre>
+          <p class="small">Open the served URL; it rebuilds on file change.</p>
+        </div>
+        <div class="panel">
+          <h3>Doctest (optional)</h3>
+          <button class="copy" data-copy="#build3">Copy</button>
+          <pre id="build3"><code>sphinx-build -b doctest docs/source docs/_build/doctest</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="automation">
+      <h2>10) Automation (extras, scripts, CI)</h2>
+      <h3>Extras in pyproject</h3>
+      <button class="copy" data-copy="#extras">Copy</button>
+      <pre id="extras"><code class="language-toml">[project.optional-dependencies]
+docs = [
+  "sphinx",
+  "myst-parser",
+  "sphinx-rtd-theme",
+  "sphinx-autobuild",
+  "sphinx-copybutton",
+  "sphinx-autodoc-typehints"
+]
+</code></pre>
+      <p>Install with:</p>
+      <pre><code>python -m pip install -e ".[docs]"</code></pre>
+
+      <h3>Regenerate API stubs script (if using apidoc)</h3>
+      <button class="copy" data-copy="#genapi">Copy</button>
+      <pre id="genapi"><code class="language-python"># docs/gen_api.py
+import subprocess, pathlib
+HERE = pathlib.Path(__file__).parent
+SRC = HERE / "source"
+PKG = HERE.parent / "yourpkg"
+APIDIR = SRC / "api"
+APIDIR.mkdir(exist_ok=True)
+subprocess.check_call(["sphinx-apidoc", "-o", str(APIDIR), str(PKG), "--force"])
+</code></pre>
+
+      <h3>GitHub Actions: build &amp; publish to Pages</h3>
+      <button class="copy" data-copy="#gha">Copy</button>
+      <pre id="gha"><code class="language-yaml">name: docs
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e ".[docs]"
+      - run: python docs/gen_api.py || true
+      - run: sphinx-build -b html docs/source docs/_build/html
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/_build/html
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/deploy-pages@v4
+</code></pre>
+    </section>
+
+    <section id="tips">
+      <h2>11) Editing Tips, Cross‑Refs, Admonitions</h2>
+      <div class="grid">
+        <div class="panel">
+          <h3>Cross‑references</h3>
+          <pre><code class="language-rst">.. _installing:
+
+Installation
+------------
+
+See :ref:`installing` and :func:`yourpkg.utils.slugify`.
+</code></pre>
+        </div>
+        <div class="panel">
+          <h3>Admonitions</h3>
+          <pre><code class="language-rst">.. note:: You can pass ISO dates like ``2025-08-01``.
+.. warning:: Experimental feature; API may change.
+.. tip:: Use virtualenvs to isolate dependencies.
+</code></pre>
+        </div>
+        <div class="panel">
+          <h3>Code blocks</h3>
+          <pre><code class="language-rst">.. code-block:: python
+   :linenos:
+
+   from yourpkg import CostItem
+   CostItem(12.5, "card", "2025-08-01").yearly()
+</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="troubleshooting">
+      <h2>12) Troubleshooting</h2>
+      <ul>
+        <li><strong>Module import errors</strong>: Ensure <code class="inline">sys.path.insert(0, os.path.abspath("../.."))</code> points to repo root in <code class="inline">conf.py</code>.</li>
+        <li><strong>Empty API pages</strong>: Confirm your modules have docstrings and you enabled <code class="inline">autosummary_generate = True</code> (or ran <span class="kbd">sphinx-apidoc</span>).</li>
+        <li><strong>Broken links</strong>: Build with warnings; fix <span class="kbd">nitpicky = True</span> errors by adding correct references or <code class="inline">intersphinx_mapping</code>.</li>
+        <li><strong>Markdown not rendering</strong>: Ensure <code class="inline">myst_parser</code> is in <code class="inline">extensions</code>.</li>
+        <li><strong>Copy button missing</strong>: Ensure <code class="inline">sphinx_copybutton</code> is in <code class="inline">extensions</code>.</li>
+      </ul>
+    </section>
+
+    <footer>
+      Generated guide — safe to save as <code class="inline">docs/howto_sphinx.html</code> or share as a single file.
+    </footer>
+  </div>
+
+  <script>
+    // simple copy buttons for code blocks referenced by id
+    document.querySelectorAll('.copy').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const sel = btn.getAttribute('data-copy');
+        const el = document.querySelector(sel);
+        if (!el) return;
+        const text = el.innerText;
+        navigator.clipboard.writeText(text).then(() => {
+          const old = btn.textContent; btn.textContent = 'Copied!';
+          setTimeout(() => btn.textContent = old, 1200);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+

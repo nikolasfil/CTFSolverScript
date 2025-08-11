@@ -1,0 +1,6 @@
+ctfsolver.config.__main__
+=========================
+
+.. py:module:: ctfsolver.config.__main__
+
+

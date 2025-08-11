@@ -1,0 +1,15 @@
+ctfsolver.folders
+=================
+
+.. py:module:: ctfsolver.folders
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /api/ctfsolver/folders/__main__/index
+
+

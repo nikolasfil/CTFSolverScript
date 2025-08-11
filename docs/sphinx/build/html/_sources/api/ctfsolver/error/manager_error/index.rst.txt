@@ -1,0 +1,94 @@
+ctfsolver.error.manager_error
+=============================
+
+.. py:module:: ctfsolver.error.manager_error
+
+.. autoapi-nested-parse::
+
+   manager_error.py
+
+   Provides the ManagerError class for handling exceptions with colored output and optional verbose tracebacks.
+
+   Classes:
+       ManagerError: Handles exceptions by printing colored error messages or full tracebacks, and provides a utility to wrap function execution with error handling.
+
+   Usage:
+       Use ManagerError to manage error reporting in CLI applications, with support for verbose output and graceful handling of unexpected exceptions and keyboard interrupts.
+
+
+   .. rubric:: Example
+
+   error_manager = ManagerError(verbose=True)
+   error_manager.try_function(main_function)
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   ctfsolver.error.manager_error.ManagerError
+
+
+Module Contents
+---------------
+
+.. py:class:: ManagerError(*args, **kwargs)
+
+   Handles exceptions with colored output and optional verbose tracebacks for CLI applications.
+
+   This class provides methods to manage error reporting, including printing colored error messages,
+   displaying full tracebacks when verbose mode is enabled, and gracefully handling unexpected exceptions
+   and keyboard interrupts.
+
+   .. attribute:: verbose
+
+      If True, displays full traceback on error; otherwise, shows a colored error message.
+
+      :type: bool
+
+   .. method:: handle(exception
+
+      Exception, exit_code: int = 1):
+      Handles an exception by printing a colored error message or full traceback, then exits with the given code.
+      
+
+   .. method:: try_function(function
+
+      callable, *args, **kwargs):
+      Executes a function, catching and handling exceptions and keyboard interrupts gracefully.
+      
+
+
+   .. py:attribute:: verbose
+
+
+   .. py:method:: handle(exception: Exception, exit_code: int = 1)
+
+      Handles exceptions by printing error information in color and exiting the program.
+
+          exception (Exception): The exception instance to handle.
+          exit_code (int, optional): The exit code to use when exiting the program. Defaults to 1.
+
+      :returns: None
+
+      :raises SystemExit: Exits the program with the specified exit code.
+
+
+
+   .. py:method:: try_function(function: callable, *args, **kwargs)
+
+      Executes a given function with provided arguments, handling exceptions.
+      :param function: The function to execute.
+      :type function: callable
+      :param \*args: Variable length argument list to pass to the function.
+      :param \*\*kwargs: Arbitrary keyword arguments to pass to the function.
+
+      :returns: None
+
+      :raises Handles all exceptions using the `handle` method.:
+      :raises Prints a message if interrupted by the user (KeyboardInterrupt).:
+
+
+

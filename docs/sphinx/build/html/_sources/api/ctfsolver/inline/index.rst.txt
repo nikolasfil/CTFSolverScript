@@ -1,0 +1,17 @@
+ctfsolver.inline
+================
+
+.. py:module:: ctfsolver.inline
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /api/ctfsolver/inline/__main__/index
+   /api/ctfsolver/inline/inline_tool/index
+   /api/ctfsolver/inline/parser/index
+
+

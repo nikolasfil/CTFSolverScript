@@ -1,0 +1,15 @@
+ctfsolver.src.data
+==================
+
+.. py:module:: ctfsolver.src.data
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /api/ctfsolver/src/data/data/index
+
+

@@ -1,0 +1,26 @@
+ctfsolver.folders.__main__
+==========================
+
+.. py:module:: ctfsolver.folders.__main__
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   ctfsolver.folders.__main__.create_folders
+
+
+Module Contents
+---------------
+
+.. py:function:: create_folders()
+
+   Creates the necessary parent folder structure for the application.
+   This function initializes a ManagerFolder instance and calls its method to
+   create the required parent folder. It is typically used to set up the initial
+   directory structure before performing further operations.
+   :returns: None
+
+

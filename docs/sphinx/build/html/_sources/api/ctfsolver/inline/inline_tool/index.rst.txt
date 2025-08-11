@@ -1,0 +1,206 @@
+ctfsolver.inline.inline_tool
+============================
+
+.. py:module:: ctfsolver.inline.inline_tool
+
+.. autoapi-nested-parse::
+
+   inline_tool.py
+
+   This module provides the InlineTool class, which extends the Parser class to offer command-line functionality for managing Capture The Flag (CTF) challenges and related folder structures. The InlineTool class integrates configuration management, error handling, and folder linking operations, allowing users to initialize the tool, create and manage CTF challenges, and set up the required directory structure as specified in the global configuration.
+
+   Classes:
+       InlineTool(Parser): Handles command-line operations for CTF management, including folder creation, initialization, challenge creation, and folder linking.
+
+   Usage:
+       Run this module as a script to interact with the InlineTool via command-line arguments.
+
+   .. attribute:: CONFIG
+
+      Global configuration object for managing tool settings.
+
+      :type: Config
+
+   .. attribute:: ManagerFile
+
+      Handles file and folder operations.
+
+   .. attribute:: ManagerError
+
+      Handles error management and reporting.
+
+   .. rubric:: Example
+
+   python inline_tool.py --command init
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   ctfsolver.inline.inline_tool.example
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   ctfsolver.inline.inline_tool.InlineTool
+
+
+Module Contents
+---------------
+
+.. py:class:: InlineTool(*args, **kwargs)
+
+   Bases: :py:obj:`ctfsolver.inline.parser.Parser`
+
+
+   InlineTool provides command-line management for CTF (Capture The Flag) challenges and related folder structures.
+
+   This class extends the Parser base class to handle various commands for initializing configuration,
+   creating and managing CTF challenges, and linking folders. It uses a ManagerFile for file operations
+   and a ManagerError for error handling.
+
+   .. attribute:: error_handler
+
+      Handles errors and exceptions.
+
+      :type: ManagerError
+
+   .. attribute:: home_path
+
+      The user's home directory path.
+
+      :type: Path
+
+   .. attribute:: manager
+
+      Manages file and folder operations.
+
+      :type: ManagerFile
+
+   .. attribute:: functions
+
+      Dictionary mapping command names to their corresponding handler methods.
+
+      :type: dict
+
+   .. method:: main()
+
+      
+      Entry point for command execution. Dispatches commands based on parsed arguments.
+      
+
+   .. method:: print_help_message()
+
+      
+      Prints help information for the command-line interface.
+      
+
+   .. method:: function_folders()
+
+      
+      Creates the folder structure as specified by the global configuration.
+      
+
+   .. method:: function_init()
+
+      
+      Initializes the tool by setting up global configuration and necessary directories/files.
+      
+
+   .. method:: function_create_ctf()
+
+      
+      Placeholder for creating a new CTF challenge.
+      
+
+   .. method:: function_ctf()
+
+      
+      Manages CTF challenges, including category and site navigation.
+      
+
+   .. method:: function_link()
+
+      
+      Links CTF folders using the Linking class.
+      
+
+
+   .. py:attribute:: error_handler
+
+
+   .. py:method:: main()
+
+      Executes the main logic of the inline tool.
+      This method sets up the home path and file manager, then processes the command-line arguments.
+      If a command is provided, it attempts to execute the corresponding function using the error handler.
+      If no command is specified, it prints the help message.
+      :param None:
+
+      :returns: None
+
+
+
+   .. py:method:: print_help_message()
+
+      Prints the help message for the command-line parser.
+      This method displays usage information and available options for the tool
+      by invoking the parser's print_help() method. Intended to assist users in
+      understanding how to use the command-line interface.
+      :returns: None
+
+
+
+   .. py:method:: function_folders()
+
+      Ensures that the parent folder required for function organization is created.
+      This method delegates the creation of the parent folder to the manager instance,
+      which handles folder management operations.
+      :returns: None
+
+      .. rubric:: Example
+
+      [data, docs, files, payloads]
+
+
+
+   .. py:method:: function_init()
+
+      Initialize the inline tool by setting up the global configuration.
+      This method is called when the inline tool is first run
+      or when global configuration needs to be set up.
+      It creates the necessary directories and files if they do not already exist.
+
+
+
+   .. py:method:: function_create_ctf()
+
+      Create a new CTF (Capture The Flag) challenge.
+      This function is a placeholder for the actual implementation
+      that would handle the creation of a CTF challenge.
+
+
+
+   .. py:method:: function_ctf()
+
+      Manage CTF challenges.
+      This function is a placeholder for the actual implementation
+      that would handle the management of CTF challenges.
+
+
+
+   .. py:method:: function_link()
+
+      Link CTF folders.
+      This function initializes the Linking class to manage CTF folder links.
+
+
+
+.. py:data:: example
+

@@ -1,0 +1,473 @@
+ctfsolver.managers.manager_folder
+=================================
+
+.. py:module:: ctfsolver.managers.manager_folder
+
+.. autoapi-nested-parse::
+
+   manager_folder.py
+
+   This module provides the `ManagerFolder` class for managing folder structures and file operations
+   in the context of CTF (Capture The Flag) challenges. It offers utilities for initializing challenge
+   folders, preparing and cleaning up files, searching for patterns, and introspecting Python files
+   for function definitions.
+
+   Classes:
+       ManagerFolder: Handles creation, management, and introspection of challenge-related folders and files.
+
+   Typical usage example:
+       manager = ManagerFolder(file="challenge.py", verbose=True)
+       manager.create_parent_folder()
+       manager.prepare_space(files=["input.txt", "output.txt"])
+       functions = manager.get_functions_from_file("challenge.py")
+
+       CONFIG (dict): Global configuration dictionary imported from ctfsolver.config.
+
+   Dependencies:
+       pathlib, inspect, os, ast, collections.defaultdict
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   ctfsolver.managers.manager_folder.ManagerFolder
+
+
+Module Contents
+---------------
+
+.. py:class:: ManagerFolder(*args, **kwargs)
+
+   ManagerFolder provides utilities for managing folder structures and files for CTF (Capture The Flag) challenges.
+   This class handles the creation, organization, and manipulation of challenge-related directories and files,
+   including payloads, data, and solution scripts. It offers methods for searching files, executing functions
+   on files, cleaning up empty directories, and extracting function definitions from Python files.
+       verbose (bool): Enables verbose output for debugging and logging.
+       Path (type): Reference to the pathlib.Path class for file system operations.
+       parent (Path): The resolved parent directory of the calling file.
+       file (str): The filename associated with the challenge.
+       folders_name_list (list): List of folder names to be managed.
+       folders (defaultdict): Mapping of folder names to their Path objects.
+       folder_payloads (Path): Path to the payloads folder.
+       folder_data (Path): Path to the data folder.
+       folder_files (Path): Path to the files folder.
+       challenge_file (Path): Path to the challenge file.
+       solution_file (Path): Path to the solution file.
+   .. method:: __init__(*args, **kwargs)
+
+      Initializes the ManagerFolder instance.
+
+   .. method:: init_for_challenge(*args, **kwargs)
+
+      Sets up attributes and folders for a challenge.
+
+   .. method:: handling_global_config()
+
+      Loads global configuration for folder names.
+
+   .. method:: initializing_all_ancestors(*args, **kwargs)
+
+      Initializes ancestor classes (placeholder).
+
+   .. method:: get_parent()
+
+      Determines and sets the parent directory of the calling file.
+
+   .. method:: setup_named_folders()
+
+      Creates and assigns paths for named folders.
+
+   .. method:: create_parent_folder()
+
+      Creates parent folders if they do not exist.
+
+   .. method:: prepare_space(files=None, folder=None, test_text="flag{test}")
+
+      Prepares challenge space by creating files and folders.
+
+   .. method:: clean_folders(folders
+
+      list = None): Removes empty folders.
+
+   .. method:: check_empty_folder(folder)
+
+      Checks if a folder is empty.
+
+   .. method:: get_challenge_file()
+
+      Assigns the challenge file path.
+
+   .. method:: get_solution_file(*args, solution_name="solution.py", save=False, display=False, **kwargs)
+
+      Retrieves the solution file path.
+
+   .. method:: search_for_pattern_in_file(file, func=None, display=False, save=False, *args, **kwargs)
+
+      Searches for a pattern in a file.
+
+   .. method:: exec_on_files(folder, func, *args, **kwargs)
+
+      Executes a function on all files in a folder.
+
+   .. method:: search_files(directory, exclude_dirs, search_string, save=False, display=False)
+
+      Searches for a string in files within a directory.
+
+   .. method:: get_self_functions()
+
+      Returns a list of callable methods of the class.
+
+   .. method:: get_function_reference(function, file)
+
+      Finds references to a function in a file.
+
+   .. method:: get_functions_from_file(file_path)
+
+      Extracts function names from a Python file.
+
+   .. method:: find_function_from_file(file_path, function_name)
+
+      Finds and returns the source code of a function from a file.
+
+   .. method:: folfil(folder, file)
+
+      Returns the full path of a file within a folder.
+
+   .. method:: folders_file(*folders, file)
+
+      Returns the full path of a file within nested folders.
+
+   .. method:: challenge_folder_structure(*args, **kwargs)
+
+      Checks the structure of challenge folders.
+
+   .. method:: recursive_folder_search(function, *args, path=None, **kwargs)
+
+      Recursively applies a function to folders and files.
+
+   .. method:: single_folder_search(*args, **kwargs)
+
+      Applies a function to the contents of a single folder.
+
+   .. rubric:: Example
+
+   manager = ManagerFolder(file="challenge.txt", verbose=True)
+   manager.prepare_space(files=["input.txt", "output.txt"])
+
+
+   .. py:attribute:: verbose
+
+
+   .. py:attribute:: Path
+
+
+   .. py:method:: init_for_challenge(*args, **kwargs)
+
+      Initializes the class for the challenge.
+      This method sets up the necessary attributes and folders required for the challenge.
+      :param \*args: Variable length argument list.
+      :param \*\*kwargs: Arbitrary keyword arguments.
+                         - file (str): The file associated with the challenge.
+                         - debug (bool, optional): Flag to enable or disable debug mode. Defaults to False.
+                         - folders_name_list (list, optional): A custom list of folder names. Defaults to None.
+
+      .. attribute:: file
+
+         The file associated with the challenge.
+
+         :type: str
+
+      .. attribute:: debug
+
+         Indicates whether debug mode is enabled.
+
+         :type: bool
+
+      .. attribute:: folders_name_list
+
+         A custom list of folder names, if provided.
+
+         :type: list or None
+
+      .. attribute:: folders_names_must
+
+         The default list of required folder names.
+
+         :type: list
+
+
+
+   .. py:method:: handling_global_config()
+
+
+   .. py:method:: initializing_all_ancestors(*args, **kwargs)
+
+      Description:
+          Initializes all the ancestors of the class
+
+
+
+   .. py:method:: get_parent()
+
+      Description:
+              Retrieves the parent directory of the file that invoked the current class.
+
+          This method determines the file path of the script that instantiated the class,
+          resolves its parent directory, and adjusts the result based on a predefined list
+          of folder names.
+
+      .. attribute:: self.parent
+
+         The resolved parent directory of the calling file.
+
+         :type: Path or None
+
+      .. attribute:: self.file_called_frame
+
+         The stack frame of the calling file.
+
+         :type: list
+
+      .. attribute:: self.file_called_path
+
+         The file path of the calling file.
+
+         :type: Path
+
+      Behavior:
+          - If the parent directory's name is in `self.folders_name_list`, the method
+            sets `self.parent` to the grandparent directory instead.
+
+      .. note::
+
+         Ensure that `self.folders_name_list` is defined and contains the folder names
+         to be checked before calling this method.
+
+
+
+   .. py:method:: setup_named_folders()
+
+      Initializes and sets up named folder paths as attributes and in a dictionary.
+      This method creates Path objects for the 'data', 'files', and 'payloads' folders
+      relative to the parent directory, and assigns them to corresponding attributes.
+      It also initializes a defaultdict to store folder paths for each name in
+      `self.folders_name_list`, mapping each folder name to its Path object.
+
+      Attributes set:
+          folder_payloads (Path): Path to the 'payloads' folder.
+          folder_data (Path): Path to the 'data' folder.
+          folder_files (Path): Path to the 'files' folder.
+          folders (defaultdict): Dictionary mapping folder names to their Path objects.
+
+
+      :raises AttributeError: If `self.parent` or `self.folders_name_list` is not defined.
+
+
+
+   .. py:method:: create_parent_folder()
+
+      Description:
+          Create the parent folder of the file that called the class if they don't exist
+
+
+
+   .. py:method:: prepare_space(files=None, folder=None, test_text='flag{test}')
+
+      Creates files with specified content in a given folder if they do not already exist.
+      :param files: List of filenames to create. Defaults to an empty list.
+      :type files: list, optional
+      :param folder: Path to the folder where files will be created.
+      :type folder: str or Path, optional
+      :param Defaults to self.folder_files.:
+      :param test_text: Content to write into each created file. Defaults to "flag{test}".
+      :type test_text: str, optional
+
+      :returns: None
+
+
+
+   .. py:method:: clean_folders(folders: list = None)
+
+      Description:
+          Clean the space by deleting the folders that remain empty
+
+
+
+   .. py:method:: check_empty_folder(folder)
+
+      Description:
+          Check if the folder is empty
+
+
+
+   .. py:method:: get_challenge_file()
+
+      Description:
+          Get the challenge file and assign it to the self.challenge_file for ease of access
+
+
+
+   .. py:method:: get_solution_file(*args, solution_name='solution.py', save=False, display=False, **kwargs)
+
+      Description:
+          Get the solution file and assign it to the self.solution_file for ease of access
+
+      :param solution_name: Name of the solution file. Defaults to "solution.py".
+      :type solution_name: str, optional
+      :param save: Save the solution file. Defaults to False.
+      :type save: bool, optional
+
+      :returns: Path of the solution file if save is True
+      :rtype: str
+
+
+
+   .. py:method:: search_for_pattern_in_file(file, func=None, display=False, save=False, *args, **kwargs)
+
+      Description:
+      Search for a pattern in the file and return the output
+
+      :param file: File to search for the pattern
+      :type file: str
+      :param func: Function to search for the pattern. Defaults to None.
+      :type func: function, optional
+      :param display: Display the output. Defaults to False.
+      :type display: bool, optional
+      :param save: Save the output. Defaults to False.
+      :type save: bool, optional
+
+      :returns: List of output if save is True
+      :rtype: list
+
+
+
+   .. py:method:: exec_on_files(folder, func, *args, **kwargs)
+
+      Description:
+      Execute a function on all the files in the folder with the arguments provided
+
+      :param folder: Folder to execute the function
+      :type folder: str
+      :param func: Function to execute
+      :type func: function
+
+      :returns: List of output of the function
+      :rtype: list
+
+
+
+   .. py:method:: search_files(directory, exclude_dirs, search_string, save=False, display=False)
+
+      Description:
+      Search for a string in the files in the directory
+
+      :param directory: Directory to search for the string
+      :type directory: str
+      :param exclude_dirs: List of directories to exclude
+      :type exclude_dirs: list
+      :param search_string: String to search for
+      :type search_string: str
+      :param save: Save the output. Defaults to False.
+      :type save: bool, optional
+      :param display: Display the output. Defaults to False.
+      :type display: bool, optional
+
+      :returns: List of output if save is True
+      :rtype: list
+
+
+
+   .. py:method:: get_self_functions()
+
+      Description:
+      Get the functions of the class
+
+
+
+   .. py:method:: get_function_reference(function, file)
+
+      Description:
+      Get the reference of the function in the file
+
+
+
+   .. py:method:: get_functions_from_file(file_path)
+
+      Description:
+      Get the functions from the file
+
+
+
+   .. py:method:: find_function_from_file(file_path, function_name)
+
+      Description:
+      Get the functions from the file
+
+
+
+   .. py:method:: folfil(folder, file)
+
+      Description:
+          Get the full path of the file in the folder
+
+      :param folder: Folder to get the file
+      :type folder: str
+      :param file: File to get the full path
+      :type file: str
+
+      :returns: Full path of the file
+      :rtype: str
+
+
+
+   .. py:method:: folders_file(*folders, file)
+
+      Description:
+          Get the full path of the file in the folder
+
+      :param folders: List of folders to get the file
+      :type folders: list
+
+      :returns: Full path of the file
+      :rtype: str
+
+
+
+   .. py:method:: challenge_folder_structure(*args, **kwargs)
+
+      Description:
+          Recursively search
+
+
+
+   .. py:method:: recursive_folder_search(function, *args, path=None, **kwargs)
+
+      Description:
+          Recursively search for the file in the folder
+
+
+
+   .. py:method:: single_folder_search(*args, **kwargs)
+
+      Searches a single folder and applies a specified function to its contents.
+      :param \*args: Additional positional arguments to pass to the specified function.
+      :param \*\*kwargs: Additional keyword arguments, including:
+                         - exclude (list, optional): A list of directory names to exclude from the search.
+                         - function (callable, optional): A function to apply to the folder's contents.
+                           The function should accept the following arguments: root (str), dirs (list),
+                           files (list), *args, and **kwargs.
+                         - path (str, optional): The path of the folder to search.
+
+      :returns:
+
+                A tuple containing:
+                    - root (str): The root directory of the search.
+                    - dirs (list): A list of subdirectories in the root directory, excluding those in the exclude list.
+                    - files (list): A list of files in the root directory.
+      :rtype: tuple
+
+
+

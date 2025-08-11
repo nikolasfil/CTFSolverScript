@@ -9,6 +9,12 @@
 ## Functionality
 
 - add a list of files that can be considered part of the challenge for easier approach
+- add more folders to the standardization
+- rethink the way bashcommands are used
+- recheck the code
+- tree the folders to get the names. Makeshift Database for the challenges.
+- Also try to correlate the Obsidian Writeups with the Makeshift database
+- Add a way to check if there are challenges that don't have the proper folder structure
 
 ## Publish in pip ?
 
@@ -27,5 +33,20 @@ Add the documentation on the commands to run and how the whole package is meant 
 
 ## Discerning libraries
 
-- Transfer all the pcap files to a different class and just inher it
 - add a template for every other library used for the solver
+
+## Challenges
+
+- Incorporate : `/home/figaro/CTF/Categories/Forensics/ctflearn/HailCeasar` into the solver
+- Find every other challenge that has a solution.py and add it
+- In every folder that has a solution include the original function of the solution
+
+- Make a function that finds all the helpers that have more than the original CTFSolver function !!!
+
+- Add a print function that iterates with a for loop if it is given a tuple, list, set or dict. Automatically turns them into strings if they are not
+
+
+## Automation 
+
+- automatic cd to predefined folder, and cdir to new challenges 
+- 

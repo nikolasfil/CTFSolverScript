@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>ctfsolver.config.global_config API documentation</title>
+<meta name="description" content="Global configuration management for the CTFSolverScript package …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>ctfsolver.config.global_config</code></h1>
+</header>
+<section id="section-intro">
+<p>Global configuration management for the CTFSolverScript package.</p>
+<p>This module provides the <code><a title="ctfsolver.config.global_config.GlobalConfig" href="#ctfsolver.config.global_config.GlobalConfig">GlobalConfig</a></code> class, which handles the creation, initialization,
+and access of a global configuration file stored in the user's home directory. The configuration
+file is used to store persistent settings required by the CTFSolverScript inline tool.</p>
+<h2 id="classes">Classes</h2>
+<p>GlobalConfig: Manages the global configuration file, including creation, initialization,
+reading, and attribute/dictionary-style access to configuration values.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>CONFIG</code></strong> :&ensp;<code><a title="ctfsolver.config.global_config.GlobalConfig" href="#ctfsolver.config.global_config.GlobalConfig">GlobalConfig</a></code></dt>
+<dd>Singleton instance of the GlobalConfig class for global access.</dd>
+</dl>
+<h2 id="example">Example</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; from ctfsolver.config.global_config import CONFIG
+&gt;&gt;&gt; from ctfsolver.config import CONFIG
+&gt;&gt;&gt; CONFIG.initializing()  # Initializes the global configuration
+</code></pre>
+<p>Typical usage involves initializing the configuration (creating the file and writing initial
+content if necessary) and accessing configuration values via attribute or dictionary-style access.</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AttributeError</code></dt>
+<dd>If an attribute is accessed that does not exist in the configuration.</dd>
+<dt><code>KeyError</code></dt>
+<dd>If a key is accessed that does not exist in the configuration.</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="ctfsolver.config.global_config.GlobalConfig"><code class="flex name class">
+<span>class <span class="ident">GlobalConfig</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class GlobalConfig:
+    def __init__(self, *args, **kwargs):
+        &#34;&#34;&#34;
+        Initializes the global configuration for the CTF solver application.
+        This constructor sets the path to the global configuration file and loads its content.
+
+        Attributes:
+            global_config_file_path (Path): Path to the global configuration JSON file.
+
+        Raises:
+            Any exceptions raised by `get_content()` will propagate.
+        &#34;&#34;&#34;
+
+        # Path to the global configuration file in the user&#39;s home directory
+
+        self.verbose = kwargs.get(&#34;verbose&#34;, False)
+        self.global_config_file_path = Path(
+            Path.home(), &#34;.config&#34;, &#34;ctfsolver&#34;, &#34;global_config.json&#34;
+        )
+        self.get_content()
+
+    def initializing(self):
+        &#34;&#34;&#34;
+        Initialize global configuration settings.
+        This method can be used to set up any necessary global configurations
+        required by the inline tool.
+        &#34;&#34;&#34;
+        self.creating()
+        self.initial_content()
+        print(f&#34;Global configuration initialized in {self.global_config_file_path}&#34;)
+
+    def creating(self):
+        &#34;&#34;&#34;
+        Creates a global configuration file in the user&#39;s home directory.
+
+        This method ensures that the required directories and configuration file exist,
+        creating them if necessary. It is typically called during the initial run of the
+        inline tool or when global configuration setup is required.
+
+        Args:
+            None
+
+        Returns:
+            None
+
+        Raises:
+            OSError: If the directory or file cannot be created due to permission issues.
+        &#34;&#34;&#34;
+
+        home_path = Path.home()
+        if self.verbose:
+            print(f&#34;Setting up global configuration in {home_path}&#34;)
+
+        # TODO: This should later be initialized in the ctfsolver to be a global attribute
+
+        # Path  of the config file, creates the folders and the file if they don&#39;t exist
+
+        self.global_config_file_path.parent.mkdir(parents=True, exist_ok=True)
+        self.global_config_file_path.touch(exist_ok=True)
+
+    def initial_content(self):
+        &#34;&#34;&#34;
+        Sets the initial content of the global configuration file.
+
+        This method loads a configuration template from &#39;config_template.json&#39; and writes it to the global
+        configuration file if the file is empty or does not exist. If the template file is missing, a default
+        initial content is used instead.
+
+        Args:
+            None
+
+        Returns:
+            None
+
+        Raises:
+            FileNotFoundError: If the template file or global configuration file path does not exist.
+            json.JSONDecodeError: If the template file contains invalid JSON.
+
+        Side Effects:
+            Writes initial configuration content to the global configuration file if it is empty.
+            Prints status messages to the console.
+        &#34;&#34;&#34;
+
+        # Load the template content from config_template.json
+        template_path = Path(Path(__file__).parent, &#34;config_template.json&#34;)
+        if template_path.exists():
+            with open(template_path, &#34;r&#34;) as template_file:
+                initial_content = json.load(template_file)
+        else:
+            print(
+                f&#34;Template file {template_path} not found. Using default initial content.&#34;
+            )
+
+        # Check if the file is empty or does not exist
+        if self.global_config_file_path.stat().st_size == 0:
+            with open(self.global_config_file_path, &#34;w&#34;) as f:
+                json.dump(initial_content, f, indent=4)
+            print(f&#34;Initial content written to {self.global_config_file_path}&#34;)
+        else:
+            print(f&#34;{self.global_config_file_path} already contains initial content.&#34;)
+
+    def get_content(self):
+        &#34;&#34;&#34;
+        Get the content of the global configuration file.
+        This method reads the global configuration file and returns its content
+        as a dictionary.
+        If the file does not exist or is empty, it returns an empty dictionary.
+        It is intended to be used to retrieve the current global configuration
+        settings for use in the inline tool or other parts of the application.
+
+
+        Returns:
+            dict: The content of the global configuration file as a dictionary.
+        &#34;&#34;&#34;
+        self.content = {}
+        with open(self.global_config_file_path, &#34;r&#34;) as config_file:
+            self.content = json.load(config_file)
+        return self.content
+
+    def __getattr__(self, name):
+        &#34;&#34;&#34;
+        Retrieves the value associated with the given attribute name from the internal content dictionary.
+
+        Args:
+            name (str): The name of the attribute to retrieve.
+
+        Returns:
+            Any: The value associated with the attribute name in the content dictionary.
+
+        Raises:
+            AttributeError: If the attribute name does not exist in the content dictionary.
+        &#34;&#34;&#34;
+        if name in self.content:
+            return self.content[name]
+        raise AttributeError(f&#34;&#39;GlobalConfig&#39; object has no attribute &#39;{name}&#39;&#34;)
+
+    def __getitem__(self, key):
+        &#34;&#34;&#34;
+        Retrieves the value associated with the given key from the content dictionary.
+
+        Args:
+            key (str): The key to look up in the content dictionary.
+
+        Returns:
+            Any: The value associated with the specified key.
+
+        Raises:
+            KeyError: If the key does not exist in the content dictionary.
+        &#34;&#34;&#34;
+        if key in self.content:
+            return self.content[key]
+        raise KeyError(f&#34;&#39;GlobalConfig&#39; object has no key &#39;{key}&#39;&#34;)</code></pre>
+</details>
+<div class="desc"><p>Initializes the global configuration for the CTF solver application.
+This constructor sets the path to the global configuration file and loads its content.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>global_config_file_path</code></strong> :&ensp;<code>Path</code></dt>
+<dd>Path to the global configuration JSON file.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<p>Any exceptions raised by <code>get_content()</code> will propagate.</p></div>
+<h3>Methods</h3>
+<dl>
+<dt id="ctfsolver.config.global_config.GlobalConfig.creating"><code class="name flex">
+<span>def <span class="ident">creating</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def creating(self):
+    &#34;&#34;&#34;
+    Creates a global configuration file in the user&#39;s home directory.
+
+    This method ensures that the required directories and configuration file exist,
+    creating them if necessary. It is typically called during the initial run of the
+    inline tool or when global configuration setup is required.
+
+    Args:
+        None
+
+    Returns:
+        None
+
+    Raises:
+        OSError: If the directory or file cannot be created due to permission issues.
+    &#34;&#34;&#34;
+
+    home_path = Path.home()
+    if self.verbose:
+        print(f&#34;Setting up global configuration in {home_path}&#34;)
+
+    # TODO: This should later be initialized in the ctfsolver to be a global attribute
+
+    # Path  of the config file, creates the folders and the file if they don&#39;t exist
+
+    self.global_config_file_path.parent.mkdir(parents=True, exist_ok=True)
+    self.global_config_file_path.touch(exist_ok=True)</code></pre>
+</details>
+<div class="desc"><p>Creates a global configuration file in the user's home directory.</p>
+<p>This method ensures that the required directories and configuration file exist,
+creating them if necessary. It is typically called during the initial run of the
+inline tool or when global configuration setup is required.</p>
+<h2 id="args">Args</h2>
+<p>None</p>
+<h2 id="returns">Returns</h2>
+<p>None</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>OSError</code></dt>
+<dd>If the directory or file cannot be created due to permission issues.</dd>
+</dl></div>
+</dd>
+<dt id="ctfsolver.config.global_config.GlobalConfig.get_content"><code class="name flex">
+<span>def <span class="ident">get_content</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_content(self):
+    &#34;&#34;&#34;
+    Get the content of the global configuration file.
+    This method reads the global configuration file and returns its content
+    as a dictionary.
+    If the file does not exist or is empty, it returns an empty dictionary.
+    It is intended to be used to retrieve the current global configuration
+    settings for use in the inline tool or other parts of the application.
+
+
+    Returns:
+        dict: The content of the global configuration file as a dictionary.
+    &#34;&#34;&#34;
+    self.content = {}
+    with open(self.global_config_file_path, &#34;r&#34;) as config_file:
+        self.content = json.load(config_file)
+    return self.content</code></pre>
+</details>
+<div class="desc"><p>Get the content of the global configuration file.
+This method reads the global configuration file and returns its content
+as a dictionary.
+If the file does not exist or is empty, it returns an empty dictionary.
+It is intended to be used to retrieve the current global configuration
+settings for use in the inline tool or other parts of the application.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>The content of the global configuration file as a dictionary.</dd>
+</dl></div>
+</dd>
+<dt id="ctfsolver.config.global_config.GlobalConfig.initial_content"><code class="name flex">
+<span>def <span class="ident">initial_content</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def initial_content(self):
+    &#34;&#34;&#34;
+    Sets the initial content of the global configuration file.
+
+    This method loads a configuration template from &#39;config_template.json&#39; and writes it to the global
+    configuration file if the file is empty or does not exist. If the template file is missing, a default
+    initial content is used instead.
+
+    Args:
+        None
+
+    Returns:
+        None
+
+    Raises:
+        FileNotFoundError: If the template file or global configuration file path does not exist.
+        json.JSONDecodeError: If the template file contains invalid JSON.
+
+    Side Effects:
+        Writes initial configuration content to the global configuration file if it is empty.
+        Prints status messages to the console.
+    &#34;&#34;&#34;
+
+    # Load the template content from config_template.json
+    template_path = Path(Path(__file__).parent, &#34;config_template.json&#34;)
+    if template_path.exists():
+        with open(template_path, &#34;r&#34;) as template_file:
+            initial_content = json.load(template_file)
+    else:
+        print(
+            f&#34;Template file {template_path} not found. Using default initial content.&#34;
+        )
+
+    # Check if the file is empty or does not exist
+    if self.global_config_file_path.stat().st_size == 0:
+        with open(self.global_config_file_path, &#34;w&#34;) as f:
+            json.dump(initial_content, f, indent=4)
+        print(f&#34;Initial content written to {self.global_config_file_path}&#34;)
+    else:
+        print(f&#34;{self.global_config_file_path} already contains initial content.&#34;)</code></pre>
+</details>
+<div class="desc"><p>Sets the initial content of the global configuration file.</p>
+<p>This method loads a configuration template from 'config_template.json' and writes it to the global
+configuration file if the file is empty or does not exist. If the template file is missing, a default
+initial content is used instead.</p>
+<h2 id="args">Args</h2>
+<p>None</p>
+<h2 id="returns">Returns</h2>
+<p>None</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>FileNotFoundError</code></dt>
+<dd>If the template file or global configuration file path does not exist.</dd>
+<dt><code>json.JSONDecodeError</code></dt>
+<dd>If the template file contains invalid JSON.</dd>
+</dl>
+<p>Side Effects:
+Writes initial configuration content to the global configuration file if it is empty.
+Prints status messages to the console.</p></div>
+</dd>
+<dt id="ctfsolver.config.global_config.GlobalConfig.initializing"><code class="name flex">
+<span>def <span class="ident">initializing</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def initializing(self):
+    &#34;&#34;&#34;
+    Initialize global configuration settings.
+    This method can be used to set up any necessary global configurations
+    required by the inline tool.
+    &#34;&#34;&#34;
+    self.creating()
+    self.initial_content()
+    print(f&#34;Global configuration initialized in {self.global_config_file_path}&#34;)</code></pre>
+</details>
+<div class="desc"><p>Initialize global configuration settings.
+This method can be used to set up any necessary global configurations
+required by the inline tool.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="ctfsolver.config" href="index.html">ctfsolver.config</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="ctfsolver.config.global_config.GlobalConfig" href="#ctfsolver.config.global_config.GlobalConfig">GlobalConfig</a></code></h4>
+<ul class="">
+<li><code><a title="ctfsolver.config.global_config.GlobalConfig.creating" href="#ctfsolver.config.global_config.GlobalConfig.creating">creating</a></code></li>
+<li><code><a title="ctfsolver.config.global_config.GlobalConfig.get_content" href="#ctfsolver.config.global_config.GlobalConfig.get_content">get_content</a></code></li>
+<li><code><a title="ctfsolver.config.global_config.GlobalConfig.initial_content" href="#ctfsolver.config.global_config.GlobalConfig.initial_content">initial_content</a></code></li>
+<li><code><a title="ctfsolver.config.global_config.GlobalConfig.initializing" href="#ctfsolver.config.global_config.GlobalConfig.initializing">initializing</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

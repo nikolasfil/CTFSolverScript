@@ -1,0 +1,979 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>ctfsolver.forensics.manager_dash API documentation</title>
+<meta name="description" content="manager_dash.py …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>ctfsolver.forensics.manager_dash</code></h1>
+</header>
+<section id="section-intro">
+<p>manager_dash.py</p>
+<p>Dash-based visualization manager for network packet flows.</p>
+<p>This module provides the ManagerDash class, which facilitates the conversion of network packet data (such as from pcap files using scapy)
+into a format suitable for interactive graph visualization using Dash and Cytoscape. It includes utilities for converting packets to graph elements,
+validating element structure, generating example graphs, and running a Dash web application for visual exploration of network flows.</p>
+<h2 id="classes">Classes</h2>
+<p>ManagerDash: Manages the conversion of packet data to Cytoscape elements and sets up the Dash visualization interface.</p>
+<p>Typical Usage Example:
+manager.elements = manager.example_element_creator()</p>
+<h2 id="dependencies">Dependencies</h2>
+<ul>
+<li>dash</li>
+<li>dash_cytoscape</li>
+<li>scapy</li>
+</ul>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="ctfsolver.forensics.manager_dash.ManagerDash"><code class="flex name class">
+<span>class <span class="ident">ManagerDash</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ManagerDash:
+    &#34;&#34;&#34;
+
+    ManagerDash provides functionality for converting network packet data into elements suitable for graph visualization,
+    validating element structure, and displaying interactive network graphs using Dash and Cytoscape.
+
+    Attributes:
+        elements (list[dict]): List of elements representing nodes and edges for visualization.
+        title (str): Title of the Dash application.
+        app: dash.Dash | None  # Dash application instance
+
+
+    Methods:
+        pcap_to_element_converter(packets, save=False):
+            Converts a list of scapy Packet objects into visualization elements (nodes and edges) based on IP layer data.
+
+        pcap_to_element_converter_timestamp(packets, save=False):
+            Converts packets into elements including timestamp nodes, representing temporal flow in the network graph.
+
+        elements_checker(elements):
+            Validates the structure and content of a list of element dictionaries for compatibility with Cytoscape.
+
+        example_element_creator():
+            Generates a sample list of elements representing a simple network graph for demonstration purposes.
+
+        setup_dash():
+            Initializes and configures the Dash application layout and callbacks.
+
+        setup_dash_layout():
+            Defines the layout of the Dash application, including the Cytoscape graph and output display.
+
+        setup_dash_functions():
+            Sets up Dash callback functions for interactive node information display.
+
+        run_dash():
+            Validates elements and runs the Dash application for interactive network graph visualization.
+    &#34;&#34;&#34;
+
+    def __init__(self, *args, **kwargs):
+        &#34;&#34;&#34;
+        Initializes the manager_dash instance.
+
+        Args:
+            *args: Variable length argument list.
+            **kwargs: Arbitrary keyword arguments.
+                title (str, optional): The title for the network graph. Defaults to &#34;Interactive Network Graph&#34;.
+
+        Attributes:
+            elements (list): Stores elements related to the manager dashboard.
+            title (str): Title of the interactive network graph.
+        &#34;&#34;&#34;
+        self.elements = []
+        self.title = kwargs.get(&#34;title&#34;, &#34;Interactive Network Graph&#34;)
+
+    def pcap_to_element_converter(
+        self, packets: list[scapy.packet.Packet], save: bool = False
+    ) -&gt; list[dict]:
+        &#34;&#34;&#34;
+        Converts a list of scapy Packet objects into a list of elements suitable for visualization,
+        extracting source and destination IPs and protocol information.
+
+        Each packet with an IP layer contributes:
+            - Two node elements (for source and destination IPs)
+            - One edge element (representing the connection and protocol between source and destination)
+
+        Args:
+            packets (list[scapy.packet.Packet]): List of scapy Packet objects to process.
+            save (bool, optional): If True, returns the generated elements list. If False, assigns it to self.elements.
+
+        Returns:
+            list[dict]: List of elements representing nodes and edges if save is True; otherwise, None.
+        &#34;&#34;&#34;
+        elements = []
+        for packet in packets:
+            if packet.haslayer(&#34;IP&#34;):
+                src = packet[&#34;IP&#34;].src
+                dst = packet[&#34;IP&#34;].dst
+                proto = packet.sprintf(&#34;%IP.proto%&#34;)
+                elements.append({&#34;data&#34;: {&#34;id&#34;: src, &#34;label&#34;: src}})
+                elements.append({&#34;data&#34;: {&#34;id&#34;: dst, &#34;label&#34;: dst}})
+                elements.append(
+                    {&#34;data&#34;: {&#34;source&#34;: src, &#34;target&#34;: dst, &#34;label&#34;: proto}}
+                )
+        if save:
+            return elements
+        self.elements = elements
+
+    def pcap_to_element_converter_timestamp(
+        self,
+        packets: list[scapy.packet.Packet],
+        save: bool = False,
+    ) -&gt; list[dict]:
+        &#34;&#34;&#34;
+        Description:
+            Converts a list of scapy Packet objects from a pcap file into a list of elements suitable for graph visualization.
+            Each packet&#39;s timestamp, source IP, destination IP, and protocol are extracted and represented as nodes and edges.
+            Optionally saves the generated elements to the instance.
+
+        Args:
+            packets (list[scapy.packet.Packet]): List of scapy Packet objects to convert.
+            save (bool, optional): If True, returns the elements list; otherwise, assigns it to self.elements. Defaults to False.
+
+        Raises:
+            AttributeError: If a packet does not have the expected IP layer attributes.
+
+        Returns:
+            list[dict]: List of dictionaries representing nodes and edges for visualization (only if save=True).
+
+        Example:
+            elements = pcap_to_element_converter_timestamp(packets, save=True)
+        &#34;&#34;&#34;
+        elements = []
+        previous = None
+        for packet in packets:
+            if packet.haslayer(&#34;IP&#34;):
+                timestamp = str(packet.time)
+                src = packet[&#34;IP&#34;].src
+                dst = packet[&#34;IP&#34;].dst
+                proto = packet.sprintf(&#34;%IP.proto%&#34;)
+
+                elements.append({&#34;data&#34;: {&#34;id&#34;: timestamp, &#34;label&#34;: timestamp}})
+
+                elements.append({&#34;data&#34;: {&#34;id&#34;: src, &#34;label&#34;: src}})
+                elements.append({&#34;data&#34;: {&#34;id&#34;: dst, &#34;label&#34;: dst}})
+
+                if previous is not None:
+                    elements.append(
+                        {
+                            &#34;data&#34;: {
+                                &#34;source&#34;: previous,
+                                &#34;target&#34;: timestamp,
+                                &#34;label&#34;: &#34;timestamp&#34;,
+                            }
+                        }
+                    )
+
+                elements.append(
+                    {&#34;data&#34;: {&#34;source&#34;: timestamp, &#34;target&#34;: src, &#34;label&#34;: proto}}
+                )
+
+                elements.append(
+                    {&#34;data&#34;: {&#34;source&#34;: src, &#34;target&#34;: dst, &#34;label&#34;: proto}}
+                )
+        if save:
+            return elements
+        self.elements = elements
+
+    def elements_checker(self, elements: list[dict]) -&gt; bool:
+        &#34;&#34;&#34;
+        Description:
+            Validates a list of dictionaries to ensure they meet specific structural and content requirements.
+            Each dictionary in the list must contain a &#34;data&#34; key with a dictionary value, and the keys within
+            the &#34;data&#34; dictionary must adhere to a predefined set of allowed keys. Additionally, certain key
+            combinations are required to be present together.
+        Args:
+            elements (list[dict]): A list of dictionaries to validate. Each dictionary is expected to have
+                                   a &#34;data&#34; key containing another dictionary.
+        Returns:
+            bool: Returns True if all dictionaries in the list meet the validation criteria, otherwise False.
+        &#34;&#34;&#34;
+
+        allowed_keys = {&#34;id&#34;, &#34;label&#34;, &#34;source&#34;, &#34;target&#34;}
+        for d in elements:
+            if not isinstance(d, dict):
+                return False
+            if &#34;data&#34; not in d or not isinstance(d[&#34;data&#34;], dict):
+                return False
+            keys = set(d[&#34;data&#34;].keys())
+            if not keys.issubset(allowed_keys):
+                return False
+
+            has_id = &#34;id&#34; in keys
+            has_source = &#34;source&#34; in keys
+            has_target = &#34;target&#34; in keys
+
+            # id is standalone (with optional label)
+            if has_id:
+                if has_source or has_target:
+                    return False
+            # source and target must always be together, never with id
+            if has_source or has_target:
+                if not (has_source and has_target):
+                    return False
+                if has_id:
+                    return False
+            # label is always optional
+
+        return True
+
+    def example_element_creator(self):
+        &#34;&#34;&#34;
+        Generates a list of elements representing a network graph in a format compatible with Cytoscape.
+        Description:
+            This method creates a representation of a network graph based on predefined data.
+            Each node (IP address) and edge (connection between IPs) is converted into a dictionary
+            format suitable for use with Cytoscape visualizations.
+        Args:
+            None
+        Returns:
+            list: A list of dictionaries where each dictionary represents a node or an edge in the graph.
+        Example output:
+            [
+                {&#34;data&#34;: {&#34;id&#34;: &#34;192.168.0.2&#34;, &#34;label&#34;: &#34;192.168.0.2&#34;}},
+                {&#34;data&#34;: {&#34;id&#34;: &#34;8.8.8.8&#34;, &#34;label&#34;: &#34;8.8.8.8&#34;}},
+                {&#34;data&#34;: {&#34;source&#34;: &#34;192.168.0.2&#34;, &#34;target&#34;: &#34;8.8.8.8&#34;}},
+                {&#34;data&#34;: {&#34;id&#34;: &#34;192.168.0.3&#34;, &#34;label&#34;: &#34;192.168.0.3&#34;}},
+                {&#34;data&#34;: {&#34;source&#34;: &#34;192.168.0.2&#34;, &#34;target&#34;: &#34;192.168.0.3&#34;}},
+                {&#34;data&#34;: {&#34;id&#34;: &#34;10.0.0.1&#34;, &#34;label&#34;: &#34;10.0.0.1&#34;}},
+                {&#34;data&#34;: {&#34;source&#34;: &#34;192.168.0.3&#34;, &#34;target&#34;: &#34;10.0.0.1&#34;}}
+            ]
+        &#34;&#34;&#34;
+
+        # Example data: mimic a network flow
+        graph_data = {
+            &#34;192.168.0.2&#34;: [&#34;8.8.8.8&#34;, &#34;192.168.0.3&#34;],
+            &#34;192.168.0.3&#34;: [&#34;10.0.0.1&#34;],
+            &#34;8.8.8.8&#34;: [],
+        }
+
+        # Convert to cytoscape elements
+        elements = []
+
+        for source, targets in graph_data.items():
+            elements.append({&#34;data&#34;: {&#34;id&#34;: source, &#34;label&#34;: source}})
+            for target in targets:
+                elements.append({&#34;data&#34;: {&#34;id&#34;: target, &#34;label&#34;: target}})
+                elements.append({&#34;data&#34;: {&#34;source&#34;: source, &#34;target&#34;: target}})
+        # print(elements)
+        return elements
+
+    def setup_dash(self):
+        &#34;&#34;&#34;
+        Initializes and configures the Dash application.
+
+        This method creates a Dash app instance, sets its title,
+        and sets up the layout and callback functions required for the dashboard.
+
+        Args:
+            None
+
+        Returns:
+            None
+        &#34;&#34;&#34;
+
+        self.app = dash.Dash(__name__)
+        self.app.title = self.title
+
+        self.setup_dash_layout()
+
+        self.setup_dash_functions()
+
+    def setup_dash_layout(self):
+        &#34;&#34;&#34;
+        Sets up the Dash application layout for packet flow visualization.
+        This method configures the main layout of the Dash app, including:
+        - A header displaying &#34;Packet Flow Visualization&#34;.
+        - A Cytoscape graph for visualizing packet flows, with nodes and edges styled for clarity.
+        - An output div for displaying information when a node is clicked.
+        The layout uses a force-directed graph (&#34;cose&#34; layout) and applies custom styles for nodes, edges, and background.
+        Returns:
+            None
+        &#34;&#34;&#34;
+
+        self.app.layout = html.Div(
+            [
+                html.H1(&#34;Packet Flow Visualization&#34;, style={&#34;color&#34;: &#34;white&#34;}),
+                cyto.Cytoscape(
+                    id=&#34;cytoscape-graph&#34;,
+                    elements=self.elements,
+                    layout={&#34;name&#34;: &#34;cose&#34;},  # force-directed layout
+                    style={&#34;width&#34;: &#34;100%&#34;, &#34;height&#34;: &#34;700px&#34;},
+                    stylesheet=[
+                        {
+                            &#34;selector&#34;: &#34;node&#34;,
+                            &#34;style&#34;: {
+                                &#34;content&#34;: &#34;data(label)&#34;,
+                                &#34;text-valign&#34;: &#34;center&#34;,
+                                &#34;color&#34;: &#34;white&#34;,
+                                &#34;background-color&#34;: &#34;#0074D9&#34;,
+                                &#34;font-size&#34;: 14,
+                            },
+                        },
+                        {
+                            &#34;selector&#34;: &#34;edge&#34;,
+                            &#34;style&#34;: {&#34;line-color&#34;: &#34;#AAAAAA&#34;, &#34;width&#34;: 2},
+                        },
+                    ],
+                ),
+                html.Div(
+                    id=&#34;node-click-output&#34;,
+                    style={
+                        &#34;padding&#34;: &#34;20px&#34;,
+                        &#34;color&#34;: &#34;white&#34;,
+                        &#34;backgroundColor&#34;: &#34;#111&#34;,
+                    },
+                ),
+            ],
+            style={&#34;backgroundColor&#34;: &#34;#222&#34;, &#34;padding&#34;: &#34;20px&#34;},
+        )
+
+    def setup_dash_functions(self):
+        &#34;&#34;&#34;
+        Sets up Dash callback functions for interactive components in the dashboard.
+        This method registers a callback for the Cytoscape graph component to handle node click events.
+        When a node is clicked, its information is displayed in the designated output component.
+        Callback:
+            - Output: Updates the &#34;node-click-output&#34; component&#39;s children with node information.
+            - Input: Listens for &#34;tapNodeData&#34; events from the &#34;cytoscape-graph&#34; component.
+        Returns:
+            None
+        &#34;&#34;&#34;
+
+        @self.app.callback(
+            Output(&#34;node-click-output&#34;, &#34;children&#34;),
+            Input(&#34;cytoscape-graph&#34;, &#34;tapNodeData&#34;),
+        )
+        def display_node_info(data):
+            if data:
+                print(&#34;Node clicked:&#34;, data)
+                return f&#34;Clicked on node: {data[&#39;label&#39;]}&#34;
+            return &#34;Click a node to see its info.&#34;
+
+    def run_dash(self):
+        &#34;&#34;&#34;
+        Runs the Dash application after validating and setting up required elements.
+        This method performs the following steps:
+        1. Checks if `self.elements` is not None or empty.
+        2. Validates the format of `self.elements` using `self.elements_checker`.
+        3. Sets up the Dash application by calling `self.setup_dash`.
+        4. Runs the Dash app with debugging enabled.
+        Raises:
+            ValueError: If `self.elements` is None or empty.
+            ValueError: If `self.elements` does not pass the format check.
+        &#34;&#34;&#34;
+
+        if self.elements is None or not self.elements:
+            raise ValueError(&#34;Elements cannot be None or empty&#34;)
+        # self.elements = self.example_element_creator()
+        if not self.elements_checker(self.elements):
+            raise ValueError(&#34;Invalid elements format&#34;)
+        self.setup_dash()
+        self.app.run(debug=True)</code></pre>
+</details>
+<div class="desc"><p>ManagerDash provides functionality for converting network packet data into elements suitable for graph visualization,
+validating element structure, and displaying interactive network graphs using Dash and Cytoscape.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>elements</code></strong> :&ensp;<code>list[dict]</code></dt>
+<dd>List of elements representing nodes and edges for visualization.</dd>
+<dt><strong><code>title</code></strong> :&ensp;<code>str</code></dt>
+<dd>Title of the Dash application.</dd>
+<dt><strong><code>app</code></strong></dt>
+<dd>dash.Dash | None
+# Dash application instance</dd>
+</dl>
+<h2 id="methods">Methods</h2>
+<p>pcap_to_element_converter(packets, save=False):
+Converts a list of scapy Packet objects into visualization elements (nodes and edges) based on IP layer data.</p>
+<p>pcap_to_element_converter_timestamp(packets, save=False):
+Converts packets into elements including timestamp nodes, representing temporal flow in the network graph.</p>
+<p>elements_checker(elements):
+Validates the structure and content of a list of element dictionaries for compatibility with Cytoscape.</p>
+<p>example_element_creator():
+Generates a sample list of elements representing a simple network graph for demonstration purposes.</p>
+<p>setup_dash():
+Initializes and configures the Dash application layout and callbacks.</p>
+<p>setup_dash_layout():
+Defines the layout of the Dash application, including the Cytoscape graph and output display.</p>
+<p>setup_dash_functions():
+Sets up Dash callback functions for interactive node information display.</p>
+<p>run_dash():
+Validates elements and runs the Dash application for interactive network graph visualization.</p>
+<p>Initializes the manager_dash instance.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>*args</code></strong></dt>
+<dd>Variable length argument list.</dd>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>Arbitrary keyword arguments.
+title (str, optional): The title for the network graph. Defaults to "Interactive Network Graph".</dd>
+</dl>
+<h2 id="attributes_1">Attributes</h2>
+<dl>
+<dt><strong><code>elements</code></strong> :&ensp;<code>list</code></dt>
+<dd>Stores elements related to the manager dashboard.</dd>
+<dt><strong><code>title</code></strong> :&ensp;<code>str</code></dt>
+<dd>Title of the interactive network graph.</dd>
+</dl></div>
+<h3>Methods</h3>
+<dl>
+<dt id="ctfsolver.forensics.manager_dash.ManagerDash.elements_checker"><code class="name flex">
+<span>def <span class="ident">elements_checker</span></span>(<span>self, elements: list[dict]) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def elements_checker(self, elements: list[dict]) -&gt; bool:
+    &#34;&#34;&#34;
+    Description:
+        Validates a list of dictionaries to ensure they meet specific structural and content requirements.
+        Each dictionary in the list must contain a &#34;data&#34; key with a dictionary value, and the keys within
+        the &#34;data&#34; dictionary must adhere to a predefined set of allowed keys. Additionally, certain key
+        combinations are required to be present together.
+    Args:
+        elements (list[dict]): A list of dictionaries to validate. Each dictionary is expected to have
+                               a &#34;data&#34; key containing another dictionary.
+    Returns:
+        bool: Returns True if all dictionaries in the list meet the validation criteria, otherwise False.
+    &#34;&#34;&#34;
+
+    allowed_keys = {&#34;id&#34;, &#34;label&#34;, &#34;source&#34;, &#34;target&#34;}
+    for d in elements:
+        if not isinstance(d, dict):
+            return False
+        if &#34;data&#34; not in d or not isinstance(d[&#34;data&#34;], dict):
+            return False
+        keys = set(d[&#34;data&#34;].keys())
+        if not keys.issubset(allowed_keys):
+            return False
+
+        has_id = &#34;id&#34; in keys
+        has_source = &#34;source&#34; in keys
+        has_target = &#34;target&#34; in keys
+
+        # id is standalone (with optional label)
+        if has_id:
+            if has_source or has_target:
+                return False
+        # source and target must always be together, never with id
+        if has_source or has_target:
+            if not (has_source and has_target):
+                return False
+            if has_id:
+                return False
+        # label is always optional
+
+    return True</code></pre>
+</details>
+<div class="desc"><h2 id="description">Description</h2>
+<p>Validates a list of dictionaries to ensure they meet specific structural and content requirements.
+Each dictionary in the list must contain a "data" key with a dictionary value, and the keys within
+the "data" dictionary must adhere to a predefined set of allowed keys. Additionally, certain key
+combinations are required to be present together.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>elements</code></strong> :&ensp;<code>list[dict]</code></dt>
+<dd>A list of dictionaries to validate. Each dictionary is expected to have
+a "data" key containing another dictionary.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>Returns True if all dictionaries in the list meet the validation criteria, otherwise False.</dd>
+</dl></div>
+</dd>
+<dt id="ctfsolver.forensics.manager_dash.ManagerDash.example_element_creator"><code class="name flex">
+<span>def <span class="ident">example_element_creator</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def example_element_creator(self):
+    &#34;&#34;&#34;
+    Generates a list of elements representing a network graph in a format compatible with Cytoscape.
+    Description:
+        This method creates a representation of a network graph based on predefined data.
+        Each node (IP address) and edge (connection between IPs) is converted into a dictionary
+        format suitable for use with Cytoscape visualizations.
+    Args:
+        None
+    Returns:
+        list: A list of dictionaries where each dictionary represents a node or an edge in the graph.
+    Example output:
+        [
+            {&#34;data&#34;: {&#34;id&#34;: &#34;192.168.0.2&#34;, &#34;label&#34;: &#34;192.168.0.2&#34;}},
+            {&#34;data&#34;: {&#34;id&#34;: &#34;8.8.8.8&#34;, &#34;label&#34;: &#34;8.8.8.8&#34;}},
+            {&#34;data&#34;: {&#34;source&#34;: &#34;192.168.0.2&#34;, &#34;target&#34;: &#34;8.8.8.8&#34;}},
+            {&#34;data&#34;: {&#34;id&#34;: &#34;192.168.0.3&#34;, &#34;label&#34;: &#34;192.168.0.3&#34;}},
+            {&#34;data&#34;: {&#34;source&#34;: &#34;192.168.0.2&#34;, &#34;target&#34;: &#34;192.168.0.3&#34;}},
+            {&#34;data&#34;: {&#34;id&#34;: &#34;10.0.0.1&#34;, &#34;label&#34;: &#34;10.0.0.1&#34;}},
+            {&#34;data&#34;: {&#34;source&#34;: &#34;192.168.0.3&#34;, &#34;target&#34;: &#34;10.0.0.1&#34;}}
+        ]
+    &#34;&#34;&#34;
+
+    # Example data: mimic a network flow
+    graph_data = {
+        &#34;192.168.0.2&#34;: [&#34;8.8.8.8&#34;, &#34;192.168.0.3&#34;],
+        &#34;192.168.0.3&#34;: [&#34;10.0.0.1&#34;],
+        &#34;8.8.8.8&#34;: [],
+    }
+
+    # Convert to cytoscape elements
+    elements = []
+
+    for source, targets in graph_data.items():
+        elements.append({&#34;data&#34;: {&#34;id&#34;: source, &#34;label&#34;: source}})
+        for target in targets:
+            elements.append({&#34;data&#34;: {&#34;id&#34;: target, &#34;label&#34;: target}})
+            elements.append({&#34;data&#34;: {&#34;source&#34;: source, &#34;target&#34;: target}})
+    # print(elements)
+    return elements</code></pre>
+</details>
+<div class="desc"><p>Generates a list of elements representing a network graph in a format compatible with Cytoscape.</p>
+<h2 id="description">Description</h2>
+<p>This method creates a representation of a network graph based on predefined data.
+Each node (IP address) and edge (connection between IPs) is converted into a dictionary
+format suitable for use with Cytoscape visualizations.</p>
+<h2 id="args">Args</h2>
+<p>None</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>A list of dictionaries where each dictionary represents a node or an edge in the graph.</dd>
+</dl>
+<p>Example output:
+[
+{"data": {"id": "192.168.0.2", "label": "192.168.0.2"}},
+{"data": {"id": "8.8.8.8", "label": "8.8.8.8"}},
+{"data": {"source": "192.168.0.2", "target": "8.8.8.8"}},
+{"data": {"id": "192.168.0.3", "label": "192.168.0.3"}},
+{"data": {"source": "192.168.0.2", "target": "192.168.0.3"}},
+{"data": {"id": "10.0.0.1", "label": "10.0.0.1"}},
+{"data": {"source": "192.168.0.3", "target": "10.0.0.1"}}
+]</p></div>
+</dd>
+<dt id="ctfsolver.forensics.manager_dash.ManagerDash.pcap_to_element_converter"><code class="name flex">
+<span>def <span class="ident">pcap_to_element_converter</span></span>(<span>self, packets: list[scapy.packet.Packet], save: bool = False) ‑> list[dict]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def pcap_to_element_converter(
+    self, packets: list[scapy.packet.Packet], save: bool = False
+) -&gt; list[dict]:
+    &#34;&#34;&#34;
+    Converts a list of scapy Packet objects into a list of elements suitable for visualization,
+    extracting source and destination IPs and protocol information.
+
+    Each packet with an IP layer contributes:
+        - Two node elements (for source and destination IPs)
+        - One edge element (representing the connection and protocol between source and destination)
+
+    Args:
+        packets (list[scapy.packet.Packet]): List of scapy Packet objects to process.
+        save (bool, optional): If True, returns the generated elements list. If False, assigns it to self.elements.
+
+    Returns:
+        list[dict]: List of elements representing nodes and edges if save is True; otherwise, None.
+    &#34;&#34;&#34;
+    elements = []
+    for packet in packets:
+        if packet.haslayer(&#34;IP&#34;):
+            src = packet[&#34;IP&#34;].src
+            dst = packet[&#34;IP&#34;].dst
+            proto = packet.sprintf(&#34;%IP.proto%&#34;)
+            elements.append({&#34;data&#34;: {&#34;id&#34;: src, &#34;label&#34;: src}})
+            elements.append({&#34;data&#34;: {&#34;id&#34;: dst, &#34;label&#34;: dst}})
+            elements.append(
+                {&#34;data&#34;: {&#34;source&#34;: src, &#34;target&#34;: dst, &#34;label&#34;: proto}}
+            )
+    if save:
+        return elements
+    self.elements = elements</code></pre>
+</details>
+<div class="desc"><p>Converts a list of scapy Packet objects into a list of elements suitable for visualization,
+extracting source and destination IPs and protocol information.</p>
+<p>Each packet with an IP layer contributes:
+- Two node elements (for source and destination IPs)
+- One edge element (representing the connection and protocol between source and destination)</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>packets</code></strong> :&ensp;<code>list[scapy.packet.Packet]</code></dt>
+<dd>List of scapy Packet objects to process.</dd>
+<dt><strong><code>save</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>If True, returns the generated elements list. If False, assigns it to self.elements.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[dict]</code></dt>
+<dd>List of elements representing nodes and edges if save is True; otherwise, None.</dd>
+</dl></div>
+</dd>
+<dt id="ctfsolver.forensics.manager_dash.ManagerDash.pcap_to_element_converter_timestamp"><code class="name flex">
+<span>def <span class="ident">pcap_to_element_converter_timestamp</span></span>(<span>self, packets: list[scapy.packet.Packet], save: bool = False) ‑> list[dict]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def pcap_to_element_converter_timestamp(
+    self,
+    packets: list[scapy.packet.Packet],
+    save: bool = False,
+) -&gt; list[dict]:
+    &#34;&#34;&#34;
+    Description:
+        Converts a list of scapy Packet objects from a pcap file into a list of elements suitable for graph visualization.
+        Each packet&#39;s timestamp, source IP, destination IP, and protocol are extracted and represented as nodes and edges.
+        Optionally saves the generated elements to the instance.
+
+    Args:
+        packets (list[scapy.packet.Packet]): List of scapy Packet objects to convert.
+        save (bool, optional): If True, returns the elements list; otherwise, assigns it to self.elements. Defaults to False.
+
+    Raises:
+        AttributeError: If a packet does not have the expected IP layer attributes.
+
+    Returns:
+        list[dict]: List of dictionaries representing nodes and edges for visualization (only if save=True).
+
+    Example:
+        elements = pcap_to_element_converter_timestamp(packets, save=True)
+    &#34;&#34;&#34;
+    elements = []
+    previous = None
+    for packet in packets:
+        if packet.haslayer(&#34;IP&#34;):
+            timestamp = str(packet.time)
+            src = packet[&#34;IP&#34;].src
+            dst = packet[&#34;IP&#34;].dst
+            proto = packet.sprintf(&#34;%IP.proto%&#34;)
+
+            elements.append({&#34;data&#34;: {&#34;id&#34;: timestamp, &#34;label&#34;: timestamp}})
+
+            elements.append({&#34;data&#34;: {&#34;id&#34;: src, &#34;label&#34;: src}})
+            elements.append({&#34;data&#34;: {&#34;id&#34;: dst, &#34;label&#34;: dst}})
+
+            if previous is not None:
+                elements.append(
+                    {
+                        &#34;data&#34;: {
+                            &#34;source&#34;: previous,
+                            &#34;target&#34;: timestamp,
+                            &#34;label&#34;: &#34;timestamp&#34;,
+                        }
+                    }
+                )
+
+            elements.append(
+                {&#34;data&#34;: {&#34;source&#34;: timestamp, &#34;target&#34;: src, &#34;label&#34;: proto}}
+            )
+
+            elements.append(
+                {&#34;data&#34;: {&#34;source&#34;: src, &#34;target&#34;: dst, &#34;label&#34;: proto}}
+            )
+    if save:
+        return elements
+    self.elements = elements</code></pre>
+</details>
+<div class="desc"><h2 id="description">Description</h2>
+<p>Converts a list of scapy Packet objects from a pcap file into a list of elements suitable for graph visualization.
+Each packet's timestamp, source IP, destination IP, and protocol are extracted and represented as nodes and edges.
+Optionally saves the generated elements to the instance.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>packets</code></strong> :&ensp;<code>list[scapy.packet.Packet]</code></dt>
+<dd>List of scapy Packet objects to convert.</dd>
+<dt><strong><code>save</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>If True, returns the elements list; otherwise, assigns it to self.elements. Defaults to False.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AttributeError</code></dt>
+<dd>If a packet does not have the expected IP layer attributes.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[dict]</code></dt>
+<dd>List of dictionaries representing nodes and edges for visualization (only if save=True).</dd>
+</dl>
+<h2 id="example">Example</h2>
+<p>elements = pcap_to_element_converter_timestamp(packets, save=True)</p></div>
+</dd>
+<dt id="ctfsolver.forensics.manager_dash.ManagerDash.run_dash"><code class="name flex">
+<span>def <span class="ident">run_dash</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_dash(self):
+    &#34;&#34;&#34;
+    Runs the Dash application after validating and setting up required elements.
+    This method performs the following steps:
+    1. Checks if `self.elements` is not None or empty.
+    2. Validates the format of `self.elements` using `self.elements_checker`.
+    3. Sets up the Dash application by calling `self.setup_dash`.
+    4. Runs the Dash app with debugging enabled.
+    Raises:
+        ValueError: If `self.elements` is None or empty.
+        ValueError: If `self.elements` does not pass the format check.
+    &#34;&#34;&#34;
+
+    if self.elements is None or not self.elements:
+        raise ValueError(&#34;Elements cannot be None or empty&#34;)
+    # self.elements = self.example_element_creator()
+    if not self.elements_checker(self.elements):
+        raise ValueError(&#34;Invalid elements format&#34;)
+    self.setup_dash()
+    self.app.run(debug=True)</code></pre>
+</details>
+<div class="desc"><p>Runs the Dash application after validating and setting up required elements.
+This method performs the following steps:
+1. Checks if <code>self.elements</code> is not None or empty.
+2. Validates the format of <code>self.elements</code> using <code>self.elements_checker</code>.
+3. Sets up the Dash application by calling <code>self.setup_dash</code>.
+4. Runs the Dash app with debugging enabled.</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>If <code>self.elements</code> is None or empty.</dd>
+<dt><code>ValueError</code></dt>
+<dd>If <code>self.elements</code> does not pass the format check.</dd>
+</dl></div>
+</dd>
+<dt id="ctfsolver.forensics.manager_dash.ManagerDash.setup_dash"><code class="name flex">
+<span>def <span class="ident">setup_dash</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setup_dash(self):
+    &#34;&#34;&#34;
+    Initializes and configures the Dash application.
+
+    This method creates a Dash app instance, sets its title,
+    and sets up the layout and callback functions required for the dashboard.
+
+    Args:
+        None
+
+    Returns:
+        None
+    &#34;&#34;&#34;
+
+    self.app = dash.Dash(__name__)
+    self.app.title = self.title
+
+    self.setup_dash_layout()
+
+    self.setup_dash_functions()</code></pre>
+</details>
+<div class="desc"><p>Initializes and configures the Dash application.</p>
+<p>This method creates a Dash app instance, sets its title,
+and sets up the layout and callback functions required for the dashboard.</p>
+<h2 id="args">Args</h2>
+<p>None</p>
+<h2 id="returns">Returns</h2>
+<p>None</p></div>
+</dd>
+<dt id="ctfsolver.forensics.manager_dash.ManagerDash.setup_dash_functions"><code class="name flex">
+<span>def <span class="ident">setup_dash_functions</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setup_dash_functions(self):
+    &#34;&#34;&#34;
+    Sets up Dash callback functions for interactive components in the dashboard.
+    This method registers a callback for the Cytoscape graph component to handle node click events.
+    When a node is clicked, its information is displayed in the designated output component.
+    Callback:
+        - Output: Updates the &#34;node-click-output&#34; component&#39;s children with node information.
+        - Input: Listens for &#34;tapNodeData&#34; events from the &#34;cytoscape-graph&#34; component.
+    Returns:
+        None
+    &#34;&#34;&#34;
+
+    @self.app.callback(
+        Output(&#34;node-click-output&#34;, &#34;children&#34;),
+        Input(&#34;cytoscape-graph&#34;, &#34;tapNodeData&#34;),
+    )
+    def display_node_info(data):
+        if data:
+            print(&#34;Node clicked:&#34;, data)
+            return f&#34;Clicked on node: {data[&#39;label&#39;]}&#34;
+        return &#34;Click a node to see its info.&#34;</code></pre>
+</details>
+<div class="desc"><p>Sets up Dash callback functions for interactive components in the dashboard.
+This method registers a callback for the Cytoscape graph component to handle node click events.
+When a node is clicked, its information is displayed in the designated output component.</p>
+<h2 id="callback">Callback</h2>
+<ul>
+<li>Output: Updates the "node-click-output" component's children with node information.</li>
+<li>Input: Listens for "tapNodeData" events from the "cytoscape-graph" component.</li>
+</ul>
+<h2 id="returns">Returns</h2>
+<p>None</p></div>
+</dd>
+<dt id="ctfsolver.forensics.manager_dash.ManagerDash.setup_dash_layout"><code class="name flex">
+<span>def <span class="ident">setup_dash_layout</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setup_dash_layout(self):
+    &#34;&#34;&#34;
+    Sets up the Dash application layout for packet flow visualization.
+    This method configures the main layout of the Dash app, including:
+    - A header displaying &#34;Packet Flow Visualization&#34;.
+    - A Cytoscape graph for visualizing packet flows, with nodes and edges styled for clarity.
+    - An output div for displaying information when a node is clicked.
+    The layout uses a force-directed graph (&#34;cose&#34; layout) and applies custom styles for nodes, edges, and background.
+    Returns:
+        None
+    &#34;&#34;&#34;
+
+    self.app.layout = html.Div(
+        [
+            html.H1(&#34;Packet Flow Visualization&#34;, style={&#34;color&#34;: &#34;white&#34;}),
+            cyto.Cytoscape(
+                id=&#34;cytoscape-graph&#34;,
+                elements=self.elements,
+                layout={&#34;name&#34;: &#34;cose&#34;},  # force-directed layout
+                style={&#34;width&#34;: &#34;100%&#34;, &#34;height&#34;: &#34;700px&#34;},
+                stylesheet=[
+                    {
+                        &#34;selector&#34;: &#34;node&#34;,
+                        &#34;style&#34;: {
+                            &#34;content&#34;: &#34;data(label)&#34;,
+                            &#34;text-valign&#34;: &#34;center&#34;,
+                            &#34;color&#34;: &#34;white&#34;,
+                            &#34;background-color&#34;: &#34;#0074D9&#34;,
+                            &#34;font-size&#34;: 14,
+                        },
+                    },
+                    {
+                        &#34;selector&#34;: &#34;edge&#34;,
+                        &#34;style&#34;: {&#34;line-color&#34;: &#34;#AAAAAA&#34;, &#34;width&#34;: 2},
+                    },
+                ],
+            ),
+            html.Div(
+                id=&#34;node-click-output&#34;,
+                style={
+                    &#34;padding&#34;: &#34;20px&#34;,
+                    &#34;color&#34;: &#34;white&#34;,
+                    &#34;backgroundColor&#34;: &#34;#111&#34;,
+                },
+            ),
+        ],
+        style={&#34;backgroundColor&#34;: &#34;#222&#34;, &#34;padding&#34;: &#34;20px&#34;},
+    )</code></pre>
+</details>
+<div class="desc"><p>Sets up the Dash application layout for packet flow visualization.
+This method configures the main layout of the Dash app, including:
+- A header displaying "Packet Flow Visualization".
+- A Cytoscape graph for visualizing packet flows, with nodes and edges styled for clarity.
+- An output div for displaying information when a node is clicked.
+The layout uses a force-directed graph ("cose" layout) and applies custom styles for nodes, edges, and background.</p>
+<h2 id="returns">Returns</h2>
+<p>None</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="ctfsolver.forensics" href="index.html">ctfsolver.forensics</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="ctfsolver.forensics.manager_dash.ManagerDash" href="#ctfsolver.forensics.manager_dash.ManagerDash">ManagerDash</a></code></h4>
+<ul class="">
+<li><code><a title="ctfsolver.forensics.manager_dash.ManagerDash.elements_checker" href="#ctfsolver.forensics.manager_dash.ManagerDash.elements_checker">elements_checker</a></code></li>
+<li><code><a title="ctfsolver.forensics.manager_dash.ManagerDash.example_element_creator" href="#ctfsolver.forensics.manager_dash.ManagerDash.example_element_creator">example_element_creator</a></code></li>
+<li><code><a title="ctfsolver.forensics.manager_dash.ManagerDash.pcap_to_element_converter" href="#ctfsolver.forensics.manager_dash.ManagerDash.pcap_to_element_converter">pcap_to_element_converter</a></code></li>
+<li><code><a title="ctfsolver.forensics.manager_dash.ManagerDash.pcap_to_element_converter_timestamp" href="#ctfsolver.forensics.manager_dash.ManagerDash.pcap_to_element_converter_timestamp">pcap_to_element_converter_timestamp</a></code></li>
+<li><code><a title="ctfsolver.forensics.manager_dash.ManagerDash.run_dash" href="#ctfsolver.forensics.manager_dash.ManagerDash.run_dash">run_dash</a></code></li>
+<li><code><a title="ctfsolver.forensics.manager_dash.ManagerDash.setup_dash" href="#ctfsolver.forensics.manager_dash.ManagerDash.setup_dash">setup_dash</a></code></li>
+<li><code><a title="ctfsolver.forensics.manager_dash.ManagerDash.setup_dash_functions" href="#ctfsolver.forensics.manager_dash.ManagerDash.setup_dash_functions">setup_dash_functions</a></code></li>
+<li><code><a title="ctfsolver.forensics.manager_dash.ManagerDash.setup_dash_layout" href="#ctfsolver.forensics.manager_dash.ManagerDash.setup_dash_layout">setup_dash_layout</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

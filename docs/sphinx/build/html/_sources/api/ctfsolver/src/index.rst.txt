@@ -1,0 +1,17 @@
+ctfsolver.src
+=============
+
+.. py:module:: ctfsolver.src
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /api/ctfsolver/src/ctfsolver/index
+   /api/ctfsolver/src/data/index
+   /api/ctfsolver/src/position_cipher_functions/index
+
+

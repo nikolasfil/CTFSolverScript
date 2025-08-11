@@ -1,0 +1,26 @@
+data
+====
+
+.. py:module:: data
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   data.categories
+   data.sites
+
+
+Module Contents
+---------------
+
+.. py:data:: categories
+   :value: ['Coding', 'Notes', 'Osint', 'Resources', 'Stego', 'Binary', 'Blockchain', 'Cryptography',...
+
+
+.. py:data:: sites
+   :value: ['ECSC', 'ctflearn', 'picoCTF', 'TryHackMe', 'HackTheBox', 'OverTheWire', 'RootMe', 'HTB',...
+
+

@@ -1,0 +1,74 @@
+ctfsolver.inline.parser
+=======================
+
+.. py:module:: ctfsolver.inline.parser
+
+.. autoapi-nested-parse::
+
+   parser.py
+
+   This module provides the Parser class for handling command-line arguments and dynamic command discovery
+   for the Inline tool. It leverages argparse and argcomplete to support flexible command-line interfaces,
+   automatically gathering available command methods and exposing them as selectable commands.
+
+   Classes:
+       Parser: Handles argument parsing, dynamic command discovery, and provides an interface for
+           extending command functionality.
+
+   Usage:
+       Instantiate the Parser class to parse command-line arguments and access dynamically discovered
+       commands. Extend the class with methods prefixed by 'function_' to add new commands.
+
+   .. rubric:: Example
+
+   parser = Parser()
+   args = parser.args
+   # Access parsed arguments and available commands via parser.command_list
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   ctfsolver.inline.parser.Parser
+
+
+Module Contents
+---------------
+
+.. py:class:: Parser(*args, **kwargs)
+
+   .. py:attribute:: parser
+
+
+   .. py:method:: automatic_functions_gathering(self_save=True)
+
+      Automatically gather all functions that start with "function_"
+      and store them in the command_list attribute.
+      This allows for dynamic command handling based on the available functions.
+      The functions are expected to be methods of the InlineTool class.
+      The gathered functions can be used as commands for the tool.
+      The self_save parameter determines whether to save the gathered functions
+      in the instance's command_list attribute.
+      This is useful for dynamically updating the available commands without hardcoding them.
+
+      :param self_save: Defaults to True.
+      :type self_save: bool, optional
+
+      :returns: A list of function names that start with "function_".
+      :rtype: list
+
+
+
+   .. py:method:: main()
+
+
+   .. py:method:: add_arguments()
+
+      Add command line arguments to the parser.
+
+
+
+

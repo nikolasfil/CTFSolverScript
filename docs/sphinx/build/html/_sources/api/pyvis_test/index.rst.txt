@@ -1,0 +1,22 @@
+pyvis_test
+==========
+
+.. py:module:: pyvis_test
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   pyvis_test.nx_graph
+   pyvis_test.net
+
+
+Module Contents
+---------------
+
+.. py:data:: nx_graph
+
+.. py:data:: net
+

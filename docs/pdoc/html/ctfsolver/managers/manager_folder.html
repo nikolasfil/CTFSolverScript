@@ -1,0 +1,1670 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>ctfsolver.managers.manager_folder API documentation</title>
+<meta name="description" content="manager_folder.py …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>ctfsolver.managers.manager_folder</code></h1>
+</header>
+<section id="section-intro">
+<p>manager_folder.py</p>
+<p>This module provides the <code><a title="ctfsolver.managers.manager_folder.ManagerFolder" href="#ctfsolver.managers.manager_folder.ManagerFolder">ManagerFolder</a></code> class for managing folder structures and file operations
+in the context of CTF (Capture The Flag) challenges. It offers utilities for initializing challenge
+folders, preparing and cleaning up files, searching for patterns, and introspecting Python files
+for function definitions.</p>
+<h2 id="classes">Classes</h2>
+<p>ManagerFolder: Handles creation, management, and introspection of challenge-related folders and files.</p>
+<p>Typical usage example:
+manager = ManagerFolder(file="challenge.py", verbose=True)
+manager.create_parent_folder()
+manager.prepare_space(files=["input.txt", "output.txt"])
+functions = manager.get_functions_from_file("challenge.py")</p>
+<pre><code>CONFIG (dict): Global configuration dictionary imported from ctfsolver.config.
+</code></pre>
+<h2 id="dependencies">Dependencies</h2>
+<p>pathlib, inspect, os, ast, collections.defaultdict</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder"><code class="flex name class">
+<span>class <span class="ident">ManagerFolder</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ManagerFolder:
+    &#34;&#34;&#34;
+
+    ManagerFolder provides utilities for managing folder structures and files for CTF (Capture The Flag) challenges.
+    This class handles the creation, organization, and manipulation of challenge-related directories and files,
+    including payloads, data, and solution scripts. It offers methods for searching files, executing functions
+    on files, cleaning up empty directories, and extracting function definitions from Python files.
+        verbose (bool): Enables verbose output for debugging and logging.
+        Path (type): Reference to the pathlib.Path class for file system operations.
+        parent (Path): The resolved parent directory of the calling file.
+        file (str): The filename associated with the challenge.
+        folders_name_list (list): List of folder names to be managed.
+        folders (defaultdict): Mapping of folder names to their Path objects.
+        folder_payloads (Path): Path to the payloads folder.
+        folder_data (Path): Path to the data folder.
+        folder_files (Path): Path to the files folder.
+        challenge_file (Path): Path to the challenge file.
+        solution_file (Path): Path to the solution file.
+    Methods:
+        __init__(*args, **kwargs): Initializes the ManagerFolder instance.
+        init_for_challenge(*args, **kwargs): Sets up attributes and folders for a challenge.
+        handling_global_config(): Loads global configuration for folder names.
+        initializing_all_ancestors(*args, **kwargs): Initializes ancestor classes (placeholder).
+        get_parent(): Determines and sets the parent directory of the calling file.
+        setup_named_folders(): Creates and assigns paths for named folders.
+        create_parent_folder(): Creates parent folders if they do not exist.
+        prepare_space(files=None, folder=None, test_text=&#34;flag{test}&#34;): Prepares challenge space by creating files and folders.
+        clean_folders(folders: list = None): Removes empty folders.
+        check_empty_folder(folder): Checks if a folder is empty.
+        get_challenge_file(): Assigns the challenge file path.
+        get_solution_file(*args, solution_name=&#34;solution.py&#34;, save=False, display=False, **kwargs): Retrieves the solution file path.
+        search_for_pattern_in_file(file, func=None, display=False, save=False, *args, **kwargs): Searches for a pattern in a file.
+        exec_on_files(folder, func, *args, **kwargs): Executes a function on all files in a folder.
+        search_files(directory, exclude_dirs, search_string, save=False, display=False): Searches for a string in files within a directory.
+        get_self_functions(): Returns a list of callable methods of the class.
+        get_function_reference(function, file): Finds references to a function in a file.
+        get_functions_from_file(file_path): Extracts function names from a Python file.
+        find_function_from_file(file_path, function_name): Finds and returns the source code of a function from a file.
+        folfil(folder, file): Returns the full path of a file within a folder.
+        folders_file(*folders, file): Returns the full path of a file within nested folders.
+        challenge_folder_structure(*args, **kwargs): Checks the structure of challenge folders.
+        recursive_folder_search(function, *args, path=None, **kwargs): Recursively applies a function to folders and files.
+        single_folder_search(*args, **kwargs): Applies a function to the contents of a single folder.
+    Example:
+        manager = ManagerFolder(file=&#34;challenge.txt&#34;, verbose=True)
+        manager.prepare_space(files=[&#34;input.txt&#34;, &#34;output.txt&#34;])
+    &#34;&#34;&#34;
+
+    def __init__(self, *args, **kwargs):
+        &#34;&#34;&#34;
+        Initialize the class
+        &#34;&#34;&#34;
+        self.verbose = kwargs.get(&#34;verbose&#34;, False)
+        self.Path = Path
+        self.handling_global_config()
+        self.get_parent()
+        init_challenge = kwargs.get(&#34;init_for_challenge&#34;, True)
+        if init_challenge:
+            self.init_for_challenge(*args, **kwargs)
+
+    def init_for_challenge(self, *args, **kwargs):
+        &#34;&#34;&#34;
+        Initializes the class for the challenge.
+        This method sets up the necessary attributes and folders required for the challenge.
+        Args:
+            *args: Variable length argument list.
+            **kwargs: Arbitrary keyword arguments.
+                - file (str): The file associated with the challenge.
+                - debug (bool, optional): Flag to enable or disable debug mode. Defaults to False.
+                - folders_name_list (list, optional): A custom list of folder names. Defaults to None.
+        Attributes:
+            file (str): The file associated with the challenge.
+            debug (bool): Indicates whether debug mode is enabled.
+            folders_name_list (list or None): A custom list of folder names, if provided.
+            folders_names_must (list): The default list of required folder names.
+        &#34;&#34;&#34;
+
+        self.file = kwargs.get(&#34;file&#34;)
+        self.debug = kwargs.get(&#34;debug&#34;, False)
+
+        # &#34;&#34;&#34;
+        # Folder names list
+        # &#34;&#34;&#34;
+
+        self.setup_named_folders()
+        self.get_challenge_file()
+
+    def handling_global_config(self):
+        self.folders_name_list = CONFIG[&#34;structures&#34;][&#34;ctf_folder&#34;]
+
+    def initializing_all_ancestors(self, *args, **kwargs):
+        &#34;&#34;&#34;
+        Description:
+            Initializes all the ancestors of the class
+        &#34;&#34;&#34;
+        pass
+
+    def get_parent(self):
+        &#34;&#34;&#34;
+        Description:
+                Retrieves the parent directory of the file that invoked the current class.
+
+            This method determines the file path of the script that instantiated the class,
+            resolves its parent directory, and adjusts the result based on a predefined list
+            of folder names.
+
+        Attributes:
+            self.parent (Path or None): The resolved parent directory of the calling file.
+            self.file_called_frame (list): The stack frame of the calling file.
+            self.file_called_path (Path): The file path of the calling file.
+
+        Behavior:
+            - If the parent directory&#39;s name is in `self.folders_name_list`, the method
+              sets `self.parent` to the grandparent directory instead.
+
+        Note:
+            Ensure that `self.folders_name_list` is defined and contains the folder names
+            to be checked before calling this method.
+        &#34;&#34;&#34;
+        self.parent = None
+
+        self.file_called_frame = inspect.stack()
+        self.file_called_path = Path(self.file_called_frame[-1].filename)
+        self.parent = Path(self.file_called_path).parent.resolve()
+
+        if self.parent.name in self.folders_name_list:
+            self.parent = self.parent.parent
+
+    def setup_named_folders(self):
+        &#34;&#34;&#34;
+
+        Initializes and sets up named folder paths as attributes and in a dictionary.
+        This method creates Path objects for the &#39;data&#39;, &#39;files&#39;, and &#39;payloads&#39; folders
+        relative to the parent directory, and assigns them to corresponding attributes.
+        It also initializes a defaultdict to store folder paths for each name in
+        `self.folders_name_list`, mapping each folder name to its Path object.
+
+        Attributes set:
+            folder_payloads (Path): Path to the &#39;payloads&#39; folder.
+            folder_data (Path): Path to the &#39;data&#39; folder.
+            folder_files (Path): Path to the &#39;files&#39; folder.
+            folders (defaultdict): Dictionary mapping folder names to their Path objects.
+
+
+        Raises:
+            AttributeError: If `self.parent` or `self.folders_name_list` is not defined.
+
+        &#34;&#34;&#34;
+
+        self.folder_payloads = None
+        self.folder_data = None
+        self.folder_files = None
+
+        self.folder_data = Path(self.parent, &#34;data&#34;)
+        self.folder_files = Path(self.parent, &#34;files&#34;)
+        self.folder_payloads = Path(self.parent, &#34;payloads&#34;)
+
+        # Perhaps a new way of calling the folders
+
+        self.folders = defaultdict(None)
+
+        for folder in self.folders_name_list:
+            self.folders[folder] = Path(self.parent, folder)
+
+    def create_parent_folder(self):
+        &#34;&#34;&#34;
+        Description:
+            Create the parent folder of the file that called the class if they don&#39;t exist
+        &#34;&#34;&#34;
+
+        # In next versions this function&#39;s name should change
+
+        for folder in self.folders.values():
+            if not folder.exists():
+                folder.mkdir()
+
+    def prepare_space(self, files=None, folder=None, test_text=&#34;flag{test}&#34;):
+        &#34;&#34;&#34;
+        Creates files with specified content in a given folder if they do not already exist.
+        Args:
+            files (list, optional): List of filenames to create. Defaults to an empty list.
+            folder (str or Path, optional): Path to the folder where files will be created.
+            Defaults to self.folder_files.
+            test_text (str, optional): Content to write into each created file. Defaults to &#34;flag{test}&#34;.
+        Returns:
+            None
+        &#34;&#34;&#34;
+
+        files = files if files else []
+        folder = folder if folder else self.folder_files
+
+        for file in files:
+            if not Path(folder, file).exists():
+                with open(Path(folder, file), &#34;w&#34;) as f:
+                    f.write(test_text)
+
+    def clean_folders(self, folders: list = None):
+        &#34;&#34;&#34;
+        Description:
+            Clean the space by deleting the folders that remain empty
+        &#34;&#34;&#34;
+        folders = folders if folders is not None else self.folders.values()
+
+        for folder in folders:
+            if self.verbose:
+                print(folder)
+            if self.check_empty_folder(folder):
+                folder.rmdir()
+                # Check if the folder has
+
+    def check_empty_folder(self, folder):
+        &#34;&#34;&#34;
+        Description:
+            Check if the folder is empty
+        &#34;&#34;&#34;
+        if folder.exists():
+            if self.verbose:
+                print(folder.iterdir())
+            return not any(folder.iterdir())
+        return False
+
+    def get_challenge_file(self):
+        &#34;&#34;&#34;
+        Description:
+            Get the challenge file and assign it to the self.challenge_file for ease of access
+        &#34;&#34;&#34;
+        if self.file and self.folder_files:
+            self.challenge_file = Path(self.folder_files, self.file)
+        elif not self.folder_files:
+            if self.debug:
+                print(&#34;Data folder not found&#34;)
+
+    def get_solution_file(
+        self, *args, solution_name=&#34;solution.py&#34;, save=False, display=False, **kwargs
+    ):
+        &#34;&#34;&#34;
+        Description:
+            Get the solution file and assign it to the self.solution_file for ease of access
+
+        Args:
+            solution_name (str, optional): Name of the solution file. Defaults to &#34;solution.py&#34;.
+            save (bool, optional): Save the solution file. Defaults to False.
+
+        Returns:
+            str: Path of the solution file if save is True
+        &#34;&#34;&#34;
+
+        self.solution_file = None
+        if self.folders[&#34;payloads&#34;]:
+            self.solution_file = Path(self.folders[&#34;payloads&#34;], solution_name)
+            if not self.solution_file.exists():
+                self.solution_file = None
+                if display:
+                    print(f&#34;Solution file {solution_name} not found&#34;)
+
+        if save:
+            return self.solution_file
+
+    def search_for_pattern_in_file(
+        self, file, func=None, display=False, save=False, *args, **kwargs
+    ):
+        &#34;&#34;&#34;
+        Description:
+        Search for a pattern in the file and return the output
+
+        Args:
+            file (str): File to search for the pattern
+            func (function, optional): Function to search for the pattern. Defaults to None.
+            display (bool, optional): Display the output. Defaults to False.
+            save (bool, optional): Save the output. Defaults to False.
+
+        Returns:
+            list: List of output if save is True
+
+        &#34;&#34;&#34;
+        if save:
+            output = []
+        if func is None:
+            return None
+
+        with open(file, &#34;r&#34;) as f:
+            for line in f:
+                result = func(line, *args, **kwargs)
+                if result is not None:
+                    if display:
+                        print(result)
+                    if save:
+                        output.extend(result)
+        if save:
+            return output
+
+    def exec_on_files(self, folder, func, *args, **kwargs):
+        &#34;&#34;&#34;
+        Description:
+        Execute a function on all the files in the folder with the arguments provided
+
+        Args:
+            folder (str): Folder to execute the function
+            func (function): Function to execute
+
+        Returns:
+            list: List of output of the function
+        &#34;&#34;&#34;
+
+        save = kwargs.get(&#34;save&#34;, False)
+        display = kwargs.get(&#34;display&#34;, False)
+        if save:
+            output = []
+        for file in folder.iterdir():
+            out = func(file, *args, **kwargs)
+            if save and out is not None:
+                output.extend(out)
+            if display and out is not None:
+                print(out)
+        if save:
+            return output
+
+    def search_files(
+        self, directory, exclude_dirs, search_string, save=False, display=False
+    ):
+        &#34;&#34;&#34;
+        Description:
+        Search for a string in the files in the directory
+
+        Args:
+            directory (str): Directory to search for the string
+            exclude_dirs (list): List of directories to exclude
+            search_string (str): String to search for
+            save (bool, optional): Save the output. Defaults to False.
+            display (bool, optional): Display the output. Defaults to False.
+
+        Returns:
+            list: List of output if save is True
+        &#34;&#34;&#34;
+        if save:
+            output = []
+
+        for root, dirs, files in os.walk(directory):
+            # Exclude specified directories
+            dirs[:] = [d for d in dirs if d not in exclude_dirs]
+
+            for file in files:
+                file_path = os.path.join(root, file)
+                try:
+                    with open(file_path, &#34;r&#34;) as f:
+                        # Check if the search string is in the file
+                        if search_string in f.read():
+                            if display:
+                                print(file_path)
+                            if save:
+                                output.append(file_path)
+                except (IOError, UnicodeDecodeError):
+                    # Handle files that cannot be opened or read
+                    continue
+
+        if save:
+            return output
+
+    def get_self_functions(self):
+        &#34;&#34;&#34;
+        Description:
+        Get the functions of the class
+        &#34;&#34;&#34;
+
+        return [
+            func
+            for func in dir(self)
+            if callable(getattr(self, func)) and not func.startswith(&#34;__&#34;)
+        ]
+
+    def get_function_reference(self, function, file):
+        &#34;&#34;&#34;
+        Description:
+        Get the reference of the function in the file
+        &#34;&#34;&#34;
+
+        if function not in self.get_self_functions():
+            raise ValueError(f&#34;Function {function} not found in the class&#34;)
+
+        output = []
+
+        with open(file, &#34;r&#34;) as f:
+            lines = f.readlines()
+            for i, line in enumerate(lines):
+                if function in line:
+                    output.append(line)
+        return output
+
+    def get_functions_from_file(self, file_path):
+        &#34;&#34;&#34;
+        Description:
+        Get the functions from the file
+        &#34;&#34;&#34;
+
+        output = []
+        with open(file_path, &#34;r&#34;) as file_path:
+            file_content = file_path.read()
+
+        # Parse the file content into an AST
+        tree = ast.parse(file_content)
+
+        # Define a visitor class to find the function definition
+        class FunctionDefFinder(ast.NodeVisitor):
+            def __init__(self):
+                self.function_def = None
+
+            def visit_FunctionDef(self, node):
+                output.append(node.name)
+                # Continue visiting other nodes
+                self.generic_visit(node)
+
+        # Create an instance of the visitor and visit the AST
+        finder = FunctionDefFinder()
+        finder.visit(tree)
+
+        # If the function was found, return its definition
+        return output
+
+    def find_function_from_file(self, file_path, function_name):
+        &#34;&#34;&#34;
+        Description:
+        Get the functions from the file
+        &#34;&#34;&#34;
+
+        with open(file_path, &#34;r&#34;) as file_path:
+            file_content = file_path.read()
+
+        # Parse the file content into an AST
+        tree = ast.parse(file_content)
+
+        # Define a visitor class to find the function definition
+        class FunctionDefFinder(ast.NodeVisitor):
+            def __init__(self):
+                self.function_def = None
+
+            def visit_FunctionDef(self, node):
+                if node.name == function_name:
+                    self.function_def = node
+                # Continue visiting other nodes
+                self.generic_visit(node)
+
+        # Create an instance of the visitor and visit the AST
+        finder = FunctionDefFinder()
+        finder.visit(tree)
+
+        # If the function was found, return its definition
+        if finder.function_def:
+            return ast.unparse(finder.function_def)
+        else:
+            return None
+
+    def folfil(self, folder, file):
+        &#34;&#34;&#34;
+        Description:
+            Get the full path of the file in the folder
+
+        Args:
+            folder (str): Folder to get the file
+            file (str): File to get the full path
+
+        Returns:
+            str: Full path of the file
+
+        &#34;&#34;&#34;
+
+        folder = self.folders[folder]
+
+        if folder is None:
+            raise ValueError(&#34;Folder not found&#34;)
+
+        full_path = self.Path(folder, file)
+
+        return full_path
+
+    def folders_file(self, *folders, file):
+        &#34;&#34;&#34;
+        Description:
+            Get the full path of the file in the folder
+
+        Args:
+            folders (list): List of folders to get the file
+
+        Returns:
+            str: Full path of the file
+
+        &#34;&#34;&#34;
+
+        # folder = self.folders[folder]
+
+        full_path = self.Path(*folders, file)
+
+        if full_path is None:
+            raise ValueError(&#34;Folder not found&#34;)
+        if not full_path.exists():
+            raise ValueError(&#34;File not found&#34;)
+
+        return full_path
+
+    def challenge_folder_structure(self, *args, **kwargs):
+        &#34;&#34;&#34;
+        Description:
+            Recursively search
+        &#34;&#34;&#34;
+        root = kwargs.get(&#34;root&#34;, None)
+        dirs = kwargs.get(&#34;dirs&#34;, [])
+        files = kwargs.get(&#34;files&#34;, [])
+
+        # print(f&#34;Root: {root}\nDirs: {dirs}\nFiles: {files}&#34;)
+
+        # Checks with self.folder_names_must
+        # Checks if there are laying files
+        # If there are only folders from the must file it&#39;s correct . Else it needs change
+
+        if len(files) &gt; 0 or not all([dir in self.folders_names_must for dir in dirs]):
+            print(f&#34;Root: {root}&#34;)
+
+        print(f&#34;Root: {root}\nDirs: {dirs}\nFiles: {files}&#34;)
+        return root, dirs, files
+
+    def recursive_folder_search(self, function, *args, path=None, **kwargs):
+        &#34;&#34;&#34;
+        Description:
+            Recursively search for the file in the folder
+        &#34;&#34;&#34;
+
+        exclude_list = kwargs.get(&#34;exclude&#34;, [])
+
+        if path is None:
+            path = self.parent
+
+        for root, dirs, files in os.walk(path):
+            if any([exclude in root for exclude in exclude_list]):
+                continue
+
+            print(f&#34;Root: {root}\nDirs: {dirs}\nFiles: {files}&#34;)
+            function(root, dirs, files, *args, **kwargs)
+
+    def single_folder_search(self, *args, **kwargs):
+        &#34;&#34;&#34;
+        Searches a single folder and applies a specified function to its contents.
+        Args:
+            *args: Additional positional arguments to pass to the specified function.
+            **kwargs: Additional keyword arguments, including:
+                - exclude (list, optional): A list of directory names to exclude from the search.
+                - function (callable, optional): A function to apply to the folder&#39;s contents.
+                  The function should accept the following arguments: root (str), dirs (list),
+                  files (list), *args, and **kwargs.
+                - path (str, optional): The path of the folder to search.
+        Returns:
+            tuple: A tuple containing:
+                - root (str): The root directory of the search.
+                - dirs (list): A list of subdirectories in the root directory, excluding those in the exclude list.
+                - files (list): A list of files in the root directory.
+        &#34;&#34;&#34;
+
+        exclude_list = kwargs.get(&#34;exclude&#34;, [])
+        function = kwargs.get(&#34;function&#34;, None)
+        path = kwargs.get(&#34;path&#34;, None)
+
+        root, dirs, files = next(os.walk(path))
+        # print(f&#34;Root: {root}\nDirs: {dirs}\nFiles: {files}&#34;)
+
+        # Exclude files
+        dirs = [dir for dir in dirs if dir not in exclude_list]
+
+        if function is not None:
+            function(root, dirs, files, *args, **kwargs)
+
+        return root, dirs, files</code></pre>
+</details>
+<div class="desc"><p>ManagerFolder provides utilities for managing folder structures and files for CTF (Capture The Flag) challenges.
+This class handles the creation, organization, and manipulation of challenge-related directories and files,
+including payloads, data, and solution scripts. It offers methods for searching files, executing functions
+on files, cleaning up empty directories, and extracting function definitions from Python files.
+verbose (bool): Enables verbose output for debugging and logging.
+Path (type): Reference to the pathlib.Path class for file system operations.
+parent (Path): The resolved parent directory of the calling file.
+file (str): The filename associated with the challenge.
+folders_name_list (list): List of folder names to be managed.
+folders (defaultdict): Mapping of folder names to their Path objects.
+folder_payloads (Path): Path to the payloads folder.
+folder_data (Path): Path to the data folder.
+folder_files (Path): Path to the files folder.
+challenge_file (Path): Path to the challenge file.
+solution_file (Path): Path to the solution file.</p>
+<h2 id="methods">Methods</h2>
+<p><strong>init</strong>(<em>args, </em><em>kwargs): Initializes the ManagerFolder instance.
+init_for_challenge(</em>args, <strong>kwargs): Sets up attributes and folders for a challenge.
+handling_global_config(): Loads global configuration for folder names.
+initializing_all_ancestors(*args, </strong>kwargs): Initializes ancestor classes (placeholder).
+get_parent(): Determines and sets the parent directory of the calling file.
+setup_named_folders(): Creates and assigns paths for named folders.
+create_parent_folder(): Creates parent folders if they do not exist.
+prepare_space(files=None, folder=None, test_text="flag{test}"): Prepares challenge space by creating files and folders.
+clean_folders(folders: list = None): Removes empty folders.
+check_empty_folder(folder): Checks if a folder is empty.
+get_challenge_file(): Assigns the challenge file path.
+get_solution_file(<em>args, solution_name="solution.py", save=False, display=False, </em><em>kwargs): Retrieves the solution file path.
+search_for_pattern_in_file(file, func=None, display=False, save=False, </em>args, <strong>kwargs): Searches for a pattern in a file.
+exec_on_files(folder, func, *args, </strong>kwargs): Executes a function on all files in a folder.
+search_files(directory, exclude_dirs, search_string, save=False, display=False): Searches for a string in files within a directory.
+get_self_functions(): Returns a list of callable methods of the class.
+get_function_reference(function, file): Finds references to a function in a file.
+get_functions_from_file(file_path): Extracts function names from a Python file.
+find_function_from_file(file_path, function_name): Finds and returns the source code of a function from a file.
+folfil(folder, file): Returns the full path of a file within a folder.
+folders_file(<em>folders, file): Returns the full path of a file within nested folders.
+challenge_folder_structure(</em>args, <strong>kwargs): Checks the structure of challenge folders.
+recursive_folder_search(function, *args, path=None, </strong>kwargs): Recursively applies a function to folders and files.
+single_folder_search(<em>args, </em>*kwargs): Applies a function to the contents of a single folder.</p>
+<h2 id="example">Example</h2>
+<p>manager = ManagerFolder(file="challenge.txt", verbose=True)
+manager.prepare_space(files=["input.txt", "output.txt"])</p>
+<p>Initialize the class</p></div>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="ctfsolver.managers.manager_file.ManagerFile" href="manager_file.html#ctfsolver.managers.manager_file.ManagerFile">ManagerFile</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.challenge_folder_structure"><code class="name flex">
+<span>def <span class="ident">challenge_folder_structure</span></span>(<span>self, *args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def challenge_folder_structure(self, *args, **kwargs):
+    &#34;&#34;&#34;
+    Description:
+        Recursively search
+    &#34;&#34;&#34;
+    root = kwargs.get(&#34;root&#34;, None)
+    dirs = kwargs.get(&#34;dirs&#34;, [])
+    files = kwargs.get(&#34;files&#34;, [])
+
+    # print(f&#34;Root: {root}\nDirs: {dirs}\nFiles: {files}&#34;)
+
+    # Checks with self.folder_names_must
+    # Checks if there are laying files
+    # If there are only folders from the must file it&#39;s correct . Else it needs change
+
+    if len(files) &gt; 0 or not all([dir in self.folders_names_must for dir in dirs]):
+        print(f&#34;Root: {root}&#34;)
+
+    print(f&#34;Root: {root}\nDirs: {dirs}\nFiles: {files}&#34;)
+    return root, dirs, files</code></pre>
+</details>
+<div class="desc"><h2 id="description">Description</h2>
+<p>Recursively search</p></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.check_empty_folder"><code class="name flex">
+<span>def <span class="ident">check_empty_folder</span></span>(<span>self, folder)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_empty_folder(self, folder):
+    &#34;&#34;&#34;
+    Description:
+        Check if the folder is empty
+    &#34;&#34;&#34;
+    if folder.exists():
+        if self.verbose:
+            print(folder.iterdir())
+        return not any(folder.iterdir())
+    return False</code></pre>
+</details>
+<div class="desc"><h2 id="description">Description</h2>
+<p>Check if the folder is empty</p></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.clean_folders"><code class="name flex">
+<span>def <span class="ident">clean_folders</span></span>(<span>self, folders: list = None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def clean_folders(self, folders: list = None):
+    &#34;&#34;&#34;
+    Description:
+        Clean the space by deleting the folders that remain empty
+    &#34;&#34;&#34;
+    folders = folders if folders is not None else self.folders.values()
+
+    for folder in folders:
+        if self.verbose:
+            print(folder)
+        if self.check_empty_folder(folder):
+            folder.rmdir()
+            # Check if the folder has</code></pre>
+</details>
+<div class="desc"><h2 id="description">Description</h2>
+<p>Clean the space by deleting the folders that remain empty</p></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.create_parent_folder"><code class="name flex">
+<span>def <span class="ident">create_parent_folder</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_parent_folder(self):
+    &#34;&#34;&#34;
+    Description:
+        Create the parent folder of the file that called the class if they don&#39;t exist
+    &#34;&#34;&#34;
+
+    # In next versions this function&#39;s name should change
+
+    for folder in self.folders.values():
+        if not folder.exists():
+            folder.mkdir()</code></pre>
+</details>
+<div class="desc"><h2 id="description">Description</h2>
+<p>Create the parent folder of the file that called the class if they don't exist</p></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.exec_on_files"><code class="name flex">
+<span>def <span class="ident">exec_on_files</span></span>(<span>self, folder, func, *args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def exec_on_files(self, folder, func, *args, **kwargs):
+    &#34;&#34;&#34;
+    Description:
+    Execute a function on all the files in the folder with the arguments provided
+
+    Args:
+        folder (str): Folder to execute the function
+        func (function): Function to execute
+
+    Returns:
+        list: List of output of the function
+    &#34;&#34;&#34;
+
+    save = kwargs.get(&#34;save&#34;, False)
+    display = kwargs.get(&#34;display&#34;, False)
+    if save:
+        output = []
+    for file in folder.iterdir():
+        out = func(file, *args, **kwargs)
+        if save and out is not None:
+            output.extend(out)
+        if display and out is not None:
+            print(out)
+    if save:
+        return output</code></pre>
+</details>
+<div class="desc"><p>Description:
+Execute a function on all the files in the folder with the arguments provided</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>folder</code></strong> :&ensp;<code>str</code></dt>
+<dd>Folder to execute the function</dd>
+<dt><strong><code>func</code></strong> :&ensp;<code>function</code></dt>
+<dd>Function to execute</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>List of output of the function</dd>
+</dl></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.find_function_from_file"><code class="name flex">
+<span>def <span class="ident">find_function_from_file</span></span>(<span>self, file_path, function_name)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def find_function_from_file(self, file_path, function_name):
+    &#34;&#34;&#34;
+    Description:
+    Get the functions from the file
+    &#34;&#34;&#34;
+
+    with open(file_path, &#34;r&#34;) as file_path:
+        file_content = file_path.read()
+
+    # Parse the file content into an AST
+    tree = ast.parse(file_content)
+
+    # Define a visitor class to find the function definition
+    class FunctionDefFinder(ast.NodeVisitor):
+        def __init__(self):
+            self.function_def = None
+
+        def visit_FunctionDef(self, node):
+            if node.name == function_name:
+                self.function_def = node
+            # Continue visiting other nodes
+            self.generic_visit(node)
+
+    # Create an instance of the visitor and visit the AST
+    finder = FunctionDefFinder()
+    finder.visit(tree)
+
+    # If the function was found, return its definition
+    if finder.function_def:
+        return ast.unparse(finder.function_def)
+    else:
+        return None</code></pre>
+</details>
+<div class="desc"><p>Description:
+Get the functions from the file</p></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.folders_file"><code class="name flex">
+<span>def <span class="ident">folders_file</span></span>(<span>self, *folders, file)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def folders_file(self, *folders, file):
+    &#34;&#34;&#34;
+    Description:
+        Get the full path of the file in the folder
+
+    Args:
+        folders (list): List of folders to get the file
+
+    Returns:
+        str: Full path of the file
+
+    &#34;&#34;&#34;
+
+    # folder = self.folders[folder]
+
+    full_path = self.Path(*folders, file)
+
+    if full_path is None:
+        raise ValueError(&#34;Folder not found&#34;)
+    if not full_path.exists():
+        raise ValueError(&#34;File not found&#34;)
+
+    return full_path</code></pre>
+</details>
+<div class="desc"><h2 id="description">Description</h2>
+<p>Get the full path of the file in the folder</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>folders</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of folders to get the file</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>Full path of the file</dd>
+</dl></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.folfil"><code class="name flex">
+<span>def <span class="ident">folfil</span></span>(<span>self, folder, file)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def folfil(self, folder, file):
+    &#34;&#34;&#34;
+    Description:
+        Get the full path of the file in the folder
+
+    Args:
+        folder (str): Folder to get the file
+        file (str): File to get the full path
+
+    Returns:
+        str: Full path of the file
+
+    &#34;&#34;&#34;
+
+    folder = self.folders[folder]
+
+    if folder is None:
+        raise ValueError(&#34;Folder not found&#34;)
+
+    full_path = self.Path(folder, file)
+
+    return full_path</code></pre>
+</details>
+<div class="desc"><h2 id="description">Description</h2>
+<p>Get the full path of the file in the folder</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>folder</code></strong> :&ensp;<code>str</code></dt>
+<dd>Folder to get the file</dd>
+<dt><strong><code>file</code></strong> :&ensp;<code>str</code></dt>
+<dd>File to get the full path</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>Full path of the file</dd>
+</dl></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.get_challenge_file"><code class="name flex">
+<span>def <span class="ident">get_challenge_file</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_challenge_file(self):
+    &#34;&#34;&#34;
+    Description:
+        Get the challenge file and assign it to the self.challenge_file for ease of access
+    &#34;&#34;&#34;
+    if self.file and self.folder_files:
+        self.challenge_file = Path(self.folder_files, self.file)
+    elif not self.folder_files:
+        if self.debug:
+            print(&#34;Data folder not found&#34;)</code></pre>
+</details>
+<div class="desc"><h2 id="description">Description</h2>
+<p>Get the challenge file and assign it to the self.challenge_file for ease of access</p></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.get_function_reference"><code class="name flex">
+<span>def <span class="ident">get_function_reference</span></span>(<span>self, function, file)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_function_reference(self, function, file):
+    &#34;&#34;&#34;
+    Description:
+    Get the reference of the function in the file
+    &#34;&#34;&#34;
+
+    if function not in self.get_self_functions():
+        raise ValueError(f&#34;Function {function} not found in the class&#34;)
+
+    output = []
+
+    with open(file, &#34;r&#34;) as f:
+        lines = f.readlines()
+        for i, line in enumerate(lines):
+            if function in line:
+                output.append(line)
+    return output</code></pre>
+</details>
+<div class="desc"><p>Description:
+Get the reference of the function in the file</p></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.get_functions_from_file"><code class="name flex">
+<span>def <span class="ident">get_functions_from_file</span></span>(<span>self, file_path)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_functions_from_file(self, file_path):
+    &#34;&#34;&#34;
+    Description:
+    Get the functions from the file
+    &#34;&#34;&#34;
+
+    output = []
+    with open(file_path, &#34;r&#34;) as file_path:
+        file_content = file_path.read()
+
+    # Parse the file content into an AST
+    tree = ast.parse(file_content)
+
+    # Define a visitor class to find the function definition
+    class FunctionDefFinder(ast.NodeVisitor):
+        def __init__(self):
+            self.function_def = None
+
+        def visit_FunctionDef(self, node):
+            output.append(node.name)
+            # Continue visiting other nodes
+            self.generic_visit(node)
+
+    # Create an instance of the visitor and visit the AST
+    finder = FunctionDefFinder()
+    finder.visit(tree)
+
+    # If the function was found, return its definition
+    return output</code></pre>
+</details>
+<div class="desc"><p>Description:
+Get the functions from the file</p></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.get_parent"><code class="name flex">
+<span>def <span class="ident">get_parent</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_parent(self):
+    &#34;&#34;&#34;
+    Description:
+            Retrieves the parent directory of the file that invoked the current class.
+
+        This method determines the file path of the script that instantiated the class,
+        resolves its parent directory, and adjusts the result based on a predefined list
+        of folder names.
+
+    Attributes:
+        self.parent (Path or None): The resolved parent directory of the calling file.
+        self.file_called_frame (list): The stack frame of the calling file.
+        self.file_called_path (Path): The file path of the calling file.
+
+    Behavior:
+        - If the parent directory&#39;s name is in `self.folders_name_list`, the method
+          sets `self.parent` to the grandparent directory instead.
+
+    Note:
+        Ensure that `self.folders_name_list` is defined and contains the folder names
+        to be checked before calling this method.
+    &#34;&#34;&#34;
+    self.parent = None
+
+    self.file_called_frame = inspect.stack()
+    self.file_called_path = Path(self.file_called_frame[-1].filename)
+    self.parent = Path(self.file_called_path).parent.resolve()
+
+    if self.parent.name in self.folders_name_list:
+        self.parent = self.parent.parent</code></pre>
+</details>
+<div class="desc"><h2 id="description">Description</h2>
+<pre><code>Retrieves the parent directory of the file that invoked the current class.
+</code></pre>
+<p>This method determines the file path of the script that instantiated the class,
+resolves its parent directory, and adjusts the result based on a predefined list
+of folder names.</p>
+<h2 id="attributes">Attributes</h2>
+<p>self.parent (Path or None): The resolved parent directory of the calling file.
+self.file_called_frame (list): The stack frame of the calling file.
+self.file_called_path (Path): The file path of the calling file.</p>
+<h2 id="behavior">Behavior</h2>
+<ul>
+<li>If the parent directory's name is in <code>self.folders_name_list</code>, the method
+sets <code>self.parent</code> to the grandparent directory instead.</li>
+</ul>
+<h2 id="note">Note</h2>
+<p>Ensure that <code>self.folders_name_list</code> is defined and contains the folder names
+to be checked before calling this method.</p></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.get_self_functions"><code class="name flex">
+<span>def <span class="ident">get_self_functions</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_self_functions(self):
+    &#34;&#34;&#34;
+    Description:
+    Get the functions of the class
+    &#34;&#34;&#34;
+
+    return [
+        func
+        for func in dir(self)
+        if callable(getattr(self, func)) and not func.startswith(&#34;__&#34;)
+    ]</code></pre>
+</details>
+<div class="desc"><p>Description:
+Get the functions of the class</p></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.get_solution_file"><code class="name flex">
+<span>def <span class="ident">get_solution_file</span></span>(<span>self, *args, solution_name='solution.py', save=False, display=False, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_solution_file(
+    self, *args, solution_name=&#34;solution.py&#34;, save=False, display=False, **kwargs
+):
+    &#34;&#34;&#34;
+    Description:
+        Get the solution file and assign it to the self.solution_file for ease of access
+
+    Args:
+        solution_name (str, optional): Name of the solution file. Defaults to &#34;solution.py&#34;.
+        save (bool, optional): Save the solution file. Defaults to False.
+
+    Returns:
+        str: Path of the solution file if save is True
+    &#34;&#34;&#34;
+
+    self.solution_file = None
+    if self.folders[&#34;payloads&#34;]:
+        self.solution_file = Path(self.folders[&#34;payloads&#34;], solution_name)
+        if not self.solution_file.exists():
+            self.solution_file = None
+            if display:
+                print(f&#34;Solution file {solution_name} not found&#34;)
+
+    if save:
+        return self.solution_file</code></pre>
+</details>
+<div class="desc"><h2 id="description">Description</h2>
+<p>Get the solution file and assign it to the self.solution_file for ease of access</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>solution_name</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Name of the solution file. Defaults to "solution.py".</dd>
+<dt><strong><code>save</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Save the solution file. Defaults to False.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>Path of the solution file if save is True</dd>
+</dl></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.handling_global_config"><code class="name flex">
+<span>def <span class="ident">handling_global_config</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def handling_global_config(self):
+    self.folders_name_list = CONFIG[&#34;structures&#34;][&#34;ctf_folder&#34;]</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.init_for_challenge"><code class="name flex">
+<span>def <span class="ident">init_for_challenge</span></span>(<span>self, *args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def init_for_challenge(self, *args, **kwargs):
+    &#34;&#34;&#34;
+    Initializes the class for the challenge.
+    This method sets up the necessary attributes and folders required for the challenge.
+    Args:
+        *args: Variable length argument list.
+        **kwargs: Arbitrary keyword arguments.
+            - file (str): The file associated with the challenge.
+            - debug (bool, optional): Flag to enable or disable debug mode. Defaults to False.
+            - folders_name_list (list, optional): A custom list of folder names. Defaults to None.
+    Attributes:
+        file (str): The file associated with the challenge.
+        debug (bool): Indicates whether debug mode is enabled.
+        folders_name_list (list or None): A custom list of folder names, if provided.
+        folders_names_must (list): The default list of required folder names.
+    &#34;&#34;&#34;
+
+    self.file = kwargs.get(&#34;file&#34;)
+    self.debug = kwargs.get(&#34;debug&#34;, False)
+
+    # &#34;&#34;&#34;
+    # Folder names list
+    # &#34;&#34;&#34;
+
+    self.setup_named_folders()
+    self.get_challenge_file()</code></pre>
+</details>
+<div class="desc"><p>Initializes the class for the challenge.
+This method sets up the necessary attributes and folders required for the challenge.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>*args</code></strong></dt>
+<dd>Variable length argument list.</dd>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>Arbitrary keyword arguments.
+- file (str): The file associated with the challenge.
+- debug (bool, optional): Flag to enable or disable debug mode. Defaults to False.
+- folders_name_list (list, optional): A custom list of folder names. Defaults to None.</dd>
+</dl>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>file</code></strong> :&ensp;<code>str</code></dt>
+<dd>The file associated with the challenge.</dd>
+<dt><strong><code>debug</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Indicates whether debug mode is enabled.</dd>
+<dt><strong><code>folders_name_list</code></strong> :&ensp;<code>list</code> or <code>None</code></dt>
+<dd>A custom list of folder names, if provided.</dd>
+<dt><strong><code>folders_names_must</code></strong> :&ensp;<code>list</code></dt>
+<dd>The default list of required folder names.</dd>
+</dl></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.initializing_all_ancestors"><code class="name flex">
+<span>def <span class="ident">initializing_all_ancestors</span></span>(<span>self, *args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def initializing_all_ancestors(self, *args, **kwargs):
+    &#34;&#34;&#34;
+    Description:
+        Initializes all the ancestors of the class
+    &#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<div class="desc"><h2 id="description">Description</h2>
+<p>Initializes all the ancestors of the class</p></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.prepare_space"><code class="name flex">
+<span>def <span class="ident">prepare_space</span></span>(<span>self, files=None, folder=None, test_text='flag{test}')</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def prepare_space(self, files=None, folder=None, test_text=&#34;flag{test}&#34;):
+    &#34;&#34;&#34;
+    Creates files with specified content in a given folder if they do not already exist.
+    Args:
+        files (list, optional): List of filenames to create. Defaults to an empty list.
+        folder (str or Path, optional): Path to the folder where files will be created.
+        Defaults to self.folder_files.
+        test_text (str, optional): Content to write into each created file. Defaults to &#34;flag{test}&#34;.
+    Returns:
+        None
+    &#34;&#34;&#34;
+
+    files = files if files else []
+    folder = folder if folder else self.folder_files
+
+    for file in files:
+        if not Path(folder, file).exists():
+            with open(Path(folder, file), &#34;w&#34;) as f:
+                f.write(test_text)</code></pre>
+</details>
+<div class="desc"><p>Creates files with specified content in a given folder if they do not already exist.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>files</code></strong> :&ensp;<code>list</code>, optional</dt>
+<dd>List of filenames to create. Defaults to an empty list.</dd>
+<dt><strong><code>folder</code></strong> :&ensp;<code>str</code> or <code>Path</code>, optional</dt>
+<dd>Path to the folder where files will be created.</dd>
+<dt>Defaults to self.folder_files.</dt>
+<dt><strong><code>test_text</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Content to write into each created file. Defaults to "flag{test}".</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>None</p></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.recursive_folder_search"><code class="name flex">
+<span>def <span class="ident">recursive_folder_search</span></span>(<span>self, function, *args, path=None, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def recursive_folder_search(self, function, *args, path=None, **kwargs):
+    &#34;&#34;&#34;
+    Description:
+        Recursively search for the file in the folder
+    &#34;&#34;&#34;
+
+    exclude_list = kwargs.get(&#34;exclude&#34;, [])
+
+    if path is None:
+        path = self.parent
+
+    for root, dirs, files in os.walk(path):
+        if any([exclude in root for exclude in exclude_list]):
+            continue
+
+        print(f&#34;Root: {root}\nDirs: {dirs}\nFiles: {files}&#34;)
+        function(root, dirs, files, *args, **kwargs)</code></pre>
+</details>
+<div class="desc"><h2 id="description">Description</h2>
+<p>Recursively search for the file in the folder</p></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.search_files"><code class="name flex">
+<span>def <span class="ident">search_files</span></span>(<span>self, directory, exclude_dirs, search_string, save=False, display=False)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def search_files(
+    self, directory, exclude_dirs, search_string, save=False, display=False
+):
+    &#34;&#34;&#34;
+    Description:
+    Search for a string in the files in the directory
+
+    Args:
+        directory (str): Directory to search for the string
+        exclude_dirs (list): List of directories to exclude
+        search_string (str): String to search for
+        save (bool, optional): Save the output. Defaults to False.
+        display (bool, optional): Display the output. Defaults to False.
+
+    Returns:
+        list: List of output if save is True
+    &#34;&#34;&#34;
+    if save:
+        output = []
+
+    for root, dirs, files in os.walk(directory):
+        # Exclude specified directories
+        dirs[:] = [d for d in dirs if d not in exclude_dirs]
+
+        for file in files:
+            file_path = os.path.join(root, file)
+            try:
+                with open(file_path, &#34;r&#34;) as f:
+                    # Check if the search string is in the file
+                    if search_string in f.read():
+                        if display:
+                            print(file_path)
+                        if save:
+                            output.append(file_path)
+            except (IOError, UnicodeDecodeError):
+                # Handle files that cannot be opened or read
+                continue
+
+    if save:
+        return output</code></pre>
+</details>
+<div class="desc"><p>Description:
+Search for a string in the files in the directory</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>directory</code></strong> :&ensp;<code>str</code></dt>
+<dd>Directory to search for the string</dd>
+<dt><strong><code>exclude_dirs</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of directories to exclude</dd>
+<dt><strong><code>search_string</code></strong> :&ensp;<code>str</code></dt>
+<dd>String to search for</dd>
+<dt><strong><code>save</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Save the output. Defaults to False.</dd>
+<dt><strong><code>display</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Display the output. Defaults to False.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>List of output if save is True</dd>
+</dl></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.search_for_pattern_in_file"><code class="name flex">
+<span>def <span class="ident">search_for_pattern_in_file</span></span>(<span>self, file, func=None, display=False, save=False, *args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def search_for_pattern_in_file(
+    self, file, func=None, display=False, save=False, *args, **kwargs
+):
+    &#34;&#34;&#34;
+    Description:
+    Search for a pattern in the file and return the output
+
+    Args:
+        file (str): File to search for the pattern
+        func (function, optional): Function to search for the pattern. Defaults to None.
+        display (bool, optional): Display the output. Defaults to False.
+        save (bool, optional): Save the output. Defaults to False.
+
+    Returns:
+        list: List of output if save is True
+
+    &#34;&#34;&#34;
+    if save:
+        output = []
+    if func is None:
+        return None
+
+    with open(file, &#34;r&#34;) as f:
+        for line in f:
+            result = func(line, *args, **kwargs)
+            if result is not None:
+                if display:
+                    print(result)
+                if save:
+                    output.extend(result)
+    if save:
+        return output</code></pre>
+</details>
+<div class="desc"><p>Description:
+Search for a pattern in the file and return the output</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>file</code></strong> :&ensp;<code>str</code></dt>
+<dd>File to search for the pattern</dd>
+<dt><strong><code>func</code></strong> :&ensp;<code>function</code>, optional</dt>
+<dd>Function to search for the pattern. Defaults to None.</dd>
+<dt><strong><code>display</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Display the output. Defaults to False.</dd>
+<dt><strong><code>save</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Save the output. Defaults to False.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>List of output if save is True</dd>
+</dl></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.setup_named_folders"><code class="name flex">
+<span>def <span class="ident">setup_named_folders</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setup_named_folders(self):
+    &#34;&#34;&#34;
+
+    Initializes and sets up named folder paths as attributes and in a dictionary.
+    This method creates Path objects for the &#39;data&#39;, &#39;files&#39;, and &#39;payloads&#39; folders
+    relative to the parent directory, and assigns them to corresponding attributes.
+    It also initializes a defaultdict to store folder paths for each name in
+    `self.folders_name_list`, mapping each folder name to its Path object.
+
+    Attributes set:
+        folder_payloads (Path): Path to the &#39;payloads&#39; folder.
+        folder_data (Path): Path to the &#39;data&#39; folder.
+        folder_files (Path): Path to the &#39;files&#39; folder.
+        folders (defaultdict): Dictionary mapping folder names to their Path objects.
+
+
+    Raises:
+        AttributeError: If `self.parent` or `self.folders_name_list` is not defined.
+
+    &#34;&#34;&#34;
+
+    self.folder_payloads = None
+    self.folder_data = None
+    self.folder_files = None
+
+    self.folder_data = Path(self.parent, &#34;data&#34;)
+    self.folder_files = Path(self.parent, &#34;files&#34;)
+    self.folder_payloads = Path(self.parent, &#34;payloads&#34;)
+
+    # Perhaps a new way of calling the folders
+
+    self.folders = defaultdict(None)
+
+    for folder in self.folders_name_list:
+        self.folders[folder] = Path(self.parent, folder)</code></pre>
+</details>
+<div class="desc"><p>Initializes and sets up named folder paths as attributes and in a dictionary.
+This method creates Path objects for the 'data', 'files', and 'payloads' folders
+relative to the parent directory, and assigns them to corresponding attributes.
+It also initializes a defaultdict to store folder paths for each name in
+<code>self.folders_name_list</code>, mapping each folder name to its Path object.</p>
+<p>Attributes set:
+folder_payloads (Path): Path to the 'payloads' folder.
+folder_data (Path): Path to the 'data' folder.
+folder_files (Path): Path to the 'files' folder.
+folders (defaultdict): Dictionary mapping folder names to their Path objects.</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>AttributeError</code></dt>
+<dd>If <code>self.parent</code> or <code>self.folders_name_list</code> is not defined.</dd>
+</dl></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.single_folder_search"><code class="name flex">
+<span>def <span class="ident">single_folder_search</span></span>(<span>self, *args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def single_folder_search(self, *args, **kwargs):
+    &#34;&#34;&#34;
+    Searches a single folder and applies a specified function to its contents.
+    Args:
+        *args: Additional positional arguments to pass to the specified function.
+        **kwargs: Additional keyword arguments, including:
+            - exclude (list, optional): A list of directory names to exclude from the search.
+            - function (callable, optional): A function to apply to the folder&#39;s contents.
+              The function should accept the following arguments: root (str), dirs (list),
+              files (list), *args, and **kwargs.
+            - path (str, optional): The path of the folder to search.
+    Returns:
+        tuple: A tuple containing:
+            - root (str): The root directory of the search.
+            - dirs (list): A list of subdirectories in the root directory, excluding those in the exclude list.
+            - files (list): A list of files in the root directory.
+    &#34;&#34;&#34;
+
+    exclude_list = kwargs.get(&#34;exclude&#34;, [])
+    function = kwargs.get(&#34;function&#34;, None)
+    path = kwargs.get(&#34;path&#34;, None)
+
+    root, dirs, files = next(os.walk(path))
+    # print(f&#34;Root: {root}\nDirs: {dirs}\nFiles: {files}&#34;)
+
+    # Exclude files
+    dirs = [dir for dir in dirs if dir not in exclude_list]
+
+    if function is not None:
+        function(root, dirs, files, *args, **kwargs)
+
+    return root, dirs, files</code></pre>
+</details>
+<div class="desc"><p>Searches a single folder and applies a specified function to its contents.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>*args</code></strong></dt>
+<dd>Additional positional arguments to pass to the specified function.</dd>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>Additional keyword arguments, including:
+- exclude (list, optional): A list of directory names to exclude from the search.
+- function (callable, optional): A function to apply to the folder's contents.
+The function should accept the following arguments: root (str), dirs (list),
+files (list), <em>args, and </em>*kwargs.
+- path (str, optional): The path of the folder to search.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>tuple</code></dt>
+<dd>A tuple containing:
+- root (str): The root directory of the search.
+- dirs (list): A list of subdirectories in the root directory, excluding those in the exclude list.
+- files (list): A list of files in the root directory.</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="ctfsolver.managers" href="index.html">ctfsolver.managers</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="ctfsolver.managers.manager_folder.ManagerFolder" href="#ctfsolver.managers.manager_folder.ManagerFolder">ManagerFolder</a></code></h4>
+<ul class="">
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.challenge_folder_structure" href="#ctfsolver.managers.manager_folder.ManagerFolder.challenge_folder_structure">challenge_folder_structure</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.check_empty_folder" href="#ctfsolver.managers.manager_folder.ManagerFolder.check_empty_folder">check_empty_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.clean_folders" href="#ctfsolver.managers.manager_folder.ManagerFolder.clean_folders">clean_folders</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.create_parent_folder" href="#ctfsolver.managers.manager_folder.ManagerFolder.create_parent_folder">create_parent_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.exec_on_files" href="#ctfsolver.managers.manager_folder.ManagerFolder.exec_on_files">exec_on_files</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.find_function_from_file" href="#ctfsolver.managers.manager_folder.ManagerFolder.find_function_from_file">find_function_from_file</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.folders_file" href="#ctfsolver.managers.manager_folder.ManagerFolder.folders_file">folders_file</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.folfil" href="#ctfsolver.managers.manager_folder.ManagerFolder.folfil">folfil</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.get_challenge_file" href="#ctfsolver.managers.manager_folder.ManagerFolder.get_challenge_file">get_challenge_file</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.get_function_reference" href="#ctfsolver.managers.manager_folder.ManagerFolder.get_function_reference">get_function_reference</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.get_functions_from_file" href="#ctfsolver.managers.manager_folder.ManagerFolder.get_functions_from_file">get_functions_from_file</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.get_parent" href="#ctfsolver.managers.manager_folder.ManagerFolder.get_parent">get_parent</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.get_self_functions" href="#ctfsolver.managers.manager_folder.ManagerFolder.get_self_functions">get_self_functions</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.get_solution_file" href="#ctfsolver.managers.manager_folder.ManagerFolder.get_solution_file">get_solution_file</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.handling_global_config" href="#ctfsolver.managers.manager_folder.ManagerFolder.handling_global_config">handling_global_config</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.init_for_challenge" href="#ctfsolver.managers.manager_folder.ManagerFolder.init_for_challenge">init_for_challenge</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.initializing_all_ancestors" href="#ctfsolver.managers.manager_folder.ManagerFolder.initializing_all_ancestors">initializing_all_ancestors</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.prepare_space" href="#ctfsolver.managers.manager_folder.ManagerFolder.prepare_space">prepare_space</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.recursive_folder_search" href="#ctfsolver.managers.manager_folder.ManagerFolder.recursive_folder_search">recursive_folder_search</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.search_files" href="#ctfsolver.managers.manager_folder.ManagerFolder.search_files">search_files</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.search_for_pattern_in_file" href="#ctfsolver.managers.manager_folder.ManagerFolder.search_for_pattern_in_file">search_for_pattern_in_file</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.setup_named_folders" href="#ctfsolver.managers.manager_folder.ManagerFolder.setup_named_folders">setup_named_folders</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.single_folder_search" href="#ctfsolver.managers.manager_folder.ManagerFolder.single_folder_search">single_folder_search</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

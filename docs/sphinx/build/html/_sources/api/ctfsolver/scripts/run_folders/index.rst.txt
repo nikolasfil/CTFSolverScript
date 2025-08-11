@@ -1,0 +1,19 @@
+ctfsolver.scripts.run_folders
+=============================
+
+.. py:module:: ctfsolver.scripts.run_folders
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   ctfsolver.scripts.run_folders.main
+
+
+Module Contents
+---------------
+
+.. py:function:: main()
+

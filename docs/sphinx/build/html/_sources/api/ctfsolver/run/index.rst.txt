@@ -1,0 +1,15 @@
+ctfsolver.run
+=============
+
+.. py:module:: ctfsolver.run
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /api/ctfsolver/run/__main__/index
+
+

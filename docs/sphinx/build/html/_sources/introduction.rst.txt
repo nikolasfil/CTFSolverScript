@@ -1,0 +1,72 @@
+Welcome to ctfsolver Documentation 2 
+==================================
+
+.. note::
+   This library is designed for **CTF enthusiasts**, pentesters, and security researchers.
+
+Features
+--------
+- Automated tooling for common CTF categories
+- Forensics, crypto, and steganography helpers
+- Scriptable workflows with Python API
+- Extensible via plugins
+
+Installation 2
+------------
+.. code-block:: bash
+
+   python -m pip install ctfsolver
+
+.. tip::
+   Use editable mode during development:
+
+   .. code-block:: bash
+
+      python -m pip install -e .
+
+Quick Start 2
+-----------
+.. code-block:: python
+
+   from ctfsolver.managers import manager_crypto
+   result = manager_crypto.encrypt_caesar("HELLO", shift=3)
+   print(result)  # 'KHOOR'
+
+Code Block with Line Numbers 2
+----------------------------
+.. code-block:: python
+   :linenos:
+
+   from ctfsolver.inline import inline_tool
+   inline_tool.run()
+
+Admonitions 2
+-----------
+.. warning::
+   Experimental modules may change without notice.
+
+.. important::
+   Always test functions on **sample data** before production use.
+
+Lists and Tables 2
+----------------
+**Numbered list:**
+
+#. Install the package
+#. Import the module
+#. Run the function
+
+**Table:**
+
++-------------------+--------------------------------+
+| Module            | Description                    |
++===================+================================+
+| ``manager_crypto``| Cryptography utilities         |
++-------------------+--------------------------------+
+| ``manager_file``  | File handling and analysis     |
++-------------------+--------------------------------+
+
+Including Other Docs 2
+--------------------
+.. include:: ../../README.md
+   :parser: myst_parser.sphinx_

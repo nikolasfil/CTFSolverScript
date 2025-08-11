@@ -1,0 +1,362 @@
+ctfsolver.managers.manager_connections
+======================================
+
+.. py:module:: ctfsolver.managers.manager_connections
+
+.. autoapi-nested-parse::
+
+   manager_connections.py
+
+   This module provides the ManagerConnections class for managing connections to CTF challenges,
+   supporting both local and remote connection types using the pwntools library.
+
+   Classes:
+       ManagerConnections: Handles connection setup, interaction, and communication with CTF challenges.
+
+   Typical usage example:
+       manager = ManagerConnections(url="example.com", port=1337, conn="remote")
+       manager.initiate_connection()
+       output = manager.recv_lines(number=3, display=True, save=True)
+       manager.send_menu(choice=1, menu_num=3, menu_text="Your choice:")
+
+   .. attribute:: pwn
+
+      Reference to the pwntools library.
+
+      :type: module
+
+   .. attribute:: url
+
+      Remote URL for connection.
+
+      :type: str
+
+   .. attribute:: port
+
+      Remote port for connection.
+
+      :type: int
+
+   .. attribute:: conn_type
+
+      Type of connection ("local" or "remote").
+
+      :type: str
+
+   .. attribute:: conn
+
+      Active connection object.
+
+   .. attribute:: menu_num
+
+      Number of menu options.
+
+      :type: int
+
+   .. attribute:: menu_text
+
+      Text prompt for menu selection.
+
+      :type: str
+
+   .. attribute:: debug
+
+      Debug mode flag.
+
+      :type: bool
+
+   .. attribute:: ValueError
+
+      If required menu parameters are not provided.
+
+   .. attribute:: DeprecationWarning
+
+      If deprecated methods are used.
+
+   .. attribute:: EOFError
+
+      If the connection closes unexpectedly during data reception.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   ctfsolver.managers.manager_connections.ManagerConnections
+
+
+Module Contents
+---------------
+
+.. py:class:: ManagerConnections(*args, **kwargs)
+
+   Manages connections to CTF challenges, supporting both local and remote modes.
+   This class provides methods to initiate and manage connections to CTF challenges,
+   either by spawning a local process or connecting to a remote host. It also offers
+   utilities for interacting with typical menu-driven CTF binaries, including sending
+   choices, receiving lines, and handling menu prompts.
+   .. attribute:: pwn
+
+      The pwntools module or object used for process and remote connections.
+
+   .. attribute:: url
+
+      The remote host URL or IP address.
+
+      :type: str
+
+   .. attribute:: port
+
+      The remote host port.
+
+      :type: int
+
+   .. attribute:: conn_type
+
+      Type of connection, either 'local' or 'remote'.
+
+      :type: str
+
+   .. attribute:: conn
+
+      The active connection object (process or remote).
+
+   .. attribute:: menu_num
+
+      Number of menu options expected.
+
+      :type: int
+
+   .. attribute:: menu_text
+
+      Text prompt expected before sending a menu choice.
+
+      :type: str
+
+   .. attribute:: debug
+
+      Flag to enable debug mode.
+
+      :type: bool
+
+   .. method:: __init__(*args, **kwargs)
+
+      
+      Initializes the ManagerConnections instance with connection parameters.
+
+   .. method:: initiate_connection(*args, **kwargs)
+
+      
+      Initiates the connection based on the specified connection type.
+
+   .. method:: connect(*args, **kwargs)
+
+      
+      Connects to the challenge locally or remotely, depending on conn_type.
+
+   .. method:: recv_menu(number=1, display=False, save=False)
+
+      
+      Deprecated. Use recv_lines instead.
+
+   .. method:: recv_lines(number=1, display=False, save=False)
+
+      
+      Receives a specified number of lines from the connection.
+
+   .. method:: send_menu(choice, menu_num=None, menu_text=None, display=False, save=False)
+
+      
+      Sends a choice to a menu-driven binary, handling menu prompts and output.
+
+   .. method:: recv_send(text, lines=None, text_until=None, display=False, save=False)
+
+      
+      Receives lines and/or text until a prompt, then sends a response.
+
+   .. method:: send(text, encode=True)
+
+      
+      Sends text to the connection, optionally encoding it.
+
+   .. method:: recv_until(text, **kwargs)
+
+      
+      Receives data until a specified delimiter is encountered.
+      
+
+
+   .. py:attribute:: pwn
+
+
+   .. py:attribute:: url
+
+
+   .. py:attribute:: port
+
+
+   .. py:attribute:: conn_type
+
+
+   .. py:attribute:: conn
+      :value: None
+
+
+
+   .. py:attribute:: menu_num
+      :value: None
+
+
+
+   .. py:attribute:: menu_text
+      :value: None
+
+
+
+   .. py:attribute:: debug
+
+
+   .. py:method:: initiate_connection(*args, **kwargs) -> None
+
+      Initiates a connection using the specified connection type and parameters.
+      :param \*args: Variable length argument list to be passed to the connection method.
+      :param \*\*kwargs: Arbitrary keyword arguments to be passed to the connection method.
+
+      :returns: None
+
+
+
+   .. py:method:: connect(*args, **kwargs) -> None
+
+      Description:
+          Connects to the challenge based on the connection type.
+          If the connection type is remote, it connects to the url and port provided.
+          If the connection type is local, it starts a process with the file provided.
+
+
+          local:
+              kwargs :
+                  argv: Any | None = None,
+                  shell: bool = False,
+                  executable: Any | None = None,
+                  cwd: Any | None = None,
+                  env: Any | None = None,
+                  ignore_environ: Any | None = None,
+                  stdin: int = PIPE,
+                  stdout: PTY | int = PTY if not IS_WINDOWS else PIPE,
+                  stderr: int = STDOUT,
+                  close_fds: bool = True,
+                  preexec_fn: Any = lambda : None,
+                  raw: bool = True,
+                  aslr: Any | None = None,
+                  setuid: Any | None = None,
+                  where: str = 'local',
+                  display: Any | None = None,
+                  alarm: Any | None = None,
+                  creationflags: int = 0
+
+
+
+
+   .. py:method:: recv_menu(number=1, display=False, save=False)
+
+
+   .. py:method:: recv_lines(number=1, display=False, save=False)
+
+      Description:
+          Receives the output of the menu based on the number of lines provided.
+          If display is True, it prints the output of everything received.
+          If save is True, it saves the output in a list and returns it.
+
+      :param number: Number of lines to receive . Defaults to 1.
+      :type number: int, optional
+      :param display: Displayes the lines received. Defaults to False.
+      :type display: bool, optional
+      :param save: Saves the lines received to a list. Defaults to False.
+      :type save: bool, optional
+
+      :returns: list of the lines received if save is True
+      :rtype: list
+
+
+
+   .. py:method:: send_menu(choice, menu_num=None, menu_text=None, display=False, save=False)
+
+      Description:
+          Gets the menu num either from the class or from the function call and saves it to the class.
+          Gets the menu text that the menu is providing, receives until the menu asks for choice and then send out the choice.
+          If save is True, it saves the output of the menu in a list and returns it.
+          If display is True, it prints the output of everything received.
+
+      :param choice: Choice to send to the menu
+      :type choice: int or str
+      :param menu_num: Number of options printed in the menu. Defaults to None.
+      :type menu_num: int, optional
+      :param menu_text: Text that the menu asks before sending your choice. Defaults to None.
+      :type menu_text: str, optional
+      :param display: Variable to print every received line. Defaults to False.
+      :type display: bool, optional
+      :param save: . Defaults to False.
+      :type save: bool, optional
+
+      :returns: List of output of the menu if save is True
+      :rtype: list
+
+
+
+   .. py:method:: recv_send(text, lines=None, text_until=None, display=False, save=False)
+
+      Description:
+          Receives lines and sends a response.
+          It can receive a number or lines, and/or specific text.
+          If save is True, it saves the output of the menu in a list and returns it.
+          If display is True, it prints the output of everything received.
+
+      :param choice: Choice to send to the menu
+      :type choice: int or str
+      :param menu_num: Number of options printed in the menu. Defaults to None.
+      :type menu_num: int, optional
+      :param menu_text: Text that the menu asks before sending your choice. Defaults to None.
+      :type menu_text: str, optional
+      :param display: Variable to print every received line. Defaults to False.
+      :type display: bool, optional
+      :param save: . Defaults to False.
+      :type save: bool, optional
+
+      :returns: List of output of the menu if save is True
+      :rtype: list
+
+
+
+   .. py:method:: send(text, encode=True) -> None
+
+      Description:
+          Sends the text to the connection after it encodes it.
+          Wrapper for self.conn.sendline(str(text).encode())
+
+      :param text: Text to send
+      :type text: str
+
+
+
+   .. py:method:: recv_until(text, **kwargs) -> bytes
+
+      Description:
+          Receive data until one of `delims`(text) provided is encountered. It encodes the text before sending it.
+          Wrapper for self.conn.recvuntil(text.encode())
+          Can also drop the ending if drop is True. If the request is not satisfied before ``timeout`` seconds pass, all data is buffered and an empty string (``''``) is returned.
+      :param text: Text to receive until
+      :type text: str
+      :param \*\*kwargs: Additional keyword arguments to pass to the recv
+                         - drop (bool, optional): Drop the ending.  If :const:`True` it is removed from the end of the return value. Defaults to False.
+                         - timeout (int, optional): Timeout in seconds. Defaults to default.
+
+      :raises exceptions.EOFError: The connection closed before the request could be satisfied
+
+      :returns: A string containing bytes received from the socket,
+                or ``''`` if a timeout occurred while waiting.
+
+
+

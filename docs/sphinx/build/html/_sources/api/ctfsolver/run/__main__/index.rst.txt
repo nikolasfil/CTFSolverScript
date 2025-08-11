@@ -1,0 +1,23 @@
+ctfsolver.run.__main__
+======================
+
+.. py:module:: ctfsolver.run.__main__
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   ctfsolver.run.__main__.main
+
+
+Module Contents
+---------------
+
+.. py:function:: main()
+
+   Description:
+       Gets the path of the solution flle and runs it
+
+

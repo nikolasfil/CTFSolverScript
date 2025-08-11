@@ -1,0 +1,103 @@
+ctfsolver.template.__main__
+===========================
+
+.. py:module:: ctfsolver.template.__main__
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   ctfsolver.template.__main__.templater
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   ctfsolver.template.__main__.Templater
+
+
+Module Contents
+---------------
+
+.. py:class:: Templater(*args, **kwargs)
+
+   Bases: :py:obj:`ctfsolver.managers.manager_file.ManagerFile`
+
+
+   ManagerFile class for handling file operations in CTF solving context.
+   This class inherits from ManagerFilePcap, ManagerFileRegex, and ManagerFolder,
+   providing methods for initializing file-related ancestors and searching for base64
+   strings within files.
+   .. attribute:: None
+
+      
+
+   .. method:: __init__(*args, **kwargs)
+
+      
+      Initializes the ManagerFile instance and its relevant ancestors.
+
+   .. method:: initializing_file_ancestors(*args, **kwargs)
+
+      
+      Initializes ManagerFolder and ManagerFilePcap ancestors.
+
+   .. method:: search_for_base64(file, *args, **kwargs)
+
+      
+      Deprecated. Use search_for_base64_file instead.
+
+   .. method:: search_for_base64_file(file, *args, **kwargs)
+
+      
+      Searches for base64 strings in the specified file.
+          file (str): Path to the file to search.
+          display (bool, optional): If True, prints the output. Defaults to False.
+          save (bool, optional): If True, returns the output as a list. Defaults to False.
+          strict (bool, optional): If True, applies strict matching. Defaults to False.
+          list: List of matched base64 strings if save is True; otherwise, None.
+      
+      
+
+
+   .. py:attribute:: next_attempt
+      :value: 1
+
+
+
+   .. py:attribute:: verbose
+      :value: False
+
+
+
+   .. py:method:: find_folder_in_frame(folder_name: str) -> pathlib.Path | None
+
+      Description:
+          Searches for a folder with the specified name within the file paths stored in the `file_called_frame` attribute.
+      :param folder_name: The name of the folder to search for.
+      :type folder_name: str
+
+      :returns:
+
+                The Path object representing the parent folder if found,
+                              otherwise None if no matching folder is found.
+      :rtype: Path or None
+
+
+
+   .. py:method:: create_attempts()
+
+      Description:
+          Creates a folder for attempts and initializes it with a solution template.
+
+
+
+   .. py:method:: main()
+
+
+.. py:data:: templater
+

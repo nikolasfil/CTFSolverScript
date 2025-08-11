@@ -1,0 +1,23 @@
+.. currentmodule:: ctfsolver
+
+.. autosummary::
+   :toctree: generated
+   :recursive:
+
+   ctfsolver
+   .. ctfsolver.utils
+   .. ctfsolver.core
+   .. ctfsolver.subpkg
+
+   .. ctfsolver.config
+   .. ctfsolver.find_usage
+   .. ctfsolver.forensics
+   .. ctfsolver.inline    
+   .. ctfsolver.scripts
+   .. ctfsolver.template
+   .. ctfsolver.error
+   .. ctfsolver.folders
+   .. ctfsolver.managers
+   .. ctfsolver.run
+   .. ctfsolver.src
+   .. ctfsolver.test

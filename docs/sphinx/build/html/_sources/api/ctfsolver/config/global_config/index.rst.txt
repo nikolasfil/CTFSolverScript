@@ -1,0 +1,157 @@
+ctfsolver.config.global_config
+==============================
+
+.. py:module:: ctfsolver.config.global_config
+
+.. autoapi-nested-parse::
+
+   Global configuration management for the CTFSolverScript package.
+
+   This module provides the `GlobalConfig` class, which handles the creation, initialization,
+   and access of a global configuration file stored in the user's home directory. The configuration
+   file is used to store persistent settings required by the CTFSolverScript inline tool.
+
+   Classes:
+       GlobalConfig: Manages the global configuration file, including creation, initialization,
+                     reading, and attribute/dictionary-style access to configuration values.
+
+   .. attribute:: CONFIG
+
+      Singleton instance of the GlobalConfig class for global access.
+
+      :type: GlobalConfig
+
+   .. rubric:: Example
+
+   >>> from ctfsolver.config.global_config import CONFIG
+   >>> from ctfsolver.config import CONFIG
+   >>> CONFIG.initializing()  # Initializes the global configuration
+
+   Typical usage involves initializing the configuration (creating the file and writing initial
+   content if necessary) and accessing configuration values via attribute or dictionary-style access.
+
+   :raises AttributeError: If an attribute is accessed that does not exist in the configuration.
+   :raises KeyError: If a key is accessed that does not exist in the configuration.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   ctfsolver.config.global_config.CONFIG
+   ctfsolver.config.global_config.global_config
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   ctfsolver.config.global_config.GlobalConfig
+
+
+Module Contents
+---------------
+
+.. py:class:: GlobalConfig(*args, **kwargs)
+
+   .. py:attribute:: verbose
+
+
+   .. py:attribute:: global_config_file_path
+
+
+   .. py:method:: initializing()
+
+      Initialize global configuration settings.
+      This method can be used to set up any necessary global configurations
+      required by the inline tool.
+
+
+
+   .. py:method:: creating()
+
+      Creates a global configuration file in the user's home directory.
+
+      This method ensures that the required directories and configuration file exist,
+      creating them if necessary. It is typically called during the initial run of the
+      inline tool or when global configuration setup is required.
+
+      :param None:
+
+      :returns: None
+
+      :raises OSError: If the directory or file cannot be created due to permission issues.
+
+
+
+   .. py:method:: initial_content()
+
+      Sets the initial content of the global configuration file.
+
+      This method loads a configuration template from 'config_template.json' and writes it to the global
+      configuration file if the file is empty or does not exist. If the template file is missing, a default
+      initial content is used instead.
+
+      :param None:
+
+      :returns: None
+
+      :raises FileNotFoundError: If the template file or global configuration file path does not exist.
+      :raises json.JSONDecodeError: If the template file contains invalid JSON.
+
+      Side Effects:
+          Writes initial configuration content to the global configuration file if it is empty.
+          Prints status messages to the console.
+
+
+
+   .. py:method:: get_content()
+
+      Get the content of the global configuration file.
+      This method reads the global configuration file and returns its content
+      as a dictionary.
+      If the file does not exist or is empty, it returns an empty dictionary.
+      It is intended to be used to retrieve the current global configuration
+      settings for use in the inline tool or other parts of the application.
+
+
+      :returns: The content of the global configuration file as a dictionary.
+      :rtype: dict
+
+
+
+   .. py:method:: __getattr__(name)
+
+      Retrieves the value associated with the given attribute name from the internal content dictionary.
+
+      :param name: The name of the attribute to retrieve.
+      :type name: str
+
+      :returns: The value associated with the attribute name in the content dictionary.
+      :rtype: Any
+
+      :raises AttributeError: If the attribute name does not exist in the content dictionary.
+
+
+
+   .. py:method:: __getitem__(key)
+
+      Retrieves the value associated with the given key from the content dictionary.
+
+      :param key: The key to look up in the content dictionary.
+      :type key: str
+
+      :returns: The value associated with the specified key.
+      :rtype: Any
+
+      :raises KeyError: If the key does not exist in the content dictionary.
+
+
+
+.. py:data:: CONFIG
+
+.. py:data:: global_config
+

@@ -1,0 +1,28 @@
+ctfsolver.scripts.clean_folders.__main__
+========================================
+
+.. py:module:: ctfsolver.scripts.clean_folders.__main__
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   ctfsolver.scripts.clean_folders.__main__.main
+
+
+Module Contents
+---------------
+
+.. py:function:: main()
+
+   Description :
+       Calls the function via
+       ```bash
+       python -m ctfsolver.folders
+       ```
+
+       And creates the folders for the file
+
+

@@ -1,0 +1,31 @@
+ctfsolver.managers.manager_files_evtx
+=====================================
+
+.. py:module:: ctfsolver.managers.manager_files_evtx
+
+.. autoapi-nested-parse::
+
+   This file is still under development, as the Evtx library has been flagged for security issues.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   ctfsolver.managers.manager_files_evtx.ManagerFileEvtx
+
+
+Module Contents
+---------------
+
+.. py:class:: ManagerFileEvtx(*args, **kwargs)
+
+   .. py:method:: initializing_all_ancestors(*args, **kwargs)
+
+      Description:
+          Initializes all the ancestors of the class
+
+
+

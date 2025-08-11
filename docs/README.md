@@ -1,5 +1,9 @@
 ## Documentation
 
+> [!WARNING]
+> The manual documentation is still under development
+> The automatic documentation is available at the [ctfsolver documentation](https://nikolasfil.github.io/CTFSolverScript/ctfsolver/)
+
 ### Module ctfsolver documentation :
 
 [ctfsolver](https://nikolasfil.github.io/CTFSolverScript/ctfsolver/)
@@ -8,6 +12,7 @@ Uses modules :
 
 - pwntools
 - scapy
+- requests
 
 ### Module ctfsolver bash commands
 

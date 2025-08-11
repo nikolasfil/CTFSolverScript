@@ -1,0 +1,19 @@
+ctfsolver.scripts.run_solution
+==============================
+
+.. py:module:: ctfsolver.scripts.run_solution
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   ctfsolver.scripts.run_solution.main
+
+
+Module Contents
+---------------
+
+.. py:function:: main()
+
