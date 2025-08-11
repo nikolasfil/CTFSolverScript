@@ -1,0 +1,99 @@
+Metadata-Version: 2.4
+Name: CTFSolverScript
+Version: 0.0.11
+Summary: An all in one library for solving CTF challenges
+Home-page: https://github.com/nikolasfil/CTFSolverScript
+Author: Nikolas Filippatos
+License: MIT
+Project-URL: Homepage, https://github.com/nikolasfil/CTFSolverScript
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: build>=0.7.0
+Requires-Dist: pwntools>=4.0.0
+Requires-Dist: scapy>=2.0.0
+Requires-Dist: argcomplete>=2.0.0
+Requires-Dist: setuptools>=67.7.0
+Requires-Dist: wheel>=0.37.0
+Provides-Extra: dev
+Requires-Dist: pytest>=6.2.4; extra == "dev"
+Requires-Dist: twine>=3.4.2; extra == "dev"
+Requires-Dist: pipdeptree>=2.0.0; extra == "dev"
+Provides-Extra: docs
+Requires-Dist: pdoc3>=0.11.4; extra == "docs"
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+# CTFSolverScript
+
+CTFSolverScript is a tool designed to assist in solving Capture The Flag (CTF) challenges. It provides utilities and scripts to streamline the process of solving various types of CTF problems.
+
+## Features
+
+- **Automated Scripts**: Pre-built scripts for common CTF tasks.
+- **Modular Design**: Easily extendable to add custom scripts.
+- **Cross-Platform**: Works on Linux, macOS, and Windows.
+- **Lightweight**: Minimal dependencies for quick setup.
+
+## Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/YourUsername/CTFSolverScript.git
+   cd CTFSolverScript
+   ```
+
+2. Use the Makefile to install dependencies:
+
+   ```bash
+   make install
+   ```
+
+## Usage
+
+1. Navigate to the project directory:
+
+   ```bash
+   cd CTFSolverScript
+   ```
+
+2. Run the main script:
+
+   ```bash
+   python solver.py
+   ```
+
+3. Follow the prompts to select the type of challenge you want to solve.
+
+## Directory Structure
+
+```
+CTFSolverScript/
+├── solver.py          # Main script
+├── modules/           # Custom modules for solving challenges
+├── examples/          # Example challenges and solutions
+├── requirements.txt   # Python dependencies
+├── Makefile           # Build and installation commands
+└── README.md          # Project documentation
+```
+
+## Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bugfix.
+3. Submit a pull request with a detailed description of your changes.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For questions or suggestions, feel free to open an issue or contact the maintainer at `your.email@example.com`.

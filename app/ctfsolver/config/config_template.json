@@ -1,0 +1,10 @@
+{
+  "directories": {
+    "ctf_data": null,
+    "documentation": null,
+    "exclude": []
+  },
+  "structures": {
+    "ctf_folder": ["data", "files", "payloads", "docs"]
+  }
+}

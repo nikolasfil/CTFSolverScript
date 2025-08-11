@@ -1,19 +1,20 @@
-from ctfsolver.src.ctfsolver import CTFSolver
+from ctfsolver.managers.manager_folder import ManagerFolder
 
 
-def main():
+def create_folders():
     """
-    Description :
-        Calls the function via
-        ```bash
-        python -m ctfsolver.folders
-        ```
+    Creates the necessary parent folder structure for the application.
+    This function initializes a ManagerFolder instance and calls its method to
+    create the required parent folder. It is typically used to set up the initial
+    directory structure before performing further operations.
+    Returns:
+        None
 
-        And creates the folders for the file
     """
-    s = CTFSolver()
+    # s = CTFSolver()
+    s = ManagerFolder()
     s.create_parent_folder()
 
 
 if __name__ == "__main__":
-    main()
+    create_folders()

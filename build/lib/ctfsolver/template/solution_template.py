@@ -7,9 +7,9 @@ class Solution(CTFSolver):
 
 
 if __name__ == "__main__":
-    conn = "local"
+    conn = ("local", "remote")[0]
     file = None
     url = None
     port = None
     solution = Solution(conn=conn, file=file, url=url, port=port)
-    solution.main()
+    solution.try_main()

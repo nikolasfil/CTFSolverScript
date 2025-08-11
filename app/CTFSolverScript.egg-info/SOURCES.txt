@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+app/CTFSolverScript.egg-info/PKG-INFO
+app/CTFSolverScript.egg-info/SOURCES.txt
+app/CTFSolverScript.egg-info/dependency_links.txt
+app/CTFSolverScript.egg-info/entry_points.txt
+app/CTFSolverScript.egg-info/requires.txt
+app/CTFSolverScript.egg-info/top_level.txt
+app/ctfsolver/__init__.py
