@@ -40,6 +40,8 @@ extensions = [
     "autoapi.extension",
 ]
 
+html_baseurl = "https://nikolasfil.github.io/CTFSolverScript"
+
 exclude_patterns = []
 
 autosectionlabel_prefix_document = True
