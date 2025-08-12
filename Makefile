@@ -195,6 +195,8 @@ help:
 	@echo "  upload               Upload to PyPI using twine."
 	@echo "  upload-test          Upload to Test PyPI using twine."
 	@echo "  test                 Run tests using pytest."
+	@echo "  doc-sphinx           Generate documentation using Sphinx."
+	@echo "  doc-sphinx-host      Host documentation using Sphinx."
 	@echo "  doc-pdoc             Generate documentation using pdoc."
 	@echo "  doc-pdoc-host        Host documentation using pdoc."
 	@echo "  help                 Show this help message."

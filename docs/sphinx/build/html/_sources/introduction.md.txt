@@ -1,4 +1,4 @@
-# Welcome to ctfsolver Documentation 2
+# Welcome to ctfsolver Documentation
 
 :::{note}
 This library has been created to suit my needs.
@@ -11,58 +11,19 @@ Some functionalities came by request, some I implemented out of personal interes
 
 Some things will seem weird to others, such as the structure of the challenge folder, and the keywords used.
 
-:::{tip}
-Use editable mode during development:
-
-```bash
-python -m pip install -e .
-```
-
-:::
-
-## Quick Start 2
-
-```python
-from ctfsolver.managers import manager_crypto
-result = manager_crypto.encrypt_caesar("HELLO", shift=3)
-print(result)  # 'KHOOR'
-```
-
-## Code Block with Line Numbers 2
-
-```{code-block} python
-:linenos:
-from ctfsolver.inline import inline_tool
-inline_tool.run()
-```
-
-## Admonitions 2
-
 :::{warning}
-Experimental modules may change without notice.
+
+The documentation is still under development
+
 :::
-
-:::{important}
-Always test functions on **sample data** before production use.
-:::
-
-## Lists and Tables 2
-
-**Numbered list:**
-
-1. Install the package
-2. Import the module
-3. Run the function
 
 **Table:**
 
-| Module           | Description                |
-| ---------------- | -------------------------- |
-| `manager_crypto` | Cryptography utilities     |
-| `manager_file`   | File handling and analysis |
-
-## Including Other Docs 2
-
-```{include} ../../README.md
-:parser: myst_parser.sphinx_
-```
+| Module                | Description                    |
+| --------------------- | ------------------------------ |
+| `manager_connections` | Network connections management |
+| `manager_crypto`      | Cryptography utilities         |
+| `manager_file`        | File handling and analysis     |
+| `manager_files_pcap`  | PCAP file parsing              |
+| `manager_files_re`    | Regular expression file search |
+| `manager_folder`      | Folder management              |

@@ -20,7 +20,7 @@ sys.path.insert(0, str(root_path))
 project = "ctfsolver"
 author = "Nikolas Filippatos"
 copyright = f"{datetime.now():%Y}, {author}"
-release = "0.0.12"
+release = open(Path(root_path, "VERSION")).read().strip()
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
