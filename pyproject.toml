@@ -22,7 +22,7 @@ dependencies = [
     "wheel>=0.37.0",
     "dash_cytoscape>=1.0.2",
     "dash>=3.2.0",
-    "colorama=>0.4.6"
+    "colorama>=0.4.6",
 ]
 classifiers = [
     "License :: OSI Approved :: MIT License",
@@ -51,7 +51,7 @@ docs = [
     "sphinx-rtd-theme>=3.0.2",
     "python-call-graph>=2.1.4",
     "sphinx-autoapi>=3.0.0",
-    "pdoc3=>0.11.6"
+    "pdoc3>=0.11.6",
 ]
 
 # Optional: live-reload while writing docs
