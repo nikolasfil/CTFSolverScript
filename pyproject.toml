@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 name = "ctfsolver"
 version = "0.0.13"  
 description = "An all in one library for solving CTF challenges"
-readme = "app/README.md"
+readme = "README.md"
 requires-python = ">=3.11"
 license = {text = "MIT"}
 authors = [
