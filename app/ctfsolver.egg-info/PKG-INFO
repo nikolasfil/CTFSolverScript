@@ -19,6 +19,7 @@ Requires-Dist: setuptools>=67.7.0
 Requires-Dist: wheel>=0.37.0
 Requires-Dist: dash_cytoscape>=1.0.2
 Requires-Dist: dash>=3.2.0
+Requires-Dist: colorama>=0.4.6
 Provides-Extra: dev
 Requires-Dist: pytest>=6.2.4; extra == "dev"
 Requires-Dist: twine>=3.4.2; extra == "dev"
@@ -34,6 +35,7 @@ Requires-Dist: sphinx-basic-ng>=1.0.0.beta2; extra == "docs"
 Requires-Dist: sphinx-rtd-theme>=3.0.2; extra == "docs"
 Requires-Dist: python-call-graph>=2.1.4; extra == "docs"
 Requires-Dist: sphinx-autoapi>=3.0.0; extra == "docs"
+Requires-Dist: pdoc3>=0.11.6; extra == "docs"
 Provides-Extra: docs-live
 Requires-Dist: sphinx-autobuild>=2024.9.3; extra == "docs-live"
 Dynamic: license-file
