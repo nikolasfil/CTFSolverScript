@@ -83,8 +83,8 @@ install:
 
 
 build:
-	@source $(VENV_DIR)/bin/activate && python -m build --sdist --wheel
 	@echo "Source distribution and wheel built."
+	@source $(VENV_DIR)/bin/activate && python -m build --sdist --wheel
 	@echo "Build completed."
 
 build-check: 
