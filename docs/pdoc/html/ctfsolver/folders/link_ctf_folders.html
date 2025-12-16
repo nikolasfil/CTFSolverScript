@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>ctfsolver.folders.link_ctf_folders API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>ctfsolver.folders.link_ctf_folders</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="ctfsolver.folders.link_ctf_folders.Linking"><code class="flex name class">
+<span>class <span class="ident">Linking</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Linking(ManagerFile):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.categories = kwargs.get(&#34;categories&#34;, None)
+        self.site = kwargs.get(&#34;site&#34;, None)
+        self.handling_global_config()
+
+    def handling_global_config(self):
+
+        self.directories = CONFIG.content.get(&#34;directories&#34;, {})
+        ctf_folder = self.directories.get(&#34;ctf_data&#34;, &#34;&#34;)
+        self.ctf_path = Path(Path.home(), ctf_folder)
+        self.exclude_folders = self.directories.get(&#34;exclude&#34;, [])
+
+    def get_categories(self):
+        _, self.all_categories, _ = self.single_folder_search(
+            path=self.ctf_path, exclude=self.exclude_folders
+        )
+
+        print(f&#34;Found categories: {self.all_categories}&#34;)
+
+    def get_all_sites(self):
+        self.all_sites = set()
+
+        for category in self.all_categories:
+            category_path = self.ctf_path / category
+            _, site_dirs, _ = self.single_folder_search(
+                path=category_path, exclude=self.exclude_folders
+            )
+            self.all_sites.update(site_dirs)
+
+    def get_challenges(self, category=None, site=None, folder=True):
+        challenges = {}
+
+        if category is not None:
+            pass
+
+        categories_root, categories_dir, _ = self.single_folder_search(
+            path=self.ctf_path,
+            exclude=self.exclude_folders,
+        )
+
+    def temp(self):
+        # Get the category, and sites
+        # Go to documents fetch the challenges from these sites
+        # Go to ctf fetch the challenges from that as well
+        # Compare
+        # Optional get the current working folder and site as an input
+        pass
+
+    def main(self):
+        self.get_categories()
+        # pass</code></pre>
+</details>
+<div class="desc"><p>ManagerFile class for handling file operations in CTF solving context.
+This class inherits from ManagerFilePcap, ManagerFileRegex, ManagerFolder, and ManagerFunction,
+providing methods for initializing file-related ancestors and searching for base64
+strings within files.</p>
+<h2 id="attributes">Attributes</h2>
+<p>None</p>
+<h2 id="methods">Methods</h2>
+<p><strong>init</strong>(<em>args, </em><em>kwargs):
+Initializes the ManagerFile instance and its relevant ancestors.
+initializing_file_ancestors(</em>args, <strong>kwargs):
+Initializes ManagerFolder and ManagerFilePcap ancestors.
+search_for_base64(file, *args, </strong>kwargs):
+Deprecated. Use search_for_base64_file instead.
+search_for_base64_file(file, <em>args, </em>*kwargs):
+Searches for base64 strings in the specified file.
+file (str): Path to the file to search.
+display (bool, optional): If True, prints the output. Defaults to False.
+save (bool, optional): If True, returns the output as a list. Defaults to False.
+strict (bool, optional): If True, applies strict matching. Defaults to False.
+list: List of matched base64 strings if save is True; otherwise, None.</p>
+<p>Initialize the class</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="ctfsolver.managers.manager_file.ManagerFile" href="../managers/manager_file.html#ctfsolver.managers.manager_file.ManagerFile">ManagerFile</a></li>
+<li><a title="ctfsolver.managers.manager_files_pcap.ManagerFilePcap" href="../managers/manager_files_pcap.html#ctfsolver.managers.manager_files_pcap.ManagerFilePcap">ManagerFilePcap</a></li>
+<li><a title="ctfsolver.managers.manager_files_re.ManagerFileRegex" href="../managers/manager_files_re.html#ctfsolver.managers.manager_files_re.ManagerFileRegex">ManagerFileRegex</a></li>
+<li><a title="ctfsolver.managers.manager_folder.ManagerFolder" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder">ManagerFolder</a></li>
+<li><a title="ctfsolver.managers.manager_functions.ManagerFunction" href="../managers/manager_functions.html#ctfsolver.managers.manager_functions.ManagerFunction">ManagerFunction</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="ctfsolver.folders.link_ctf_folders.Linking.get_all_sites"><code class="name flex">
+<span>def <span class="ident">get_all_sites</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_all_sites(self):
+    self.all_sites = set()
+
+    for category in self.all_categories:
+        category_path = self.ctf_path / category
+        _, site_dirs, _ = self.single_folder_search(
+            path=category_path, exclude=self.exclude_folders
+        )
+        self.all_sites.update(site_dirs)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="ctfsolver.folders.link_ctf_folders.Linking.get_categories"><code class="name flex">
+<span>def <span class="ident">get_categories</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_categories(self):
+    _, self.all_categories, _ = self.single_folder_search(
+        path=self.ctf_path, exclude=self.exclude_folders
+    )
+
+    print(f&#34;Found categories: {self.all_categories}&#34;)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="ctfsolver.folders.link_ctf_folders.Linking.get_challenges"><code class="name flex">
+<span>def <span class="ident">get_challenges</span></span>(<span>self, category=None, site=None, folder=True)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_challenges(self, category=None, site=None, folder=True):
+    challenges = {}
+
+    if category is not None:
+        pass
+
+    categories_root, categories_dir, _ = self.single_folder_search(
+        path=self.ctf_path,
+        exclude=self.exclude_folders,
+    )</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="ctfsolver.folders.link_ctf_folders.Linking.handling_global_config"><code class="name flex">
+<span>def <span class="ident">handling_global_config</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def handling_global_config(self):
+
+    self.directories = CONFIG.content.get(&#34;directories&#34;, {})
+    ctf_folder = self.directories.get(&#34;ctf_data&#34;, &#34;&#34;)
+    self.ctf_path = Path(Path.home(), ctf_folder)
+    self.exclude_folders = self.directories.get(&#34;exclude&#34;, [])</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="ctfsolver.folders.link_ctf_folders.Linking.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def main(self):
+    self.get_categories()
+    # pass</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="ctfsolver.folders.link_ctf_folders.Linking.temp"><code class="name flex">
+<span>def <span class="ident">temp</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def temp(self):
+    # Get the category, and sites
+    # Go to documents fetch the challenges from these sites
+    # Go to ctf fetch the challenges from that as well
+    # Compare
+    # Optional get the current working folder and site as an input
+    pass</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="ctfsolver.managers.manager_file.ManagerFile" href="../managers/manager_file.html#ctfsolver.managers.manager_file.ManagerFile">ManagerFile</a></b></code>:
+<ul class="hlist">
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.challenge_folder_structure" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.challenge_folder_structure">challenge_folder_structure</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.check_empty_folder" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.check_empty_folder">check_empty_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.check_name_similarity_in_files" href="../managers/manager_files_re.html#ctfsolver.managers.manager_files_re.ManagerFileRegex.check_name_similarity_in_files">check_name_similarity_in_files</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.clean_folders" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.clean_folders">clean_folders</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.copy_folder" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.copy_folder">copy_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.create_ctf_structure" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.create_ctf_structure">create_ctf_structure</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.create_parent_folder" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.create_parent_folder">create_parent_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.delete_folder" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.delete_folder">delete_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.download_automove" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.download_automove">download_automove</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.exec_on_files" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.exec_on_files">exec_on_files</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.exec_on_folder" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.exec_on_folder">exec_on_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.exec_on_folder_files" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.exec_on_folder_files">exec_on_folder_files</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.extract_strings" href="../managers/manager_files_re.html#ctfsolver.managers.manager_files_re.ManagerFileRegex.extract_strings">extract_strings</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.find_function_from_file" href="../managers/manager_functions.html#ctfsolver.managers.manager_functions.ManagerFunction.find_function_from_file">find_function_from_file</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.folders_file" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.folders_file">folders_file</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.folfil" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.folfil">folfil</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.get_challenge_file" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.get_challenge_file">get_challenge_file</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.get_function_reference" href="../managers/manager_functions.html#ctfsolver.managers.manager_functions.ManagerFunction.get_function_reference">get_function_reference</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.get_functions_from_file" href="../managers/manager_functions.html#ctfsolver.managers.manager_functions.ManagerFunction.get_functions_from_file">get_functions_from_file</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.get_packet_ttl" href="../managers/manager_files_pcap.html#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.get_packet_ttl">get_packet_ttl</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.get_packets_icmp" href="../managers/manager_files_pcap.html#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.get_packets_icmp">get_packets_icmp</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.get_parent" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.get_parent">get_parent</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.get_self_functions" href="../managers/manager_functions.html#ctfsolver.managers.manager_functions.ManagerFunction.get_self_functions">get_self_functions</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.get_solution_file" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.get_solution_file">get_solution_file</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.init_for_challenge" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.init_for_challenge">init_for_challenge</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.initializing_all_ancestors" href="../managers/manager_files_pcap.html#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.initializing_all_ancestors">initializing_all_ancestors</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.initializing_file_ancestors" href="../managers/manager_file.html#ctfsolver.managers.manager_file.ManagerFile.initializing_file_ancestors">initializing_file_ancestors</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.normalize_name" href="../managers/manager_files_re.html#ctfsolver.managers.manager_files_re.ManagerFileRegex.normalize_name">normalize_name</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.pcap_open" href="../managers/manager_files_pcap.html#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.pcap_open">pcap_open</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.prepare_space" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.prepare_space">prepare_space</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.recursive_folder_search" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.recursive_folder_search">recursive_folder_search</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.search_files" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.search_files">search_files</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.search_for_base64" href="../managers/manager_file.html#ctfsolver.managers.manager_file.ManagerFile.search_for_base64">search_for_base64</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.search_for_base64_file" href="../managers/manager_file.html#ctfsolver.managers.manager_file.ManagerFile.search_for_base64_file">search_for_base64_file</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.search_for_pattern_in_file" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.search_for_pattern_in_file">search_for_pattern_in_file</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.searching_text_in_packets" href="../managers/manager_files_pcap.html#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.searching_text_in_packets">searching_text_in_packets</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.setup_named_folders" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.setup_named_folders">setup_named_folders</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.single_folder_search" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.single_folder_search">single_folder_search</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.string_similarity" href="../managers/manager_files_re.html#ctfsolver.managers.manager_files_re.ManagerFileRegex.string_similarity">string_similarity</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="ctfsolver.folders" href="index.html">ctfsolver.folders</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="ctfsolver.folders.link_ctf_folders.Linking" href="#ctfsolver.folders.link_ctf_folders.Linking">Linking</a></code></h4>
+<ul class="">
+<li><code><a title="ctfsolver.folders.link_ctf_folders.Linking.get_all_sites" href="#ctfsolver.folders.link_ctf_folders.Linking.get_all_sites">get_all_sites</a></code></li>
+<li><code><a title="ctfsolver.folders.link_ctf_folders.Linking.get_categories" href="#ctfsolver.folders.link_ctf_folders.Linking.get_categories">get_categories</a></code></li>
+<li><code><a title="ctfsolver.folders.link_ctf_folders.Linking.get_challenges" href="#ctfsolver.folders.link_ctf_folders.Linking.get_challenges">get_challenges</a></code></li>
+<li><code><a title="ctfsolver.folders.link_ctf_folders.Linking.handling_global_config" href="#ctfsolver.folders.link_ctf_folders.Linking.handling_global_config">handling_global_config</a></code></li>
+<li><code><a title="ctfsolver.folders.link_ctf_folders.Linking.main" href="#ctfsolver.folders.link_ctf_folders.Linking.main">main</a></code></li>
+<li><code><a title="ctfsolver.folders.link_ctf_folders.Linking.temp" href="#ctfsolver.folders.link_ctf_folders.Linking.temp">temp</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

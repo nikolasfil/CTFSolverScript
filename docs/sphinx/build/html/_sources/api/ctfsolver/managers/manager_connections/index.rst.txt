@@ -218,7 +218,7 @@ Module Contents
    .. py:attribute:: debug
 
 
-   .. py:method:: initiate_connection(*args, **kwargs) -> None
+   .. py:method:: initiate_connection(*args, **kwargs)
 
       Initiates a connection using the specified connection type and parameters.
       :param \*args: Variable length argument list to be passed to the connection method.
@@ -228,7 +228,7 @@ Module Contents
 
 
 
-   .. py:method:: connect(*args, **kwargs) -> None
+   .. py:method:: connect(*args, **kwargs)
 
       Description:
           Connects to the challenge based on the connection type.
@@ -263,7 +263,7 @@ Module Contents
    .. py:method:: recv_menu(number=1, display=False, save=False)
 
 
-   .. py:method:: recv_lines(number=1, display=False, save=False)
+   .. py:method:: recv_lines(number=1, display=False, save=False, *args, **kwargs)
 
       Description:
           Receives the output of the menu based on the number of lines provided.
@@ -330,7 +330,7 @@ Module Contents
 
 
 
-   .. py:method:: send(text, encode=True) -> None
+   .. py:method:: send(text, encode=True)
 
       Description:
           Sends the text to the connection after it encodes it.
@@ -341,7 +341,7 @@ Module Contents
 
 
 
-   .. py:method:: recv_until(text, **kwargs) -> bytes
+   .. py:method:: recv_until(text, **kwargs)
 
       Description:
           Receive data until one of `delims`(text) provided is encountered. It encodes the text before sending it.

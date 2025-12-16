@@ -10,20 +10,7 @@ Submodules
 .. toctree::
    :maxdepth: 1
 
-   /api/ctfsolver/config/__main__/index
+   /api/ctfsolver/config/challenge_config/index
    /api/ctfsolver/config/global_config/index
 
-
-Attributes
-----------
-
-.. autoapisummary::
-
-   ctfsolver.config.CONFIG
-
-
-Package Contents
-----------------
-
-.. py:data:: CONFIG
 

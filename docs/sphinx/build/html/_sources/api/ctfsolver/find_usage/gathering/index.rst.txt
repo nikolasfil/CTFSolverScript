@@ -1,0 +1,1491 @@
+ctfsolver.find_usage.gathering
+==============================
+
+.. py:module:: ctfsolver.find_usage.gathering
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   ctfsolver.find_usage.gathering.Gathering
+
+
+Module Contents
+---------------
+
+.. py:class:: Gathering(*args, **kwargs)
+
+   Bases: :py:obj:`ctfsolver.CTFSolver`
+
+
+   CTFSolver is a composite manager class designed to facilitate solving Capture The Flag (CTF) challenges.
+   It inherits functionality from ManagerFile, ManagerConnections, ManagerCrypto, and ManagerError, providing
+   a unified interface for file management, network connections, cryptographic operations, and error handling.
+   .. attribute:: debug
+
+      Enables or disables debug mode for verbose output.
+
+      :type: bool
+
+   .. attribute:: parent
+
+      The name of the parent folder (inherited from ManagerFile).
+
+      :type: str
+
+   .. method:: __init__(*args, **kwargs)
+
+      
+      Initializes all ancestor classes and sets up the CTFSolver instance.
+
+   .. method:: initializing_all_ancestors(*args, **kwargs)
+
+      
+      Initializes all ancestor classes (ManagerFile, ManagerCrypto, ManagerConnections, ManagerError).
+
+   .. method:: main()
+
+      
+      Placeholder for the main logic of the solver. Should be implemented with challenge-specific logic.
+
+   .. method:: try_main()
+
+      
+      Executes the main function, handling exceptions and user interruptions gracefully.
+
+   .. method:: __str__()
+
+      
+      Returns a string representation of the CTFSolver instance, including the parent folder name.
+      
+
+
+   .. py:method:: gathering()
+
+
+   .. py:attribute:: image_modified
+
+
+   .. py:method:: modify_picture()
+
+
+   .. py:method:: copy(file1, file2)
+
+
+   .. py:method:: main()
+
+      Description:
+          Placeholder for the main function
+
+
+
+   .. py:method:: searching_packets(packets, text)
+
+
+   .. py:method:: extract_files_from_binary(filepath)
+
+
+   .. py:method:: hexdump_to_binary(hexdump_file, binary_file)
+
+
+   .. py:method:: differ()
+
+
+   .. py:method:: download_images(name)
+
+
+   .. py:method:: print_to_File(data, verbose=False, file_name='output.txt')
+
+
+   .. py:method:: reassemblying_dns(packets=None)
+
+
+   .. py:method:: breakfiles(exfiltrated_data)
+
+
+   .. py:method:: trying_to_exploit_ods()
+
+
+   .. py:method:: extract_macros_with_odfpy(ods_file, files)
+
+
+   .. py:method:: list_all_files(ods_file)
+
+      Lists all files in the ODS archive for manual inspection.
+
+      :param ods_file: Path to the ODS file.
+      :type ods_file: str
+
+      :returns: A list of files inside the ODS archive.
+      :rtype: list
+
+
+
+   .. py:method:: extract_macros_from_file(ods_file, file_name)
+
+      Extracts content from a specific file inside the ODS archive.
+
+      :param ods_file: Path to the ODS file.
+      :type ods_file: str
+      :param file_name: Name of the file inside the archive to extract.
+      :type file_name: str
+
+      :returns: The content of the specified file.
+      :rtype: str
+
+
+
+   .. py:method:: extract_macros_from_ods(ods_file)
+
+      Attempts to extract macros from various files in the ODS archive.
+
+      :param ods_file: Path to the ODS file.
+      :type ods_file: str
+
+      :returns: Extracted macros or debug information.
+      :rtype: str
+
+
+
+   .. py:method:: extract_macros_from_ods_initial(ods_file=None)
+
+      Extracts macros from an ODS file.
+
+      :param ods_file: Path to the ODS file.
+      :type ods_file: str
+
+      :returns: Extracted macros, if any, as plain XML text.
+      :rtype: str
+
+
+
+   .. py:method:: connecting_db()
+
+
+   .. py:method:: load_master_key()
+
+
+   .. py:method:: generate_cipher(aes_key, iv)
+
+
+   .. py:method:: decrypt_payload(cipher, payload)
+
+
+   .. py:method:: decrypt_password(ciphertext, secret_key)
+
+
+   .. py:method:: translated()
+
+
+   .. py:method:: get_packets_icmp(packets=None)
+
+      Description:
+      Get all the ICMP packets from the packets
+
+      :param packets: List of packets to search in. Defaults to None.
+      :type packets: list, optional
+
+      :returns: List of ICMP packets
+      :rtype: list
+
+
+
+   .. py:method:: get_packet_ttl(packets=None)
+
+      Description:
+      Get the TTL of all the ICMP packets
+
+      :param packets: List of packets to search in. Defaults to None.
+      :type packets: list, optional
+
+      :returns: List of TTL of the ICMP packets
+      :rtype: list
+
+
+
+   .. py:method:: rot_bruteforce(crypted_text, known_text, max_shift=94)
+
+      Brute forces ROT47 shifts to find the one that contains the known text.
+
+      :param crypted_text: The encrypted text.
+      :type crypted_text: str
+      :param known_text: The known plaintext to look for.
+      :type known_text: str
+      :param max_shift: The maximum shift to attempt (ROT47 has 94 shifts).
+      :type max_shift: int
+
+      :returns: The shift that contains the known text, or -1 if not found.
+      :rtype: int
+
+
+
+   .. py:method:: rot(text, shift)
+
+      Applies the ROT47 cipher to the given text with the specified shift.
+
+      :param text: The input text.
+      :type text: str
+      :param shift: The ROT47 shift amount.
+      :type shift: int
+
+      :returns: The transformed text.
+      :rtype: str
+
+
+
+   .. py:method:: rot_char(c, shift)
+
+      Rotates a single character using the ROT47 cipher.
+
+      :param c: The input character.
+      :type c: str
+      :param shift: The ROT47 shift amount.
+      :type shift: int
+
+      :returns: The rotated character.
+      :rtype: str
+
+
+
+   .. py:method:: textFromPDF(file=None)
+
+      Extracts text from a PDF file.
+
+      :param file: Path to the PDF file. Defaults to the challenge file.
+      :type file: str
+
+      :returns: The extracted text.
+      :rtype: str
+
+
+
+   .. py:method:: decrypt_string(encrypted_base64, key)
+
+
+   .. py:method:: derive_key_and_iv(password, salt, key_length, iv_length)
+
+
+   .. py:method:: decrypt(ciphertext_base64, password)
+
+
+   .. py:method:: get_tcp_stream(number)
+
+
+   .. py:method:: stream_identifier(pkt)
+
+
+   .. py:method:: creating_stream(packets=None, save=False, return_dict=False)
+
+
+   .. py:attribute:: folder_logs
+
+
+   .. py:attribute:: folder_xml
+
+
+   .. py:method:: xor_decrypt(data, key1, key2 = None)
+
+
+   .. py:method:: emilia_main()
+
+
+   .. py:method:: getting_base64()
+
+
+   .. py:method:: custom_re_match_base64_string(text, strict=False)
+
+      Description:
+      Find the base64 string in the text
+
+      :param text: Text to search for base64 string
+      :type text: str
+      :param strict: If True, it will only return the base64 string. Defaults to False.
+      :type strict: bool, optional
+
+      :returns: list of Base64 string found in the text
+      :rtype: str
+
+
+
+   .. py:attribute:: encryption_key
+      :value: '5UUfizsRsP7oOCAq'
+
+
+
+   .. py:method:: pickle_save_data(data, filename, folder = 'data')
+
+      Description:
+          Save data to a pickle file
+
+      :param data: data to write to the pickle file. Can be anything
+      :type data: any
+      :param filename: Filename to save
+      :type filename: str
+      :param folder: Folder name inside the ctf folder. Defaults to "data".
+      :type folder: str, optional
+
+      :returns: None
+
+
+
+   .. py:method:: pickle_load_data(filename, folder = 'data')
+
+      Description:
+          Load data from a pickle file
+
+      :param filename: Filename to load the data from
+      :type filename: str
+      :param folder: Folder name to find the file to load the data from. Defaults to "data".
+      :type folder: str, optional
+
+      :returns: Data loaded from pickle
+      :rtype: any
+
+
+
+   .. py:method:: load_compressed_data()
+
+      Description:
+          Challenge specific function to load the compressed data
+
+
+
+   .. py:method:: demarshalling()
+
+      Description:
+          This function is used to demarshall the compressed data and display the disassembled code.
+          Challenge specific function
+
+
+
+   .. py:method:: dec_file_mes(mes, key)
+
+
+   .. py:method:: unified_extract_packets(pcap_file, pcap_function, raw = False)
+
+      Description:
+          Extracts the packets from the pcap file and saves them as a numbered dictionary.
+          Can use either scapy or pyshark to extract the packets.
+
+      :param pcap_file: Path to the pcap file.
+      :type pcap_file: str
+      :param pcap_function: Function to use to extract the packets.[scapy, pyshark]
+      :type pcap_function: str
+
+      :returns: Dictionary of packets
+      :rtype: dict
+
+
+
+   .. py:method:: smart_extract_packets(pcap_file, pcap_function, raw = False, save = False, filename_save = 'packets.pickle', folder_save = 'data')
+
+      Description:
+          Extracts the packets from the pcap file and saves them as a dictionary.
+          If the file already exists, it loads the file.
+
+      :param pcap_file: Path to the pcap file.
+      :type pcap_file: str
+      :param pcap_function: Function to use to extract the packets.[scapy, pyshark]
+      :type pcap_function: str
+      :param raw: Option to return the raw packets. Defaults to False.
+      :type raw: bool, optional
+      :param save: Option to load saved file . Defaults to False.
+      :type save: bool, optional
+      :param filename_save: Filename to save the packets if enabled. Defaults to "packets.pickle".
+      :type filename_save: str, optional
+      :param folder_save: Folder to save the filename if save is enabled. Defaults to "data".
+      :type folder_save: str, optional
+
+
+
+   .. py:method:: custom_stream_extract(stream_num=None)
+
+      Description:
+          Extracts the packets from the pcap file and saves them as a numbered dictionary.
+          Can use either scapy or pyshark to extract the packets.
+
+      :param stream_num: Stream number to extract
+      :type stream_num: int
+
+      :returns: Dictionary of packets
+      :rtype: dict
+
+
+
+   .. py:method:: get_scapy_tcp_stream(nunber)
+
+      Unused , but could be useful in the future
+
+
+
+   .. py:method:: decrypting_stream_4()
+
+      Description:
+          Challenge specific function
+
+
+
+   .. py:method:: saving_stream_4_encrypted_bytes()
+
+      Description:
+          Challenge specific function
+
+
+
+   .. py:method:: decrypting_packet()
+
+      Description:
+          Challenge specific function
+
+
+
+   .. py:method:: pyshark_extrac_tcp_stream_numbers(pcap_file)
+
+      Description:
+          Extracts the tcp stream numbers from the pcap
+
+      :param pcap_file: Path to the pcap file.
+      :type pcap_file: str
+
+      :returns: Dictionary of session indexes
+      :rtype: dict
+
+
+
+   .. py:method:: pyshark_extract_tcp_streams(pcap_file, stream_num)
+
+
+   .. py:method:: testin_streams()
+
+
+   .. py:method:: custom_packet_997_attempt()
+
+
+   .. py:method:: deobfuscation()
+
+
+   .. py:method:: xor_function_dec(given_string, length)
+
+
+   .. py:method:: regexp(file_content)
+
+
+   .. py:method:: evtx_open(file, func, *args, **kwargs)
+
+
+   .. py:method:: searching_records(log_file, func, *args, **kwargs)
+
+
+   .. py:method:: saving_xml(log_file, file, display=False)
+
+
+   .. py:method:: local_evtx_analysis(file)
+
+
+   .. py:method:: local_searching_file(file, *args, **kwargs)
+
+
+   .. py:method:: sorting_results(results)
+
+
+   .. py:method:: extract_strings(file_path, min_length=4)
+
+      Description:
+          Extracts printable strings from a file
+
+      :param file_path: The path to the file
+      :type file_path: str
+      :param min_length: The minimum length of the string to extract
+      :type min_length: int
+
+      :returns: The list of strings
+      :rtype: list
+
+
+
+   .. py:method:: extract_exif(file_path)
+
+      Description:
+          Extracts EXIF data from a file
+
+      :param file_path: The path to the file
+      :type file_path: str
+
+      :returns: The EXIF data
+      :rtype: dict
+
+
+
+   .. py:method:: ascii_rot(text, n)
+
+      Description:
+          Rotates the ASCII characters in a string by n positions
+
+      :param text: The text to rotate
+      :type text: str
+      :param n: The number of positions to rotate
+      :type n: int
+
+
+
+   .. py:method:: brute_ascii_rot(text, identifier)
+
+      Description:
+          Brute forces the rotation of ASCII characters in a string
+
+      :param text: The text to rotate
+      :type text: str
+      :param identifier: The string to search for in the rotated text
+      :type identifier: str
+
+      :returns: The rotated text
+      :rtype: str
+
+
+
+   .. py:method:: solve(hive_path)
+
+
+   .. py:method:: extract_skew1_bootkey_piece(hive_path)
+
+
+   .. py:method:: get_functions(variable)
+
+      Get all functions of a variable
+
+
+
+   .. py:method:: hive_solution()
+
+
+   .. py:method:: look_all_subkeys()
+
+
+   .. py:method:: get_attributes(variable)
+
+      Get all attributes of a variable
+
+
+
+   .. py:method:: skew_get_value()
+
+
+   .. py:method:: attempt_for_loop_subkeys()
+
+
+   .. py:method:: get_cell_size()
+
+
+   .. py:method:: recover_skew1_cell_hex(cell_size, cell_data)
+
+      Recover the Skew1 part of the Windows BootKey as a continuous hex string.
+
+      :param cell_size: The size of the registry cell (including size bytes and data).
+      :type cell_size: int
+      :param cell_data: The raw bytes of the cell data including the Skew1 Class Name/Attribute.
+      :type cell_data: bytes
+
+      :returns: The continuous hex string in the format ECSC{...}
+      :rtype: str
+
+
+
+   .. py:method:: custom_init()
+
+
+   .. py:method:: connect(*args, **kwargs)
+
+      Description:
+          Connects to the challenge based on the connection type.
+          If the connection type is remote, it connects to the url and port provided.
+          If the connection type is local, it starts a process with the file provided.
+
+
+          local:
+              kwargs :
+                  argv: Any | None = None,
+                  shell: bool = False,
+                  executable: Any | None = None,
+                  cwd: Any | None = None,
+                  env: Any | None = None,
+                  ignore_environ: Any | None = None,
+                  stdin: int = PIPE,
+                  stdout: PTY | int = PTY if not IS_WINDOWS else PIPE,
+                  stderr: int = STDOUT,
+                  close_fds: bool = True,
+                  preexec_fn: Any = lambda : None,
+                  raw: bool = True,
+                  aslr: Any | None = None,
+                  setuid: Any | None = None,
+                  where: str = 'local',
+                  display: Any | None = None,
+                  alarm: Any | None = None,
+                  creationflags: int = 0
+
+
+
+
+   .. py:attribute:: libc_path
+
+
+   .. py:attribute:: ld_path
+
+
+   .. py:attribute:: env
+
+
+   .. py:method:: interacting_with_binary()
+
+
+   .. py:method:: setup()
+
+
+   .. py:method:: get_elf_function_address(function)
+
+      Description:
+
+
+
+   .. py:method:: challenge_get_offset_address(function1, function2)
+
+
+   .. py:method:: verify_js_reconstructed()
+
+
+   .. py:method:: run()
+
+
+   .. py:method:: try_catch(callback)
+
+
+   .. py:method:: test_letter(password)
+
+
+   .. py:method:: brute_force()
+
+
+   .. py:method:: random_flouri_generator(number=None)
+
+
+   .. py:method:: check_password_time(length)
+
+
+   .. py:method:: exploitation()
+
+
+   .. py:method:: length_find()
+
+
+   .. py:method:: payload_maker(password, number)
+
+
+   .. py:method:: sending_request(exploit=None, verbose=False)
+
+
+   .. py:method:: get_flag_length()
+
+
+   .. py:method:: exploit_development(i, letter)
+
+
+   .. py:method:: preparing_dictionary()
+
+      This method is not used in the current solution.
+      It can be implemented if needed for future enhancements.
+
+
+
+   .. py:method:: bruteforcer()
+
+
+   .. py:method:: validate_flag()
+
+
+   .. py:method:: bruteforcing_failed()
+
+
+   .. py:method:: music21_analysis()
+
+
+   .. py:method:: music21_note_analysis()
+
+
+   .. py:method:: get_instruments()
+
+      Returns a list of instruments in the MIDI file.
+
+
+
+   .. py:method:: init_some_values()
+
+
+   .. py:method:: load_lyrics()
+
+
+   .. py:method:: dictionary_analysis(lyrics)
+
+
+   .. py:method:: print_dictionary(d)
+
+
+   .. py:method:: lyric_transpose(lyrics, offset, wrap=True)
+
+
+   .. py:method:: lyric_transformation(lyrics)
+
+
+   .. py:method:: lyrics_all()
+
+      Description:
+          This function generates all possible combinations of lyrics transformations
+          based on the provided replace_combos and control_combos.
+          It uses itertools.product to create combinations of the specified number
+          of transformations, allowing for flexible lyric manipulation.
+      :returns: A list of transformed lyrics combinations.
+      :rtype: list
+
+
+
+   .. py:method:: creating_control_combos(start=0, end=1, number=8)
+
+
+   .. py:method:: lyrics_transformation(lyrics, replace_combos, control_combos=None)
+
+
+   .. py:method:: brute_transpose_find_flag(lyrics, partial_flag, keys, verbose = False, wrap = True)
+
+      Description:
+          For the lyrics given
+
+      :param lyrics: Lyrics given
+      :type lyrics: str
+      :param partial_flag: partial flag to look
+      :type partial_flag: str
+      :param verbose: _description_. Defaults to False.
+      :type verbose: bool, optional
+
+      :returns: possible flag
+      :rtype: str
+
+
+
+   .. py:method:: check_for_rot(text, partial='ecsc')
+
+      Description:
+          Checks if the text is a rotation of "ecsc".
+          This function checks if the first four characters of the text
+          can be rearranged to form the string "ecsc". It does this by
+          comparing the ASCII values of the characters in the text with
+          the ASCII values of the characters in "ecsc". If the conditions
+          are met, it returns True, indicating that the text is a rotation
+          of "ecsc". Otherwise, it returns False.
+          This function is useful for identifying specific patterns in the text
+          that match the structure of "ecsc", which could be relevant in certain
+
+          Challenge_specific
+      :param text: _description_
+      :type text: _type_
+
+      :returns: _description_
+      :rtype: _type_
+
+
+
+   .. py:method:: position_cipher(text, keys)
+
+      Description:
+          This function takes a text and a list of keys, and returns a new string
+          where each character in the text is replaced by the character at the
+          corresponding index in the keys list. If the index exceeds the length of
+          the text, it wraps around using modulo operation.
+      :param text: The input text to be transformed.
+      :type text: str
+      :param keys: A list of integers representing the positions in the text.
+      :type keys: list
+
+      :returns: A new string formed by replacing characters in the text based on the keys.
+      :rtype: str
+
+
+
+   .. py:method:: bruteforce_all_lyrics(all_lyrics, partial_flag, keys, verbose = False, wrap = True)
+
+
+   .. py:method:: another_attempt()
+
+
+   .. py:method:: recv_send(text, lines=None, text_until=None, display=False, save=False, ansi_escape=False)
+
+      Description:
+          Receives lines and sends a response.
+          It can receive a number or lines, and/or specific text.
+          If save is True, it saves the output of the menu in a list and returns it.
+          If display is True, it prints the output of everything received.
+
+      :param choice: Choice to send to the menu
+      :type choice: int or str
+      :param menu_num: Number of options printed in the menu. Defaults to None.
+      :type menu_num: int, optional
+      :param menu_text: Text that the menu asks before sending your choice. Defaults to None.
+      :type menu_text: str, optional
+      :param display: Variable to print every received line. Defaults to False.
+      :type display: bool, optional
+      :param save: . Defaults to False.
+      :type save: bool, optional
+
+      :returns: List of output of the menu if save is True
+      :rtype: list
+
+
+
+   .. py:method:: recv_until(text, **kwargs)
+
+      Description:
+          Receive data until one of `delims`(text) provided is encountered. It encodes the text before sending it.
+          Wrapper for self.conn.recvuntil(text.encode())
+          Can also drop the ending if drop is True. If the request is not satisfied before ``timeout`` seconds pass, all data is buffered and an empty string (``''``) is returned.
+      :param text: Text to receive until
+      :type text: str
+      :param \*\*kwargs: Additional keyword arguments to pass to the recv
+                         - drop (bool, optional): Drop the ending.  If :const:`True` it is removed from the end of the return value. Defaults to False.
+                         - timeout (int, optional): Timeout in seconds. Defaults to default.
+
+      :raises exceptions.EOFError: The connection closed before the request could be satisfied
+
+      :returns: A string containing bytes received from the socket,
+                or ``''`` if a timeout occurred while waiting.
+
+
+
+   .. py:method:: get_welcome_message()
+
+
+   .. py:method:: extract_printable_with_spaces(text)
+
+
+   .. py:method:: simulate_ansi_typing(text, escape_codes=True)
+
+
+   .. py:method:: play_round()
+
+
+   .. py:method:: play_game()
+
+
+   .. py:method:: testing_ansii_escape()
+
+
+   .. py:method:: initialize_values()
+
+
+   .. py:method:: setup_request()
+
+
+   .. py:method:: setup_sse(sse_url)
+
+
+   .. py:method:: exploit()
+
+
+   .. py:method:: tools_result()
+
+
+   .. py:method:: interacting_with_mcp()
+
+
+   .. py:method:: saving_requests()
+
+      Save the requests made during the challenge to a file.
+      This can help in debugging or understanding the flow of the challenge.
+
+
+
+   .. py:method:: bits_to_ascii(bits)
+
+      Convert a list of bits (ints) to ASCII string.
+      Assumes 8 bits per character, MSB first.
+
+
+
+   .. py:method:: decode_nrzi(encoded_bits)
+
+      Decode a NRZ-I encoded bit string to ASCII.
+      NRZ-I: A '1' means a transition, '0' means no transition.
+      The first bit is assumed to be the initial signal level (0 or 1).
+
+
+
+   .. py:method:: decode_manchester(encoded_bits)
+
+      Decode Manchester encoded bit string to ASCII.
+      Manchester encoding: each bit is two bits:
+      '01' -> 0
+      '10' -> 1
+
+
+
+   .. py:method:: decode_hamming74(encoded_bits)
+
+      Decode a Hamming (7,4) encoded bit string to ASCII.
+      Each 7 bits contain 4 data bits and 3 parity bits.
+      Returns ASCII decoded string.
+
+
+
+   .. py:method:: decode_uart(encoded_bits, baud_rate=9600, data_bits=8, parity=None, stop_bits=1)
+
+      Decode UART encoded bit string to ASCII.
+      Assumes:
+      - 1 start bit (0)
+      - 8 data bits (LSB first)
+      - No parity by default
+      - 1 stop bit (1)
+      encoded_bits is a string of bits representing UART frames concatenated.
+
+
+
+   .. py:method:: getting_round()
+
+
+   .. py:method:: nrzi_formater_for_rest(bits)
+
+
+   .. py:method:: nrzi_formater(bits, verbose=False)
+
+
+   .. py:method:: nrzi_to_ascii(bits)
+
+
+   .. py:method:: encode_nrzi(bits, verbose=False)
+
+      Decode NRZ-I (Non-Return-to-Zero Inverted) encoded bits.
+      In NRZ-I, a transition (0 to 1 or 1 to 0) represents a 1,
+      and no transition represents a 0.
+
+
+
+   .. py:method:: ascii_converter(bits)
+
+      Convert a string of bits to ASCII characters.
+      Input bits should be in multiples of 8 (for standard ASCII).
+      Handles padding if needed.
+
+
+
+   .. py:method:: decode_nrz_i(bits)
+
+      Decode NRZ-I (Non-Return-to-Zero Inverted) encoded bits.
+      In NRZ-I, a transition (0 to 1 or 1 to 0) represents a 1,
+      and no transition represents a 0.
+
+
+
+   .. py:method:: ascii_converter1(bits)
+
+
+   .. py:method:: initiate_connection()
+
+      Initiates a connection using the specified connection type and parameters.
+      :param \*args: Variable length argument list to be passed to the connection method.
+      :param \*\*kwargs: Arbitrary keyword arguments to be passed to the connection method.
+
+      :returns: None
+
+
+
+   .. py:method:: bruteforce_address(start=0, number=1000, count=125, verbose=False)
+
+
+   .. py:method:: get_registers(address, count=125)
+
+
+   .. py:method:: socket_initiate_connection()
+
+
+   .. py:method:: plc_initiate_connection()
+
+
+   .. py:method:: snap_initiate_connection()
+
+
+   .. py:method:: plc_work(solution, plc)
+
+
+   .. py:attribute:: ip
+
+
+   .. py:attribute:: rpc_port
+
+
+   .. py:attribute:: tcp_port
+
+
+   .. py:attribute:: RPC_URL
+      :value: 'http://Uninferable:Instance of builtins.int/'
+
+
+
+   .. py:attribute:: tcp_url
+      :value: 'Uninferable:Instance of builtins.int'
+
+
+
+   .. py:method:: csend(contract, fn, *args)
+
+
+   .. py:method:: reconstructing_url()
+
+
+   .. py:method:: send_file(file)
+
+
+   .. py:method:: get_request(path)
+
+
+   .. py:method:: generating()
+
+
+   .. py:method:: downloading()
+
+
+   .. py:method:: create_token(username)
+
+
+   .. py:method:: pollute(base_url)
+
+
+   .. py:method:: generate_payload(attacker_url)
+
+
+   .. py:method:: generate_url(attacker_url, payload)
+
+      Description:
+          Generate a URL with the given attacker URL and payload.
+
+      :param attacker_url: _description_
+      :type attacker_url: _type_
+      :param payload: _description_
+      :type payload: _type_
+
+      :returns: _description_
+      :rtype: _type_
+
+
+
+   .. py:method:: send_to_bot(payload_url)
+
+      Description:
+          Send the payload URL to the bot.
+
+      :param payload_url: _description_
+      :type payload_url: _type_
+
+      :returns: _description_
+      :rtype: _type_
+
+
+
+   .. py:method:: ssh_connect(**kwargs)
+
+      Descrption : Establish SSH connection
+      Parameters :
+          - user : username
+          - host : hostname
+          - port : port number
+          - password : password
+
+      Returns : None
+
+
+
+   .. py:method:: interactive()
+
+      Descrption : Start an interactive session
+      Parameters : None
+      Returns : None
+
+
+
+   .. py:method:: from_hex(hex_string)
+
+
+   .. py:method:: hex_to_string(hex_string)
+
+      Description: Convert hex string to ascii string
+
+      Analytical:
+      - Split the hex string by space
+      - Convert each hex value to ascii character
+      - Join the ascii characters to form the ascii string
+
+      :param hex_string: Hex string to convert to ascii
+      :type hex_string: str
+
+      :returns: Ascii string
+      :rtype: str
+
+
+
+   .. py:method:: str_xor(secret, key)
+
+
+   .. py:method:: hash_pw(pw_str)
+
+
+   .. py:method:: bruteforcing()
+
+
+   .. py:method:: parse_csr()
+
+
+   .. py:method:: generator(g, x, p)
+
+
+   .. py:method:: is_prime(p)
+
+
+   .. py:method:: finding_next_prime(number, n=None)
+
+
+   .. py:method:: dynamic_xor_encrypt(plaintext, text_key)
+
+
+   .. py:method:: dynamic_xor_decrypt(plaintext, text_key)
+
+
+   .. py:method:: encrypt(plaintext, key)
+
+
+   .. py:method:: get_message()
+
+
+   .. py:method:: context(number)
+
+
+   .. py:attribute:: passwords_source
+
+
+   .. py:method:: get_online_passwords()
+
+
+   .. py:method:: decrypting_vigenere(ciphertext, key)
+
+
+   .. py:method:: xor_bytes(a, b)
+
+
+   .. py:method:: xor(a, b)
+
+      Description:
+      XOR the text with the key
+
+      :param text: Text to XOR
+      :type text: str
+      :param key: Key to XOR
+      :type key: str
+
+      :returns: XORed text
+      :rtype: str
+
+
+
+   .. py:method:: open_file()
+
+
+   .. py:method:: find_invpow(x, n)
+
+      Finds the integer component of the n'th root of x,
+      an integer such that y ** n <= x < (y + 1) ** n.
+
+
+
+   .. py:method:: md5_hash(s)
+
+
+   .. py:method:: find_collision(target_hash, max_length=10, prefix='', suffix='', lengthy=False)
+
+
+   .. py:method:: bruteforce()
+
+
+   .. py:method:: known_colissions()
+
+
+   .. py:attribute:: v1
+      :value: 4196604293528562019178729176959696479940189487937638820300425092623669070870963842968690664766177...
+
+
+
+   .. py:attribute:: v2
+      :value: 1155375501837291703089324727794784450273319300705451569593919302362935038547109789553344848466668...
+
+
+
+   .. py:attribute:: v3
+      :value: 1494387565942846708708184148099847404400766519710476407976987927020405579481159192781522792893652...
+
+
+
+   .. py:attribute:: v4
+      :value: 6336816260107995932250378492551290960420748628
+
+
+
+   .. py:method:: solve_equations()
+
+
+   .. py:method:: juilius_decrypt(msg, shift)
+
+
+   .. py:method:: get_output_variables()
+
+
+   .. py:method:: des_key_generator()
+
+      Generator for all possible 8-byte DES keys.
+      DES uses a 56-bit key space, padded to 8 bytes.
+
+
+
+   .. py:method:: oracle_encrypt(pt_hex)
+
+
+   .. py:method:: menu_handler(verbose=False)
+
+
+   .. py:method:: try_key(key_bytes)
+
+
+   .. py:method:: bruteforce_key(verbose=False)
+
+
+   .. py:method:: bruteforce_key_multiprocessing(verbose=False)
+
+      Multiprocessing brute-force key search.
+
+
+
+   .. py:method:: main_multi_process()
+
+
+   .. py:method:: decoding(crypted_dict, data)
+
+
+   .. py:method:: saving_to_json(crypted_dict)
+
+
+   .. py:method:: read_json(filename)
+
+
+   .. py:method:: de_hexing_flag(flag)
+
+
+   .. py:attribute:: menu_num
+      :value: 0
+
+
+
+   .. py:attribute:: menu_text
+      :value: '==> '
+
+
+
+   .. py:attribute:: help_num
+      :value: 13
+
+
+
+   .. py:method:: local_preparations()
+
+
+   .. py:method:: bytes_to_int_array(data)
+
+      Convert bytes to array of integers
+
+
+
+   .. py:method:: int_array_to_bytes(data)
+
+      Convert array of integers to bytes
+
+
+
+   .. py:method:: hex_to_bytes_le(hex_val, size)
+
+
+   .. py:method:: solve_challenge()
+
+      Main function to solve the challenge
+
+
+
+   .. py:method:: mutate_key(buf, key)
+
+
+   .. py:method:: smarter_bruteforcer()
+
+      Check the first letter first, and then continue
+
+
+
+   .. py:method:: current_initiate_connection()
+
+
+   .. py:method:: to_hex(data)
+
+
+   .. py:method:: data_processing(data)
+
+
+   .. py:method:: local_run()
+
+
+   .. py:method:: re_match_flag(text, origin)
+
+      Description:
+      Find the flag in the text
+
+      :param text: Text to search for the flag
+      :type text: str
+      :param origin: Origin of the flag
+      :type origin: str
+
+      :returns: list of flag found in the text
+      :rtype: str
+
+
+
+   .. py:method:: exec_fmt(payload)
+
+
+   .. py:attribute:: library
+
+
+   .. py:attribute:: libc
+
+
+   .. py:method:: exec_func(payload)
+
+
+   .. py:method:: prepare_space()
+
+      Creates files with specified content in a given folder if they do not already exist.
+      :param files: List of filenames to create. Defaults to an empty list.
+      :type files: list, optional
+      :param folder: Path to the folder where files will be created.
+      :type folder: str or Path, optional
+      :param Defaults to self.folder_files.:
+      :param test_text: Content to write into each created file. Defaults to "flag{test}".
+      :type test_text: str, optional
+
+      :returns: None
+
+
+
+   .. py:method:: generate_pattern(length=1, n=8)
+
+      Generates a cyclic pattern of a given length.
+
+      :param length: The length of the pattern to generate.
+      :type length: int
+      :param n: The number of unique characters in the pattern.
+      :type n: int
+
+      :returns: The generated cyclic pattern.
+      :rtype: str
+
+
+
+   .. py:method:: find_offset(pattern, n=8)
+
+      Finds the offset of a given pattern in the cyclic pattern.
+
+      :param pattern: The pattern to find the offset for.
+      :type pattern: str
+      :param n: The number of unique characters in the pattern.
+      :type n: int
+
+      :returns: The offset of the pattern.
+      :rtype: int
+
+
+
+   .. py:method:: local_exploitation()
+
+      Performs local exploitation to find the offset.
+
+      :returns: The offset found from the local exploitation.
+      :rtype: int
+
+
+
+   .. py:method:: remote_exploitation(payload)
+
+      Performs remote exploitation using the given payload.
+
+      :param payload: The payload to use for remote exploitation.
+      :type payload: bytes
+
+
+
+   .. py:attribute:: elf
+
+
+   .. py:method:: get_address(function)
+
+
+   .. py:method:: load_shellcode()
+
+
+   .. py:method:: build_payload()
+
+
+   .. py:method:: looper()
+
+
+   .. py:method:: read_address_positions(positions)
+
+      Reads the address of the stack
+
+      :param positions: Number of positions to read
+      :type positions: int
+
+      :returns: List of addresses
+      :rtype: list
+
+
+
+   .. py:method:: decode_address(address_all, start=0, end=None)
+
+      Description:
+          Decodes the address of the stack
+
+      :param address_all: List of addresses
+      :type address_all: list
+      :param start: Starting position of the address. Defaults to 0.
+      :type start: int, optional
+      :param end: Ending position of the address. Defaults to None.
+      :type end: [type], optional
+
+      :returns: Decoded text of the address
+      :rtype: bytes
+
+
+
+   .. py:method:: simple_payload_send(payload, lines=1)
+
+      Description:
+          Sends a simple payload to the connection
+
+      :param payload: Payload to send
+      :type payload: str
+      :param lines: Number of lines to receive. Defaults to 1.
+      :type lines: int, optional
+
+      :returns: Output of the connection
+      :rtype: bytes
+
+
+

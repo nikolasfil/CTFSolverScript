@@ -53,7 +53,14 @@ el.replaceWith(d);
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def main():
-    result = subprocess.run([sys.executable, &#34;-m&#34;, &#34;ctfsolver.run&#34;], check=True)
+    # result = subprocess.run([sys.executable, &#34;-m&#34;, &#34;ctfsolver.run&#34;], check=True)
+    # sys.exit(result.returncode)
+
+    manager = ManagerFolder()
+    manager.get_current_dir()
+    result = subprocess.run(
+        [sys.executable, f&#34;{manager.parent}/payloads/solution.py&#34;], check=True
+    )
     sys.exit(result.returncode)</code></pre>
 </details>
 <div class="desc"></div>

@@ -2,6 +2,8 @@
   "directories": {
     "ctf_data": null,
     "documentation": null,
+    "venvs": null,
+    "downloads": null,
     "exclude": []
   },
   "structures": {

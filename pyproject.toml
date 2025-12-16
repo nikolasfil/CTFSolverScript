@@ -5,9 +5,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ctfsolver"
-version = "0.0.13"  
+version = "0.0.14"  
 description = "An all in one library for solving CTF challenges"
-readme = "app/README.md"
+readme = "README.md"
 requires-python = ">=3.11"
 license = {text = "MIT"}
 authors = [
@@ -22,6 +22,11 @@ dependencies = [
     "wheel>=0.37.0",
     "dash_cytoscape>=1.0.2",
     "dash>=3.2.0",
+    "colorama>=0.4.6",
+    "RapidFuzz>=3.14.3",
+    "pyperclip>=1.11.0",
+    "typer[all]"
+
 ]
 classifiers = [
     "License :: OSI Approved :: MIT License",
@@ -50,21 +55,33 @@ docs = [
     "sphinx-rtd-theme>=3.0.2",
     "python-call-graph>=2.1.4",
     "sphinx-autoapi>=3.0.0",
+    "pdoc3>=0.11.6",
 ]
+
 
 # Optional: live-reload while writing docs
 docs-live = [
     "sphinx-autobuild>=2024.9.3",
 ]
 
-
+# Optional: pdoc-like auto crawl (no imports) using AutoAPI
+docs-autoapi = [
+    "sphinx-autoapi>=3.0.0",
+]
 [project.urls]
 Homepage = "https://github.com/nikolasfil/CTFSolverScript"
 
-[tool.setuptools]
-packages = ["ctfsolver"]
-package-dir = { "" = "app"}
+# [tool.setuptools]
+# packages = ["ctfsolver"]
+# package-dir = { "" = "app", "ctfsolver" = "app/ctfsolver" }
 
+
+[tool.setuptools]
+package-dir = { "" = "app" }
+
+[tool.setuptools.packages.find]
+where = ["app"]
+include = ["ctfsolver*"]
 
 # [tool.setuptools.package-data]
 # # Add package data if needed
@@ -76,4 +93,4 @@ run =  "ctfsolver.scripts.run_solution:main"
 templ =  "ctfsolver.scripts.__main__:run_template"
 find_usage =  "ctfsolver.scripts.__main__:run_find_usage"
 clean_folders = "ctfsolver.scripts.clean_folders.__main__:main"
-ctfsolver =     "ctfsolver.inline.__main__:main"
+ctfsolver =     "ctfsolver.cli.main:main"

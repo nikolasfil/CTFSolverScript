@@ -1,0 +1,67 @@
+ctfsolver.template.gathering_template
+=====================================
+
+.. py:module:: ctfsolver.template.gathering_template
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   ctfsolver.template.gathering_template.Gathering
+
+
+Module Contents
+---------------
+
+.. py:class:: Gathering(*args, **kwargs)
+
+   Bases: :py:obj:`ctfsolver.CTFSolver`
+
+
+   CTFSolver is a composite manager class designed to facilitate solving Capture The Flag (CTF) challenges.
+   It inherits functionality from ManagerFile, ManagerConnections, ManagerCrypto, and ManagerError, providing
+   a unified interface for file management, network connections, cryptographic operations, and error handling.
+   .. attribute:: debug
+
+      Enables or disables debug mode for verbose output.
+
+      :type: bool
+
+   .. attribute:: parent
+
+      The name of the parent folder (inherited from ManagerFile).
+
+      :type: str
+
+   .. method:: __init__(*args, **kwargs)
+
+      
+      Initializes all ancestor classes and sets up the CTFSolver instance.
+
+   .. method:: initializing_all_ancestors(*args, **kwargs)
+
+      
+      Initializes all ancestor classes (ManagerFile, ManagerCrypto, ManagerConnections, ManagerError).
+
+   .. method:: main()
+
+      
+      Placeholder for the main logic of the solver. Should be implemented with challenge-specific logic.
+
+   .. method:: try_main()
+
+      
+      Executes the main function, handling exceptions and user interruptions gracefully.
+
+   .. method:: __str__()
+
+      
+      Returns a string representation of the CTFSolver instance, including the parent folder name.
+      
+
+
+   .. py:method:: gathering()
+
+

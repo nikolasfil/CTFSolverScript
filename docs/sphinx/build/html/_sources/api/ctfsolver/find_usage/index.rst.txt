@@ -10,6 +10,8 @@ Submodules
 .. toctree::
    :maxdepth: 1
 
-   /api/ctfsolver/find_usage/__main__/index
+   /api/ctfsolver/find_usage/function_definition_class/index
+   /api/ctfsolver/find_usage/gathering/index
+   /api/ctfsolver/find_usage/manager_gathering/index
 
 

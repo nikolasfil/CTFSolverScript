@@ -10,7 +10,7 @@ Submodules
 .. toctree::
    :maxdepth: 1
 
-   /api/ctfsolver/template/__main__/index
+   /api/ctfsolver/template/gathering_template/index
    /api/ctfsolver/template/solution_template/index
 
 

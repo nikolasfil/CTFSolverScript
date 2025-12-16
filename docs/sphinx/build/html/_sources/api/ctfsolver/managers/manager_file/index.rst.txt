@@ -32,11 +32,11 @@ Module Contents
 
 .. py:class:: ManagerFile(*args, **kwargs)
 
-   Bases: :py:obj:`ctfsolver.managers.manager_files_pcap.ManagerFilePcap`, :py:obj:`ctfsolver.managers.manager_files_re.ManagerFileRegex`, :py:obj:`ctfsolver.managers.manager_folder.ManagerFolder`
+   Bases: :py:obj:`ctfsolver.managers.manager_files_pcap.ManagerFilePcap`, :py:obj:`ctfsolver.managers.manager_files_re.ManagerFileRegex`, :py:obj:`ctfsolver.managers.manager_folder.ManagerFolder`, :py:obj:`ctfsolver.managers.manager_functions.ManagerFunction`
 
 
    ManagerFile class for handling file operations in CTF solving context.
-   This class inherits from ManagerFilePcap, ManagerFileRegex, and ManagerFolder,
+   This class inherits from ManagerFilePcap, ManagerFileRegex, ManagerFolder, and ManagerFunction,
    providing methods for initializing file-related ancestors and searching for base64
    strings within files.
    .. attribute:: None

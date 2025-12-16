@@ -46,8 +46,7 @@ for function definitions.</p>
 <p>Typical usage example:
 manager = ManagerFolder(file="challenge.py", verbose=True)
 manager.create_parent_folder()
-manager.prepare_space(files=["input.txt", "output.txt"])
-functions = manager.get_functions_from_file("challenge.py")</p>
+manager.prepare_space(files=["input.txt", "output.txt"])</p>
 <pre><code>CONFIG (dict): Global configuration dictionary imported from ctfsolver.config.
 </code></pre>
 <h2 id="dependencies">Dependencies</h2>
@@ -107,7 +106,6 @@ functions = manager.get_functions_from_file("challenge.py")</p>
         search_files(directory, exclude_dirs, search_string, save=False, display=False): Searches for a string in files within a directory.
         get_self_functions(): Returns a list of callable methods of the class.
         get_function_reference(function, file): Finds references to a function in a file.
-        get_functions_from_file(file_path): Extracts function names from a Python file.
         find_function_from_file(file_path, function_name): Finds and returns the source code of a function from a file.
         folfil(folder, file): Returns the full path of a file within a folder.
         folders_file(*folders, file): Returns the full path of a file within nested folders.
@@ -126,8 +124,8 @@ functions = manager.get_functions_from_file("challenge.py")</p>
         self.verbose = kwargs.get(&#34;verbose&#34;, False)
         self.Path = Path
         self.handling_global_config()
-        self.get_parent()
         init_challenge = kwargs.get(&#34;init_for_challenge&#34;, True)
+        self.get_parent()
         if init_challenge:
             self.init_for_challenge(*args, **kwargs)
 
@@ -168,6 +166,12 @@ functions = manager.get_functions_from_file("challenge.py")</p>
         &#34;&#34;&#34;
         pass
 
+    def get_current_dir(self):
+        # TODO: This should move to ManagerFolder
+        # Gets the current working directory that the command gets called in
+        self.file_called_frame = inspect.stack()
+        self.parent = Path(os.getcwd()).resolve()
+
     def get_parent(self):
         &#34;&#34;&#34;
         Description:
@@ -196,7 +200,10 @@ functions = manager.get_functions_from_file("challenge.py")</p>
         self.file_called_path = Path(self.file_called_frame[-1].filename)
         self.parent = Path(self.file_called_path).parent.resolve()
 
-        if self.parent.name in self.folders_name_list:
+        if (
+            hasattr(self, &#34;folders_name_list&#34;)
+            and self.parent.name in self.folders_name_list
+        ):
             self.parent = self.parent.parent
 
     def setup_named_folders(self):
@@ -247,6 +254,37 @@ functions = manager.get_functions_from_file("challenge.py")</p>
             if not folder.exists():
                 folder.mkdir()
 
+    def create_ctf_structure(
+        self, category, site, name, verbose=False, download=False, **kwargs
+    ):
+        &#34;&#34;&#34;
+        Description:
+            Create the CTF folder structure
+        &#34;&#34;&#34;
+
+        ctf_data_dir = CONFIG[&#34;directories&#34;][&#34;ctf_data&#34;]
+        base_path = Path(Path.home(), ctf_data_dir, category, site, name)
+        checker = kwargs.get(&#34;checker&#34;, False)
+
+        if not base_path.exists():
+            base_path.mkdir(parents=True)
+
+        for folder in self.folders_name_list:
+            folder_path = Path(base_path, folder)
+            if not folder_path.exists():
+                folder_path.mkdir()
+
+        # Copy folder path in clipboard
+        pyperclip.copy(str(base_path))
+        if download:
+            self.download_automove(
+                category=category,
+                challenge_name=name,
+                challenge_path=base_path,
+                checker=checker,
+                verbose=verbose,
+            )
+
     def prepare_space(self, files=None, folder=None, test_text=&#34;flag{test}&#34;):
         &#34;&#34;&#34;
         Creates files with specified content in a given folder if they do not already exist.
@@ -290,6 +328,13 @@ functions = manager.get_functions_from_file("challenge.py")</p>
             if self.verbose:
                 print(folder.iterdir())
             return not any(folder.iterdir())
+        return False
+
+    def check_folder_exists(self, folder: str) -&gt; str | bool:
+        if Path(folder).exists():
+            return str(folder)
+        if Path(Path.home(), folder).exists():
+            return str(Path(Path.home(), folder))
         return False
 
     def get_challenge_file(self):
@@ -362,7 +407,7 @@ functions = manager.get_functions_from_file("challenge.py")</p>
         if save:
             return output
 
-    def exec_on_files(self, folder, func, *args, **kwargs):
+    def exec_on_folder(self, folder: Path, func: callable, *args, **kwargs):
         &#34;&#34;&#34;
         Description:
         Execute a function on all the files in the folder with the arguments provided
@@ -380,6 +425,67 @@ functions = manager.get_functions_from_file("challenge.py")</p>
         if save:
             output = []
         for file in folder.iterdir():
+            out = func(file, *args, **kwargs)
+            if save and out is not None:
+                output.extend(out)
+            if display and out is not None:
+                print(out)
+        if save:
+            return output
+
+    # Attempt to change the way I use this function
+    def exec_on_folder_files(
+        self,
+        folder: Path,
+        func: callable,
+        func_args=[],
+        func_kwargs={},
+        *args,
+        **kwargs,
+    ):
+        &#34;&#34;&#34;
+        Description:
+        Execute a function on all the files in the folder with the arguments provided
+
+        Args:
+            folder (str): Folder to execute the function
+            func (function): Function to execute
+
+        Returns:
+            list: List of output of the function
+        &#34;&#34;&#34;
+
+        save = kwargs.get(&#34;save&#34;, False)
+        display = kwargs.get(&#34;display&#34;, False)
+        if save:
+            output = []
+        files = folder.iterdir()
+        out = func(files, *func_args, **func_kwargs)
+        if save and out is not None:
+            output.extend(out)
+        if display and out is not None:
+            print(out)
+        if save:
+            return output
+
+    def exec_on_files(self, files: list[str], func: callable, *args, **kwargs):
+        &#34;&#34;&#34;
+        Description:
+        Execute a function on all the file list with the arguments provided
+
+        Args:
+            files (list): List of files to execute the function
+            func (function): Function to execute
+
+        Returns:
+            list: List of output of the function
+        &#34;&#34;&#34;
+
+        save = kwargs.get(&#34;save&#34;, False)
+        display = kwargs.get(&#34;display&#34;, False)
+        if save:
+            output = []
+        for file in files:
             out = func(file, *args, **kwargs)
             if save and out is not None:
                 output.extend(out)
@@ -428,99 +534,6 @@ functions = manager.get_functions_from_file("challenge.py")</p>
 
         if save:
             return output
-
-    def get_self_functions(self):
-        &#34;&#34;&#34;
-        Description:
-        Get the functions of the class
-        &#34;&#34;&#34;
-
-        return [
-            func
-            for func in dir(self)
-            if callable(getattr(self, func)) and not func.startswith(&#34;__&#34;)
-        ]
-
-    def get_function_reference(self, function, file):
-        &#34;&#34;&#34;
-        Description:
-        Get the reference of the function in the file
-        &#34;&#34;&#34;
-
-        if function not in self.get_self_functions():
-            raise ValueError(f&#34;Function {function} not found in the class&#34;)
-
-        output = []
-
-        with open(file, &#34;r&#34;) as f:
-            lines = f.readlines()
-            for i, line in enumerate(lines):
-                if function in line:
-                    output.append(line)
-        return output
-
-    def get_functions_from_file(self, file_path):
-        &#34;&#34;&#34;
-        Description:
-        Get the functions from the file
-        &#34;&#34;&#34;
-
-        output = []
-        with open(file_path, &#34;r&#34;) as file_path:
-            file_content = file_path.read()
-
-        # Parse the file content into an AST
-        tree = ast.parse(file_content)
-
-        # Define a visitor class to find the function definition
-        class FunctionDefFinder(ast.NodeVisitor):
-            def __init__(self):
-                self.function_def = None
-
-            def visit_FunctionDef(self, node):
-                output.append(node.name)
-                # Continue visiting other nodes
-                self.generic_visit(node)
-
-        # Create an instance of the visitor and visit the AST
-        finder = FunctionDefFinder()
-        finder.visit(tree)
-
-        # If the function was found, return its definition
-        return output
-
-    def find_function_from_file(self, file_path, function_name):
-        &#34;&#34;&#34;
-        Description:
-        Get the functions from the file
-        &#34;&#34;&#34;
-
-        with open(file_path, &#34;r&#34;) as file_path:
-            file_content = file_path.read()
-
-        # Parse the file content into an AST
-        tree = ast.parse(file_content)
-
-        # Define a visitor class to find the function definition
-        class FunctionDefFinder(ast.NodeVisitor):
-            def __init__(self):
-                self.function_def = None
-
-            def visit_FunctionDef(self, node):
-                if node.name == function_name:
-                    self.function_def = node
-                # Continue visiting other nodes
-                self.generic_visit(node)
-
-        # Create an instance of the visitor and visit the AST
-        finder = FunctionDefFinder()
-        finder.visit(tree)
-
-        # If the function was found, return its definition
-        if finder.function_def:
-            return ast.unparse(finder.function_def)
-        else:
-            return None
 
     def folfil(self, folder, file):
         &#34;&#34;&#34;
@@ -639,7 +652,86 @@ functions = manager.get_functions_from_file("challenge.py")</p>
         if function is not None:
             function(root, dirs, files, *args, **kwargs)
 
-        return root, dirs, files</code></pre>
+        return root, dirs, files
+
+    def delete_folder(self, folder):
+        &#34;&#34;&#34;
+        Description:
+        Deletes the folder and all its contents.
+
+        Args:
+            folder (str): Folder to delete
+
+        Returns:
+            None
+        &#34;&#34;&#34;
+        shutil.rmtree(folder)
+
+    def copy_folder(self, source, destination):
+        &#34;&#34;&#34;
+        Description:
+        Copies the folder and all its contents to the destination.
+
+        Args:
+            source (str): Source folder to copy
+            destination (str): Destination folder to copy to
+
+        Returns:
+            None
+        &#34;&#34;&#34;
+        shutil.copytree(source, destination)
+
+    def download_automove(
+        self,
+        category: str,
+        challenge_name: str,
+        challenge_path,
+        checker: bool = False,
+        verbose: bool = False,
+    ):
+        &#34;&#34;&#34;
+        Description:
+        Moves the downloaded files to the challenge folder structure
+
+        Args:
+            category (str): Category of the challenge
+            challenge_name (str): Name of the challenge to search in the downloads
+            challenge_path (str): Path of the challenge to move
+        &#34;&#34;&#34;
+        download_folder = CONFIG.content.get(&#34;directories&#34;).get(&#34;downloads&#34;)
+
+        if not download_folder:
+            raise ValueError(&#34;Download folder not specified in the configuration&#34;)
+
+        matched_files = self.exec_on_folder_files(
+            Path(download_folder),
+            self.check_name_similarity_in_files,
+            func_kwargs={&#34;information&#34;: [category, challenge_name]},
+            save=True,
+        )
+        # print(matched_files)
+        # Get the files that match the challenge name or the category
+        target_path = Path(challenge_path, &#34;files&#34;)
+
+        if (self.verbose or verbose) and len(matched_files) == 0:
+            print(&#34;No matched files found for automove.&#34;)
+
+        for file in matched_files:
+            if checker:
+                # Here would be best to add a checker function to check if the file is correct
+                anws = input(f&#34;Move file {file} to {target_path}? (y/N): &#34;)
+                if anws.lower() != &#34;y&#34;:
+                    if self.verbose or verbose:
+                        print(f&#34;Skipping file {file}&#34;)
+                    continue
+                elif anws.lower() == &#34;y&#34;:
+                    if self.verbose or verbose:
+                        print(f&#34;Moving file {file} to {target_path}&#34;)
+
+            if file.exists():
+                if self.verbose or verbose:
+                    print(f&#34;Moving file {file} to {target_path}&#34;)
+            shutil.move(file, target_path)</code></pre>
 </details>
 <div class="desc"><p>ManagerFolder provides utilities for managing folder structures and files for CTF (Capture The Flag) challenges.
 This class handles the creation, organization, and manipulation of challenge-related directories and files,
@@ -674,7 +766,6 @@ exec_on_files(folder, func, *args, </strong>kwargs): Executes a function on all 
 search_files(directory, exclude_dirs, search_string, save=False, display=False): Searches for a string in files within a directory.
 get_self_functions(): Returns a list of callable methods of the class.
 get_function_reference(function, file): Finds references to a function in a file.
-get_functions_from_file(file_path): Extracts function names from a Python file.
 find_function_from_file(file_path, function_name): Finds and returns the source code of a function from a file.
 folfil(folder, file): Returns the full path of a file within a folder.
 folders_file(<em>folders, file): Returns the full path of a file within nested folders.
@@ -687,7 +778,10 @@ manager.prepare_space(files=["input.txt", "output.txt"])</p>
 <p>Initialize the class</p></div>
 <h3>Subclasses</h3>
 <ul class="hlist">
+<li><a title="ctfsolver.config.challenge_config.ChallengeConfig" href="../config/challenge_config.html#ctfsolver.config.challenge_config.ChallengeConfig">ChallengeConfig</a></li>
+<li><a title="ctfsolver.find_usage.manager_gathering.ManagerGathering" href="../find_usage/manager_gathering.html#ctfsolver.find_usage.manager_gathering.ManagerGathering">ManagerGathering</a></li>
 <li><a title="ctfsolver.managers.manager_file.ManagerFile" href="manager_file.html#ctfsolver.managers.manager_file.ManagerFile">ManagerFile</a></li>
+<li><a title="ctfsolver.venv.manager_venv.ManagerVenv" href="../venv/manager_venv.html#ctfsolver.venv.manager_venv.ManagerVenv">ManagerVenv</a></li>
 </ul>
 <h3>Methods</h3>
 <dl>
@@ -745,6 +839,23 @@ manager.prepare_space(files=["input.txt", "output.txt"])</p>
 <div class="desc"><h2 id="description">Description</h2>
 <p>Check if the folder is empty</p></div>
 </dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.check_folder_exists"><code class="name flex">
+<span>def <span class="ident">check_folder_exists</span></span>(<span>self, folder: str) ‑> str | bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_folder_exists(self, folder: str) -&gt; str | bool:
+    if Path(folder).exists():
+        return str(folder)
+    if Path(Path.home(), folder).exists():
+        return str(Path(Path.home(), folder))
+    return False</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
 <dt id="ctfsolver.managers.manager_folder.ManagerFolder.clean_folders"><code class="name flex">
 <span>def <span class="ident">clean_folders</span></span>(<span>self, folders: list = None)</span>
 </code></dt>
@@ -770,6 +881,82 @@ manager.prepare_space(files=["input.txt", "output.txt"])</p>
 <div class="desc"><h2 id="description">Description</h2>
 <p>Clean the space by deleting the folders that remain empty</p></div>
 </dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.copy_folder"><code class="name flex">
+<span>def <span class="ident">copy_folder</span></span>(<span>self, source, destination)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def copy_folder(self, source, destination):
+    &#34;&#34;&#34;
+    Description:
+    Copies the folder and all its contents to the destination.
+
+    Args:
+        source (str): Source folder to copy
+        destination (str): Destination folder to copy to
+
+    Returns:
+        None
+    &#34;&#34;&#34;
+    shutil.copytree(source, destination)</code></pre>
+</details>
+<div class="desc"><p>Description:
+Copies the folder and all its contents to the destination.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>source</code></strong> :&ensp;<code>str</code></dt>
+<dd>Source folder to copy</dd>
+<dt><strong><code>destination</code></strong> :&ensp;<code>str</code></dt>
+<dd>Destination folder to copy to</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>None</p></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.create_ctf_structure"><code class="name flex">
+<span>def <span class="ident">create_ctf_structure</span></span>(<span>self, category, site, name, verbose=False, download=False, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_ctf_structure(
+    self, category, site, name, verbose=False, download=False, **kwargs
+):
+    &#34;&#34;&#34;
+    Description:
+        Create the CTF folder structure
+    &#34;&#34;&#34;
+
+    ctf_data_dir = CONFIG[&#34;directories&#34;][&#34;ctf_data&#34;]
+    base_path = Path(Path.home(), ctf_data_dir, category, site, name)
+    checker = kwargs.get(&#34;checker&#34;, False)
+
+    if not base_path.exists():
+        base_path.mkdir(parents=True)
+
+    for folder in self.folders_name_list:
+        folder_path = Path(base_path, folder)
+        if not folder_path.exists():
+            folder_path.mkdir()
+
+    # Copy folder path in clipboard
+    pyperclip.copy(str(base_path))
+    if download:
+        self.download_automove(
+            category=category,
+            challenge_name=name,
+            challenge_path=base_path,
+            checker=checker,
+            verbose=verbose,
+        )</code></pre>
+</details>
+<div class="desc"><h2 id="description">Description</h2>
+<p>Create the CTF folder structure</p></div>
+</dd>
 <dt id="ctfsolver.managers.manager_folder.ManagerFolder.create_parent_folder"><code class="name flex">
 <span>def <span class="ident">create_parent_folder</span></span>(<span>self)</span>
 </code></dt>
@@ -793,15 +980,167 @@ manager.prepare_space(files=["input.txt", "output.txt"])</p>
 <div class="desc"><h2 id="description">Description</h2>
 <p>Create the parent folder of the file that called the class if they don't exist</p></div>
 </dd>
-<dt id="ctfsolver.managers.manager_folder.ManagerFolder.exec_on_files"><code class="name flex">
-<span>def <span class="ident">exec_on_files</span></span>(<span>self, folder, func, *args, **kwargs)</span>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.delete_folder"><code class="name flex">
+<span>def <span class="ident">delete_folder</span></span>(<span>self, folder)</span>
 </code></dt>
 <dd>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def exec_on_files(self, folder, func, *args, **kwargs):
+<pre><code class="python">def delete_folder(self, folder):
+    &#34;&#34;&#34;
+    Description:
+    Deletes the folder and all its contents.
+
+    Args:
+        folder (str): Folder to delete
+
+    Returns:
+        None
+    &#34;&#34;&#34;
+    shutil.rmtree(folder)</code></pre>
+</details>
+<div class="desc"><p>Description:
+Deletes the folder and all its contents.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>folder</code></strong> :&ensp;<code>str</code></dt>
+<dd>Folder to delete</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>None</p></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.download_automove"><code class="name flex">
+<span>def <span class="ident">download_automove</span></span>(<span>self,<br>category: str,<br>challenge_name: str,<br>challenge_path,<br>checker: bool = False,<br>verbose: bool = False)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def download_automove(
+    self,
+    category: str,
+    challenge_name: str,
+    challenge_path,
+    checker: bool = False,
+    verbose: bool = False,
+):
+    &#34;&#34;&#34;
+    Description:
+    Moves the downloaded files to the challenge folder structure
+
+    Args:
+        category (str): Category of the challenge
+        challenge_name (str): Name of the challenge to search in the downloads
+        challenge_path (str): Path of the challenge to move
+    &#34;&#34;&#34;
+    download_folder = CONFIG.content.get(&#34;directories&#34;).get(&#34;downloads&#34;)
+
+    if not download_folder:
+        raise ValueError(&#34;Download folder not specified in the configuration&#34;)
+
+    matched_files = self.exec_on_folder_files(
+        Path(download_folder),
+        self.check_name_similarity_in_files,
+        func_kwargs={&#34;information&#34;: [category, challenge_name]},
+        save=True,
+    )
+    # print(matched_files)
+    # Get the files that match the challenge name or the category
+    target_path = Path(challenge_path, &#34;files&#34;)
+
+    if (self.verbose or verbose) and len(matched_files) == 0:
+        print(&#34;No matched files found for automove.&#34;)
+
+    for file in matched_files:
+        if checker:
+            # Here would be best to add a checker function to check if the file is correct
+            anws = input(f&#34;Move file {file} to {target_path}? (y/N): &#34;)
+            if anws.lower() != &#34;y&#34;:
+                if self.verbose or verbose:
+                    print(f&#34;Skipping file {file}&#34;)
+                continue
+            elif anws.lower() == &#34;y&#34;:
+                if self.verbose or verbose:
+                    print(f&#34;Moving file {file} to {target_path}&#34;)
+
+        if file.exists():
+            if self.verbose or verbose:
+                print(f&#34;Moving file {file} to {target_path}&#34;)
+        shutil.move(file, target_path)</code></pre>
+</details>
+<div class="desc"><p>Description:
+Moves the downloaded files to the challenge folder structure</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>category</code></strong> :&ensp;<code>str</code></dt>
+<dd>Category of the challenge</dd>
+<dt><strong><code>challenge_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>Name of the challenge to search in the downloads</dd>
+<dt><strong><code>challenge_path</code></strong> :&ensp;<code>str</code></dt>
+<dd>Path of the challenge to move</dd>
+</dl></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.exec_on_files"><code class="name flex">
+<span>def <span class="ident">exec_on_files</span></span>(<span>self, files: list[str], func: <built-in function callable>, *args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def exec_on_files(self, files: list[str], func: callable, *args, **kwargs):
+    &#34;&#34;&#34;
+    Description:
+    Execute a function on all the file list with the arguments provided
+
+    Args:
+        files (list): List of files to execute the function
+        func (function): Function to execute
+
+    Returns:
+        list: List of output of the function
+    &#34;&#34;&#34;
+
+    save = kwargs.get(&#34;save&#34;, False)
+    display = kwargs.get(&#34;display&#34;, False)
+    if save:
+        output = []
+    for file in files:
+        out = func(file, *args, **kwargs)
+        if save and out is not None:
+            output.extend(out)
+        if display and out is not None:
+            print(out)
+    if save:
+        return output</code></pre>
+</details>
+<div class="desc"><p>Description:
+Execute a function on all the file list with the arguments provided</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>files</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of files to execute the function</dd>
+<dt><strong><code>func</code></strong> :&ensp;<code>function</code></dt>
+<dd>Function to execute</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>List of output of the function</dd>
+</dl></div>
+</dd>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.exec_on_folder"><code class="name flex">
+<span>def <span class="ident">exec_on_folder</span></span>(<span>self,<br>folder: pathlib._local.Path,<br>func: <built-in function callable>,<br>*args,<br>**kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def exec_on_folder(self, folder: Path, func: callable, *args, **kwargs):
     &#34;&#34;&#34;
     Description:
     Execute a function on all the files in the folder with the arguments provided
@@ -842,49 +1181,62 @@ Execute a function on all the files in the folder with the arguments provided</p
 <dd>List of output of the function</dd>
 </dl></div>
 </dd>
-<dt id="ctfsolver.managers.manager_folder.ManagerFolder.find_function_from_file"><code class="name flex">
-<span>def <span class="ident">find_function_from_file</span></span>(<span>self, file_path, function_name)</span>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.exec_on_folder_files"><code class="name flex">
+<span>def <span class="ident">exec_on_folder_files</span></span>(<span>self,<br>folder: pathlib._local.Path,<br>func: <built-in function callable>,<br>func_args=[],<br>func_kwargs={},<br>*args,<br>**kwargs)</span>
 </code></dt>
 <dd>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def find_function_from_file(self, file_path, function_name):
+<pre><code class="python">def exec_on_folder_files(
+    self,
+    folder: Path,
+    func: callable,
+    func_args=[],
+    func_kwargs={},
+    *args,
+    **kwargs,
+):
     &#34;&#34;&#34;
     Description:
-    Get the functions from the file
+    Execute a function on all the files in the folder with the arguments provided
+
+    Args:
+        folder (str): Folder to execute the function
+        func (function): Function to execute
+
+    Returns:
+        list: List of output of the function
     &#34;&#34;&#34;
 
-    with open(file_path, &#34;r&#34;) as file_path:
-        file_content = file_path.read()
-
-    # Parse the file content into an AST
-    tree = ast.parse(file_content)
-
-    # Define a visitor class to find the function definition
-    class FunctionDefFinder(ast.NodeVisitor):
-        def __init__(self):
-            self.function_def = None
-
-        def visit_FunctionDef(self, node):
-            if node.name == function_name:
-                self.function_def = node
-            # Continue visiting other nodes
-            self.generic_visit(node)
-
-    # Create an instance of the visitor and visit the AST
-    finder = FunctionDefFinder()
-    finder.visit(tree)
-
-    # If the function was found, return its definition
-    if finder.function_def:
-        return ast.unparse(finder.function_def)
-    else:
-        return None</code></pre>
+    save = kwargs.get(&#34;save&#34;, False)
+    display = kwargs.get(&#34;display&#34;, False)
+    if save:
+        output = []
+    files = folder.iterdir()
+    out = func(files, *func_args, **func_kwargs)
+    if save and out is not None:
+        output.extend(out)
+    if display and out is not None:
+        print(out)
+    if save:
+        return output</code></pre>
 </details>
 <div class="desc"><p>Description:
-Get the functions from the file</p></div>
+Execute a function on all the files in the folder with the arguments provided</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>folder</code></strong> :&ensp;<code>str</code></dt>
+<dd>Folder to execute the function</dd>
+<dt><strong><code>func</code></strong> :&ensp;<code>function</code></dt>
+<dd>Function to execute</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>List of output of the function</dd>
+</dl></div>
 </dd>
 <dt id="ctfsolver.managers.manager_folder.ManagerFolder.folders_file"><code class="name flex">
 <span>def <span class="ident">folders_file</span></span>(<span>self, *folders, file)</span>
@@ -999,75 +1351,21 @@ Get the functions from the file</p></div>
 <div class="desc"><h2 id="description">Description</h2>
 <p>Get the challenge file and assign it to the self.challenge_file for ease of access</p></div>
 </dd>
-<dt id="ctfsolver.managers.manager_folder.ManagerFolder.get_function_reference"><code class="name flex">
-<span>def <span class="ident">get_function_reference</span></span>(<span>self, function, file)</span>
+<dt id="ctfsolver.managers.manager_folder.ManagerFolder.get_current_dir"><code class="name flex">
+<span>def <span class="ident">get_current_dir</span></span>(<span>self)</span>
 </code></dt>
 <dd>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def get_function_reference(self, function, file):
-    &#34;&#34;&#34;
-    Description:
-    Get the reference of the function in the file
-    &#34;&#34;&#34;
-
-    if function not in self.get_self_functions():
-        raise ValueError(f&#34;Function {function} not found in the class&#34;)
-
-    output = []
-
-    with open(file, &#34;r&#34;) as f:
-        lines = f.readlines()
-        for i, line in enumerate(lines):
-            if function in line:
-                output.append(line)
-    return output</code></pre>
+<pre><code class="python">def get_current_dir(self):
+    # TODO: This should move to ManagerFolder
+    # Gets the current working directory that the command gets called in
+    self.file_called_frame = inspect.stack()
+    self.parent = Path(os.getcwd()).resolve()</code></pre>
 </details>
-<div class="desc"><p>Description:
-Get the reference of the function in the file</p></div>
-</dd>
-<dt id="ctfsolver.managers.manager_folder.ManagerFolder.get_functions_from_file"><code class="name flex">
-<span>def <span class="ident">get_functions_from_file</span></span>(<span>self, file_path)</span>
-</code></dt>
-<dd>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def get_functions_from_file(self, file_path):
-    &#34;&#34;&#34;
-    Description:
-    Get the functions from the file
-    &#34;&#34;&#34;
-
-    output = []
-    with open(file_path, &#34;r&#34;) as file_path:
-        file_content = file_path.read()
-
-    # Parse the file content into an AST
-    tree = ast.parse(file_content)
-
-    # Define a visitor class to find the function definition
-    class FunctionDefFinder(ast.NodeVisitor):
-        def __init__(self):
-            self.function_def = None
-
-        def visit_FunctionDef(self, node):
-            output.append(node.name)
-            # Continue visiting other nodes
-            self.generic_visit(node)
-
-    # Create an instance of the visitor and visit the AST
-    finder = FunctionDefFinder()
-    finder.visit(tree)
-
-    # If the function was found, return its definition
-    return output</code></pre>
-</details>
-<div class="desc"><p>Description:
-Get the functions from the file</p></div>
+<div class="desc"></div>
 </dd>
 <dt id="ctfsolver.managers.manager_folder.ManagerFolder.get_parent"><code class="name flex">
 <span>def <span class="ident">get_parent</span></span>(<span>self)</span>
@@ -1105,7 +1403,10 @@ Get the functions from the file</p></div>
     self.file_called_path = Path(self.file_called_frame[-1].filename)
     self.parent = Path(self.file_called_path).parent.resolve()
 
-    if self.parent.name in self.folders_name_list:
+    if (
+        hasattr(self, &#34;folders_name_list&#34;)
+        and self.parent.name in self.folders_name_list
+    ):
         self.parent = self.parent.parent</code></pre>
 </details>
 <div class="desc"><h2 id="description">Description</h2>
@@ -1126,29 +1427,6 @@ sets <code>self.parent</code> to the grandparent directory instead.</li>
 <h2 id="note">Note</h2>
 <p>Ensure that <code>self.folders_name_list</code> is defined and contains the folder names
 to be checked before calling this method.</p></div>
-</dd>
-<dt id="ctfsolver.managers.manager_folder.ManagerFolder.get_self_functions"><code class="name flex">
-<span>def <span class="ident">get_self_functions</span></span>(<span>self)</span>
-</code></dt>
-<dd>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def get_self_functions(self):
-    &#34;&#34;&#34;
-    Description:
-    Get the functions of the class
-    &#34;&#34;&#34;
-
-    return [
-        func
-        for func in dir(self)
-        if callable(getattr(self, func)) and not func.startswith(&#34;__&#34;)
-    ]</code></pre>
-</details>
-<div class="desc"><p>Description:
-Get the functions of the class</p></div>
 </dd>
 <dt id="ctfsolver.managers.manager_folder.ManagerFolder.get_solution_file"><code class="name flex">
 <span>def <span class="ident">get_solution_file</span></span>(<span>self, *args, solution_name='solution.py', save=False, display=False, **kwargs)</span>
@@ -1635,17 +1913,21 @@ files (list), <em>args, and </em>*kwargs.
 <ul class="">
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.challenge_folder_structure" href="#ctfsolver.managers.manager_folder.ManagerFolder.challenge_folder_structure">challenge_folder_structure</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.check_empty_folder" href="#ctfsolver.managers.manager_folder.ManagerFolder.check_empty_folder">check_empty_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.check_folder_exists" href="#ctfsolver.managers.manager_folder.ManagerFolder.check_folder_exists">check_folder_exists</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.clean_folders" href="#ctfsolver.managers.manager_folder.ManagerFolder.clean_folders">clean_folders</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.copy_folder" href="#ctfsolver.managers.manager_folder.ManagerFolder.copy_folder">copy_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.create_ctf_structure" href="#ctfsolver.managers.manager_folder.ManagerFolder.create_ctf_structure">create_ctf_structure</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.create_parent_folder" href="#ctfsolver.managers.manager_folder.ManagerFolder.create_parent_folder">create_parent_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.delete_folder" href="#ctfsolver.managers.manager_folder.ManagerFolder.delete_folder">delete_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.download_automove" href="#ctfsolver.managers.manager_folder.ManagerFolder.download_automove">download_automove</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.exec_on_files" href="#ctfsolver.managers.manager_folder.ManagerFolder.exec_on_files">exec_on_files</a></code></li>
-<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.find_function_from_file" href="#ctfsolver.managers.manager_folder.ManagerFolder.find_function_from_file">find_function_from_file</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.exec_on_folder" href="#ctfsolver.managers.manager_folder.ManagerFolder.exec_on_folder">exec_on_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.exec_on_folder_files" href="#ctfsolver.managers.manager_folder.ManagerFolder.exec_on_folder_files">exec_on_folder_files</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.folders_file" href="#ctfsolver.managers.manager_folder.ManagerFolder.folders_file">folders_file</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.folfil" href="#ctfsolver.managers.manager_folder.ManagerFolder.folfil">folfil</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.get_challenge_file" href="#ctfsolver.managers.manager_folder.ManagerFolder.get_challenge_file">get_challenge_file</a></code></li>
-<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.get_function_reference" href="#ctfsolver.managers.manager_folder.ManagerFolder.get_function_reference">get_function_reference</a></code></li>
-<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.get_functions_from_file" href="#ctfsolver.managers.manager_folder.ManagerFolder.get_functions_from_file">get_functions_from_file</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.get_current_dir" href="#ctfsolver.managers.manager_folder.ManagerFolder.get_current_dir">get_current_dir</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.get_parent" href="#ctfsolver.managers.manager_folder.ManagerFolder.get_parent">get_parent</a></code></li>
-<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.get_self_functions" href="#ctfsolver.managers.manager_folder.ManagerFolder.get_self_functions">get_self_functions</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.get_solution_file" href="#ctfsolver.managers.manager_folder.ManagerFolder.get_solution_file">get_solution_file</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.handling_global_config" href="#ctfsolver.managers.manager_folder.ManagerFolder.handling_global_config">handling_global_config</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.init_for_challenge" href="#ctfsolver.managers.manager_folder.ManagerFolder.init_for_challenge">init_for_challenge</a></code></li>

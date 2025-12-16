@@ -4,10 +4,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="ctfsolver.managers.manager_files_re" href="../manager_files_re/index.html" /><link rel="prev" title="ctfsolver.managers.manager_files_evtx" href="../manager_files_evtx/index.html" />
-        <link rel="canonical" href="https://nikolasfil.github.io/CTFSolverScript/api/ctfsolver/managers/manager_files_pcap/index.html" />
 
-    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
-        <title>ctfsolver.managers.manager_files_pcap - ctfsolver 0.0.13 documentation</title>
+    <!-- Generated with Sphinx 9.0.4 and Furo 2025.07.19 -->
+        <title>ctfsolver.managers.manager_files_pcap - ctfsolver 0.0.14 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=25af2a20" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
@@ -169,7 +168,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../../index.html"><div class="brand">ctfsolver 0.0.13 documentation</div></a>
+      <a href="../../../../index.html"><div class="brand">ctfsolver 0.0.14 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -192,7 +191,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../../index.html">
   
-  <span class="sidebar-brand-text">ctfsolver 0.0.13 documentation</span>
+  <span class="sidebar-brand-text">ctfsolver 0.0.14 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -205,41 +204,60 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../modules/module_notes.html">Manual Modules Notes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Manual Modules Notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../modules/usage.html">Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../modules/architecture.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../modules/architecture.html#architecture-tree">Architecture Tree</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../modules/installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../modules/changelog.html">Changelog</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../modules/contributing.html">Contributing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../modules/inline_tool/inline_tool_functionality.html">Inline Tool Functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../modules/inline_tool/inline_tool_functionality.html#ctfsolver-cli-tool-help">CTFSolver cli tool help</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../../index.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../../index.html">ctfsolver</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of ctfsolver</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../config/index.html">ctfsolver.config</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of ctfsolver.config</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../config/__main__/index.html">ctfsolver.config.__main__</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../cli/index.html">ctfsolver.cli</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of ctfsolver.cli</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/main/index.html">ctfsolver.cli.main</a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../cli/subcli/index.html">ctfsolver.cli.subcli</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of ctfsolver.cli.subcli</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/subcli/ctf/index.html">ctfsolver.cli.subcli.ctf</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/subcli/venv/index.html">ctfsolver.cli.subcli.venv</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../config/index.html">ctfsolver.config</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of ctfsolver.config</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../config/challenge_config/index.html">ctfsolver.config.challenge_config</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../config/global_config/index.html">ctfsolver.config.global_config</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../error/index.html">ctfsolver.error</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of ctfsolver.error</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../error/index.html">ctfsolver.error</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of ctfsolver.error</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../error/manager_error/index.html">ctfsolver.error.manager_error</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../find_usage/index.html">ctfsolver.find_usage</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of ctfsolver.find_usage</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../find_usage/__main__/index.html">ctfsolver.find_usage.__main__</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../feature_test/index.html">ctfsolver.feature_test</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of ctfsolver.feature_test</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../feature_test/attempt_at_pcap/index.html">ctfsolver.feature_test.attempt_at_pcap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../feature_test/dash_test/index.html">ctfsolver.feature_test.dash_test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../feature_test/manager_graphs/index.html">ctfsolver.feature_test.manager_graphs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../feature_test/pyvis_class_test/index.html">ctfsolver.feature_test.pyvis_class_test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../feature_test/pyvis_test/index.html">ctfsolver.feature_test.pyvis_test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../feature_test/testing_files/index.html">ctfsolver.feature_test.testing_files</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../folders/index.html">ctfsolver.folders</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of ctfsolver.folders</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../folders/__main__/index.html">ctfsolver.folders.__main__</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../find_usage/index.html">ctfsolver.find_usage</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of ctfsolver.find_usage</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../find_usage/function_definition_class/index.html">ctfsolver.find_usage.function_definition_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../find_usage/gathering/index.html">ctfsolver.find_usage.gathering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../find_usage/manager_gathering/index.html">ctfsolver.find_usage.manager_gathering</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../forensics/index.html">ctfsolver.forensics</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of ctfsolver.forensics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../folders/index.html">ctfsolver.folders</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of ctfsolver.folders</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../folders/finding_writeups/index.html">ctfsolver.folders.finding_writeups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../folders/link_ctf_folders/index.html">ctfsolver.folders.link_ctf_folders</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../forensics/index.html">ctfsolver.forensics</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of ctfsolver.forensics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../forensics/manager_dash/index.html">ctfsolver.forensics.manager_dash</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../inline/index.html">ctfsolver.inline</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of ctfsolver.inline</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../inline/__main__/index.html">ctfsolver.inline.__main__</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../inline/inline_tool/index.html">ctfsolver.inline.inline_tool</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../inline/parser/index.html">ctfsolver.inline.parser</a></li>
-</ul>
-</li>
-<li class="toctree-l3 current has-children"><a class="reference internal" href="../index.html">ctfsolver.managers</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of ctfsolver.managers</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3 current has-children"><a class="reference internal" href="../index.html">ctfsolver.managers</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of ctfsolver.managers</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../manager_class/index.html">ctfsolver.managers.manager_class</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../manager_connections/index.html">ctfsolver.managers.manager_connections</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../manager_crypto/index.html">ctfsolver.managers.manager_crypto</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../manager_file/index.html">ctfsolver.managers.manager_file</a></li>
@@ -247,31 +265,33 @@
 <li class="toctree-l4 current current-page"><a class="current reference internal" href="#">ctfsolver.managers.manager_files_pcap</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../manager_files_re/index.html">ctfsolver.managers.manager_files_re</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../manager_folder/index.html">ctfsolver.managers.manager_folder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../manager_functions/index.html">ctfsolver.managers.manager_functions</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../scripts/index.html">ctfsolver.scripts</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of ctfsolver.scripts</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../scripts/__main__/index.html">ctfsolver.scripts.__main__</a></li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../../scripts/clean_folders/index.html">ctfsolver.scripts.clean_folders</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of ctfsolver.scripts.clean_folders</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../scripts/clean_folders/__main__/index.html">ctfsolver.scripts.clean_folders.__main__</a></li>
-</ul>
-</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../scripts/index.html">ctfsolver.scripts</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of ctfsolver.scripts</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../scripts/clean_folders/index.html">ctfsolver.scripts.clean_folders</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../scripts/run_clean_folders/index.html">ctfsolver.scripts.run_clean_folders</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../scripts/run_folders/index.html">ctfsolver.scripts.run_folders</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../scripts/run_solution/index.html">ctfsolver.scripts.run_solution</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../src/index.html">ctfsolver.src</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of ctfsolver.src</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../src/index.html">ctfsolver.src</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of ctfsolver.src</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../src/ctfsolver/index.html">ctfsolver.src.ctfsolver</a></li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../../src/data/index.html">ctfsolver.src.data</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of ctfsolver.src.data</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../src/data/data/index.html">ctfsolver.src.data.data</a></li>
-</ul>
-</li>
 <li class="toctree-l4"><a class="reference internal" href="../../src/position_cipher_functions/index.html">ctfsolver.src.position_cipher_functions</a></li>
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../template/index.html">ctfsolver.template</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of ctfsolver.template</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../template/__main__/index.html">ctfsolver.template.__main__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../template/gathering_template/index.html">ctfsolver.template.gathering_template</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../template/solution_template/index.html">ctfsolver.template.solution_template</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../venv/index.html">ctfsolver.venv</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle navigation of ctfsolver.venv</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../venv/main/index.html">ctfsolver.venv.main</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../venv/manager_venv/index.html">ctfsolver.venv.manager_venv</a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../venv/testing/index.html">ctfsolver.venv.testing</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle navigation of ctfsolver.venv.testing</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../venv/testing/main/index.html">ctfsolver.venv.testing.main</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -349,7 +369,7 @@ found_text = manager.searching_text_in_packets(“flag”, packets)</p>
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="ctfsolver.managers.manager_files_pcap.ManagerFilePcap">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ManagerFilePcap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/ctfsolver/managers/manager_files_pcap.html#ManagerFilePcap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">ManagerFilePcap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolver/blob/main/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap" title="Link to this definition">¶</a></dt>
 <dd><p>ManagerFilePcap provides methods for handling and analyzing PCAP files using Scapy.
 This class allows you to open PCAP files, filter packets by protocol (such as ICMP),
 extract specific packet attributes (like TTL), and search for text within packet payloads.
@@ -364,48 +384,53 @@ extract specific packet attributes (like TTL), and search for text within packet
 </div></blockquote>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctfsolver.managers.manager_files_pcap.ManagerFilePcap.challenge_file">
-<span class="sig-name descname"><span class="pre">challenge_file</span></span><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.challenge_file" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">challenge_file</span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolver/blob/main/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.challenge_file" title="Link to this definition">¶</a></dt>
 <dd><p>Default file path for PCAP operations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Path</p>
+<dd class="field-odd"><p><a class="reference internal" href="../manager_folder/index.html#ctfsolver.managers.manager_folder.ManagerFolder.Path" title="ctfsolver.managers.manager_folder.ManagerFolder.Path">Path</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.managers.manager_files_pcap.ManagerFilePcap.initializing_all_ancestors">
-<span class="sig-name descname"><span class="pre">initializing_all_ancestors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/ctfsolver/managers/manager_files_pcap.html#ManagerFilePcap.initializing_all_ancestors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.initializing_all_ancestors" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">initializing_all_ancestors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolver/blob/main/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.initializing_all_ancestors" title="Link to this definition">¶</a></dt>
 <dd><p>Initializes all ancestors of the class.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.managers.manager_files_pcap.ManagerFilePcap.pcap_open">
-<span class="sig-name descname"><span class="pre">pcap_open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://scapy.readthedocs.io/en/latest/api/scapy.packet.html#scapy.packet.Packet" title="(in Scapy v2.6.1.dev138)"><span class="pre">scapy.packet.Packet</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="../manager_files_re/index.html#ctfsolver.managers.manager_files_re.None" title="ctfsolver.managers.manager_files_re.None"><span class="pre">None</span></a></span></span><a class="reference internal" href="../../../../_modules/ctfsolver/managers/manager_files_pcap.html#ManagerFilePcap.pcap_open"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.pcap_open" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">pcap_open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://scapy.readthedocs.io/en/latest/api/scapy.packet.html#scapy.packet.Packet" title="(in Scapy v2.7.0rc1.dev7)"><span class="pre">scapy.packet.Packet</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="../manager_class/index.html#ctfsolver.managers.manager_class.None" title="ctfsolver.managers.manager_class.None"><span class="pre">None</span></a></span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolver/blob/main/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.pcap_open" title="Link to this definition">¶</a></dt>
 <dd><p>Opens a PCAP file and loads packets using Scapy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)">list</a>[scapy.all.packet.Packet] | <a class="reference internal" href="../manager_class/index.html#ctfsolver.managers.manager_class.None" title="ctfsolver.managers.manager_class.None">None</a></p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.managers.manager_files_pcap.ManagerFilePcap.get_packets_icmp">
-<span class="sig-name descname"><span class="pre">get_packets_icmp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a></span></span><a class="reference internal" href="../../../../_modules/ctfsolver/managers/manager_files_pcap.html#ManagerFilePcap.get_packets_icmp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.get_packets_icmp" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_packets_icmp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a></span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolver/blob/main/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.get_packets_icmp" title="Link to this definition">¶</a></dt>
 <dd><p>Retrieves all ICMP packets from the loaded packets.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.managers.manager_files_pcap.ManagerFilePcap.get_packet_ttl">
-<span class="sig-name descname"><span class="pre">get_packet_ttl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a></span></span><a class="reference internal" href="../../../../_modules/ctfsolver/managers/manager_files_pcap.html#ManagerFilePcap.get_packet_ttl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.get_packet_ttl" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_packet_ttl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a></span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolver/blob/main/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.get_packet_ttl" title="Link to this definition">¶</a></dt>
 <dd><p>Extracts the TTL values from the provided packets.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.managers.manager_files_pcap.ManagerFilePcap.searching_text_in_packets">
-<span class="sig-name descname"><span class="pre">searching_text_in_packets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">packets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></span><a class="reference internal" href="../../../../_modules/ctfsolver/managers/manager_files_pcap.html#ManagerFilePcap.searching_text_in_packets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.searching_text_in_packets" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">searching_text_in_packets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">packets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolver/blob/main/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.searching_text_in_packets" title="Link to this definition">¶</a></dt>
 <dd><p>Searches for a specific text in packet payloads and optionally displays matching packets.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">initializing_all_ancestors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/ctfsolver/managers/manager_files_pcap.html#ManagerFilePcap.initializing_all_ancestors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">initializing_all_ancestors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolver/blob/main/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>Description:</dt><dd><p>Initializes all the ancestors of the class
 Placeholder for overwrite</p>
@@ -415,7 +440,7 @@ Placeholder for overwrite</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="id1">
-<span class="sig-name descname"><span class="pre">pcap_open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">scapy.all.packet.Packet</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="../manager_files_re/index.html#ctfsolver.managers.manager_files_re.None" title="ctfsolver.managers.manager_files_re.None"><span class="pre">None</span></a></span></span><a class="reference internal" href="../../../../_modules/ctfsolver/managers/manager_files_pcap.html#ManagerFilePcap.pcap_open"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">pcap_open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolver/blob/main/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>Description:</dt><dd><p>Open the pcap file with scapy and saves it in self.packets</p>
 </dd>
@@ -423,67 +448,70 @@ Placeholder for overwrite</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>file</strong> (<em>Path</em><em>, </em><em>optional</em>) – File to open. Defaults to None.</p></li>
-<li><p><strong>save</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a><em>, </em><em>optional</em>) – Save the output. Defaults to False.</p></li>
+<li><p><strong>file</strong> (<a class="reference internal" href="../manager_folder/index.html#ctfsolver.managers.manager_folder.ManagerFolder.Path" title="ctfsolver.managers.manager_folder.ManagerFolder.Path"><em>Path</em></a><em>, </em><em>optional</em>) – File to open. Defaults to None.</p></li>
+<li><p><strong>save</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a><em>, </em><em>optional</em>) – Save the output. Defaults to False.</p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)">list</a>[scapy.all.packet.Packet] | <a class="reference internal" href="../manager_class/index.html#ctfsolver.managers.manager_class.None" title="ctfsolver.managers.manager_class.None">None</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="id2">
-<span class="sig-name descname"><span class="pre">get_packets_icmp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/ctfsolver/managers/manager_files_pcap.html#ManagerFilePcap.get_packets_icmp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_packets_icmp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolver/blob/main/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
 <dd><p>Description:
 Get all the ICMP packets from the packets</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>packets</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a><em>, </em><em>optional</em>) – List of packets to search in. Defaults to None.</p>
+<dd class="field-odd"><p><strong>packets</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em>, </em><em>optional</em>) – List of packets to search in. Defaults to None.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>List of ICMP packets</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)">list</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)">list</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="id3">
-<span class="sig-name descname"><span class="pre">get_packet_ttl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/ctfsolver/managers/manager_files_pcap.html#ManagerFilePcap.get_packet_ttl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id3" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_packet_ttl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolver/blob/main/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id3" title="Link to this definition">¶</a></dt>
 <dd><p>Description:
 Get the TTL of all the ICMP packets</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>packets</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a><em>, </em><em>optional</em>) – List of packets to search in. Defaults to None.</p>
+<dd class="field-odd"><p><strong>packets</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em>, </em><em>optional</em>) – List of packets to search in. Defaults to None.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>List of TTL of the ICMP packets</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)">list</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)">list</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="id4">
-<span class="sig-name descname"><span class="pre">searching_text_in_packets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">packets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/ctfsolver/managers/manager_files_pcap.html#ManagerFilePcap.searching_text_in_packets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id4" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">searching_text_in_packets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">packets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolver/blob/main/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id4" title="Link to this definition">¶</a></dt>
 <dd><p>Description:
 Search for a text in the packets that have been opened with scapy</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – Text to search in the packets</p></li>
-<li><p><strong>packets</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><em>list</em></a><em>, </em><em>optional</em>) – List of packets to search in. Defaults to None.</p></li>
-<li><p><strong>display</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><em>bool</em></a><em>, </em><em>optional</em>) – Display the packet if the text is found. Defaults to False.</p></li>
+<li><p><strong>text</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a>) – Text to search in the packets</p></li>
+<li><p><strong>packets</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a><em>, </em><em>optional</em>) – List of packets to search in. Defaults to None.</p></li>
+<li><p><strong>display</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a><em>, </em><em>optional</em>) – Display the packet if the text is found. Defaults to False.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Text found in the packet if found</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)">str</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -578,9 +606,9 @@ Search for a text in the packets that have been opened with scapy</p>
       
     </aside>
   </div>
-</div><script src="../../../../_static/documentation_options.js?v=9fc46840"></script>
-    <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+</div><script src="../../../../_static/documentation_options.js?v=544df88d"></script>
+    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../../_static/copybutton.js?v=f281be69"></script>

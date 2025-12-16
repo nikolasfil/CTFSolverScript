@@ -1,0 +1,100 @@
+ctfsolver.find_usage.function_definition_class
+==============================================
+
+.. py:module:: ctfsolver.find_usage.function_definition_class
+
+.. autoapi-nested-parse::
+
+   function_definition_class.py
+
+   Provides a class for traversing Python Abstract Syntax Trees (AST) to locate specific function definitions.
+
+   This module defines the FunctionDefFinder class, which extends ast.NodeVisitor to search for a function definition node by name within a Python AST. It is useful for static code analysis, refactoring tools, or any application that requires inspection of Python source code structure.
+
+   Classes:
+       FunctionDefFinder: AST NodeVisitor to find a specific function definition by name.
+
+   .. rubric:: Example
+
+   finder = FunctionDefFinder(function_target="my_function")
+   finder.visit(ast.parse(source_code))
+   found_node = finder.function_def
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   ctfsolver.find_usage.function_definition_class.FunctionDefFinder
+
+
+Module Contents
+---------------
+
+.. py:class:: FunctionDefFinder(*args, **kwargs)
+
+   Bases: :py:obj:`ast.NodeVisitor`
+
+
+   AST NodeVisitor to find a specific function definition in a Python AST.
+
+   .. attribute:: function_def
+
+      The found function definition node.
+
+      :type: Optional[ast.FunctionDef]
+
+   .. attribute:: function_target
+
+      The name of the function to search for.
+
+      :type: Optional[str]
+
+   .. attribute:: visit_list
+
+      List of visited function definition nodes.
+
+      :type: List[ast.FunctionDef]
+
+   Functions:
+       visit_FunctionDef: Visits a function definition node in the AST.
+
+
+
+   .. py:attribute:: tree
+
+
+   .. py:attribute:: function_target
+      :type:  str | None
+
+
+   .. py:attribute:: source_file
+      :type:  str | None
+
+
+   .. py:attribute:: function_def
+      :type:  ast.FunctionDef | None
+      :value: None
+
+
+
+   .. py:attribute:: visit_list
+      :type:  list[ast.FunctionDef]
+      :value: []
+
+
+
+   .. py:attribute:: info
+
+
+   .. py:method:: visit_FunctionDef(node)
+
+      Visits a function definition node in the AST.
+
+      :param node: The function definition node to visit.
+      :type node: ast.FunctionDef
+
+
+

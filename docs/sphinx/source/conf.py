@@ -29,7 +29,7 @@ extensions = [
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
     "sphinx.ext.napoleon",  # Google/NumPy docstrings
-    "sphinx.ext.viewcode",
+    # "sphinx.ext.viewcode",
     "sphinx.ext.intersphinx",
     "sphinx.ext.autosectionlabel",
     "sphinx.ext.todo",
@@ -38,9 +38,8 @@ extensions = [
     "sphinx_copybutton",
     "sphinx_autodoc_typehints",  # nice type hints rendering
     "autoapi.extension",
+    "sphinx.ext.linkcode"
 ]
-
-html_baseurl = "https://nikolasfil.github.io/CTFSolverScript"
 
 exclude_patterns = []
 
@@ -48,6 +47,7 @@ autosectionlabel_prefix_document = True
 
 # Autosummary
 autosummary_generate = True
+
 
 
 # Autodoc defaults
@@ -78,7 +78,22 @@ intersphinx_mapping = {
 }
 
 
-# -------------------
+
+
+autodoc_typehints = "description"
+autodoc_typehints_format = "short"
+
+
+# --------------- Autoapi ----
+
+def linkcode_resolve(domain, info):
+    if domain != "py":
+        return None
+    if not info["module"]:
+        return None
+
+    filename = info["module"].replace(".", "/")
+    return f"https://github.com/nikolasfil/CTFSolver/blob/main/{filename}.py"
 
 
 project_path = Path(root_path, "app", "ctfsolver")
@@ -90,12 +105,20 @@ autoapi_generate_api_docs = True
 autoapi_keep_files = False  # clean regenerated files
 autoapi_member_order = "bysource"  # keep your code order
 autoapi_python_class_content = "class"  # or "both"
+autoapi_python_use_implicit_namespaces = True
 
+autoapi_options = [
+    "members",
+    "undoc-members",
+    "show-inheritance",
+    "show-module-summary",
+]
 
 # Optional: don’t scan compiled caches and tests
 autoapi_ignore = [
     "**/__pycache__/**",
     "**/test/**",
+    "*manager_files_re.None",
 ]
 
 # -- Options for HTML output -------------------------------------------------

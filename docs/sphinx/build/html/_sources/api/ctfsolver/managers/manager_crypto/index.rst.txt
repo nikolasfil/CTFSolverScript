@@ -112,7 +112,7 @@ Module Contents
 
 
 
-   .. py:method:: xor(text: str, key: str) -> str
+   .. py:method:: xor(text, key)
 
       Description:
       XOR the text with the key
@@ -140,7 +140,7 @@ Module Contents
 
 
 
-   .. py:method:: re_match_base64_string(text: str, strict=False) -> list[str]
+   .. py:method:: re_match_base64_string(text, strict=False)
 
       Description:
       Find the base64 string in the text
@@ -155,7 +155,7 @@ Module Contents
 
 
 
-   .. py:method:: re_match_flag(text: str, origin: str) -> list[str]
+   .. py:method:: re_match_flag(text, origin)
 
       Description:
       Find the flag in the text
@@ -170,7 +170,7 @@ Module Contents
 
 
 
-   .. py:method:: re_match_partial_flag(text: str, origin: str) -> list[str]
+   .. py:method:: re_match_partial_flag(text, origin)
 
       Description:
       Find the flag in the text or partial flag

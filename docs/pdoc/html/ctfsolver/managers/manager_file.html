@@ -63,10 +63,10 @@ el.replaceWith(d);
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class ManagerFile(ManagerFilePcap, ManagerFileRegex, ManagerFolder):
+<pre><code class="python">class ManagerFile(ManagerFilePcap, ManagerFileRegex, ManagerFolder, ManagerFunction):
     &#34;&#34;&#34;
     ManagerFile class for handling file operations in CTF solving context.
-    This class inherits from ManagerFilePcap, ManagerFileRegex, and ManagerFolder,
+    This class inherits from ManagerFilePcap, ManagerFileRegex, ManagerFolder, and ManagerFunction,
     providing methods for initializing file-related ancestors and searching for base64
     strings within files.
     Attributes:
@@ -142,7 +142,7 @@ el.replaceWith(d);
             return out</code></pre>
 </details>
 <div class="desc"><p>ManagerFile class for handling file operations in CTF solving context.
-This class inherits from ManagerFilePcap, ManagerFileRegex, and ManagerFolder,
+This class inherits from ManagerFilePcap, ManagerFileRegex, ManagerFolder, and ManagerFunction,
 providing methods for initializing file-related ancestors and searching for base64
 strings within files.</p>
 <h2 id="attributes">Attributes</h2>
@@ -167,9 +167,11 @@ list: List of matched base64 strings if save is True; otherwise, None.</p>
 <li><a title="ctfsolver.managers.manager_files_pcap.ManagerFilePcap" href="manager_files_pcap.html#ctfsolver.managers.manager_files_pcap.ManagerFilePcap">ManagerFilePcap</a></li>
 <li><a title="ctfsolver.managers.manager_files_re.ManagerFileRegex" href="manager_files_re.html#ctfsolver.managers.manager_files_re.ManagerFileRegex">ManagerFileRegex</a></li>
 <li><a title="ctfsolver.managers.manager_folder.ManagerFolder" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder">ManagerFolder</a></li>
+<li><a title="ctfsolver.managers.manager_functions.ManagerFunction" href="manager_functions.html#ctfsolver.managers.manager_functions.ManagerFunction">ManagerFunction</a></li>
 </ul>
 <h3>Subclasses</h3>
 <ul class="hlist">
+<li><a title="ctfsolver.folders.link_ctf_folders.Linking" href="../folders/link_ctf_folders.html#ctfsolver.folders.link_ctf_folders.Linking">Linking</a></li>
 <li><a title="ctfsolver.src.ctfsolver.CTFSolver" href="../src/ctfsolver.html#ctfsolver.src.ctfsolver.CTFSolver">CTFSolver</a></li>
 </ul>
 <h3>Methods</h3>
@@ -292,7 +294,10 @@ Search for base64 string in the file</p>
 </li>
 <li><code><b><a title="ctfsolver.managers.manager_files_re.ManagerFileRegex" href="manager_files_re.html#ctfsolver.managers.manager_files_re.ManagerFileRegex">ManagerFileRegex</a></b></code>:
 <ul class="hlist">
+<li><code><a title="ctfsolver.managers.manager_files_re.ManagerFileRegex.check_name_similarity_in_files" href="manager_files_re.html#ctfsolver.managers.manager_files_re.ManagerFileRegex.check_name_similarity_in_files">check_name_similarity_in_files</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_files_re.ManagerFileRegex.extract_strings" href="manager_files_re.html#ctfsolver.managers.manager_files_re.ManagerFileRegex.extract_strings">extract_strings</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_files_re.ManagerFileRegex.normalize_name" href="manager_files_re.html#ctfsolver.managers.manager_files_re.ManagerFileRegex.normalize_name">normalize_name</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_files_re.ManagerFileRegex.string_similarity" href="manager_files_re.html#ctfsolver.managers.manager_files_re.ManagerFileRegex.string_similarity">string_similarity</a></code></li>
 </ul>
 </li>
 <li><code><b><a title="ctfsolver.managers.manager_folder.ManagerFolder" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder">ManagerFolder</a></b></code>:
@@ -300,16 +305,18 @@ Search for base64 string in the file</p>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.challenge_folder_structure" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.challenge_folder_structure">challenge_folder_structure</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.check_empty_folder" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.check_empty_folder">check_empty_folder</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.clean_folders" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.clean_folders">clean_folders</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.copy_folder" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.copy_folder">copy_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.create_ctf_structure" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.create_ctf_structure">create_ctf_structure</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.create_parent_folder" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.create_parent_folder">create_parent_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.delete_folder" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.delete_folder">delete_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.download_automove" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.download_automove">download_automove</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.exec_on_files" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.exec_on_files">exec_on_files</a></code></li>
-<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.find_function_from_file" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.find_function_from_file">find_function_from_file</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.exec_on_folder" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.exec_on_folder">exec_on_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.exec_on_folder_files" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.exec_on_folder_files">exec_on_folder_files</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.folders_file" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.folders_file">folders_file</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.folfil" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.folfil">folfil</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.get_challenge_file" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.get_challenge_file">get_challenge_file</a></code></li>
-<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.get_function_reference" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.get_function_reference">get_function_reference</a></code></li>
-<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.get_functions_from_file" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.get_functions_from_file">get_functions_from_file</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.get_parent" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.get_parent">get_parent</a></code></li>
-<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.get_self_functions" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.get_self_functions">get_self_functions</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.get_solution_file" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.get_solution_file">get_solution_file</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.init_for_challenge" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.init_for_challenge">init_for_challenge</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.prepare_space" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.prepare_space">prepare_space</a></code></li>
@@ -318,6 +325,14 @@ Search for base64 string in the file</p>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.search_for_pattern_in_file" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.search_for_pattern_in_file">search_for_pattern_in_file</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.setup_named_folders" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.setup_named_folders">setup_named_folders</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.single_folder_search" href="manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.single_folder_search">single_folder_search</a></code></li>
+</ul>
+</li>
+<li><code><b><a title="ctfsolver.managers.manager_functions.ManagerFunction" href="manager_functions.html#ctfsolver.managers.manager_functions.ManagerFunction">ManagerFunction</a></b></code>:
+<ul class="hlist">
+<li><code><a title="ctfsolver.managers.manager_functions.ManagerFunction.find_function_from_file" href="manager_functions.html#ctfsolver.managers.manager_functions.ManagerFunction.find_function_from_file">find_function_from_file</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_functions.ManagerFunction.get_function_reference" href="manager_functions.html#ctfsolver.managers.manager_functions.ManagerFunction.get_function_reference">get_function_reference</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_functions.ManagerFunction.get_functions_from_file" href="manager_functions.html#ctfsolver.managers.manager_functions.ManagerFunction.get_functions_from_file">get_functions_from_file</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_functions.ManagerFunction.get_self_functions" href="manager_functions.html#ctfsolver.managers.manager_functions.ManagerFunction.get_self_functions">get_self_functions</a></code></li>
 </ul>
 </li>
 </ul>
