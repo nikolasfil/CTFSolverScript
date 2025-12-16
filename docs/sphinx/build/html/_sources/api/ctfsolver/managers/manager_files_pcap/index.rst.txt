@@ -86,7 +86,7 @@ Module Contents
 
 
 
-   .. py:method:: pcap_open(file=None, save=False) -> list[scapy.all.packet.Packet] | None
+   .. py:method:: pcap_open(file=None, save=False)
 
       Description:
           Open the pcap file with scapy and saves it in self.packets

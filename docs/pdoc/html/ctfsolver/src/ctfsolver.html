@@ -172,12 +172,16 @@ Returns a string representation of the CTFSolver instance, including the parent 
 <li><a title="ctfsolver.managers.manager_files_pcap.ManagerFilePcap" href="../managers/manager_files_pcap.html#ctfsolver.managers.manager_files_pcap.ManagerFilePcap">ManagerFilePcap</a></li>
 <li><a title="ctfsolver.managers.manager_files_re.ManagerFileRegex" href="../managers/manager_files_re.html#ctfsolver.managers.manager_files_re.ManagerFileRegex">ManagerFileRegex</a></li>
 <li><a title="ctfsolver.managers.manager_folder.ManagerFolder" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder">ManagerFolder</a></li>
+<li><a title="ctfsolver.managers.manager_functions.ManagerFunction" href="../managers/manager_functions.html#ctfsolver.managers.manager_functions.ManagerFunction">ManagerFunction</a></li>
 <li><a title="ctfsolver.managers.manager_connections.ManagerConnections" href="../managers/manager_connections.html#ctfsolver.managers.manager_connections.ManagerConnections">ManagerConnections</a></li>
 <li><a title="ctfsolver.managers.manager_crypto.ManagerCrypto" href="../managers/manager_crypto.html#ctfsolver.managers.manager_crypto.ManagerCrypto">ManagerCrypto</a></li>
 <li><a title="ctfsolver.error.manager_error.ManagerError" href="../error/manager_error.html#ctfsolver.error.manager_error.ManagerError">ManagerError</a></li>
 </ul>
 <h3>Subclasses</h3>
 <ul class="hlist">
+<li><a title="ctfsolver.find_usage.gathering.Gathering" href="../find_usage/gathering.html#ctfsolver.find_usage.gathering.Gathering">Gathering</a></li>
+<li><a title="ctfsolver.folders.finding_writeups.Folder_Structure" href="../folders/finding_writeups.html#ctfsolver.folders.finding_writeups.Folder_Structure">Folder_Structure</a></li>
+<li><a title="ctfsolver.template.gathering_template.Gathering" href="../template/gathering_template.html#ctfsolver.template.gathering_template.Gathering">Gathering</a></li>
 <li><a title="ctfsolver.template.solution_template.Solution" href="../template/solution_template.html#ctfsolver.template.solution_template.Solution">Solution</a></li>
 </ul>
 <h3>Methods</h3>
@@ -261,23 +265,31 @@ KeyboardInterrupt: Handles user-initiated interruptions and prints a message.</p
 <ul class="hlist">
 <li><code><a title="ctfsolver.managers.manager_file.ManagerFile.challenge_folder_structure" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.challenge_folder_structure">challenge_folder_structure</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_file.ManagerFile.check_empty_folder" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.check_empty_folder">check_empty_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.check_name_similarity_in_files" href="../managers/manager_files_re.html#ctfsolver.managers.manager_files_re.ManagerFileRegex.check_name_similarity_in_files">check_name_similarity_in_files</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_file.ManagerFile.clean_folders" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.clean_folders">clean_folders</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.copy_folder" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.copy_folder">copy_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.create_ctf_structure" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.create_ctf_structure">create_ctf_structure</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_file.ManagerFile.create_parent_folder" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.create_parent_folder">create_parent_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.delete_folder" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.delete_folder">delete_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.download_automove" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.download_automove">download_automove</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_file.ManagerFile.exec_on_files" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.exec_on_files">exec_on_files</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.exec_on_folder" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.exec_on_folder">exec_on_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.exec_on_folder_files" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.exec_on_folder_files">exec_on_folder_files</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_file.ManagerFile.extract_strings" href="../managers/manager_files_re.html#ctfsolver.managers.manager_files_re.ManagerFileRegex.extract_strings">extract_strings</a></code></li>
-<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.find_function_from_file" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.find_function_from_file">find_function_from_file</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.find_function_from_file" href="../managers/manager_functions.html#ctfsolver.managers.manager_functions.ManagerFunction.find_function_from_file">find_function_from_file</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_file.ManagerFile.folders_file" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.folders_file">folders_file</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_file.ManagerFile.folfil" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.folfil">folfil</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_file.ManagerFile.get_challenge_file" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.get_challenge_file">get_challenge_file</a></code></li>
-<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.get_function_reference" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.get_function_reference">get_function_reference</a></code></li>
-<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.get_functions_from_file" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.get_functions_from_file">get_functions_from_file</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.get_function_reference" href="../managers/manager_functions.html#ctfsolver.managers.manager_functions.ManagerFunction.get_function_reference">get_function_reference</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.get_functions_from_file" href="../managers/manager_functions.html#ctfsolver.managers.manager_functions.ManagerFunction.get_functions_from_file">get_functions_from_file</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_file.ManagerFile.get_packet_ttl" href="../managers/manager_files_pcap.html#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.get_packet_ttl">get_packet_ttl</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_file.ManagerFile.get_packets_icmp" href="../managers/manager_files_pcap.html#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.get_packets_icmp">get_packets_icmp</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_file.ManagerFile.get_parent" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.get_parent">get_parent</a></code></li>
-<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.get_self_functions" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.get_self_functions">get_self_functions</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.get_self_functions" href="../managers/manager_functions.html#ctfsolver.managers.manager_functions.ManagerFunction.get_self_functions">get_self_functions</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_file.ManagerFile.get_solution_file" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.get_solution_file">get_solution_file</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_file.ManagerFile.init_for_challenge" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.init_for_challenge">init_for_challenge</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_file.ManagerFile.initializing_file_ancestors" href="../managers/manager_file.html#ctfsolver.managers.manager_file.ManagerFile.initializing_file_ancestors">initializing_file_ancestors</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.normalize_name" href="../managers/manager_files_re.html#ctfsolver.managers.manager_files_re.ManagerFileRegex.normalize_name">normalize_name</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_file.ManagerFile.pcap_open" href="../managers/manager_files_pcap.html#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.pcap_open">pcap_open</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_file.ManagerFile.prepare_space" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.prepare_space">prepare_space</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_file.ManagerFile.recursive_folder_search" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.recursive_folder_search">recursive_folder_search</a></code></li>
@@ -288,6 +300,7 @@ KeyboardInterrupt: Handles user-initiated interruptions and prints a message.</p
 <li><code><a title="ctfsolver.managers.manager_file.ManagerFile.searching_text_in_packets" href="../managers/manager_files_pcap.html#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.searching_text_in_packets">searching_text_in_packets</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_file.ManagerFile.setup_named_folders" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.setup_named_folders">setup_named_folders</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_file.ManagerFile.single_folder_search" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.single_folder_search">single_folder_search</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_file.ManagerFile.string_similarity" href="../managers/manager_files_re.html#ctfsolver.managers.manager_files_re.ManagerFileRegex.string_similarity">string_similarity</a></code></li>
 </ul>
 </li>
 <li><code><b><a title="ctfsolver.managers.manager_connections.ManagerConnections" href="../managers/manager_connections.html#ctfsolver.managers.manager_connections.ManagerConnections">ManagerConnections</a></b></code>:

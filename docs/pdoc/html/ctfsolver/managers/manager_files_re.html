@@ -103,7 +103,68 @@ strings = manager.extract_strings("/path/to/file", min_length=4)</p>
             strings = re.findall(rb&#34;[ -~]{%d,}&#34; % min_length, data)
 
             # Decode the byte strings to regular strings
-            return [s.decode(&#34;utf-8&#34;, errors=&#34;ignore&#34;) for s in strings]</code></pre>
+            return [s.decode(&#34;utf-8&#34;, errors=&#34;ignore&#34;) for s in strings]
+
+    def normalize_name(self, name: str) -&gt; str:
+        &#34;&#34;&#34;
+        Normalize a file or folder name so different naming styles correlate.
+        &#34;&#34;&#34;
+        name = name.lower()
+
+        # Remove archive extensions
+        name = re.sub(r&#34;\.(zip|tar|gz|7z)$&#34;, &#34;&#34;, name)
+
+        # Split on common separators
+        parts = re.split(r&#34;[_\- ]+&#34;, name)
+
+        # Join and remove non-alphanumerics
+        normalized = &#34;&#34;.join(parts)
+        normalized = re.sub(r&#34;[^a-z0-9]&#34;, &#34;&#34;, normalized)
+
+        return normalized
+
+    def string_similarity(self, str1: str, str2: str) -&gt; float:
+        &#34;&#34;&#34;
+        Calculate the similarity ratio between two strings using rapidfuzz.
+
+        Args:
+            str1 (str): The first string.
+            str2 (str): The second string.
+
+        Returns:
+            float: Similarity ratio between 0 and 100.
+        &#34;&#34;&#34;
+        # return fuzz.ratio(str1, str2)
+        return fuzz.WRatio(str1, str2)
+
+    def check_name_similarity_in_files(
+        self, files: list, information: list, threshold: float = 70.0
+    ) -&gt; list:
+        &#34;&#34;&#34;
+        Check for similar names in a list of files based on provided information.
+
+        Args:
+            information (list): List of strings to compare against file names.
+            files (list): List of file names to check.
+            threshold (float): Similarity threshold (0-100) to consider a match.
+
+        Returns:
+            list: List of files that have similar names above the threshold.
+        &#34;&#34;&#34;
+        matched_files = []
+
+        for file in files:
+            normalized_file_name = self.normalize_name(file.name)
+            for info in information:
+                normalized_info = self.normalize_name(info)
+                similarity = self.string_similarity(
+                    normalized_file_name, normalized_info
+                )
+                if similarity &gt;= threshold:
+                    matched_files.append(file)
+                    break  # No need to check other information strings
+
+        return matched_files</code></pre>
 </details>
 <div class="desc"></div>
 <h3>Subclasses</h3>
@@ -112,6 +173,59 @@ strings = manager.extract_strings("/path/to/file", min_length=4)</p>
 </ul>
 <h3>Methods</h3>
 <dl>
+<dt id="ctfsolver.managers.manager_files_re.ManagerFileRegex.check_name_similarity_in_files"><code class="name flex">
+<span>def <span class="ident">check_name_similarity_in_files</span></span>(<span>self, files: list, information: list, threshold: float = 70.0) ‑> list</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_name_similarity_in_files(
+    self, files: list, information: list, threshold: float = 70.0
+) -&gt; list:
+    &#34;&#34;&#34;
+    Check for similar names in a list of files based on provided information.
+
+    Args:
+        information (list): List of strings to compare against file names.
+        files (list): List of file names to check.
+        threshold (float): Similarity threshold (0-100) to consider a match.
+
+    Returns:
+        list: List of files that have similar names above the threshold.
+    &#34;&#34;&#34;
+    matched_files = []
+
+    for file in files:
+        normalized_file_name = self.normalize_name(file.name)
+        for info in information:
+            normalized_info = self.normalize_name(info)
+            similarity = self.string_similarity(
+                normalized_file_name, normalized_info
+            )
+            if similarity &gt;= threshold:
+                matched_files.append(file)
+                break  # No need to check other information strings
+
+    return matched_files</code></pre>
+</details>
+<div class="desc"><p>Check for similar names in a list of files based on provided information.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>information</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of strings to compare against file names.</dd>
+<dt><strong><code>files</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of file names to check.</dd>
+<dt><strong><code>threshold</code></strong> :&ensp;<code>float</code></dt>
+<dd>Similarity threshold (0-100) to consider a match.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>List of files that have similar names above the threshold.</dd>
+</dl></div>
+</dd>
 <dt id="ctfsolver.managers.manager_files_re.ManagerFileRegex.extract_strings"><code class="name flex">
 <span>def <span class="ident">extract_strings</span></span>(<span>self, file_path, min_length=4)</span>
 </code></dt>
@@ -178,6 +292,70 @@ strings = manager.extract_strings("/path/to/file", min_length=4)</p>
 <div class="desc"><h2 id="description">Description</h2>
 <p>Initializes all the ancestors of the class</p></div>
 </dd>
+<dt id="ctfsolver.managers.manager_files_re.ManagerFileRegex.normalize_name"><code class="name flex">
+<span>def <span class="ident">normalize_name</span></span>(<span>self, name: str) ‑> str</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def normalize_name(self, name: str) -&gt; str:
+    &#34;&#34;&#34;
+    Normalize a file or folder name so different naming styles correlate.
+    &#34;&#34;&#34;
+    name = name.lower()
+
+    # Remove archive extensions
+    name = re.sub(r&#34;\.(zip|tar|gz|7z)$&#34;, &#34;&#34;, name)
+
+    # Split on common separators
+    parts = re.split(r&#34;[_\- ]+&#34;, name)
+
+    # Join and remove non-alphanumerics
+    normalized = &#34;&#34;.join(parts)
+    normalized = re.sub(r&#34;[^a-z0-9]&#34;, &#34;&#34;, normalized)
+
+    return normalized</code></pre>
+</details>
+<div class="desc"><p>Normalize a file or folder name so different naming styles correlate.</p></div>
+</dd>
+<dt id="ctfsolver.managers.manager_files_re.ManagerFileRegex.string_similarity"><code class="name flex">
+<span>def <span class="ident">string_similarity</span></span>(<span>self, str1: str, str2: str) ‑> float</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def string_similarity(self, str1: str, str2: str) -&gt; float:
+    &#34;&#34;&#34;
+    Calculate the similarity ratio between two strings using rapidfuzz.
+
+    Args:
+        str1 (str): The first string.
+        str2 (str): The second string.
+
+    Returns:
+        float: Similarity ratio between 0 and 100.
+    &#34;&#34;&#34;
+    # return fuzz.ratio(str1, str2)
+    return fuzz.WRatio(str1, str2)</code></pre>
+</details>
+<div class="desc"><p>Calculate the similarity ratio between two strings using rapidfuzz.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>str1</code></strong> :&ensp;<code>str</code></dt>
+<dd>The first string.</dd>
+<dt><strong><code>str2</code></strong> :&ensp;<code>str</code></dt>
+<dd>The second string.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>float</code></dt>
+<dd>Similarity ratio between 0 and 100.</dd>
+</dl></div>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -198,8 +376,11 @@ strings = manager.extract_strings("/path/to/file", min_length=4)</p>
 <li>
 <h4><code><a title="ctfsolver.managers.manager_files_re.ManagerFileRegex" href="#ctfsolver.managers.manager_files_re.ManagerFileRegex">ManagerFileRegex</a></code></h4>
 <ul class="">
+<li><code><a title="ctfsolver.managers.manager_files_re.ManagerFileRegex.check_name_similarity_in_files" href="#ctfsolver.managers.manager_files_re.ManagerFileRegex.check_name_similarity_in_files">check_name_similarity_in_files</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_files_re.ManagerFileRegex.extract_strings" href="#ctfsolver.managers.manager_files_re.ManagerFileRegex.extract_strings">extract_strings</a></code></li>
 <li><code><a title="ctfsolver.managers.manager_files_re.ManagerFileRegex.initializing_all_ancestors" href="#ctfsolver.managers.manager_files_re.ManagerFileRegex.initializing_all_ancestors">initializing_all_ancestors</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_files_re.ManagerFileRegex.normalize_name" href="#ctfsolver.managers.manager_files_re.ManagerFileRegex.normalize_name">normalize_name</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_files_re.ManagerFileRegex.string_similarity" href="#ctfsolver.managers.manager_files_re.ManagerFileRegex.string_similarity">string_similarity</a></code></li>
 </ul>
 </li>
 </ul>

@@ -1,0 +1,1182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>ctfsolver.venv.testing.main API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>ctfsolver.venv.testing.main</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="ctfsolver.venv.testing.main.ManagerVenv"><code class="flex name class">
+<span>class <span class="ident">ManagerVenv</span></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ManagerVenv:
+    &#34;&#34;&#34;
+    Cross-platform venv manager that can create, link, resolve and operate inside virtual environments
+    without in-process &#34;activation&#34;. Instead, it uses the venv&#39;s interpreter directly.
+
+    Conventions:
+      - Global root for venvs is taken from CONFIG[&#34;directories&#34;][&#34;venvs&#34;] (preferred),
+        else $CTFSOLVER_VENVS_HOME, else POSIX: ~/.local/share/ctfsolver/venvs,
+        Windows: %APPDATA%\\ctfsolver\\venvs
+      - Project shortcut: `.venv` (symlink/junction) preferred; fallback `.venv.link` text file
+        containing absolute path to the real venv directory.
+
+    Public methods cover:
+      - create (backend: stdlib venv or virtualenv)
+      - link/unlink shortcuts
+      - resolve_for current project
+      - activation_command printer
+      - run_in (execute using the venv&#39;s python)
+      - detect_venvs, export_lockfiles (pip freeze + pipdeptree)
+      - transfer, delete, list_venvs
+    &#34;&#34;&#34;
+
+    def __init__(self):
+        self.venv_dir: Optional[Path] = self._init_global_dir()
+        self.venv: Optional[VenvInfo] = None
+        self.check_venv_dir()
+
+    # --- Template-required method -------------------------------------------------
+    def check_venv_dir(self):
+        if not self.venv_dir:
+            raise ValueError(&#34;Virtual environment directory is not set.&#34;)
+
+    # --- Setup helpers ------------------------------------------------------------
+    @staticmethod
+    def _is_windows() -&gt; bool:
+
+        return os.name == &#34;nt&#34;
+
+    def _init_global_dir(self) -&gt; Path:
+        # Priority: CONFIG -&gt; env -&gt; platform defaults
+        cfg_dir = (CONFIG[&#34;directories&#34;] or {}).get(&#34;venvs&#34;, None)
+        if cfg_dir:
+            return Path(cfg_dir).expanduser()
+
+    # --- Paths &amp; shortcuts --------------------------------------------------------
+    @staticmethod
+    def _venv_python_path(venv_path: Path) -&gt; Path:
+        if os.name == &#34;nt&#34;:
+            return venv_path / &#34;Scripts&#34; / &#34;python.exe&#34;
+        else:
+            return venv_path / &#34;bin&#34; / &#34;python&#34;
+
+    @staticmethod
+    def _looks_like_venv(path: Path) -&gt; bool:
+        if not path.is_dir():
+            return False
+        pyvenv = path / &#34;pyvenv.cfg&#34;
+        act_posix = path / &#34;bin&#34; / &#34;activate&#34;
+        act_win = path / &#34;Scripts&#34; / &#34;activate&#34;
+        return pyvenv.exists() and (act_posix.exists() or act_win.exists())
+
+    @staticmethod
+    def _shortcut_path(project_dir: Path) -&gt; Path:
+        # ! ╭─────────────────╮
+        # ! │ NEEDS ATTENTION │
+        # ! ╰─────────────────╯
+        return project_dir / &#34;.venv&#34;
+
+    @staticmethod
+    def _linkfile_path(project_dir: Path) -&gt; Path:
+        return project_dir / &#34;.venv.link&#34;
+
+    def link(self, project_dir: Path, venv_path: Path) -&gt; None:
+        &#34;&#34;&#34;
+        Create a project shortcut to an existing venv.
+        Prefer a symlink (POSIX) or junction/symlink (Windows). Fallback to .venv.link text file.
+        &#34;&#34;&#34;
+        project_dir = project_dir.resolve()
+        venv_path = venv_path.resolve()
+        if not self._looks_like_venv(venv_path):
+            raise ValueError(f&#34;Not a valid venv: {venv_path}&#34;)
+
+        link_target = self._shortcut_path(project_dir)
+
+        # Clean previous
+        if link_target.exists() or link_target.is_symlink():
+            if link_target.is_dir() and not link_target.is_symlink():
+                shutil.rmtree(link_target)
+            else:
+                link_target.unlink(missing_ok=True)
+
+        try:
+            if self._is_windows():
+                # Try directory symlink; if not permitted, try junction via mklink /J (needs shell).
+                try:
+                    link_target.symlink_to(venv_path, target_is_directory=True)
+                except OSError:
+                    # Junction fallback
+                    subprocess.run(
+                        [&#34;cmd&#34;, &#34;/c&#34;, &#34;mklink&#34;, &#34;/J&#34;, str(link_target), str(venv_path)],
+                        check=True,
+                        stdout=subprocess.PIPE,
+                        stderr=subprocess.PIPE,
+                    )
+            else:
+                link_target.symlink_to(venv_path, target_is_directory=True)
+        except Exception:
+            # Fallback: .venv.link file
+            self._linkfile_path(project_dir).write_text(
+                str(venv_path), encoding=&#34;utf-8&#34;
+            )
+
+    def unlink(self, project_dir: Path) -&gt; None:
+        sp = self._shortcut_path(project_dir)
+        lp = self._linkfile_path(project_dir)
+        if sp.exists() or sp.is_symlink():
+            if sp.is_dir() and not sp.is_symlink():
+                shutil.rmtree(sp)
+            else:
+                sp.unlink(missing_ok=True)
+        if lp.exists():
+            lp.unlink()
+
+    def _resolve_link(self, project_dir: Path) -&gt; Optional[Path]:
+        sp = self._shortcut_path(project_dir)
+        lp = self._linkfile_path(project_dir)
+        if sp.exists():
+            try:
+                return sp.resolve()
+            except Exception:
+                pass
+        if lp.exists():
+            target = Path(lp.read_text(encoding=&#34;utf-8&#34;).strip())
+            if target.exists():
+                return target.resolve()
+        return None
+
+    def resolve_for(self, project_dir: Path) -&gt; Optional[VenvInfo]:
+        &#34;&#34;&#34;
+        Resolve VenvInfo for a project directory, if a shortcut/link exists.
+        &#34;&#34;&#34;
+        venv_path = self._resolve_link(project_dir.resolve())
+        if not venv_path:
+            return None
+        py = self._venv_python_path(venv_path)
+        if not py.exists():
+            return None
+        return VenvInfo(
+            name=venv_path.name,
+            path=venv_path,
+            python=py,
+            platform=&#34;windows&#34; if self._is_windows() else &#34;posix&#34;,
+            created_at=venv_path.stat().st_ctime,
+        )
+
+    # --- Creation -----------------------------------------------------------------
+    def create(
+        self,
+        name: str,
+        python: Optional[Path] = None,
+        in_project: bool = False,
+        project_dir: Optional[Path] = None,
+        backend: str = &#34;venv&#34;,  # &#39;venv&#39; | &#39;virtualenv&#39;
+        with_pip: bool = True,
+    ) -&gt; VenvInfo:
+        &#34;&#34;&#34;
+        Create a venv using stdlib venv or virtualenv, return VenvInfo and link to project_dir if provided.
+        &#34;&#34;&#34;
+        self.check_venv_dir()
+
+        if in_project:
+            if not project_dir:
+                project_dir = Path.cwd()
+            venv_path = project_dir / &#34;.venv.local&#34;
+        else:
+            venv_path = self.venv_dir / name  # type: ignore[operator]
+
+        venv_path = venv_path.resolve()
+        venv_path.parent.mkdir(parents=True, exist_ok=True)
+
+        if venv_path.exists():
+            raise FileExistsError(f&#34;Venv already exists: {venv_path}&#34;)
+
+        if backend not in {&#34;venv&#34;, &#34;virtualenv&#34;}:
+            raise ValueError(&#34;backend must be &#39;venv&#39; or &#39;virtualenv&#39;&#34;)
+
+        if backend == &#34;virtualenv&#34;:
+            if not _HAS_VIRTUALENV:
+                raise RuntimeError(
+                    &#34;virtualenv backend requested but &#39;virtualenv&#39; is not installed.&#34;
+                )
+            args = [str(venv_path)]
+            if python:
+                args = [&#34;-p&#34;, str(python)] + args
+            virtualenv_cli_run(args)  # raises on failure
+        else:
+            # stdlib venv
+            builder = stdlib_venv.EnvBuilder(
+                with_pip=with_pip, clear=False, symlinks=True, upgrade=False
+            )
+            if python and python != Path(sys.executable):
+                # Spawn the requested interpreter to create the venv
+                cmd = [str(python), &#34;-m&#34;, &#34;venv&#34;, str(venv_path)]
+                if with_pip:
+                    cmd.append(&#34;--with-pip&#34;)
+                subprocess.run(cmd, check=True)
+            else:
+                builder.create(str(venv_path))
+
+        py = self._venv_python_path(venv_path)
+        if not py.exists():
+            raise RuntimeError(f&#34;Venv created but interpreter not found at: {py}&#34;)
+
+        info = VenvInfo(
+            name=venv_path.name,
+            path=venv_path,
+            python=py,
+            platform=&#34;windows&#34; if self._is_windows() else &#34;posix&#34;,
+            created_at=venv_path.stat().st_ctime,
+        )
+
+        # Optional: link to a project
+        if project_dir:
+            self.link(project_dir, venv_path)
+
+        self.venv = info
+        return info
+
+    # --- Activation (print-only) --------------------------------------------------
+    def activation_command(self, venv: VenvInfo, shell: Optional[str] = None) -&gt; str:
+        &#34;&#34;&#34;
+        Return the shell command string to activate the venv. Does not execute it.
+        shell: one of {&#39;bash&#39;,&#39;zsh&#39;,&#39;fish&#39;,&#39;pwsh&#39;,&#39;cmd&#39;} or None to auto-detect.
+        &#34;&#34;&#34;
+        if self._is_windows():
+            # Heuristic
+            env = os.environ
+            if not shell:
+                if &#34;PSModulePath&#34; in env:
+                    shell = &#34;pwsh&#34;
+                elif env.get(&#34;ComSpec&#34;, &#34;&#34;).lower().endswith(&#34;cmd.exe&#34;):
+                    shell = &#34;cmd&#34;
+                else:
+                    shell = &#34;pwsh&#34;
+            if shell == &#34;pwsh&#34;:
+                return f&#39;&amp; &#34;{(venv.path / &#34;Scripts&#34; / &#34;Activate.ps1&#34;)}&#34;&#39;
+            elif shell == &#34;cmd&#34;:
+                return f&#39;&#34;{(venv.path / &#34;Scripts&#34; / &#34;activate.bat&#34;)}&#34;&#39;
+            else:
+                # allow bash via MSYS/git-bash etc.
+                return f&#39;source &#34;{(venv.path / &#34;Scripts&#34; / &#34;activate&#34;)}&#34;&#39;
+        else:
+            if not shell:
+                shell = Path(os.environ.get(&#34;SHELL&#34;, &#34;/bin/sh&#34;)).name
+            if shell == &#34;fish&#34;:
+                return f&#39;source &#34;{(venv.path / &#34;bin&#34; / &#34;activate.fish&#34;)}&#34;&#39;
+            return f&#39;source &#34;{(venv.path / &#34;bin&#34; / &#34;activate&#34;)}&#34;&#39;
+
+    # --- Run commands inside a venv ----------------------------------------------
+    def run_in(
+        self,
+        venv_path: Path,
+        args: Sequence[str],
+        *,
+        cwd: Optional[Path] = None,
+        env: Optional[dict[str, str]] = None,
+        check: bool = True,
+        capture_output: bool = False,
+    ) -&gt; subprocess.CompletedProcess:
+        &#34;&#34;&#34;
+        Execute a command using the venv&#39;s python interpreter: python -m &lt;module&gt; ... or arbitrary script.
+        If args[0] == &#39;-m&#39;, we run &#39;python -m ...&#39;; otherwise we execute the given argv via the venv&#39;s python.
+        &#34;&#34;&#34;
+        python = self._venv_python_path(venv_path)
+        if not python.exists():
+            raise FileNotFoundError(f&#34;Python not found in venv: {python}&#34;)
+
+        if args and args[0] == &#34;-m&#34;:
+            cmd = [str(python)] + list(args)
+        elif args and args[0].endswith(&#34;.py&#34;):
+            cmd = [str(python)] + list(args)
+        else:
+            # Run arbitrary command via the venv&#39;s environment by prefixing python -c &#39;import runpy; ...&#39;
+            # But simpler &amp; robust: use python -m to run modules like pip
+            cmd = [str(python)] + list(args)
+
+        return subprocess.run(
+            cmd,
+            cwd=str(cwd) if cwd else None,
+            env=env,
+            check=check,
+            capture_output=capture_output,
+            text=True,
+        )
+
+    # --- Detection &amp; listing ------------------------------------------------------
+    def detect_venvs(self, root: Path, recursive: bool = True) -&gt; Iterable[Path]:
+        &#34;&#34;&#34;
+        Yield venv directories under root.
+        &#34;&#34;&#34;
+        root = root.resolve()
+        if not root.exists():
+            return []
+
+        ignore = {&#34;.git&#34;, &#34;node_modules&#34;, &#34;__pycache__&#34;, &#34;.mypy_cache&#34;, &#34;.pytest_cache&#34;}
+        if not recursive:
+            for p in root.iterdir():
+                if p.name in ignore:
+                    continue
+                if self._looks_like_venv(p):
+                    yield p
+            return
+
+        for p in root.rglob(&#34;*&#34;):
+            try:
+                if p.is_dir():
+                    name = p.name
+                    if name in ignore:
+                        continue
+                    if self._looks_like_venv(p):
+                        yield p
+                        # Skip descending into this venv
+                        # (pyvenv.cfg depth guard)
+                        continue
+            except PermissionError:
+                continue
+
+    def list_venvs(self) -&gt; list[VenvInfo]:
+        &#34;&#34;&#34;
+        List venvs in the global directory.
+        &#34;&#34;&#34;
+        self.check_venv_dir()
+        out: list[VenvInfo] = []
+        for p in sorted(self.venv_dir.iterdir()):  # type: ignore[union-attr]
+            if self._looks_like_venv(p):
+                py = self._venv_python_path(p)
+                out.append(
+                    VenvInfo(
+                        name=p.name,
+                        path=p,
+                        python=py,
+                        platform=&#34;windows&#34; if self._is_windows() else &#34;posix&#34;,
+                        created_at=p.stat().st_ctime,
+                    )
+                )
+        return out
+
+    # --- Exports (requirements + pipdeptree) -------------------------------------
+    def export_lockfiles(self, venv_path: Path, out_dir: Path) -&gt; tuple[Path, Path]:
+        &#34;&#34;&#34;
+        Create requirements.txt and pipdeptree.txt for venv.
+        If pipdeptree is not installed, install temporarily and remove afterwards.
+        &#34;&#34;&#34;
+        out_dir.mkdir(parents=True, exist_ok=True)
+        req = out_dir / &#34;requirements.txt&#34;
+        pdt = out_dir / &#34;pipdeptree.txt&#34;
+
+        # requirements
+        self.run_in(venv_path, [&#34;-m&#34;, &#34;pip&#34;, &#34;freeze&#34;], capture_output=True)
+        cp = self.run_in(venv_path, [&#34;-m&#34;, &#34;pip&#34;, &#34;freeze&#34;], capture_output=True)
+        req.write_text(cp.stdout, encoding=&#34;utf-8&#34;)
+
+        # pipdeptree
+        has_pdt = self.run_in(
+            venv_path,
+            [&#34;-m&#34;, &#34;pip&#34;, &#34;show&#34;, &#34;pipdeptree&#34;],
+            check=False,
+            capture_output=True,
+        )
+        injected = False
+        if has_pdt.returncode != 0:
+            self.run_in(
+                venv_path, [&#34;-m&#34;, &#34;pip&#34;, &#34;install&#34;, &#34;pipdeptree&gt;=2&#34;], check=True
+            )
+            injected = True
+
+        cp2 = self.run_in(
+            venv_path, [&#34;-m&#34;, &#34;pipdeptree&#34;, &#34;--freeze&#34;], capture_output=True
+        )
+        pdt.write_text(cp2.stdout, encoding=&#34;utf-8&#34;)
+
+        if injected:
+            # Best-effort uninstall
+            self.run_in(
+                venv_path, [&#34;-m&#34;, &#34;pip&#34;, &#34;uninstall&#34;, &#34;-y&#34;, &#34;pipdeptree&#34;], check=False
+            )
+
+        return req, pdt
+
+    # --- Transfer &amp; delete --------------------------------------------------------
+    def transfer(
+        self, venv_path: Path, dest_root: Optional[Path] = None, move: bool = True
+    ) -&gt; Path:
+        &#34;&#34;&#34;
+        Move or copy a venv to the global store (or a custom root).
+        Returns the new path.
+        &#34;&#34;&#34;
+        self.check_venv_dir()
+        src = venv_path.resolve()
+        if not self._looks_like_venv(src):
+            raise ValueError(f&#34;Not a valid venv: {src}&#34;)
+
+        dest_root = (dest_root or self.venv_dir).resolve()  # type: ignore[union-attr]
+        dest_root.mkdir(parents=True, exist_ok=True)
+
+        base = src.name
+        target = dest_root / base
+        i = 1
+        while target.exists():
+            target = dest_root / f&#34;{base}-{i}&#34;
+            i += 1
+
+        if move:
+            shutil.move(str(src), str(target))
+        else:
+            shutil.copytree(src, target, symlinks=True)
+
+        return target.resolve()
+
+    def _onerror_win_readonly(self, func, path, exc_info):
+        # Helper for Windows read-only files
+        try:
+            os.chmod(path, stat.S_IWRITE)
+            func(path)
+        except Exception:
+            pass
+
+    def delete(self, venv_path: Path, force: bool = False) -&gt; None:
+        &#34;&#34;&#34;
+        Delete a venv directory recursively.
+        &#34;&#34;&#34;
+        vp = venv_path.resolve()
+        if not self._looks_like_venv(vp):
+            raise ValueError(f&#34;Not a venv: {vp}&#34;)
+        if not force:
+            raise PermissionError(&#34;Refusing to delete venv without force=True&#34;)
+        if self._is_windows():
+            shutil.rmtree(vp, onerror=self._onerror_win_readonly)
+        else:
+            shutil.rmtree(vp)
+
+    # --- Convenience: create+link current project --------------------------------
+    def create_and_link_current(
+        self,
+        name: str,
+        *,
+        python: Optional[Path] = None,
+        backend: str = &#34;venv&#34;,
+        with_pip: bool = True,
+        project_dir: Optional[Path] = None,
+    ) -&gt; VenvInfo:
+        &#34;&#34;&#34;
+        Create a global venv and link it to the given project (default: CWD).
+        &#34;&#34;&#34;
+        project_dir = project_dir or Path.cwd()
+        info = self.create(
+            name=name,
+            python=python,
+            in_project=False,
+            project_dir=project_dir,
+            backend=backend,
+            with_pip=with_pip,
+        )
+        return info
+
+    # --- Simple JSON summary for CLI or logs -------------------------------------
+    @staticmethod
+    def summarize(info: VenvInfo) -&gt; str:
+        return json.dumps(
+            {
+                &#34;name&#34;: info.name,
+                &#34;path&#34;: str(info.path),
+                &#34;python&#34;: str(info.python),
+                &#34;platform&#34;: info.platform,
+                &#34;created_at&#34;: info.created_at,
+            },
+            indent=2,
+        )</code></pre>
+</details>
+<div class="desc"><p>Cross-platform venv manager that can create, link, resolve and operate inside virtual environments
+without in-process "activation". Instead, it uses the venv's interpreter directly.</p>
+<h2 id="conventions">Conventions</h2>
+<ul>
+<li>Global root for venvs is taken from CONFIG["directories"]["venvs"] (preferred),
+else $CTFSOLVER_VENVS_HOME, else POSIX: ~/.local/share/ctfsolver/venvs,
+Windows: %APPDATA%\ctfsolver\venvs</li>
+<li>Project shortcut: <code>.venv</code> (symlink/junction) preferred; fallback <code>.venv.link</code> text file
+containing absolute path to the real venv directory.</li>
+</ul>
+<p>Public methods cover:
+- create (backend: stdlib venv or virtualenv)
+- link/unlink shortcuts
+- resolve_for current project
+- activation_command printer
+- run_in (execute using the venv's python)
+- detect_venvs, export_lockfiles (pip freeze + pipdeptree)
+- transfer, delete, list_venvs</p></div>
+<h3>Static methods</h3>
+<dl>
+<dt id="ctfsolver.venv.testing.main.ManagerVenv.summarize"><code class="name flex">
+<span>def <span class="ident">summarize</span></span>(<span>info: <a title="ctfsolver.venv.testing.main.VenvInfo" href="#ctfsolver.venv.testing.main.VenvInfo">VenvInfo</a>) ‑> str</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def summarize(info: VenvInfo) -&gt; str:
+    return json.dumps(
+        {
+            &#34;name&#34;: info.name,
+            &#34;path&#34;: str(info.path),
+            &#34;python&#34;: str(info.python),
+            &#34;platform&#34;: info.platform,
+            &#34;created_at&#34;: info.created_at,
+        },
+        indent=2,
+    )</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="ctfsolver.venv.testing.main.ManagerVenv.activation_command"><code class="name flex">
+<span>def <span class="ident">activation_command</span></span>(<span>self,<br>venv: <a title="ctfsolver.venv.testing.main.VenvInfo" href="#ctfsolver.venv.testing.main.VenvInfo">VenvInfo</a>,<br>shell: Optional[str] = None) ‑> str</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def activation_command(self, venv: VenvInfo, shell: Optional[str] = None) -&gt; str:
+    &#34;&#34;&#34;
+    Return the shell command string to activate the venv. Does not execute it.
+    shell: one of {&#39;bash&#39;,&#39;zsh&#39;,&#39;fish&#39;,&#39;pwsh&#39;,&#39;cmd&#39;} or None to auto-detect.
+    &#34;&#34;&#34;
+    if self._is_windows():
+        # Heuristic
+        env = os.environ
+        if not shell:
+            if &#34;PSModulePath&#34; in env:
+                shell = &#34;pwsh&#34;
+            elif env.get(&#34;ComSpec&#34;, &#34;&#34;).lower().endswith(&#34;cmd.exe&#34;):
+                shell = &#34;cmd&#34;
+            else:
+                shell = &#34;pwsh&#34;
+        if shell == &#34;pwsh&#34;:
+            return f&#39;&amp; &#34;{(venv.path / &#34;Scripts&#34; / &#34;Activate.ps1&#34;)}&#34;&#39;
+        elif shell == &#34;cmd&#34;:
+            return f&#39;&#34;{(venv.path / &#34;Scripts&#34; / &#34;activate.bat&#34;)}&#34;&#39;
+        else:
+            # allow bash via MSYS/git-bash etc.
+            return f&#39;source &#34;{(venv.path / &#34;Scripts&#34; / &#34;activate&#34;)}&#34;&#39;
+    else:
+        if not shell:
+            shell = Path(os.environ.get(&#34;SHELL&#34;, &#34;/bin/sh&#34;)).name
+        if shell == &#34;fish&#34;:
+            return f&#39;source &#34;{(venv.path / &#34;bin&#34; / &#34;activate.fish&#34;)}&#34;&#39;
+        return f&#39;source &#34;{(venv.path / &#34;bin&#34; / &#34;activate&#34;)}&#34;&#39;</code></pre>
+</details>
+<div class="desc"><p>Return the shell command string to activate the venv. Does not execute it.
+shell: one of {'bash','zsh','fish','pwsh','cmd'} or None to auto-detect.</p></div>
+</dd>
+<dt id="ctfsolver.venv.testing.main.ManagerVenv.check_venv_dir"><code class="name flex">
+<span>def <span class="ident">check_venv_dir</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_venv_dir(self):
+    if not self.venv_dir:
+        raise ValueError(&#34;Virtual environment directory is not set.&#34;)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="ctfsolver.venv.testing.main.ManagerVenv.create"><code class="name flex">
+<span>def <span class="ident">create</span></span>(<span>self,<br>name: str,<br>python: Optional[Path] = None,<br>in_project: bool = False,<br>project_dir: Optional[Path] = None,<br>backend: str = 'venv',<br>with_pip: bool = True) ‑> <a title="ctfsolver.venv.testing.main.VenvInfo" href="#ctfsolver.venv.testing.main.VenvInfo">VenvInfo</a></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create(
+    self,
+    name: str,
+    python: Optional[Path] = None,
+    in_project: bool = False,
+    project_dir: Optional[Path] = None,
+    backend: str = &#34;venv&#34;,  # &#39;venv&#39; | &#39;virtualenv&#39;
+    with_pip: bool = True,
+) -&gt; VenvInfo:
+    &#34;&#34;&#34;
+    Create a venv using stdlib venv or virtualenv, return VenvInfo and link to project_dir if provided.
+    &#34;&#34;&#34;
+    self.check_venv_dir()
+
+    if in_project:
+        if not project_dir:
+            project_dir = Path.cwd()
+        venv_path = project_dir / &#34;.venv.local&#34;
+    else:
+        venv_path = self.venv_dir / name  # type: ignore[operator]
+
+    venv_path = venv_path.resolve()
+    venv_path.parent.mkdir(parents=True, exist_ok=True)
+
+    if venv_path.exists():
+        raise FileExistsError(f&#34;Venv already exists: {venv_path}&#34;)
+
+    if backend not in {&#34;venv&#34;, &#34;virtualenv&#34;}:
+        raise ValueError(&#34;backend must be &#39;venv&#39; or &#39;virtualenv&#39;&#34;)
+
+    if backend == &#34;virtualenv&#34;:
+        if not _HAS_VIRTUALENV:
+            raise RuntimeError(
+                &#34;virtualenv backend requested but &#39;virtualenv&#39; is not installed.&#34;
+            )
+        args = [str(venv_path)]
+        if python:
+            args = [&#34;-p&#34;, str(python)] + args
+        virtualenv_cli_run(args)  # raises on failure
+    else:
+        # stdlib venv
+        builder = stdlib_venv.EnvBuilder(
+            with_pip=with_pip, clear=False, symlinks=True, upgrade=False
+        )
+        if python and python != Path(sys.executable):
+            # Spawn the requested interpreter to create the venv
+            cmd = [str(python), &#34;-m&#34;, &#34;venv&#34;, str(venv_path)]
+            if with_pip:
+                cmd.append(&#34;--with-pip&#34;)
+            subprocess.run(cmd, check=True)
+        else:
+            builder.create(str(venv_path))
+
+    py = self._venv_python_path(venv_path)
+    if not py.exists():
+        raise RuntimeError(f&#34;Venv created but interpreter not found at: {py}&#34;)
+
+    info = VenvInfo(
+        name=venv_path.name,
+        path=venv_path,
+        python=py,
+        platform=&#34;windows&#34; if self._is_windows() else &#34;posix&#34;,
+        created_at=venv_path.stat().st_ctime,
+    )
+
+    # Optional: link to a project
+    if project_dir:
+        self.link(project_dir, venv_path)
+
+    self.venv = info
+    return info</code></pre>
+</details>
+<div class="desc"><p>Create a venv using stdlib venv or virtualenv, return VenvInfo and link to project_dir if provided.</p></div>
+</dd>
+<dt id="ctfsolver.venv.testing.main.ManagerVenv.create_and_link_current"><code class="name flex">
+<span>def <span class="ident">create_and_link_current</span></span>(<span>self,<br>name: str,<br>*,<br>python: Optional[Path] = None,<br>backend: str = 'venv',<br>with_pip: bool = True,<br>project_dir: Optional[Path] = None) ‑> <a title="ctfsolver.venv.testing.main.VenvInfo" href="#ctfsolver.venv.testing.main.VenvInfo">VenvInfo</a></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_and_link_current(
+    self,
+    name: str,
+    *,
+    python: Optional[Path] = None,
+    backend: str = &#34;venv&#34;,
+    with_pip: bool = True,
+    project_dir: Optional[Path] = None,
+) -&gt; VenvInfo:
+    &#34;&#34;&#34;
+    Create a global venv and link it to the given project (default: CWD).
+    &#34;&#34;&#34;
+    project_dir = project_dir or Path.cwd()
+    info = self.create(
+        name=name,
+        python=python,
+        in_project=False,
+        project_dir=project_dir,
+        backend=backend,
+        with_pip=with_pip,
+    )
+    return info</code></pre>
+</details>
+<div class="desc"><p>Create a global venv and link it to the given project (default: CWD).</p></div>
+</dd>
+<dt id="ctfsolver.venv.testing.main.ManagerVenv.delete"><code class="name flex">
+<span>def <span class="ident">delete</span></span>(<span>self, venv_path: Path, force: bool = False) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def delete(self, venv_path: Path, force: bool = False) -&gt; None:
+    &#34;&#34;&#34;
+    Delete a venv directory recursively.
+    &#34;&#34;&#34;
+    vp = venv_path.resolve()
+    if not self._looks_like_venv(vp):
+        raise ValueError(f&#34;Not a venv: {vp}&#34;)
+    if not force:
+        raise PermissionError(&#34;Refusing to delete venv without force=True&#34;)
+    if self._is_windows():
+        shutil.rmtree(vp, onerror=self._onerror_win_readonly)
+    else:
+        shutil.rmtree(vp)</code></pre>
+</details>
+<div class="desc"><p>Delete a venv directory recursively.</p></div>
+</dd>
+<dt id="ctfsolver.venv.testing.main.ManagerVenv.detect_venvs"><code class="name flex">
+<span>def <span class="ident">detect_venvs</span></span>(<span>self, root: Path, recursive: bool = True) ‑> Iterable[pathlib._local.Path]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def detect_venvs(self, root: Path, recursive: bool = True) -&gt; Iterable[Path]:
+    &#34;&#34;&#34;
+    Yield venv directories under root.
+    &#34;&#34;&#34;
+    root = root.resolve()
+    if not root.exists():
+        return []
+
+    ignore = {&#34;.git&#34;, &#34;node_modules&#34;, &#34;__pycache__&#34;, &#34;.mypy_cache&#34;, &#34;.pytest_cache&#34;}
+    if not recursive:
+        for p in root.iterdir():
+            if p.name in ignore:
+                continue
+            if self._looks_like_venv(p):
+                yield p
+        return
+
+    for p in root.rglob(&#34;*&#34;):
+        try:
+            if p.is_dir():
+                name = p.name
+                if name in ignore:
+                    continue
+                if self._looks_like_venv(p):
+                    yield p
+                    # Skip descending into this venv
+                    # (pyvenv.cfg depth guard)
+                    continue
+        except PermissionError:
+            continue</code></pre>
+</details>
+<div class="desc"><p>Yield venv directories under root.</p></div>
+</dd>
+<dt id="ctfsolver.venv.testing.main.ManagerVenv.export_lockfiles"><code class="name flex">
+<span>def <span class="ident">export_lockfiles</span></span>(<span>self, venv_path: Path, out_dir: Path) ‑> tuple[pathlib._local.Path, pathlib._local.Path]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def export_lockfiles(self, venv_path: Path, out_dir: Path) -&gt; tuple[Path, Path]:
+    &#34;&#34;&#34;
+    Create requirements.txt and pipdeptree.txt for venv.
+    If pipdeptree is not installed, install temporarily and remove afterwards.
+    &#34;&#34;&#34;
+    out_dir.mkdir(parents=True, exist_ok=True)
+    req = out_dir / &#34;requirements.txt&#34;
+    pdt = out_dir / &#34;pipdeptree.txt&#34;
+
+    # requirements
+    self.run_in(venv_path, [&#34;-m&#34;, &#34;pip&#34;, &#34;freeze&#34;], capture_output=True)
+    cp = self.run_in(venv_path, [&#34;-m&#34;, &#34;pip&#34;, &#34;freeze&#34;], capture_output=True)
+    req.write_text(cp.stdout, encoding=&#34;utf-8&#34;)
+
+    # pipdeptree
+    has_pdt = self.run_in(
+        venv_path,
+        [&#34;-m&#34;, &#34;pip&#34;, &#34;show&#34;, &#34;pipdeptree&#34;],
+        check=False,
+        capture_output=True,
+    )
+    injected = False
+    if has_pdt.returncode != 0:
+        self.run_in(
+            venv_path, [&#34;-m&#34;, &#34;pip&#34;, &#34;install&#34;, &#34;pipdeptree&gt;=2&#34;], check=True
+        )
+        injected = True
+
+    cp2 = self.run_in(
+        venv_path, [&#34;-m&#34;, &#34;pipdeptree&#34;, &#34;--freeze&#34;], capture_output=True
+    )
+    pdt.write_text(cp2.stdout, encoding=&#34;utf-8&#34;)
+
+    if injected:
+        # Best-effort uninstall
+        self.run_in(
+            venv_path, [&#34;-m&#34;, &#34;pip&#34;, &#34;uninstall&#34;, &#34;-y&#34;, &#34;pipdeptree&#34;], check=False
+        )
+
+    return req, pdt</code></pre>
+</details>
+<div class="desc"><p>Create requirements.txt and pipdeptree.txt for venv.
+If pipdeptree is not installed, install temporarily and remove afterwards.</p></div>
+</dd>
+<dt id="ctfsolver.venv.testing.main.ManagerVenv.link"><code class="name flex">
+<span>def <span class="ident">link</span></span>(<span>self, project_dir: Path, venv_path: Path) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def link(self, project_dir: Path, venv_path: Path) -&gt; None:
+    &#34;&#34;&#34;
+    Create a project shortcut to an existing venv.
+    Prefer a symlink (POSIX) or junction/symlink (Windows). Fallback to .venv.link text file.
+    &#34;&#34;&#34;
+    project_dir = project_dir.resolve()
+    venv_path = venv_path.resolve()
+    if not self._looks_like_venv(venv_path):
+        raise ValueError(f&#34;Not a valid venv: {venv_path}&#34;)
+
+    link_target = self._shortcut_path(project_dir)
+
+    # Clean previous
+    if link_target.exists() or link_target.is_symlink():
+        if link_target.is_dir() and not link_target.is_symlink():
+            shutil.rmtree(link_target)
+        else:
+            link_target.unlink(missing_ok=True)
+
+    try:
+        if self._is_windows():
+            # Try directory symlink; if not permitted, try junction via mklink /J (needs shell).
+            try:
+                link_target.symlink_to(venv_path, target_is_directory=True)
+            except OSError:
+                # Junction fallback
+                subprocess.run(
+                    [&#34;cmd&#34;, &#34;/c&#34;, &#34;mklink&#34;, &#34;/J&#34;, str(link_target), str(venv_path)],
+                    check=True,
+                    stdout=subprocess.PIPE,
+                    stderr=subprocess.PIPE,
+                )
+        else:
+            link_target.symlink_to(venv_path, target_is_directory=True)
+    except Exception:
+        # Fallback: .venv.link file
+        self._linkfile_path(project_dir).write_text(
+            str(venv_path), encoding=&#34;utf-8&#34;
+        )</code></pre>
+</details>
+<div class="desc"><p>Create a project shortcut to an existing venv.
+Prefer a symlink (POSIX) or junction/symlink (Windows). Fallback to .venv.link text file.</p></div>
+</dd>
+<dt id="ctfsolver.venv.testing.main.ManagerVenv.list_venvs"><code class="name flex">
+<span>def <span class="ident">list_venvs</span></span>(<span>self) ‑> list[<a title="ctfsolver.venv.testing.main.VenvInfo" href="#ctfsolver.venv.testing.main.VenvInfo">VenvInfo</a>]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def list_venvs(self) -&gt; list[VenvInfo]:
+    &#34;&#34;&#34;
+    List venvs in the global directory.
+    &#34;&#34;&#34;
+    self.check_venv_dir()
+    out: list[VenvInfo] = []
+    for p in sorted(self.venv_dir.iterdir()):  # type: ignore[union-attr]
+        if self._looks_like_venv(p):
+            py = self._venv_python_path(p)
+            out.append(
+                VenvInfo(
+                    name=p.name,
+                    path=p,
+                    python=py,
+                    platform=&#34;windows&#34; if self._is_windows() else &#34;posix&#34;,
+                    created_at=p.stat().st_ctime,
+                )
+            )
+    return out</code></pre>
+</details>
+<div class="desc"><p>List venvs in the global directory.</p></div>
+</dd>
+<dt id="ctfsolver.venv.testing.main.ManagerVenv.resolve_for"><code class="name flex">
+<span>def <span class="ident">resolve_for</span></span>(<span>self, project_dir: Path) ‑> <a title="ctfsolver.venv.testing.main.VenvInfo" href="#ctfsolver.venv.testing.main.VenvInfo">VenvInfo</a> | None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def resolve_for(self, project_dir: Path) -&gt; Optional[VenvInfo]:
+    &#34;&#34;&#34;
+    Resolve VenvInfo for a project directory, if a shortcut/link exists.
+    &#34;&#34;&#34;
+    venv_path = self._resolve_link(project_dir.resolve())
+    if not venv_path:
+        return None
+    py = self._venv_python_path(venv_path)
+    if not py.exists():
+        return None
+    return VenvInfo(
+        name=venv_path.name,
+        path=venv_path,
+        python=py,
+        platform=&#34;windows&#34; if self._is_windows() else &#34;posix&#34;,
+        created_at=venv_path.stat().st_ctime,
+    )</code></pre>
+</details>
+<div class="desc"><p>Resolve VenvInfo for a project directory, if a shortcut/link exists.</p></div>
+</dd>
+<dt id="ctfsolver.venv.testing.main.ManagerVenv.run_in"><code class="name flex">
+<span>def <span class="ident">run_in</span></span>(<span>self,<br>venv_path: Path,<br>args: Sequence[str],<br>*,<br>cwd: Optional[Path] = None,<br>env: Optional[dict[str, str]] = None,<br>check: bool = True,<br>capture_output: bool = False) ‑> subprocess.CompletedProcess</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_in(
+    self,
+    venv_path: Path,
+    args: Sequence[str],
+    *,
+    cwd: Optional[Path] = None,
+    env: Optional[dict[str, str]] = None,
+    check: bool = True,
+    capture_output: bool = False,
+) -&gt; subprocess.CompletedProcess:
+    &#34;&#34;&#34;
+    Execute a command using the venv&#39;s python interpreter: python -m &lt;module&gt; ... or arbitrary script.
+    If args[0] == &#39;-m&#39;, we run &#39;python -m ...&#39;; otherwise we execute the given argv via the venv&#39;s python.
+    &#34;&#34;&#34;
+    python = self._venv_python_path(venv_path)
+    if not python.exists():
+        raise FileNotFoundError(f&#34;Python not found in venv: {python}&#34;)
+
+    if args and args[0] == &#34;-m&#34;:
+        cmd = [str(python)] + list(args)
+    elif args and args[0].endswith(&#34;.py&#34;):
+        cmd = [str(python)] + list(args)
+    else:
+        # Run arbitrary command via the venv&#39;s environment by prefixing python -c &#39;import runpy; ...&#39;
+        # But simpler &amp; robust: use python -m to run modules like pip
+        cmd = [str(python)] + list(args)
+
+    return subprocess.run(
+        cmd,
+        cwd=str(cwd) if cwd else None,
+        env=env,
+        check=check,
+        capture_output=capture_output,
+        text=True,
+    )</code></pre>
+</details>
+<div class="desc"><p>Execute a command using the venv's python interpreter: python -m <module> &hellip; or arbitrary script.
+If args[0] == '-m', we run 'python -m &hellip;'; otherwise we execute the given argv via the venv's python.</p></div>
+</dd>
+<dt id="ctfsolver.venv.testing.main.ManagerVenv.transfer"><code class="name flex">
+<span>def <span class="ident">transfer</span></span>(<span>self, venv_path: Path, dest_root: Optional[Path] = None, move: bool = True) ‑> pathlib._local.Path</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def transfer(
+    self, venv_path: Path, dest_root: Optional[Path] = None, move: bool = True
+) -&gt; Path:
+    &#34;&#34;&#34;
+    Move or copy a venv to the global store (or a custom root).
+    Returns the new path.
+    &#34;&#34;&#34;
+    self.check_venv_dir()
+    src = venv_path.resolve()
+    if not self._looks_like_venv(src):
+        raise ValueError(f&#34;Not a valid venv: {src}&#34;)
+
+    dest_root = (dest_root or self.venv_dir).resolve()  # type: ignore[union-attr]
+    dest_root.mkdir(parents=True, exist_ok=True)
+
+    base = src.name
+    target = dest_root / base
+    i = 1
+    while target.exists():
+        target = dest_root / f&#34;{base}-{i}&#34;
+        i += 1
+
+    if move:
+        shutil.move(str(src), str(target))
+    else:
+        shutil.copytree(src, target, symlinks=True)
+
+    return target.resolve()</code></pre>
+</details>
+<div class="desc"><p>Move or copy a venv to the global store (or a custom root).
+Returns the new path.</p></div>
+</dd>
+<dt id="ctfsolver.venv.testing.main.ManagerVenv.unlink"><code class="name flex">
+<span>def <span class="ident">unlink</span></span>(<span>self, project_dir: Path) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def unlink(self, project_dir: Path) -&gt; None:
+    sp = self._shortcut_path(project_dir)
+    lp = self._linkfile_path(project_dir)
+    if sp.exists() or sp.is_symlink():
+        if sp.is_dir() and not sp.is_symlink():
+            shutil.rmtree(sp)
+        else:
+            sp.unlink(missing_ok=True)
+    if lp.exists():
+        lp.unlink()</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="ctfsolver.venv.testing.main.VenvInfo"><code class="flex name class">
+<span>class <span class="ident">VenvInfo</span></span>
+<span>(</span><span>name: str, path: Path, python: Path, platform: str, created_at: float)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass(frozen=True)
+class VenvInfo:
+    name: str
+    path: Path
+    python: Path
+    platform: str  # &#39;posix&#39; | &#39;windows&#39;
+    created_at: float</code></pre>
+</details>
+<div class="desc"><p>VenvInfo(name: 'str', path: 'Path', python: 'Path', platform: 'str', created_at: 'float')</p></div>
+<h3>Instance variables</h3>
+<dl>
+<dt id="ctfsolver.venv.testing.main.VenvInfo.created_at"><code class="name">var <span class="ident">created_at</span> : float</code></dt>
+<dd>
+<div class="desc"><p>The type of the None singleton.</p></div>
+</dd>
+<dt id="ctfsolver.venv.testing.main.VenvInfo.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"><p>The type of the None singleton.</p></div>
+</dd>
+<dt id="ctfsolver.venv.testing.main.VenvInfo.path"><code class="name">var <span class="ident">path</span> : pathlib._local.Path</code></dt>
+<dd>
+<div class="desc"><p>The type of the None singleton.</p></div>
+</dd>
+<dt id="ctfsolver.venv.testing.main.VenvInfo.platform"><code class="name">var <span class="ident">platform</span> : str</code></dt>
+<dd>
+<div class="desc"><p>The type of the None singleton.</p></div>
+</dd>
+<dt id="ctfsolver.venv.testing.main.VenvInfo.python"><code class="name">var <span class="ident">python</span> : pathlib._local.Path</code></dt>
+<dd>
+<div class="desc"><p>The type of the None singleton.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="ctfsolver.venv.testing" href="index.html">ctfsolver.venv.testing</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="ctfsolver.venv.testing.main.ManagerVenv" href="#ctfsolver.venv.testing.main.ManagerVenv">ManagerVenv</a></code></h4>
+<ul class="">
+<li><code><a title="ctfsolver.venv.testing.main.ManagerVenv.activation_command" href="#ctfsolver.venv.testing.main.ManagerVenv.activation_command">activation_command</a></code></li>
+<li><code><a title="ctfsolver.venv.testing.main.ManagerVenv.check_venv_dir" href="#ctfsolver.venv.testing.main.ManagerVenv.check_venv_dir">check_venv_dir</a></code></li>
+<li><code><a title="ctfsolver.venv.testing.main.ManagerVenv.create" href="#ctfsolver.venv.testing.main.ManagerVenv.create">create</a></code></li>
+<li><code><a title="ctfsolver.venv.testing.main.ManagerVenv.create_and_link_current" href="#ctfsolver.venv.testing.main.ManagerVenv.create_and_link_current">create_and_link_current</a></code></li>
+<li><code><a title="ctfsolver.venv.testing.main.ManagerVenv.delete" href="#ctfsolver.venv.testing.main.ManagerVenv.delete">delete</a></code></li>
+<li><code><a title="ctfsolver.venv.testing.main.ManagerVenv.detect_venvs" href="#ctfsolver.venv.testing.main.ManagerVenv.detect_venvs">detect_venvs</a></code></li>
+<li><code><a title="ctfsolver.venv.testing.main.ManagerVenv.export_lockfiles" href="#ctfsolver.venv.testing.main.ManagerVenv.export_lockfiles">export_lockfiles</a></code></li>
+<li><code><a title="ctfsolver.venv.testing.main.ManagerVenv.link" href="#ctfsolver.venv.testing.main.ManagerVenv.link">link</a></code></li>
+<li><code><a title="ctfsolver.venv.testing.main.ManagerVenv.list_venvs" href="#ctfsolver.venv.testing.main.ManagerVenv.list_venvs">list_venvs</a></code></li>
+<li><code><a title="ctfsolver.venv.testing.main.ManagerVenv.resolve_for" href="#ctfsolver.venv.testing.main.ManagerVenv.resolve_for">resolve_for</a></code></li>
+<li><code><a title="ctfsolver.venv.testing.main.ManagerVenv.run_in" href="#ctfsolver.venv.testing.main.ManagerVenv.run_in">run_in</a></code></li>
+<li><code><a title="ctfsolver.venv.testing.main.ManagerVenv.summarize" href="#ctfsolver.venv.testing.main.ManagerVenv.summarize">summarize</a></code></li>
+<li><code><a title="ctfsolver.venv.testing.main.ManagerVenv.transfer" href="#ctfsolver.venv.testing.main.ManagerVenv.transfer">transfer</a></code></li>
+<li><code><a title="ctfsolver.venv.testing.main.ManagerVenv.unlink" href="#ctfsolver.venv.testing.main.ManagerVenv.unlink">unlink</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="ctfsolver.venv.testing.main.VenvInfo" href="#ctfsolver.venv.testing.main.VenvInfo">VenvInfo</a></code></h4>
+<ul class="">
+<li><code><a title="ctfsolver.venv.testing.main.VenvInfo.created_at" href="#ctfsolver.venv.testing.main.VenvInfo.created_at">created_at</a></code></li>
+<li><code><a title="ctfsolver.venv.testing.main.VenvInfo.name" href="#ctfsolver.venv.testing.main.VenvInfo.name">name</a></code></li>
+<li><code><a title="ctfsolver.venv.testing.main.VenvInfo.path" href="#ctfsolver.venv.testing.main.VenvInfo.path">path</a></code></li>
+<li><code><a title="ctfsolver.venv.testing.main.VenvInfo.platform" href="#ctfsolver.venv.testing.main.VenvInfo.platform">platform</a></code></li>
+<li><code><a title="ctfsolver.venv.testing.main.VenvInfo.python" href="#ctfsolver.venv.testing.main.VenvInfo.python">python</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

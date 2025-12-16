@@ -63,3 +63,39 @@ Module Contents
 
 
 
+   .. py:method:: normalize_name(name)
+
+      Normalize a file or folder name so different naming styles correlate.
+
+
+
+   .. py:method:: string_similarity(str1, str2)
+
+      Calculate the similarity ratio between two strings using rapidfuzz.
+
+      :param str1: The first string.
+      :type str1: str
+      :param str2: The second string.
+      :type str2: str
+
+      :returns: Similarity ratio between 0 and 100.
+      :rtype: float
+
+
+
+   .. py:method:: check_name_similarity_in_files(files, information, threshold = 70.0)
+
+      Check for similar names in a list of files based on provided information.
+
+      :param information: List of strings to compare against file names.
+      :type information: list
+      :param files: List of file names to check.
+      :type files: list
+      :param threshold: Similarity threshold (0-100) to consider a match.
+      :type threshold: float
+
+      :returns: List of files that have similar names above the threshold.
+      :rtype: list
+
+
+

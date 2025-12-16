@@ -7,6 +7,9 @@ wheel>=0.37.0
 dash_cytoscape>=1.0.2
 dash>=3.2.0
 colorama>=0.4.6
+RapidFuzz>=3.14.3
+pyperclip>=1.11.0
+typer[all]
 
 [dev]
 pytest>=6.2.4
@@ -25,6 +28,9 @@ sphinx-rtd-theme>=3.0.2
 python-call-graph>=2.1.4
 sphinx-autoapi>=3.0.0
 pdoc3>=0.11.6
+
+[docs-autoapi]
+sphinx-autoapi>=3.0.0
 
 [docs-live]
 sphinx-autobuild>=2024.9.3

@@ -18,7 +18,7 @@ Classes
 
 `ManagerFile(*args, **kwargs)`
 :   ManagerFile class for handling file operations in CTF solving context.
-    This class inherits from ManagerFilePcap, ManagerFileRegex, and ManagerFolder,
+    This class inherits from ManagerFilePcap, ManagerFileRegex, ManagerFolder, and ManagerFunction,
     providing methods for initializing file-related ancestors and searching for base64
     strings within files.
     Attributes:
@@ -45,9 +45,11 @@ Classes
     * ctfsolver.managers.manager_files_pcap.ManagerFilePcap
     * ctfsolver.managers.manager_files_re.ManagerFileRegex
     * ctfsolver.managers.manager_folder.ManagerFolder
+    * ctfsolver.managers.manager_functions.ManagerFunction
 
     ### Descendants
 
+    * ctfsolver.folders.link_ctf_folders.Linking
     * ctfsolver.src.ctfsolver.CTFSolver
 
     ### Methods

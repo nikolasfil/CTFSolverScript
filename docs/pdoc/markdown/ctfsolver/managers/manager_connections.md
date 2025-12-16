@@ -126,7 +126,7 @@ Classes
         Returns:
             None
 
-    `recv_lines(self, number=1, display=False, save=False)`
+    `recv_lines(self, number=1, display=False, save=False, *args, **kwargs)`
     :   Description:
             Receives the output of the menu based on the number of lines provided.
             If display is True, it prints the output of everything received.

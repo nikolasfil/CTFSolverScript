@@ -1,0 +1,148 @@
+ctfsolver.managers.manager_functions
+====================================
+
+.. py:module:: ctfsolver.managers.manager_functions
+
+.. autoapi-nested-parse::
+
+   manager_functions.py
+
+   This module provides the ManagerFunction class, which offers utility methods for
+   introspecting and managing functions within a class and Python source files. It includes
+   methods to list class functions, retrieve references to function usages in files, and
+   extract function definitions from Python files using the AST module.
+
+   Classes:
+       ManagerFunction: Provides methods for function introspection and management.
+
+   .. rubric:: Example
+
+   manager = ManagerFunction()
+   functions = manager.get_self_functions()
+   references = manager.get_function_reference('my_func', 'my_file.py')
+   ast_functions = manager.get_functions_from_file(Path('my_file.py'))
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   ctfsolver.managers.manager_functions.ManagerFunction
+
+
+Module Contents
+---------------
+
+.. py:class:: ManagerFunction(*args, **kwargs)
+
+   ManagerFunction provides utility methods for introspecting and managing functions within a class and Python source files.
+
+   This class includes methods to:
+       - List all callable functions defined in the class.
+       - Retrieve references to function usages in a given file.
+       - Extract function definitions from Python files using the AST module.
+
+   .. method:: get_self_functions()
+
+      
+      Lists all callable functions of the class instance, excluding special methods.
+      
+
+   .. method:: get_function_reference(function, file)
+
+      
+      Finds and returns all lines in the specified file where the given function name appears.
+      
+      :param function: The name of the function to search for.
+      :type function: str
+      :param file: The path to the file to search in.
+      :type file: str
+      
+      :returns: Lines from the file containing the function name.
+      :rtype: list[str]
+      
+      :raises ValueError: If the function is not found in the class.
+      
+
+   .. method:: get_functions_from_file(file_path, function_name=None)
+
+      
+      Parses the given Python file and returns function definitions using AST.
+      
+      :param file_path: Path to the Python file.
+      :type file_path: Path
+      :param function_name: Specific function name to search for.
+      :type function_name: str, optional
+      
+      :returns: List of function definitions, a single function definition, or None.
+      :rtype: list[ast.FunctionDef] | ast.FunctionDef | None
+      
+
+   .. method:: find_function_from_file(file_path, function_name)
+
+      
+      Deprecated. Use get_functions_from_file instead.
+      
+
+
+   .. py:attribute:: funcCrawler
+
+
+   .. py:attribute:: ignored_functions
+      :type:  set[str]
+      :value: ['__init__']
+
+
+
+   .. py:method:: get_self_functions()
+
+      Retrieves a list of all callable methods of the current instance, excluding special methods.
+      :returns: A list of method names (str) that are callable and do not start with double underscores.
+      :rtype: list
+
+
+
+   .. py:method:: get_function_reference(function, file)
+
+      Retrieves all lines from a file that reference a specified function.
+      :param function: The name of the function to search for.
+      :type function: str
+      :param file: The path to the file in which to search for the function reference.
+      :type file: str
+
+      :returns: A list of strings, each representing a line from the file where the function is referenced.
+      :rtype: list
+
+      :raises ValueError: If the specified function is not found in the class.
+
+
+
+   .. py:method:: function_object(file_path, function_name)
+
+
+   .. py:method:: get_functions_from_file(file_path, function_name = None)
+
+      Extracts function definitions from a Python file using AST parsing.
+      :param file_path: The path to the Python file to analyze.
+      :type file_path: Path
+      :param function_name: The name of a specific function to find. If None, all function definitions are returned.
+      :type function_name: str, optional
+
+      :returns:     - If function_name is provided and found, returns the corresponding ast.FunctionDef object.
+                    - If function_name is not provided, returns a list of all ast.FunctionDef objects found in the file.
+                    - Returns None if the specified function_name is not found.
+      :rtype: list[ast.FunctionDef] | None | ast.FunctionDef
+
+      :raises FileNotFoundError: If the specified file_path does not exist.
+      :raises SyntaxError: If the file contains invalid Python syntax.
+
+
+
+   .. py:method:: find_function_from_file(file_path, function_name)
+
+      Depracated
+
+
+

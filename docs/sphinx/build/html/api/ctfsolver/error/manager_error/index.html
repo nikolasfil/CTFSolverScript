@@ -3,11 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="ctfsolver.find_usage" href="../../find_usage/index.html" /><link rel="prev" title="ctfsolver.error" href="../index.html" />
-        <link rel="canonical" href="https://nikolasfil.github.io/CTFSolverScript/api/ctfsolver/error/manager_error/index.html" />
+<link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="ctfsolver.feature_test" href="../../feature_test/index.html" /><link rel="prev" title="ctfsolver.error" href="../index.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
-        <title>ctfsolver.error.manager_error - ctfsolver 0.0.13 documentation</title>
+        <title>ctfsolver.error.manager_error - ctfsolver 0.0.14 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=25af2a20" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
@@ -169,7 +168,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../../index.html"><div class="brand">ctfsolver 0.0.13 documentation</div></a>
+      <a href="../../../../index.html"><div class="brand">ctfsolver 0.0.14 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -192,7 +191,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../../index.html">
   
-  <span class="sidebar-brand-text">ctfsolver 0.0.13 documentation</span>
+  <span class="sidebar-brand-text">ctfsolver 0.0.14 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -205,41 +204,60 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../modules/module_notes.html">Manual Modules Notes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Manual Modules Notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../modules/usage.html">Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../modules/architecture.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../modules/architecture.html#architecture-tree">Architecture Tree</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../modules/installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../modules/changelog.html">Changelog</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../modules/contributing.html">Contributing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../modules/inline_tool/inline_tool_functionality.html">Inline Tool Functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../modules/inline_tool/inline_tool_functionality.html#ctfsolver-cli-tool-help">CTFSolver cli tool help</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../../index.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../../index.html">ctfsolver</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of ctfsolver</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../config/index.html">ctfsolver.config</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of ctfsolver.config</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../config/__main__/index.html">ctfsolver.config.__main__</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../cli/index.html">ctfsolver.cli</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of ctfsolver.cli</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/main/index.html">ctfsolver.cli.main</a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../cli/subcli/index.html">ctfsolver.cli.subcli</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of ctfsolver.cli.subcli</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/subcli/ctf/index.html">ctfsolver.cli.subcli.ctf</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/subcli/venv/index.html">ctfsolver.cli.subcli.venv</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../config/index.html">ctfsolver.config</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of ctfsolver.config</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../config/challenge_config/index.html">ctfsolver.config.challenge_config</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../config/global_config/index.html">ctfsolver.config.global_config</a></li>
 </ul>
 </li>
-<li class="toctree-l3 current has-children"><a class="reference internal" href="../index.html">ctfsolver.error</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of ctfsolver.error</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3 current has-children"><a class="reference internal" href="../index.html">ctfsolver.error</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of ctfsolver.error</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l4 current current-page"><a class="current reference internal" href="#">ctfsolver.error.manager_error</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../find_usage/index.html">ctfsolver.find_usage</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of ctfsolver.find_usage</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../find_usage/__main__/index.html">ctfsolver.find_usage.__main__</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../feature_test/index.html">ctfsolver.feature_test</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of ctfsolver.feature_test</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../feature_test/attempt_at_pcap/index.html">ctfsolver.feature_test.attempt_at_pcap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../feature_test/dash_test/index.html">ctfsolver.feature_test.dash_test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../feature_test/manager_graphs/index.html">ctfsolver.feature_test.manager_graphs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../feature_test/pyvis_class_test/index.html">ctfsolver.feature_test.pyvis_class_test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../feature_test/pyvis_test/index.html">ctfsolver.feature_test.pyvis_test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../feature_test/testing_files/index.html">ctfsolver.feature_test.testing_files</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../folders/index.html">ctfsolver.folders</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of ctfsolver.folders</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../folders/__main__/index.html">ctfsolver.folders.__main__</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../find_usage/index.html">ctfsolver.find_usage</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of ctfsolver.find_usage</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../find_usage/function_definition_class/index.html">ctfsolver.find_usage.function_definition_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../find_usage/gathering/index.html">ctfsolver.find_usage.gathering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../find_usage/manager_gathering/index.html">ctfsolver.find_usage.manager_gathering</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../forensics/index.html">ctfsolver.forensics</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of ctfsolver.forensics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../folders/index.html">ctfsolver.folders</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of ctfsolver.folders</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../folders/finding_writeups/index.html">ctfsolver.folders.finding_writeups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../folders/link_ctf_folders/index.html">ctfsolver.folders.link_ctf_folders</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../forensics/index.html">ctfsolver.forensics</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of ctfsolver.forensics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../forensics/manager_dash/index.html">ctfsolver.forensics.manager_dash</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../inline/index.html">ctfsolver.inline</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of ctfsolver.inline</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../inline/__main__/index.html">ctfsolver.inline.__main__</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../inline/inline_tool/index.html">ctfsolver.inline.inline_tool</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../inline/parser/index.html">ctfsolver.inline.parser</a></li>
-</ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../managers/index.html">ctfsolver.managers</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of ctfsolver.managers</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../managers/index.html">ctfsolver.managers</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of ctfsolver.managers</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../managers/manager_class/index.html">ctfsolver.managers.manager_class</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../managers/manager_connections/index.html">ctfsolver.managers.manager_connections</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../managers/manager_crypto/index.html">ctfsolver.managers.manager_crypto</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../managers/manager_file/index.html">ctfsolver.managers.manager_file</a></li>
@@ -247,31 +265,33 @@
 <li class="toctree-l4"><a class="reference internal" href="../../managers/manager_files_pcap/index.html">ctfsolver.managers.manager_files_pcap</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../managers/manager_files_re/index.html">ctfsolver.managers.manager_files_re</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../managers/manager_folder/index.html">ctfsolver.managers.manager_folder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../managers/manager_functions/index.html">ctfsolver.managers.manager_functions</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../scripts/index.html">ctfsolver.scripts</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of ctfsolver.scripts</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../scripts/__main__/index.html">ctfsolver.scripts.__main__</a></li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../../scripts/clean_folders/index.html">ctfsolver.scripts.clean_folders</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of ctfsolver.scripts.clean_folders</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../scripts/clean_folders/__main__/index.html">ctfsolver.scripts.clean_folders.__main__</a></li>
-</ul>
-</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../scripts/index.html">ctfsolver.scripts</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of ctfsolver.scripts</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../scripts/clean_folders/index.html">ctfsolver.scripts.clean_folders</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../scripts/run_clean_folders/index.html">ctfsolver.scripts.run_clean_folders</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../scripts/run_folders/index.html">ctfsolver.scripts.run_folders</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../scripts/run_solution/index.html">ctfsolver.scripts.run_solution</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../src/index.html">ctfsolver.src</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of ctfsolver.src</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../src/index.html">ctfsolver.src</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of ctfsolver.src</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../src/ctfsolver/index.html">ctfsolver.src.ctfsolver</a></li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../../src/data/index.html">ctfsolver.src.data</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of ctfsolver.src.data</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../src/data/data/index.html">ctfsolver.src.data.data</a></li>
-</ul>
-</li>
 <li class="toctree-l4"><a class="reference internal" href="../../src/position_cipher_functions/index.html">ctfsolver.src.position_cipher_functions</a></li>
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../template/index.html">ctfsolver.template</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of ctfsolver.template</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../template/__main__/index.html">ctfsolver.template.__main__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../template/gathering_template/index.html">ctfsolver.template.gathering_template</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../template/solution_template/index.html">ctfsolver.template.solution_template</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../venv/index.html">ctfsolver.venv</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle navigation of ctfsolver.venv</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../venv/main/index.html">ctfsolver.venv.main</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../venv/manager_venv/index.html">ctfsolver.venv.manager_venv</a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../venv/testing/index.html">ctfsolver.venv.testing</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle navigation of ctfsolver.venv.testing</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../venv/testing/main/index.html">ctfsolver.venv.testing.main</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -347,18 +367,18 @@ error_manager.try_function(main_function)</p>
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="ctfsolver.error.manager_error.ManagerError">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ManagerError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/ctfsolver/error/manager_error.html#ManagerError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.error.manager_error.ManagerError" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ManagerError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/error/manager_error.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.error.manager_error.ManagerError" title="Link to this definition">¶</a></dt>
 <dd><p>Handles exceptions with colored output and optional verbose tracebacks for CLI applications.</p>
 <p>This class provides methods to manage error reporting, including printing colored error messages,
 displaying full tracebacks when verbose mode is enabled, and gracefully handling unexpected exceptions
 and keyboard interrupts.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctfsolver.error.manager_error.ManagerError.verbose">
-<span class="sig-name descname"><span class="pre">verbose</span></span><a class="reference internal" href="../../../../_modules/ctfsolver/error/manager_error.html#ManagerError.verbose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.error.manager_error.ManagerError.verbose" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">verbose</span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/error/manager_error.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.error.manager_error.ManagerError.verbose" title="Link to this definition">¶</a></dt>
 <dd><p>If True, displays full traceback on error; otherwise, shows a colored error message.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -379,12 +399,12 @@ Executes a function, catching and handling exceptions and keyboard interrupts gr
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">verbose</span></span><a class="reference internal" href="../../../../_modules/ctfsolver/error/manager_error.html#ManagerError.verbose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">verbose</span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/error/manager_error.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.error.manager_error.ManagerError.handle">
-<span class="sig-name descname"><span class="pre">handle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exception</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.13)"><span class="pre">Exception</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">exit_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/ctfsolver/error/manager_error.html#ManagerError.handle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.error.manager_error.ManagerError.handle" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">handle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exception</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exit_code</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/error/manager_error.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.error.manager_error.ManagerError.handle" title="Link to this definition">¶</a></dt>
 <dd><p>Handles exceptions by printing error information in color and exiting the program.</p>
 <blockquote>
 <div><p>exception (Exception): The exception instance to handle.
@@ -395,14 +415,20 @@ exit_code (int, optional): The exit code to use when exiting the program. Defaul
 <dd class="field-odd"><p>None</p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#SystemExit" title="(in Python v3.13)"><strong>SystemExit</strong></a> – Exits the program with the specified exit code.</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#SystemExit" title="(in Python v3.14)"><strong>SystemExit</strong></a> – Exits the program with the specified exit code.</p>
+</dd>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>exception</strong> (<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.14)"><em>Exception</em></a>)</p></li>
+<li><p><strong>exit_code</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>)</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.error.manager_error.ManagerError.try_function">
-<span class="sig-name descname"><span class="pre">try_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">callable</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/ctfsolver/error/manager_error.html#ManagerError.try_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.error.manager_error.ManagerError.try_function" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">try_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/error/manager_error.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.error.manager_error.ManagerError.try_function" title="Link to this definition">¶</a></dt>
 <dd><p>Executes a given function with provided arguments, handling exceptions.
 :param function: The function to execute.
 :type function: callable
@@ -415,8 +441,11 @@ exit_code (int, optional): The exit code to use when exiting the program. Defaul
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>Handles all exceptions using the handle method.</strong> – </p></li>
-<li><p><strong>Prints a message if interrupted by the user</strong><strong> (</strong><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyboardInterrupt" title="(in Python v3.13)"><strong>KeyboardInterrupt</strong></a><strong>)</strong><strong>.</strong> – </p></li>
+<li><p><strong>Prints a message if interrupted by the user</strong><strong> (</strong><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyboardInterrupt" title="(in Python v3.14)"><strong>KeyboardInterrupt</strong></a><strong>)</strong><strong>.</strong> – </p></li>
 </ul>
+</dd>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>function</strong> (<em>callable</em>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -431,12 +460,12 @@ exit_code (int, optional): The exit code to use when exiting the program. Defaul
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../../find_usage/index.html">
+          <a class="next-page" href="../../feature_test/index.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">ctfsolver.find_usage</div>
+                <div class="title">ctfsolver.feature_test</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -504,7 +533,7 @@ exit_code (int, optional): The exit code to use when exiting the program. Defaul
       
     </aside>
   </div>
-</div><script src="../../../../_static/documentation_options.js?v=9fc46840"></script>
+</div><script src="../../../../_static/documentation_options.js?v=544df88d"></script>
     <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/scripts/furo.js?v=46bd48cc"></script>

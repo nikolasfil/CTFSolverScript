@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: ctfsolver
-Version: 0.0.13
+Version: 0.0.14
 Summary: An all in one library for solving CTF challenges
 Author: Nikolas Filippatos
 License: MIT
@@ -20,6 +20,9 @@ Requires-Dist: wheel>=0.37.0
 Requires-Dist: dash_cytoscape>=1.0.2
 Requires-Dist: dash>=3.2.0
 Requires-Dist: colorama>=0.4.6
+Requires-Dist: RapidFuzz>=3.14.3
+Requires-Dist: pyperclip>=1.11.0
+Requires-Dist: typer[all]
 Provides-Extra: dev
 Requires-Dist: pytest>=6.2.4; extra == "dev"
 Requires-Dist: twine>=3.4.2; extra == "dev"
@@ -38,6 +41,8 @@ Requires-Dist: sphinx-autoapi>=3.0.0; extra == "docs"
 Requires-Dist: pdoc3>=0.11.6; extra == "docs"
 Provides-Extra: docs-live
 Requires-Dist: sphinx-autobuild>=2024.9.3; extra == "docs-live"
+Provides-Extra: docs-autoapi
+Requires-Dist: sphinx-autoapi>=3.0.0; extra == "docs-autoapi"
 Dynamic: license-file
 
 # CTFSolverScript

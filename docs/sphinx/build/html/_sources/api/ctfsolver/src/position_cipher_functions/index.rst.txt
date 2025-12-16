@@ -50,7 +50,7 @@ Module Contents
    .. py:method:: lyrics_transformation(lyrics, replace_combos, control_combos=None)
 
 
-   .. py:method:: brute_transpose_find_flag(lyrics: str, partial_flag: str, keys: list, verbose: bool = False, wrap: bool = True)
+   .. py:method:: brute_transpose_find_flag(lyrics, partial_flag, keys, verbose = False, wrap = True)
 
       Description:
           For the lyrics given
@@ -89,7 +89,7 @@ Module Contents
 
 
 
-   .. py:method:: position_cipher(text: str, keys: list)
+   .. py:method:: position_cipher(text, keys)
 
       Description:
           This function takes a text and a list of keys, and returns a new string
@@ -106,7 +106,7 @@ Module Contents
 
 
 
-   .. py:method:: bruteforce_all_lyrics(all_lyrics: list, partial_flag: str, keys: list, verbose: bool = False, wrap: bool = True)
+   .. py:method:: bruteforce_all_lyrics(all_lyrics, partial_flag, keys, verbose = False, wrap = True)
 
 
    .. py:method:: init_some_values()

@@ -120,13 +120,3 @@ Module Contents
 
 
 
-   .. py:method:: __str__()
-
-      Description:
-          Returns the string representation of the class, mainly the name of the parent folder
-
-      :returns: _description_
-      :rtype: _type_
-
-
-

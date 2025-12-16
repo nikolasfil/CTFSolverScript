@@ -19,7 +19,6 @@ ctfsolver.managers.manager_folder
        manager = ManagerFolder(file="challenge.py", verbose=True)
        manager.create_parent_folder()
        manager.prepare_space(files=["input.txt", "output.txt"])
-       functions = manager.get_functions_from_file("challenge.py")
 
        CONFIG (dict): Global configuration dictionary imported from ctfsolver.config.
 
@@ -124,10 +123,6 @@ Module Contents
 
       Finds references to a function in a file.
 
-   .. method:: get_functions_from_file(file_path)
-
-      Extracts function names from a Python file.
-
    .. method:: find_function_from_file(file_path, function_name)
 
       Finds and returns the source code of a function from a file.
@@ -210,6 +205,9 @@ Module Contents
 
 
 
+   .. py:method:: get_current_dir()
+
+
    .. py:method:: get_parent()
 
       Description:
@@ -274,6 +272,13 @@ Module Contents
 
 
 
+   .. py:method:: create_ctf_structure(category, site, name, verbose=False, download=False, **kwargs)
+
+      Description:
+          Create the CTF folder structure
+
+
+
    .. py:method:: prepare_space(files=None, folder=None, test_text='flag{test}')
 
       Creates files with specified content in a given folder if they do not already exist.
@@ -289,7 +294,7 @@ Module Contents
 
 
 
-   .. py:method:: clean_folders(folders: list = None)
+   .. py:method:: clean_folders(folders = None)
 
       Description:
           Clean the space by deleting the folders that remain empty
@@ -301,6 +306,9 @@ Module Contents
       Description:
           Check if the folder is empty
 
+
+
+   .. py:method:: check_folder_exists(folder)
 
 
    .. py:method:: get_challenge_file()
@@ -344,13 +352,43 @@ Module Contents
 
 
 
-   .. py:method:: exec_on_files(folder, func, *args, **kwargs)
+   .. py:method:: exec_on_folder(folder, func, *args, **kwargs)
 
       Description:
       Execute a function on all the files in the folder with the arguments provided
 
       :param folder: Folder to execute the function
       :type folder: str
+      :param func: Function to execute
+      :type func: function
+
+      :returns: List of output of the function
+      :rtype: list
+
+
+
+   .. py:method:: exec_on_folder_files(folder, func, func_args=[], func_kwargs={}, *args, **kwargs)
+
+      Description:
+      Execute a function on all the files in the folder with the arguments provided
+
+      :param folder: Folder to execute the function
+      :type folder: str
+      :param func: Function to execute
+      :type func: function
+
+      :returns: List of output of the function
+      :rtype: list
+
+
+
+   .. py:method:: exec_on_files(files, func, *args, **kwargs)
+
+      Description:
+      Execute a function on all the file list with the arguments provided
+
+      :param files: List of files to execute the function
+      :type files: list
       :param func: Function to execute
       :type func: function
 
@@ -377,34 +415,6 @@ Module Contents
 
       :returns: List of output if save is True
       :rtype: list
-
-
-
-   .. py:method:: get_self_functions()
-
-      Description:
-      Get the functions of the class
-
-
-
-   .. py:method:: get_function_reference(function, file)
-
-      Description:
-      Get the reference of the function in the file
-
-
-
-   .. py:method:: get_functions_from_file(file_path)
-
-      Description:
-      Get the functions from the file
-
-
-
-   .. py:method:: find_function_from_file(file_path, function_name)
-
-      Description:
-      Get the functions from the file
 
 
 
@@ -468,6 +478,46 @@ Module Contents
                     - dirs (list): A list of subdirectories in the root directory, excluding those in the exclude list.
                     - files (list): A list of files in the root directory.
       :rtype: tuple
+
+
+
+   .. py:method:: delete_folder(folder)
+
+      Description:
+      Deletes the folder and all its contents.
+
+      :param folder: Folder to delete
+      :type folder: str
+
+      :returns: None
+
+
+
+   .. py:method:: copy_folder(source, destination)
+
+      Description:
+      Copies the folder and all its contents to the destination.
+
+      :param source: Source folder to copy
+      :type source: str
+      :param destination: Destination folder to copy to
+      :type destination: str
+
+      :returns: None
+
+
+
+   .. py:method:: download_automove(category, challenge_name, challenge_path, checker = False, verbose = False)
+
+      Description:
+      Moves the downloaded files to the challenge folder structure
+
+      :param category: Category of the challenge
+      :type category: str
+      :param challenge_name: Name of the challenge to search in the downloads
+      :type challenge_name: str
+      :param challenge_path: Path of the challenge to move
+      :type challenge_path: str
 
 
 

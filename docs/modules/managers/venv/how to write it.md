@@ -1,0 +1,16 @@
+
+- First of all we need to have the challenge information in the folder 
+	- Run the command `ctfsolver challenge init`
+		- this should fill the information from the directory 
+		- this should fill the information from the writeup ( linker module )
+- check if the challenge has a venv 
+	- run the command `ctfsolver venv move`
+		- find the venv 
+		- get the pipdeptree info 
+		- write them to the challenge information json 
+		- retrieve the name of the venv from the challenge information json 
+			- if the name does not exist 
+				- write the challenge name. It will not contain the full path, as it gets the venvs_path from the global config 
+		- create the venv in the venvs_path 
+		- install the pipdeptree info 
+		- remove the local venv 

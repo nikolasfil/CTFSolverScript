@@ -1,0 +1,47 @@
+ctfsolver.cli.main
+==================
+
+.. py:module:: ctfsolver.cli.main
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   ctfsolver.cli.main.app
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   ctfsolver.cli.main.init
+   ctfsolver.cli.main.gather
+   ctfsolver.cli.main.show_full_help
+   ctfsolver.cli.main.main
+
+
+Module Contents
+---------------
+
+.. py:data:: app
+
+.. py:function:: init()
+
+   Initialize global configuration and required directories/files.
+
+
+.. py:function:: gather(verbose = typer.Option(False, help='Verbose output'))
+
+   Gather all relevant information for the current context.
+
+
+.. py:function:: show_full_help()
+
+   Display help for the main app and all sub-apps (ctf, venv).
+
+
+.. py:function:: main()
+

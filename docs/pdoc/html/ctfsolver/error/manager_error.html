@@ -132,7 +132,7 @@ error_manager.try_function(main_function)</p>
         &#34;&#34;&#34;
 
         try:
-            function(*args, **kwargs)
+            return function(*args, **kwargs)
         except Exception as e:
             self.handle(e)
         except KeyboardInterrupt:
@@ -233,7 +233,7 @@ exit_code (int, optional): The exit code to use when exiting the program. Defaul
     &#34;&#34;&#34;
 
     try:
-        function(*args, **kwargs)
+        return function(*args, **kwargs)
     except Exception as e:
         self.handle(e)
     except KeyboardInterrupt:

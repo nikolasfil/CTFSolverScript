@@ -3,11 +3,10 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="ctfsolver.error" href="../../error/index.html" /><link rel="prev" title="ctfsolver.config.__main__" href="../__main__/index.html" />
-        <link rel="canonical" href="https://nikolasfil.github.io/CTFSolverScript/api/ctfsolver/config/global_config/index.html" />
+<link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="ctfsolver.error" href="../../error/index.html" /><link rel="prev" title="ctfsolver.config.challenge_config" href="../challenge_config/index.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
-        <title>ctfsolver.config.global_config - ctfsolver 0.0.13 documentation</title>
+        <title>ctfsolver.config.global_config - ctfsolver 0.0.14 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=25af2a20" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
@@ -169,7 +168,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../../index.html"><div class="brand">ctfsolver 0.0.13 documentation</div></a>
+      <a href="../../../../index.html"><div class="brand">ctfsolver 0.0.14 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -192,7 +191,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../../index.html">
   
-  <span class="sidebar-brand-text">ctfsolver 0.0.13 documentation</span>
+  <span class="sidebar-brand-text">ctfsolver 0.0.14 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -205,41 +204,60 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../../modules/module_notes.html">Manual Modules Notes</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Manual Modules Notes</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../../../modules/usage.html">Usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../modules/architecture.html">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../modules/architecture.html#architecture-tree">Architecture Tree</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../modules/installation.html">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../modules/changelog.html">Changelog</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../modules/contributing.html">Contributing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../../modules/inline_tool/inline_tool_functionality.html">Inline Tool Functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../modules/inline_tool/inline_tool_functionality.html#ctfsolver-cli-tool-help">CTFSolver cli tool help</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../../../index.html">API Reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 current has-children"><a class="reference internal" href="../../index.html">ctfsolver</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of ctfsolver</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l3 current has-children"><a class="reference internal" href="../index.html">ctfsolver.config</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of ctfsolver.config</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="../__main__/index.html">ctfsolver.config.__main__</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../cli/index.html">ctfsolver.cli</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of ctfsolver.cli</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cli/main/index.html">ctfsolver.cli.main</a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../cli/subcli/index.html">ctfsolver.cli.subcli</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of ctfsolver.cli.subcli</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/subcli/ctf/index.html">ctfsolver.cli.subcli.ctf</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cli/subcli/venv/index.html">ctfsolver.cli.subcli.venv</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3 current has-children"><a class="reference internal" href="../index.html">ctfsolver.config</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of ctfsolver.config</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../challenge_config/index.html">ctfsolver.config.challenge_config</a></li>
 <li class="toctree-l4 current current-page"><a class="current reference internal" href="#">ctfsolver.config.global_config</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../error/index.html">ctfsolver.error</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of ctfsolver.error</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../error/index.html">ctfsolver.error</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of ctfsolver.error</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../error/manager_error/index.html">ctfsolver.error.manager_error</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../find_usage/index.html">ctfsolver.find_usage</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of ctfsolver.find_usage</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../find_usage/__main__/index.html">ctfsolver.find_usage.__main__</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../feature_test/index.html">ctfsolver.feature_test</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of ctfsolver.feature_test</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../feature_test/attempt_at_pcap/index.html">ctfsolver.feature_test.attempt_at_pcap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../feature_test/dash_test/index.html">ctfsolver.feature_test.dash_test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../feature_test/manager_graphs/index.html">ctfsolver.feature_test.manager_graphs</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../feature_test/pyvis_class_test/index.html">ctfsolver.feature_test.pyvis_class_test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../feature_test/pyvis_test/index.html">ctfsolver.feature_test.pyvis_test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../feature_test/testing_files/index.html">ctfsolver.feature_test.testing_files</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../folders/index.html">ctfsolver.folders</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of ctfsolver.folders</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../folders/__main__/index.html">ctfsolver.folders.__main__</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../find_usage/index.html">ctfsolver.find_usage</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of ctfsolver.find_usage</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../find_usage/function_definition_class/index.html">ctfsolver.find_usage.function_definition_class</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../find_usage/gathering/index.html">ctfsolver.find_usage.gathering</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../find_usage/manager_gathering/index.html">ctfsolver.find_usage.manager_gathering</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../forensics/index.html">ctfsolver.forensics</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><div class="visually-hidden">Toggle navigation of ctfsolver.forensics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../folders/index.html">ctfsolver.folders</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of ctfsolver.folders</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../folders/finding_writeups/index.html">ctfsolver.folders.finding_writeups</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../folders/link_ctf_folders/index.html">ctfsolver.folders.link_ctf_folders</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../forensics/index.html">ctfsolver.forensics</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of ctfsolver.forensics</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../forensics/manager_dash/index.html">ctfsolver.forensics.manager_dash</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../inline/index.html">ctfsolver.inline</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><div class="visually-hidden">Toggle navigation of ctfsolver.inline</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../inline/__main__/index.html">ctfsolver.inline.__main__</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../inline/inline_tool/index.html">ctfsolver.inline.inline_tool</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../inline/parser/index.html">ctfsolver.inline.parser</a></li>
-</ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../managers/index.html">ctfsolver.managers</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><div class="visually-hidden">Toggle navigation of ctfsolver.managers</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../managers/index.html">ctfsolver.managers</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of ctfsolver.managers</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../managers/manager_class/index.html">ctfsolver.managers.manager_class</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../managers/manager_connections/index.html">ctfsolver.managers.manager_connections</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../managers/manager_crypto/index.html">ctfsolver.managers.manager_crypto</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../managers/manager_file/index.html">ctfsolver.managers.manager_file</a></li>
@@ -247,31 +265,33 @@
 <li class="toctree-l4"><a class="reference internal" href="../../managers/manager_files_pcap/index.html">ctfsolver.managers.manager_files_pcap</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../managers/manager_files_re/index.html">ctfsolver.managers.manager_files_re</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../managers/manager_folder/index.html">ctfsolver.managers.manager_folder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../managers/manager_functions/index.html">ctfsolver.managers.manager_functions</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../scripts/index.html">ctfsolver.scripts</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><div class="visually-hidden">Toggle navigation of ctfsolver.scripts</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../scripts/__main__/index.html">ctfsolver.scripts.__main__</a></li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../../scripts/clean_folders/index.html">ctfsolver.scripts.clean_folders</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><div class="visually-hidden">Toggle navigation of ctfsolver.scripts.clean_folders</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../scripts/clean_folders/__main__/index.html">ctfsolver.scripts.clean_folders.__main__</a></li>
-</ul>
-</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../scripts/index.html">ctfsolver.scripts</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of ctfsolver.scripts</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../scripts/clean_folders/index.html">ctfsolver.scripts.clean_folders</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../scripts/run_clean_folders/index.html">ctfsolver.scripts.run_clean_folders</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../scripts/run_folders/index.html">ctfsolver.scripts.run_folders</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../scripts/run_solution/index.html">ctfsolver.scripts.run_solution</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../src/index.html">ctfsolver.src</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><div class="visually-hidden">Toggle navigation of ctfsolver.src</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../src/index.html">ctfsolver.src</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of ctfsolver.src</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="../../src/ctfsolver/index.html">ctfsolver.src.ctfsolver</a></li>
-<li class="toctree-l4 has-children"><a class="reference internal" href="../../src/data/index.html">ctfsolver.src.data</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><div class="visually-hidden">Toggle navigation of ctfsolver.src.data</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l5"><a class="reference internal" href="../../src/data/data/index.html">ctfsolver.src.data.data</a></li>
-</ul>
-</li>
 <li class="toctree-l4"><a class="reference internal" href="../../src/position_cipher_functions/index.html">ctfsolver.src.position_cipher_functions</a></li>
 </ul>
 </li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="../../template/index.html">ctfsolver.template</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" role="switch" type="checkbox"/><label for="toctree-checkbox-15"><div class="visually-hidden">Toggle navigation of ctfsolver.template</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../template/__main__/index.html">ctfsolver.template.__main__</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../template/gathering_template/index.html">ctfsolver.template.gathering_template</a></li>
 <li class="toctree-l4"><a class="reference internal" href="../../template/solution_template/index.html">ctfsolver.template.solution_template</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../venv/index.html">ctfsolver.venv</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" role="switch" type="checkbox"/><label for="toctree-checkbox-16"><div class="visually-hidden">Toggle navigation of ctfsolver.venv</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../venv/main/index.html">ctfsolver.venv.main</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../venv/manager_venv/index.html">ctfsolver.venv.manager_venv</a></li>
+<li class="toctree-l4 has-children"><a class="reference internal" href="../../venv/testing/index.html">ctfsolver.venv.testing</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" role="switch" type="checkbox"/><label for="toctree-checkbox-17"><div class="visually-hidden">Toggle navigation of ctfsolver.venv.testing</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../venv/testing/main/index.html">ctfsolver.venv.testing.main</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -333,7 +353,7 @@ file is used to store persistent settings required by the CTFSolverScript inline
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctfsolver.config.global_config.CONFIG">
-<span class="sig-name descname"><span class="pre">CONFIG</span></span><a class="reference internal" href="../../../../_modules/ctfsolver/config/global_config.html#CONFIG"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.config.global_config.CONFIG" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">CONFIG</span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/config/global_config.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.config.global_config.CONFIG" title="Link to this definition">¶</a></dt>
 <dd><p>Singleton instance of the GlobalConfig class for global access.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -389,20 +409,20 @@ content if necessary) and accessing configuration values via attribute or dictio
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="ctfsolver.config.global_config.GlobalConfig">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GlobalConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/ctfsolver/config/global_config.html#GlobalConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.config.global_config.GlobalConfig" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GlobalConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/config/global_config.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.config.global_config.GlobalConfig" title="Link to this definition">¶</a></dt>
 <dd><dl class="py attribute">
 <dt class="sig sig-object py" id="ctfsolver.config.global_config.GlobalConfig.verbose">
-<span class="sig-name descname"><span class="pre">verbose</span></span><a class="reference internal" href="../../../../_modules/ctfsolver/config/global_config.html#GlobalConfig.verbose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.config.global_config.GlobalConfig.verbose" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">verbose</span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/config/global_config.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.config.global_config.GlobalConfig.verbose" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctfsolver.config.global_config.GlobalConfig.global_config_file_path">
-<span class="sig-name descname"><span class="pre">global_config_file_path</span></span><a class="reference internal" href="../../../../_modules/ctfsolver/config/global_config.html#GlobalConfig.global_config_file_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.config.global_config.GlobalConfig.global_config_file_path" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">global_config_file_path</span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/config/global_config.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.config.global_config.GlobalConfig.global_config_file_path" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.config.global_config.GlobalConfig.initializing">
-<span class="sig-name descname"><span class="pre">initializing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/ctfsolver/config/global_config.html#GlobalConfig.initializing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.config.global_config.GlobalConfig.initializing" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">initializing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/config/global_config.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.config.global_config.GlobalConfig.initializing" title="Link to this definition">¶</a></dt>
 <dd><p>Initialize global configuration settings.
 This method can be used to set up any necessary global configurations
 required by the inline tool.</p>
@@ -410,7 +430,7 @@ required by the inline tool.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.config.global_config.GlobalConfig.creating">
-<span class="sig-name descname"><span class="pre">creating</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/ctfsolver/config/global_config.html#GlobalConfig.creating"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.config.global_config.GlobalConfig.creating" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">creating</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/config/global_config.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.config.global_config.GlobalConfig.creating" title="Link to this definition">¶</a></dt>
 <dd><p>Creates a global configuration file in the user’s home directory.</p>
 <p>This method ensures that the required directories and configuration file exist,
 creating them if necessary. It is typically called during the initial run of the
@@ -423,14 +443,14 @@ inline tool or when global configuration setup is required.</p>
 <dd class="field-even"><p>None</p>
 </dd>
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#OSError" title="(in Python v3.13)"><strong>OSError</strong></a> – If the directory or file cannot be created due to permission issues.</p>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#OSError" title="(in Python v3.14)"><strong>OSError</strong></a> – If the directory or file cannot be created due to permission issues.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.config.global_config.GlobalConfig.initial_content">
-<span class="sig-name descname"><span class="pre">initial_content</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/ctfsolver/config/global_config.html#GlobalConfig.initial_content"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.config.global_config.GlobalConfig.initial_content" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">initial_content</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/config/global_config.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.config.global_config.GlobalConfig.initial_content" title="Link to this definition">¶</a></dt>
 <dd><p>Sets the initial content of the global configuration file.</p>
 <p>This method loads a configuration template from ‘config_template.json’ and writes it to the global
 configuration file if the file is empty or does not exist. If the template file is missing, a default
@@ -444,8 +464,8 @@ initial content is used instead.</p>
 </dd>
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.13)"><strong>FileNotFoundError</strong></a> – If the template file or global configuration file path does not exist.</p></li>
-<li><p><a class="reference external" href="https://docs.python.org/3/library/json.html#json.JSONDecodeError" title="(in Python v3.13)"><strong>json.JSONDecodeError</strong></a> – If the template file contains invalid JSON.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(in Python v3.14)"><strong>FileNotFoundError</strong></a> – If the template file or global configuration file path does not exist.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/json.html#json.JSONDecodeError" title="(in Python v3.14)"><strong>json.JSONDecodeError</strong></a> – If the template file contains invalid JSON.</p></li>
 </ul>
 </dd>
 </dl>
@@ -458,7 +478,7 @@ Prints status messages to the console.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.config.global_config.GlobalConfig.get_content">
-<span class="sig-name descname"><span class="pre">get_content</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/ctfsolver/config/global_config.html#GlobalConfig.get_content"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.config.global_config.GlobalConfig.get_content" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_content</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/config/global_config.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.config.global_config.GlobalConfig.get_content" title="Link to this definition">¶</a></dt>
 <dd><p>Get the content of the global configuration file.
 This method reads the global configuration file and returns its content
 as a dictionary.
@@ -470,61 +490,26 @@ settings for use in the inline tool or other parts of the application.</p>
 <dd class="field-odd"><p>The content of the global configuration file as a dictionary.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)">dict</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.14)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="ctfsolver.config.global_config.GlobalConfig.__getattr__">
-<span class="sig-name descname"><span class="pre">__getattr__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/ctfsolver/config/global_config.html#GlobalConfig.__getattr__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.config.global_config.GlobalConfig.__getattr__" title="Link to this definition">¶</a></dt>
-<dd><p>Retrieves the value associated with the given attribute name from the internal content dictionary.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – The name of the attribute to retrieve.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The value associated with the attribute name in the content dictionary.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Any</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#AttributeError" title="(in Python v3.13)"><strong>AttributeError</strong></a> – If the attribute name does not exist in the content dictionary.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ctfsolver.config.global_config.GlobalConfig.__getitem__">
-<span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/ctfsolver/config/global_config.html#GlobalConfig.__getitem__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.config.global_config.GlobalConfig.__getitem__" title="Link to this definition">¶</a></dt>
-<dd><p>Retrieves the value associated with the given key from the content dictionary.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><em>str</em></a>) – The key to look up in the content dictionary.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The value associated with the specified key.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Any</p>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyError" title="(in Python v3.13)"><strong>KeyError</strong></a> – If the key does not exist in the content dictionary.</p>
-</dd>
-</dl>
-</dd></dl>
+<dt class="sig sig-object py" id="ctfsolver.config.global_config.GlobalConfig.check_config_content">
+<span class="sig-name descname"><span class="pre">check_config_content</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/config/global_config.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.config.global_config.GlobalConfig.check_config_content" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">CONFIG</span></span><a class="reference internal" href="../../../../_modules/ctfsolver/config/global_config.html#CONFIG"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">CONFIG</span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/config/global_config.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="ctfsolver.config.global_config.global_config">
-<span class="sig-name descname"><span class="pre">global_config</span></span><a class="reference internal" href="../../../../_modules/ctfsolver/config/global_config.html#global_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.config.global_config.global_config" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">global_config</span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/config/global_config.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.config.global_config.global_config" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </section>
@@ -544,14 +529,14 @@ settings for use in the inline tool or other parts of the application.</p>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../__main__/index.html">
+          <a class="prev-page" href="../challenge_config/index.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">ctfsolver.config.__main__</div>
+                <div class="title">ctfsolver.config.challenge_config</div>
                 
               </div>
             </a>
@@ -597,8 +582,7 @@ settings for use in the inline tool or other parts of the application.</p>
 <li><a class="reference internal" href="#ctfsolver.config.global_config.GlobalConfig.creating"><code class="docutils literal notranslate"><span class="pre">GlobalConfig.creating()</span></code></a></li>
 <li><a class="reference internal" href="#ctfsolver.config.global_config.GlobalConfig.initial_content"><code class="docutils literal notranslate"><span class="pre">GlobalConfig.initial_content()</span></code></a></li>
 <li><a class="reference internal" href="#ctfsolver.config.global_config.GlobalConfig.get_content"><code class="docutils literal notranslate"><span class="pre">GlobalConfig.get_content()</span></code></a></li>
-<li><a class="reference internal" href="#ctfsolver.config.global_config.GlobalConfig.__getattr__"><code class="docutils literal notranslate"><span class="pre">GlobalConfig.__getattr__()</span></code></a></li>
-<li><a class="reference internal" href="#ctfsolver.config.global_config.GlobalConfig.__getitem__"><code class="docutils literal notranslate"><span class="pre">GlobalConfig.__getitem__()</span></code></a></li>
+<li><a class="reference internal" href="#ctfsolver.config.global_config.GlobalConfig.check_config_content"><code class="docutils literal notranslate"><span class="pre">GlobalConfig.check_config_content()</span></code></a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">CONFIG</span></code></a></li>
@@ -616,7 +600,7 @@ settings for use in the inline tool or other parts of the application.</p>
       
     </aside>
   </div>
-</div><script src="../../../../_static/documentation_options.js?v=9fc46840"></script>
+</div><script src="../../../../_static/documentation_options.js?v=544df88d"></script>
     <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/scripts/furo.js?v=46bd48cc"></script>

@@ -1,0 +1,57 @@
+ctfsolver.feature_test.pyvis_class_test
+=======================================
+
+.. py:module:: ctfsolver.feature_test.pyvis_class_test
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   ctfsolver.feature_test.pyvis_class_test.data
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   ctfsolver.feature_test.pyvis_class_test.GraphVisualizer
+
+
+Module Contents
+---------------
+
+.. py:class:: GraphVisualizer(height='750px', width='100%', bgcolor='#222222', font_color='white')
+
+   .. py:attribute:: net
+
+
+   .. py:attribute:: nodes
+
+
+   .. py:attribute:: edges
+
+
+   .. py:method:: add_node(node_id, label=None, **kwargs)
+
+
+   .. py:method:: add_edge(source, target, **kwargs)
+
+
+   .. py:method:: add_graph_data(graph_dict)
+
+      Add a dictionary like:
+      {
+          "A": ["B", "C"],
+          "B": ["D"],
+      }
+
+
+
+   .. py:method:: show(filename='graph.html')
+
+
+.. py:data:: data
+

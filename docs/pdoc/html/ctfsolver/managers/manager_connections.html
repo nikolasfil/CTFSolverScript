@@ -209,7 +209,7 @@ manager.send_menu(choice=1, menu_num=3, menu_text="Your choice:")</p>
     def recv_menu(self, number=1, display=False, save=False):
         raise DeprecationWarning(&#34;Depracated function. Use recv_lines instead.&#34;)
 
-    def recv_lines(self, number=1, display=False, save=False):
+    def recv_lines(self, number=1, display=False, save=False, *args, **kwargs):
         &#34;&#34;&#34;
         Description:
             Receives the output of the menu based on the number of lines provided.
@@ -227,7 +227,7 @@ manager.send_menu(choice=1, menu_num=3, menu_text="Your choice:")</p>
         if save:
             result = []
         for _ in range(number):
-            out = self.conn.recvline()
+            out = self.conn.recvline(*args, **kwargs)
             if display:
                 print(out)
             if save:
@@ -541,14 +541,14 @@ creationflags: int = 0</p></div>
 <p>None</p></div>
 </dd>
 <dt id="ctfsolver.managers.manager_connections.ManagerConnections.recv_lines"><code class="name flex">
-<span>def <span class="ident">recv_lines</span></span>(<span>self, number=1, display=False, save=False)</span>
+<span>def <span class="ident">recv_lines</span></span>(<span>self, number=1, display=False, save=False, *args, **kwargs)</span>
 </code></dt>
 <dd>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def recv_lines(self, number=1, display=False, save=False):
+<pre><code class="python">def recv_lines(self, number=1, display=False, save=False, *args, **kwargs):
     &#34;&#34;&#34;
     Description:
         Receives the output of the menu based on the number of lines provided.
@@ -566,7 +566,7 @@ creationflags: int = 0</p></div>
     if save:
         result = []
     for _ in range(number):
-        out = self.conn.recvline()
+        out = self.conn.recvline(*args, **kwargs)
         if display:
             print(out)
         if save:
