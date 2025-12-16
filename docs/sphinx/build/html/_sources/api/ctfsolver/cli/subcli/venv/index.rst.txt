@@ -1,0 +1,41 @@
+ctfsolver.cli.subcli.venv
+=========================
+
+.. py:module:: ctfsolver.cli.subcli.venv
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   ctfsolver.cli.subcli.venv.venv_app
+   ctfsolver.cli.subcli.venv.manager
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   ctfsolver.cli.subcli.venv.test_venv
+   ctfsolver.cli.subcli.venv.look_for_venv
+
+
+Module Contents
+---------------
+
+.. py:data:: venv_app
+
+.. py:data:: manager
+
+.. py:function:: test_venv()
+
+   Manage virtual environments (implementation TBD).
+
+
+.. py:function:: look_for_venv()
+
+   Manage virtual environments (implementation TBD).
+
+

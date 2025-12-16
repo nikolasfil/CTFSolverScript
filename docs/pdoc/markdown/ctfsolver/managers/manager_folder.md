@@ -14,7 +14,6 @@ Typical usage example:
     manager = ManagerFolder(file="challenge.py", verbose=True)
     manager.create_parent_folder()
     manager.prepare_space(files=["input.txt", "output.txt"])
-    functions = manager.get_functions_from_file("challenge.py")
 
     CONFIG (dict): Global configuration dictionary imported from ctfsolver.config.
 
@@ -58,7 +57,6 @@ Classes
         search_files(directory, exclude_dirs, search_string, save=False, display=False): Searches for a string in files within a directory.
         get_self_functions(): Returns a list of callable methods of the class.
         get_function_reference(function, file): Finds references to a function in a file.
-        get_functions_from_file(file_path): Extracts function names from a Python file.
         find_function_from_file(file_path, function_name): Finds and returns the source code of a function from a file.
         folfil(folder, file): Returns the full path of a file within a folder.
         folders_file(*folders, file): Returns the full path of a file within nested folders.
@@ -73,7 +71,10 @@ Classes
 
     ### Descendants
 
+    * ctfsolver.config.challenge_config.ChallengeConfig
+    * ctfsolver.find_usage.manager_gathering.ManagerGathering
     * ctfsolver.managers.manager_file.ManagerFile
+    * ctfsolver.venv.manager_venv.ManagerVenv
 
     ### Methods
 
@@ -85,15 +86,63 @@ Classes
     :   Description:
             Check if the folder is empty
 
+    `check_folder_exists(self, folder: str) ‑> str | bool`
+    :
+
     `clean_folders(self, folders: list = None)`
     :   Description:
             Clean the space by deleting the folders that remain empty
+
+    `copy_folder(self, source, destination)`
+    :   Description:
+        Copies the folder and all its contents to the destination.
+        
+        Args:
+            source (str): Source folder to copy
+            destination (str): Destination folder to copy to
+        
+        Returns:
+            None
+
+    `create_ctf_structure(self, category, site, name, verbose=False, download=False, **kwargs)`
+    :   Description:
+            Create the CTF folder structure
 
     `create_parent_folder(self)`
     :   Description:
             Create the parent folder of the file that called the class if they don't exist
 
-    `exec_on_files(self, folder, func, *args, **kwargs)`
+    `delete_folder(self, folder)`
+    :   Description:
+        Deletes the folder and all its contents.
+        
+        Args:
+            folder (str): Folder to delete
+        
+        Returns:
+            None
+
+    `download_automove(self, category: str, challenge_name: str, challenge_path, checker: bool = False, verbose: bool = False)`
+    :   Description:
+        Moves the downloaded files to the challenge folder structure
+        
+        Args:
+            category (str): Category of the challenge
+            challenge_name (str): Name of the challenge to search in the downloads
+            challenge_path (str): Path of the challenge to move
+
+    `exec_on_files(self, files: list[str], func: <built-in function callable>, *args, **kwargs)`
+    :   Description:
+        Execute a function on all the file list with the arguments provided
+        
+        Args:
+            files (list): List of files to execute the function
+            func (function): Function to execute
+        
+        Returns:
+            list: List of output of the function
+
+    `exec_on_folder(self, folder: pathlib._local.Path, func: <built-in function callable>, *args, **kwargs)`
     :   Description:
         Execute a function on all the files in the folder with the arguments provided
         
@@ -104,9 +153,16 @@ Classes
         Returns:
             list: List of output of the function
 
-    `find_function_from_file(self, file_path, function_name)`
+    `exec_on_folder_files(self, folder: pathlib._local.Path, func: <built-in function callable>, func_args=[], func_kwargs={}, *args, **kwargs)`
     :   Description:
-        Get the functions from the file
+        Execute a function on all the files in the folder with the arguments provided
+        
+        Args:
+            folder (str): Folder to execute the function
+            func (function): Function to execute
+        
+        Returns:
+            list: List of output of the function
 
     `folders_file(self, *folders, file)`
     :   Description:
@@ -133,13 +189,8 @@ Classes
     :   Description:
             Get the challenge file and assign it to the self.challenge_file for ease of access
 
-    `get_function_reference(self, function, file)`
-    :   Description:
-        Get the reference of the function in the file
-
-    `get_functions_from_file(self, file_path)`
-    :   Description:
-        Get the functions from the file
+    `get_current_dir(self)`
+    :
 
     `get_parent(self)`
     :   Description:
@@ -161,10 +212,6 @@ Classes
         Note:
             Ensure that `self.folders_name_list` is defined and contains the folder names
             to be checked before calling this method.
-
-    `get_self_functions(self)`
-    :   Description:
-        Get the functions of the class
 
     `get_solution_file(self, *args, solution_name='solution.py', save=False, display=False, **kwargs)`
     :   Description:

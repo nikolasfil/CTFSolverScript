@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>ctfsolver.venv.manager_venv API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>ctfsolver.venv.manager_venv</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="ctfsolver.venv.manager_venv.ManagerVenv"><code class="flex name class">
+<span>class <span class="ident">ManagerVenv</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ManagerVenv(ManagerFolder):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **{**kwargs, &#34;init_for_challenge&#34;: False})
+
+        # Get the global venvs directory from config
+        self.venv_dir = CONFIG[&#34;directories&#34;].get(&#34;venvs&#34;, None)
+        # Path to the venv to check
+        self.venv_to_check = None
+        # Get the current working directory
+        self.get_current_dir()
+
+        # Get where the command is run
+        self.check_global_venv_dir()
+
+    def check_global_venv_dir(self):
+        if not self.venv_dir:
+            raise ValueError(&#34;Virtual environment directory is not set.&#34;)
+
+    def check_venv_dir(self, filepath):
+        # Checks if the path parsed, is a virtual environment
+        pyvenv = Path(filepath, &#34;pyvenv.cfg&#34;)
+        if pyvenv.exists():
+            return True
+        return False
+
+    def activate(self, filepath):
+        # Activates the venv parsed in the path
+        if not self.check_venv_dir(filepath):
+            raise ValueError(&#34;The path is not a valid virtual environment.&#34;)
+        activate_script = (
+            Path(filepath, &#34;Scripts&#34;, &#34;activate&#34;)
+            if os.name == &#34;nt&#34;
+            else Path(filepath, &#34;bin&#34;, &#34;activate&#34;)
+        )
+        if not activate_script.exists():
+            raise FileNotFoundError(
+                &#34;Activate script not found in the virtual environment.&#34;
+            )
+        activate_command = (
+            f&#34;source {activate_script}&#34; if os.name != &#34;nt&#34; else str(activate_script)
+        )
+        subprocess.call(activate_command, shell=True)
+
+    def system_translator(self):
+        # Will make it work between windows, linux and mac
+        pass
+
+    def get_python_executable(self):
+        if not self.venv_to_check:
+            raise ValueError(&#34;Virtual environment path is not set.&#34;)
+        python_executable = (
+            Path(self.venv, &#34;Scripts&#34;, &#34;python.exe&#34;)
+            if os.name == &#34;nt&#34;
+            else Path(self.venv_to_check, &#34;bin&#34;, &#34;python&#34;)
+        )
+        if not python_executable.exists():
+            raise FileNotFoundError(
+                &#34;Python executable not found in the virtual environment.&#34;
+            )
+        self.python_executable = python_executable
+        return python_executable
+
+    def get_dependencies(self):
+        # Get the list of dependencies for the virtual environment
+        # Runs pip freeze inside the venv
+        result = subprocess.run(
+            [str(self.python_executable), &#34;-m&#34;, &#34;pip&#34;, &#34;freeze&#34;],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+        )
+        if result.returncode != 0:
+            raise RuntimeError(f&#34;pip freeze failed: {result.stderr}&#34;)
+        dependencies = result.stdout.strip().splitlines()
+        return dependencies
+
+    def install_pipdeptree(self):
+        # Get the list of dependencies for the virtual environment
+        result = subprocess.run(
+            [str(self.python_executable), &#34;-m&#34;, &#34;install&#34;, &#34;pipdeptree&#34;],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+        )
+        if result.returncode != 0:
+            raise RuntimeError(f&#34;pip freeze failed: {result.stderr}&#34;)
+        dependencies = result.stdout.strip().splitlines()
+        return dependencies
+
+    def get_pipdeptree(self):
+        # Get the list of dependencies for the virtual environment
+        # Get the python executable
+        result = subprocess.run(
+            # [str(self.python_executable), &#34;-m&#34;, &#34;pipdeptree&#34;, &#34;-j&#34;],
+            [str(self.python_executable), &#34;-m&#34;, &#34;pipdeptree&#34;, &#34;--json-tree&#34;],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+        )
+        if result.returncode != 0:
+            raise RuntimeError(f&#34;pip freeze failed: {result.stderr}&#34;)
+        dependencies = json.loads(result.stdout)
+        return dependencies
+
+    def look_for_venvs(self, filepath: str = None):
+        &#34;&#34;&#34;
+        Recursively searches for Python virtual environments within a specified directory.
+        Args:
+            filepath (str, optional): The path to the directory in which to search for virtual environments.
+                If not provided, the search will be performed in the instance&#39;s `venv_dir` attribute.
+        Returns:
+            list[Path]: A list of Path objects representing directories identified as Python virtual environments.
+        Raises:
+            FileNotFoundError: If the specified path does not exist or is not a directory.
+        Notes:
+            - A directory is considered a virtual environment if `self.check_venv_dir(item)` returns True.
+            - The search is performed recursively using `Path.rglob(&#34;*&#34;)`.
+        &#34;&#34;&#34;
+
+        # Looks for virtual environments recursively in the global venvs directory
+        venvs_found = []
+        search_path = Path(self.venv_dir) if not filepath else Path(filepath)
+        if not search_path.exists() or not search_path.is_dir():
+            raise FileNotFoundError(
+                &#34;The specified path does not exist or is not a directory.&#34;
+            )
+        for item in search_path.rglob(&#34;*&#34;):
+            if item.is_dir() and self.check_venv_dir(item):
+                venvs_found.append(item)
+        return venvs_found
+
+    def save_dependencies(self):
+        # Saves the list of dependencies for the virtual environment
+        pass
+
+    def clean_venv(self):
+        # Cleans the virtual environment
+        pass
+
+    def move_venv(self, folder: Path = None):
+        # Moves the virtual environment to the global location
+        self.get_current_dir()
+        self.look_for_venvs()
+        self.venv_to_check = Path(self.parent)
+        self.get_python_executable()
+        self.activate(self.venv_to_check)
+
+        dep = self.get_pipdeptree()
+
+        # write to the challnenge information
+        # retrieve the venv destination and update
+        # create the venv folder if it does not exist
+        # install the pipdeptree info
+        # remove the local venv
+
+    def create_shortcut(self):
+        # Creates a shortcut for the virtual environment
+        pass
+
+    def delete_venv(self, folder: Path):
+        &#34;&#34;&#34;
+        Deletes the virtual environment directory.
+
+        Args:
+            folder (Path): The path to the virtual environment folder to delete.
+        &#34;&#34;&#34;
+        if folder.exists() and folder.is_dir():
+            self.delete_folder(folder)
+        else:
+            raise FileNotFoundError(&#34;The specified virtual environment does not exist.&#34;)
+
+    def testing(self):
+        self.get_current_dir()
+
+        self.venv_to_check = Path(self.parent, &#34;venvs&#34;, &#34;venv_app&#34;)
+        # self.venv_to_check = Path(self.parent)
+        self.get_python_executable()
+        self.activate(self.venv_to_check)
+        # dep = self.get_dependencies()
+        dep = self.get_pipdeptree()
+        for i, item in enumerate(dep):
+            print(i, item[&#34;package_name&#34;])</code></pre>
+</details>
+<div class="desc"><p>ManagerFolder provides utilities for managing folder structures and files for CTF (Capture The Flag) challenges.
+This class handles the creation, organization, and manipulation of challenge-related directories and files,
+including payloads, data, and solution scripts. It offers methods for searching files, executing functions
+on files, cleaning up empty directories, and extracting function definitions from Python files.
+verbose (bool): Enables verbose output for debugging and logging.
+Path (type): Reference to the pathlib.Path class for file system operations.
+parent (Path): The resolved parent directory of the calling file.
+file (str): The filename associated with the challenge.
+folders_name_list (list): List of folder names to be managed.
+folders (defaultdict): Mapping of folder names to their Path objects.
+folder_payloads (Path): Path to the payloads folder.
+folder_data (Path): Path to the data folder.
+folder_files (Path): Path to the files folder.
+challenge_file (Path): Path to the challenge file.
+solution_file (Path): Path to the solution file.</p>
+<h2 id="methods">Methods</h2>
+<p><strong>init</strong>(<em>args, </em><em>kwargs): Initializes the ManagerFolder instance.
+init_for_challenge(</em>args, <strong>kwargs): Sets up attributes and folders for a challenge.
+handling_global_config(): Loads global configuration for folder names.
+initializing_all_ancestors(*args, </strong>kwargs): Initializes ancestor classes (placeholder).
+get_parent(): Determines and sets the parent directory of the calling file.
+setup_named_folders(): Creates and assigns paths for named folders.
+create_parent_folder(): Creates parent folders if they do not exist.
+prepare_space(files=None, folder=None, test_text="flag{test}"): Prepares challenge space by creating files and folders.
+clean_folders(folders: list = None): Removes empty folders.
+check_empty_folder(folder): Checks if a folder is empty.
+get_challenge_file(): Assigns the challenge file path.
+get_solution_file(<em>args, solution_name="solution.py", save=False, display=False, </em><em>kwargs): Retrieves the solution file path.
+search_for_pattern_in_file(file, func=None, display=False, save=False, </em>args, <strong>kwargs): Searches for a pattern in a file.
+exec_on_files(folder, func, *args, </strong>kwargs): Executes a function on all files in a folder.
+search_files(directory, exclude_dirs, search_string, save=False, display=False): Searches for a string in files within a directory.
+get_self_functions(): Returns a list of callable methods of the class.
+get_function_reference(function, file): Finds references to a function in a file.
+find_function_from_file(file_path, function_name): Finds and returns the source code of a function from a file.
+folfil(folder, file): Returns the full path of a file within a folder.
+folders_file(<em>folders, file): Returns the full path of a file within nested folders.
+challenge_folder_structure(</em>args, <strong>kwargs): Checks the structure of challenge folders.
+recursive_folder_search(function, *args, path=None, </strong>kwargs): Recursively applies a function to folders and files.
+single_folder_search(<em>args, </em>*kwargs): Applies a function to the contents of a single folder.</p>
+<h2 id="example">Example</h2>
+<p>manager = ManagerFolder(file="challenge.txt", verbose=True)
+manager.prepare_space(files=["input.txt", "output.txt"])</p>
+<p>Initialize the class</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="ctfsolver.managers.manager_folder.ManagerFolder" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder">ManagerFolder</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="ctfsolver.venv.manager_venv.ManagerVenv.activate"><code class="name flex">
+<span>def <span class="ident">activate</span></span>(<span>self, filepath)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def activate(self, filepath):
+    # Activates the venv parsed in the path
+    if not self.check_venv_dir(filepath):
+        raise ValueError(&#34;The path is not a valid virtual environment.&#34;)
+    activate_script = (
+        Path(filepath, &#34;Scripts&#34;, &#34;activate&#34;)
+        if os.name == &#34;nt&#34;
+        else Path(filepath, &#34;bin&#34;, &#34;activate&#34;)
+    )
+    if not activate_script.exists():
+        raise FileNotFoundError(
+            &#34;Activate script not found in the virtual environment.&#34;
+        )
+    activate_command = (
+        f&#34;source {activate_script}&#34; if os.name != &#34;nt&#34; else str(activate_script)
+    )
+    subprocess.call(activate_command, shell=True)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="ctfsolver.venv.manager_venv.ManagerVenv.check_global_venv_dir"><code class="name flex">
+<span>def <span class="ident">check_global_venv_dir</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_global_venv_dir(self):
+    if not self.venv_dir:
+        raise ValueError(&#34;Virtual environment directory is not set.&#34;)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="ctfsolver.venv.manager_venv.ManagerVenv.check_venv_dir"><code class="name flex">
+<span>def <span class="ident">check_venv_dir</span></span>(<span>self, filepath)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_venv_dir(self, filepath):
+    # Checks if the path parsed, is a virtual environment
+    pyvenv = Path(filepath, &#34;pyvenv.cfg&#34;)
+    if pyvenv.exists():
+        return True
+    return False</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="ctfsolver.venv.manager_venv.ManagerVenv.clean_venv"><code class="name flex">
+<span>def <span class="ident">clean_venv</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def clean_venv(self):
+    # Cleans the virtual environment
+    pass</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="ctfsolver.venv.manager_venv.ManagerVenv.create_shortcut"><code class="name flex">
+<span>def <span class="ident">create_shortcut</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_shortcut(self):
+    # Creates a shortcut for the virtual environment
+    pass</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="ctfsolver.venv.manager_venv.ManagerVenv.delete_venv"><code class="name flex">
+<span>def <span class="ident">delete_venv</span></span>(<span>self, folder: pathlib._local.Path)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def delete_venv(self, folder: Path):
+    &#34;&#34;&#34;
+    Deletes the virtual environment directory.
+
+    Args:
+        folder (Path): The path to the virtual environment folder to delete.
+    &#34;&#34;&#34;
+    if folder.exists() and folder.is_dir():
+        self.delete_folder(folder)
+    else:
+        raise FileNotFoundError(&#34;The specified virtual environment does not exist.&#34;)</code></pre>
+</details>
+<div class="desc"><p>Deletes the virtual environment directory.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>folder</code></strong> :&ensp;<code>Path</code></dt>
+<dd>The path to the virtual environment folder to delete.</dd>
+</dl></div>
+</dd>
+<dt id="ctfsolver.venv.manager_venv.ManagerVenv.get_dependencies"><code class="name flex">
+<span>def <span class="ident">get_dependencies</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_dependencies(self):
+    # Get the list of dependencies for the virtual environment
+    # Runs pip freeze inside the venv
+    result = subprocess.run(
+        [str(self.python_executable), &#34;-m&#34;, &#34;pip&#34;, &#34;freeze&#34;],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+    )
+    if result.returncode != 0:
+        raise RuntimeError(f&#34;pip freeze failed: {result.stderr}&#34;)
+    dependencies = result.stdout.strip().splitlines()
+    return dependencies</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="ctfsolver.venv.manager_venv.ManagerVenv.get_pipdeptree"><code class="name flex">
+<span>def <span class="ident">get_pipdeptree</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_pipdeptree(self):
+    # Get the list of dependencies for the virtual environment
+    # Get the python executable
+    result = subprocess.run(
+        # [str(self.python_executable), &#34;-m&#34;, &#34;pipdeptree&#34;, &#34;-j&#34;],
+        [str(self.python_executable), &#34;-m&#34;, &#34;pipdeptree&#34;, &#34;--json-tree&#34;],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+    )
+    if result.returncode != 0:
+        raise RuntimeError(f&#34;pip freeze failed: {result.stderr}&#34;)
+    dependencies = json.loads(result.stdout)
+    return dependencies</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="ctfsolver.venv.manager_venv.ManagerVenv.get_python_executable"><code class="name flex">
+<span>def <span class="ident">get_python_executable</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_python_executable(self):
+    if not self.venv_to_check:
+        raise ValueError(&#34;Virtual environment path is not set.&#34;)
+    python_executable = (
+        Path(self.venv, &#34;Scripts&#34;, &#34;python.exe&#34;)
+        if os.name == &#34;nt&#34;
+        else Path(self.venv_to_check, &#34;bin&#34;, &#34;python&#34;)
+    )
+    if not python_executable.exists():
+        raise FileNotFoundError(
+            &#34;Python executable not found in the virtual environment.&#34;
+        )
+    self.python_executable = python_executable
+    return python_executable</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="ctfsolver.venv.manager_venv.ManagerVenv.install_pipdeptree"><code class="name flex">
+<span>def <span class="ident">install_pipdeptree</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def install_pipdeptree(self):
+    # Get the list of dependencies for the virtual environment
+    result = subprocess.run(
+        [str(self.python_executable), &#34;-m&#34;, &#34;install&#34;, &#34;pipdeptree&#34;],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        text=True,
+    )
+    if result.returncode != 0:
+        raise RuntimeError(f&#34;pip freeze failed: {result.stderr}&#34;)
+    dependencies = result.stdout.strip().splitlines()
+    return dependencies</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="ctfsolver.venv.manager_venv.ManagerVenv.look_for_venvs"><code class="name flex">
+<span>def <span class="ident">look_for_venvs</span></span>(<span>self, filepath: str = None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def look_for_venvs(self, filepath: str = None):
+    &#34;&#34;&#34;
+    Recursively searches for Python virtual environments within a specified directory.
+    Args:
+        filepath (str, optional): The path to the directory in which to search for virtual environments.
+            If not provided, the search will be performed in the instance&#39;s `venv_dir` attribute.
+    Returns:
+        list[Path]: A list of Path objects representing directories identified as Python virtual environments.
+    Raises:
+        FileNotFoundError: If the specified path does not exist or is not a directory.
+    Notes:
+        - A directory is considered a virtual environment if `self.check_venv_dir(item)` returns True.
+        - The search is performed recursively using `Path.rglob(&#34;*&#34;)`.
+    &#34;&#34;&#34;
+
+    # Looks for virtual environments recursively in the global venvs directory
+    venvs_found = []
+    search_path = Path(self.venv_dir) if not filepath else Path(filepath)
+    if not search_path.exists() or not search_path.is_dir():
+        raise FileNotFoundError(
+            &#34;The specified path does not exist or is not a directory.&#34;
+        )
+    for item in search_path.rglob(&#34;*&#34;):
+        if item.is_dir() and self.check_venv_dir(item):
+            venvs_found.append(item)
+    return venvs_found</code></pre>
+</details>
+<div class="desc"><p>Recursively searches for Python virtual environments within a specified directory.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>filepath</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>The path to the directory in which to search for virtual environments.
+If not provided, the search will be performed in the instance's <code>venv_dir</code> attribute.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[Path]</code></dt>
+<dd>A list of Path objects representing directories identified as Python virtual environments.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>FileNotFoundError</code></dt>
+<dd>If the specified path does not exist or is not a directory.</dd>
+</dl>
+<h2 id="notes">Notes</h2>
+<ul>
+<li>A directory is considered a virtual environment if <code>self.check_venv_dir(item)</code> returns True.</li>
+<li>The search is performed recursively using <code>Path.rglob("*")</code>.</li>
+</ul></div>
+</dd>
+<dt id="ctfsolver.venv.manager_venv.ManagerVenv.move_venv"><code class="name flex">
+<span>def <span class="ident">move_venv</span></span>(<span>self, folder: pathlib._local.Path = None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def move_venv(self, folder: Path = None):
+    # Moves the virtual environment to the global location
+    self.get_current_dir()
+    self.look_for_venvs()
+    self.venv_to_check = Path(self.parent)
+    self.get_python_executable()
+    self.activate(self.venv_to_check)
+
+    dep = self.get_pipdeptree()
+
+    # write to the challnenge information
+    # retrieve the venv destination and update
+    # create the venv folder if it does not exist
+    # install the pipdeptree info
+    # remove the local venv</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="ctfsolver.venv.manager_venv.ManagerVenv.save_dependencies"><code class="name flex">
+<span>def <span class="ident">save_dependencies</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def save_dependencies(self):
+    # Saves the list of dependencies for the virtual environment
+    pass</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="ctfsolver.venv.manager_venv.ManagerVenv.system_translator"><code class="name flex">
+<span>def <span class="ident">system_translator</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def system_translator(self):
+    # Will make it work between windows, linux and mac
+    pass</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="ctfsolver.venv.manager_venv.ManagerVenv.testing"><code class="name flex">
+<span>def <span class="ident">testing</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def testing(self):
+    self.get_current_dir()
+
+    self.venv_to_check = Path(self.parent, &#34;venvs&#34;, &#34;venv_app&#34;)
+    # self.venv_to_check = Path(self.parent)
+    self.get_python_executable()
+    self.activate(self.venv_to_check)
+    # dep = self.get_dependencies()
+    dep = self.get_pipdeptree()
+    for i, item in enumerate(dep):
+        print(i, item[&#34;package_name&#34;])</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="ctfsolver.managers.manager_folder.ManagerFolder" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder">ManagerFolder</a></b></code>:
+<ul class="hlist">
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.challenge_folder_structure" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.challenge_folder_structure">challenge_folder_structure</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.check_empty_folder" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.check_empty_folder">check_empty_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.clean_folders" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.clean_folders">clean_folders</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.copy_folder" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.copy_folder">copy_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.create_ctf_structure" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.create_ctf_structure">create_ctf_structure</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.create_parent_folder" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.create_parent_folder">create_parent_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.delete_folder" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.delete_folder">delete_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.download_automove" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.download_automove">download_automove</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.exec_on_files" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.exec_on_files">exec_on_files</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.exec_on_folder" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.exec_on_folder">exec_on_folder</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.exec_on_folder_files" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.exec_on_folder_files">exec_on_folder_files</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.folders_file" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.folders_file">folders_file</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.folfil" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.folfil">folfil</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.get_challenge_file" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.get_challenge_file">get_challenge_file</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.get_parent" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.get_parent">get_parent</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.get_solution_file" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.get_solution_file">get_solution_file</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.init_for_challenge" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.init_for_challenge">init_for_challenge</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.initializing_all_ancestors" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.initializing_all_ancestors">initializing_all_ancestors</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.prepare_space" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.prepare_space">prepare_space</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.recursive_folder_search" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.recursive_folder_search">recursive_folder_search</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.search_files" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.search_files">search_files</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.search_for_pattern_in_file" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.search_for_pattern_in_file">search_for_pattern_in_file</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.setup_named_folders" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.setup_named_folders">setup_named_folders</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_folder.ManagerFolder.single_folder_search" href="../managers/manager_folder.html#ctfsolver.managers.manager_folder.ManagerFolder.single_folder_search">single_folder_search</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="ctfsolver.venv" href="index.html">ctfsolver.venv</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="ctfsolver.venv.manager_venv.ManagerVenv" href="#ctfsolver.venv.manager_venv.ManagerVenv">ManagerVenv</a></code></h4>
+<ul class="">
+<li><code><a title="ctfsolver.venv.manager_venv.ManagerVenv.activate" href="#ctfsolver.venv.manager_venv.ManagerVenv.activate">activate</a></code></li>
+<li><code><a title="ctfsolver.venv.manager_venv.ManagerVenv.check_global_venv_dir" href="#ctfsolver.venv.manager_venv.ManagerVenv.check_global_venv_dir">check_global_venv_dir</a></code></li>
+<li><code><a title="ctfsolver.venv.manager_venv.ManagerVenv.check_venv_dir" href="#ctfsolver.venv.manager_venv.ManagerVenv.check_venv_dir">check_venv_dir</a></code></li>
+<li><code><a title="ctfsolver.venv.manager_venv.ManagerVenv.clean_venv" href="#ctfsolver.venv.manager_venv.ManagerVenv.clean_venv">clean_venv</a></code></li>
+<li><code><a title="ctfsolver.venv.manager_venv.ManagerVenv.create_shortcut" href="#ctfsolver.venv.manager_venv.ManagerVenv.create_shortcut">create_shortcut</a></code></li>
+<li><code><a title="ctfsolver.venv.manager_venv.ManagerVenv.delete_venv" href="#ctfsolver.venv.manager_venv.ManagerVenv.delete_venv">delete_venv</a></code></li>
+<li><code><a title="ctfsolver.venv.manager_venv.ManagerVenv.get_dependencies" href="#ctfsolver.venv.manager_venv.ManagerVenv.get_dependencies">get_dependencies</a></code></li>
+<li><code><a title="ctfsolver.venv.manager_venv.ManagerVenv.get_pipdeptree" href="#ctfsolver.venv.manager_venv.ManagerVenv.get_pipdeptree">get_pipdeptree</a></code></li>
+<li><code><a title="ctfsolver.venv.manager_venv.ManagerVenv.get_python_executable" href="#ctfsolver.venv.manager_venv.ManagerVenv.get_python_executable">get_python_executable</a></code></li>
+<li><code><a title="ctfsolver.venv.manager_venv.ManagerVenv.install_pipdeptree" href="#ctfsolver.venv.manager_venv.ManagerVenv.install_pipdeptree">install_pipdeptree</a></code></li>
+<li><code><a title="ctfsolver.venv.manager_venv.ManagerVenv.look_for_venvs" href="#ctfsolver.venv.manager_venv.ManagerVenv.look_for_venvs">look_for_venvs</a></code></li>
+<li><code><a title="ctfsolver.venv.manager_venv.ManagerVenv.move_venv" href="#ctfsolver.venv.manager_venv.ManagerVenv.move_venv">move_venv</a></code></li>
+<li><code><a title="ctfsolver.venv.manager_venv.ManagerVenv.save_dependencies" href="#ctfsolver.venv.manager_venv.ManagerVenv.save_dependencies">save_dependencies</a></code></li>
+<li><code><a title="ctfsolver.venv.manager_venv.ManagerVenv.system_translator" href="#ctfsolver.venv.manager_venv.ManagerVenv.system_translator">system_translator</a></code></li>
+<li><code><a title="ctfsolver.venv.manager_venv.ManagerVenv.testing" href="#ctfsolver.venv.manager_venv.ManagerVenv.testing">testing</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

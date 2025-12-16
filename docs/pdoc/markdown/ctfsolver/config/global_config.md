@@ -40,6 +40,9 @@ Classes
 
     ### Methods
 
+    `check_config_content(self)`
+    :
+
     `creating(self)`
     :   Creates a global configuration file in the user's home directory.
         

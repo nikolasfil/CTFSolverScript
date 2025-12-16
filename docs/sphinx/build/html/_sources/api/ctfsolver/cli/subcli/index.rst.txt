@@ -1,0 +1,16 @@
+ctfsolver.cli.subcli
+====================
+
+.. py:module:: ctfsolver.cli.subcli
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /api/ctfsolver/cli/subcli/ctf/index
+   /api/ctfsolver/cli/subcli/venv/index
+
+

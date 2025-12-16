@@ -28,6 +28,42 @@ Module Contents
    Bases: :py:obj:`ctfsolver.managers.manager_file.ManagerFile`
 
 
+   ManagerFile class for handling file operations in CTF solving context.
+   This class inherits from ManagerFilePcap, ManagerFileRegex, ManagerFolder, and ManagerFunction,
+   providing methods for initializing file-related ancestors and searching for base64
+   strings within files.
+   .. attribute:: None
+
+      
+
+   .. method:: __init__(*args, **kwargs)
+
+      
+      Initializes the ManagerFile instance and its relevant ancestors.
+
+   .. method:: initializing_file_ancestors(*args, **kwargs)
+
+      
+      Initializes ManagerFolder and ManagerFilePcap ancestors.
+
+   .. method:: search_for_base64(file, *args, **kwargs)
+
+      
+      Deprecated. Use search_for_base64_file instead.
+
+   .. method:: search_for_base64_file(file, *args, **kwargs)
+
+      
+      Searches for base64 strings in the specified file.
+          file (str): Path to the file to search.
+          display (bool, optional): If True, prints the output. Defaults to False.
+          save (bool, optional): If True, returns the output as a list. Defaults to False.
+          strict (bool, optional): If True, applies strict matching. Defaults to False.
+          list: List of matched base64 strings if save is True; otherwise, None.
+      
+      
+
+
    .. py:attribute:: categories
 
 

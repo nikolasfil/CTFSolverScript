@@ -4,12 +4,3 @@ ctfsolver.scripts.clean_folders
 .. py:module:: ctfsolver.scripts.clean_folders
 
 
-Submodules
-----------
-
-.. toctree::
-   :maxdepth: 1
-
-   /api/ctfsolver/scripts/clean_folders/__main__/index
-
-

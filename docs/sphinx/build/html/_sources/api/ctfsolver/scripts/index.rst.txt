@@ -10,7 +10,6 @@ Submodules
 .. toctree::
    :maxdepth: 1
 
-   /api/ctfsolver/scripts/__main__/index
    /api/ctfsolver/scripts/clean_folders/index
    /api/ctfsolver/scripts/run_clean_folders/index
    /api/ctfsolver/scripts/run_folders/index

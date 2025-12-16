@@ -20,12 +20,87 @@ Module Contents
    Bases: :py:obj:`ctfsolver.CTFSolver`
 
 
-   Descritpion:
+   Handles operations related to organizing, comparing, and displaying CTF challenge folders and writeups.
 
-   Display a table for all the ctfs that don't have a proper folder structure
+   This class provides methods to:
+   - Retrieve and structure challenge and writeup directories.
+   - Clean up writeup data by filtering out unwanted files and folders.
+   - Normalize challenge and writeup names for comparison.
+   - Find differences between available challenges and writeups.
+   - Print formatted tables summarizing challenges, writeups, and their differences.
+
+   .. attribute:: Inherits from CTFSolver, which should provide methods like single_folder_search and Path.
+
+      
+
+   .. method:: printing_table(challenges)
+
+      
+      Prints a formatted table of challenges grouped by category and site.
+      
+
+   .. method:: printing_table_diff(challenges)
+
+      
+      Prints a formatted table showing differences between challenges and writeups, including their source.
+      
+
+   .. method:: getting_challenges(path=None, folder=True)
+
+      
+      Retrieves a nested dictionary of challenges or writeups from the specified directory path.
+      
+
+   .. method:: writeup_cleanup(writeups, exclude=None)
+
+      
+      Cleans up the writeups dictionary by removing excluded categories and filtering out non-writeup files.
+      
+
+   .. method:: lowering(challenges)
+
+      
+      Normalizes challenge names by removing punctuation, spaces, and converting to lowercase.
+      
+
+   .. method:: differ(challenges, writeups)
+
+      
+      Compares challenges and writeups, returning a dictionary of differences by category and site.
+      
+
+   .. method:: main()
+
+      
+      Main workflow to retrieve challenges and writeups, clean and compare them, and print the results.
+      
+      
 
 
    .. py:method:: printing_table(challenges)
+
+      Prints a formatted table displaying CTF challenges grouped by category and site.
+      :param challenges: A nested dictionary where the first-level keys are category names (str),
+      :type challenges: dict
+      :param the second-level keys are site names:
+      :type the second-level keys are site names: str), and the innermost values are lists of challenge names (str
+
+      .. rubric:: Example
+
+      challenges = {
+      "Crypto": {
+          "CTFsite1": ["ChallengeA", "ChallengeB"],
+          "CTFsite2": ["ChallengeC"]
+      },
+      "Web": {
+          "CTFsite3": ["ChallengeD"]
+      }
+      }
+      printing_table(challenges)
+
+      Output:
+          Prints a table to the console with columns: index, category, site, and challenge name.
+
 
 
    .. py:method:: printing_table_diff(challenges)

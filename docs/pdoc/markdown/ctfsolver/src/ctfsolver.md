@@ -54,12 +54,16 @@ Classes
     * ctfsolver.managers.manager_files_pcap.ManagerFilePcap
     * ctfsolver.managers.manager_files_re.ManagerFileRegex
     * ctfsolver.managers.manager_folder.ManagerFolder
+    * ctfsolver.managers.manager_functions.ManagerFunction
     * ctfsolver.managers.manager_connections.ManagerConnections
     * ctfsolver.managers.manager_crypto.ManagerCrypto
     * ctfsolver.error.manager_error.ManagerError
 
     ### Descendants
 
+    * ctfsolver.find_usage.gathering.Gathering
+    * ctfsolver.folders.finding_writeups.Folder_Structure
+    * ctfsolver.template.gathering_template.Gathering
     * ctfsolver.template.solution_template.Solution
 
     ### Methods

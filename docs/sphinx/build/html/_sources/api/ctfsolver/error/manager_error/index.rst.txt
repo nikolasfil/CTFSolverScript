@@ -64,7 +64,7 @@ Module Contents
    .. py:attribute:: verbose
 
 
-   .. py:method:: handle(exception: Exception, exit_code: int = 1)
+   .. py:method:: handle(exception, exit_code = 1)
 
       Handles exceptions by printing error information in color and exiting the program.
 
@@ -77,7 +77,7 @@ Module Contents
 
 
 
-   .. py:method:: try_function(function: callable, *args, **kwargs)
+   .. py:method:: try_function(function, *args, **kwargs)
 
       Executes a given function with provided arguments, handling exceptions.
       :param function: The function to execute.

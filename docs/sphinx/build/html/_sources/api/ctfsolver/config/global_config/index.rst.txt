@@ -123,32 +123,7 @@ Module Contents
 
 
 
-   .. py:method:: __getattr__(name)
-
-      Retrieves the value associated with the given attribute name from the internal content dictionary.
-
-      :param name: The name of the attribute to retrieve.
-      :type name: str
-
-      :returns: The value associated with the attribute name in the content dictionary.
-      :rtype: Any
-
-      :raises AttributeError: If the attribute name does not exist in the content dictionary.
-
-
-
-   .. py:method:: __getitem__(key)
-
-      Retrieves the value associated with the given key from the content dictionary.
-
-      :param key: The key to look up in the content dictionary.
-      :type key: str
-
-      :returns: The value associated with the specified key.
-      :rtype: Any
-
-      :raises KeyError: If the key does not exist in the content dictionary.
-
+   .. py:method:: check_config_content()
 
 
 .. py:data:: CONFIG

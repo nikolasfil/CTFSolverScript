@@ -1,0 +1,164 @@
+ctfsolver.venv.testing.main
+===========================
+
+.. py:module:: ctfsolver.venv.testing.main
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   ctfsolver.venv.testing.main.m
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   ctfsolver.venv.testing.main.VenvInfo
+   ctfsolver.venv.testing.main.ManagerVenv
+
+
+Module Contents
+---------------
+
+.. py:class:: VenvInfo
+
+   .. py:attribute:: name
+      :type:  str
+
+
+   .. py:attribute:: path
+      :type:  pathlib.Path
+
+
+   .. py:attribute:: python
+      :type:  pathlib.Path
+
+
+   .. py:attribute:: platform
+      :type:  str
+
+
+   .. py:attribute:: created_at
+      :type:  float
+
+
+.. py:class:: ManagerVenv
+
+   Cross-platform venv manager that can create, link, resolve and operate inside virtual environments
+   without in-process "activation". Instead, it uses the venv's interpreter directly.
+
+   Conventions:
+     - Global root for venvs is taken from CONFIG["directories"]["venvs"] (preferred),
+       else $CTFSOLVER_VENVS_HOME, else POSIX: ~/.local/share/ctfsolver/venvs,
+       Windows: %APPDATA%\ctfsolver\venvs
+     - Project shortcut: `.venv` (symlink/junction) preferred; fallback `.venv.link` text file
+       containing absolute path to the real venv directory.
+
+   Public methods cover:
+     - create (backend: stdlib venv or virtualenv)
+     - link/unlink shortcuts
+     - resolve_for current project
+     - activation_command printer
+     - run_in (execute using the venv's python)
+     - detect_venvs, export_lockfiles (pip freeze + pipdeptree)
+     - transfer, delete, list_venvs
+
+
+   .. py:attribute:: venv_dir
+      :type:  Optional[pathlib.Path]
+
+
+   .. py:attribute:: venv
+      :type:  Optional[VenvInfo]
+      :value: None
+
+
+
+   .. py:method:: check_venv_dir()
+
+
+   .. py:method:: link(project_dir, venv_path)
+
+      Create a project shortcut to an existing venv.
+      Prefer a symlink (POSIX) or junction/symlink (Windows). Fallback to .venv.link text file.
+
+
+
+   .. py:method:: unlink(project_dir)
+
+
+   .. py:method:: resolve_for(project_dir)
+
+      Resolve VenvInfo for a project directory, if a shortcut/link exists.
+
+
+
+   .. py:method:: create(name, python = None, in_project = False, project_dir = None, backend = 'venv', with_pip = True)
+
+      Create a venv using stdlib venv or virtualenv, return VenvInfo and link to project_dir if provided.
+
+
+
+   .. py:method:: activation_command(venv, shell = None)
+
+      Return the shell command string to activate the venv. Does not execute it.
+      shell: one of {'bash','zsh','fish','pwsh','cmd'} or None to auto-detect.
+
+
+
+   .. py:method:: run_in(venv_path, args, *, cwd = None, env = None, check = True, capture_output = False)
+
+      Execute a command using the venv's python interpreter: python -m <module> ... or arbitrary script.
+      If args[0] == '-m', we run 'python -m ...'; otherwise we execute the given argv via the venv's python.
+
+
+
+   .. py:method:: detect_venvs(root, recursive = True)
+
+      Yield venv directories under root.
+
+
+
+   .. py:method:: list_venvs()
+
+      List venvs in the global directory.
+
+
+
+   .. py:method:: export_lockfiles(venv_path, out_dir)
+
+      Create requirements.txt and pipdeptree.txt for venv.
+      If pipdeptree is not installed, install temporarily and remove afterwards.
+
+
+
+   .. py:method:: transfer(venv_path, dest_root = None, move = True)
+
+      Move or copy a venv to the global store (or a custom root).
+      Returns the new path.
+
+
+
+   .. py:method:: delete(venv_path, force = False)
+
+      Delete a venv directory recursively.
+
+
+
+   .. py:method:: create_and_link_current(name, *, python = None, backend = 'venv', with_pip = True, project_dir = None)
+
+      Create a global venv and link it to the given project (default: CWD).
+
+
+
+   .. py:method:: summarize(info)
+      :staticmethod:
+
+
+
+.. py:data:: m
+

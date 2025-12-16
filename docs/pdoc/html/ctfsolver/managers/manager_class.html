@@ -1,0 +1,796 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>ctfsolver.managers.manager_class API documentation</title>
+<meta name="description" content="manager_class.py …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>ctfsolver.managers.manager_class</code></h1>
+</header>
+<section id="section-intro">
+<p>manager_class.py</p>
+<p>Provides the ManagerClass for inspecting Python classes in source files, including their methods,
+class attributes, and instance attributes, with optional support for inherited members from base classes
+located in nearby files or directories.</p>
+<p>This module is useful for static analysis, code introspection, and documentation generation tasks
+where understanding the structure and inheritance of Python classes is required.</p>
+<h2 id="classes">Classes</h2>
+<p>ManagerClass: Inspects Python class definitions and their members, supporting inheritance resolution
+across multiple files and directories.</p>
+<h2 id="example">Example</h2>
+<p>inspector = ManagerClass(search_paths=["src", "package"])</p>
+<h2 id="attributes">Attributes</h2>
+<p>None
+About self.inspect return :</p>
+<p>from typing import TypedDict, Dict, List, Optional
+from typing import Literal
+# if on 3.8, use: from typing_extensions import Literal</p>
+<p>class MethodInfo(TypedDict):
+kind: Literal["instance", "class", "static", "property", "property-setter", "property-deleter"]
+async: bool
+decorators: List[Optional[str]]
+# result of unparse; may be None
+args: List[str]
+# parameter names as written
+returns: Optional[str]
+# return annotation (unparsed) or None
+source: Optional[str]
+# exact segment if available, else unparsed; may be None
+defined_in: str
+# class name where defined
+file: str
+# file path where defined (string path)
+inherited: bool
+# True if came from a base class</p>
+<p>class ClassAttrInfo(TypedDict):
+source: Optional[str]
+# assignment statement source
+value_source: Optional[str]
+# RHS expression source (if present)
+defined_in: str
+file: str
+inherited: bool</p>
+<p>class InstanceAttrOccurrence(TypedDict):
+method: str
+# method where self.<attr> was assigned
+lineno: Optional[int]
+# line number (if available)
+source: Optional[str]
+# assignment statement source
+defined_in: str
+file: str
+inherited: bool</p>
+<p>class OriginInfo(TypedDict):
+class_: str
+# class name of origin (key name 'class' in dict; see below)
+file: str
+inherited: bool</p>
+<h1 id="because-class-is-a-reserved-word-in-python-we-store-it-in-the-dict-as-class">Because 'class' is a reserved word in Python, we store it in the dict as 'class'</h1>
+<h1 id="but-expose-a-typing-alias-that-maps-to-class-at-runtime-type-checkers-accept-this-pattern">but expose a typing alias that maps to 'class' at runtime. Type checkers accept this pattern:</h1>
+<p>OriginMap = Dict[str, OriginInfo]
+# maps symbol name -&gt; origin info</p>
+<p>class Origins(TypedDict):
+methods: OriginMap
+class_attributes: OriginMap
+instance_attributes: OriginMap</p>
+<p>class ClassRefInfo(TypedDict):
+file: str
+source: Optional[str]
+# class block source
+bases: List[Optional[str]]
+# base expressions (unparsed); may be None
+decorators: List[Optional[str]]
+# class decorators (unparsed); may be None</p>
+<p>class ClassInspectionResult(TypedDict):
+name: str
+mro: List[str]
+# best-effort: derived first, then bases
+methods: Dict[str, MethodInfo]
+# method name -&gt; details
+class_attributes: Dict[str, ClassAttrInfo]
+# class attr name -&gt; details
+instance_attributes: Dict[str, List[InstanceAttrOccurrence]]
+# self.<attr> -&gt; occurrences
+origins: Origins
+classes: Dict[str, ClassRefInfo]
+# per-class summary (derived and bases)</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="ctfsolver.managers.manager_class.ManagerClass"><code class="flex name class">
+<span>class <span class="ident">ManagerClass</span></span>
+<span>(</span><span>search_paths: List[str | pathlib._local.Path] | None = None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ManagerClass:
+    &#34;&#34;&#34;
+    Inspect Python classes in source files, including inherited members found in nearby files.
+
+    Usage:
+        inspector = ClassInspector(search_paths=[&#34;src&#34;, &#34;package&#34;])
+        details = inspector.inspect(&#34;path/to/file.py&#34;, &#34;MyClass&#34;, include_inherited=True)
+    &#34;&#34;&#34;
+
+    # ---------- public API ----------
+
+    def __init__(self, search_paths: Optional[List[str | Path]] = None):
+        self.default_search_paths: List[Path] = []
+        if search_paths:
+            self.default_search_paths = [Path(p).resolve() for p in search_paths]
+
+    def inspect(
+        self,
+        file_path: str | Path,
+        class_name: str,
+        include_inherited: bool = True,
+        extra_search_paths: Optional[List[str | Path]] = None,
+    ) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;
+        Parse a Python file, locate `class_name`, and return its functions/attributes.
+        If `include_inherited` is True, also pulls in members from base classes found
+        within search paths (default: the file&#39;s directory + self.default_search_paths + extra_search_paths).
+
+        Returns:
+          {
+            &#34;name&#34;: str,
+            &#34;mro&#34;: [derived, base1, base2, ...],      # best-effort order
+            &#34;methods&#34;: { name: {..., defined_in, file, inherited } },
+            &#34;class_attributes&#34;: { name: {..., defined_in, file, inherited } },
+            &#34;instance_attributes&#34;: { name: [ {..., defined_in, file, inherited }, ...] },
+            &#34;origins&#34;: {...},                          # where each symbol came from
+            &#34;classes&#34;: { class_name: {&#34;file&#34;: str, &#34;source&#34;: str, &#34;bases&#34;: [...], &#34;decorators&#34;:[...]} }
+          }
+        &#34;&#34;&#34;
+        base_path = Path(file_path).resolve()
+        src, tree = self._read_parse(base_path)
+
+        # Find target class in this file
+        target_node: Optional[ast.ClassDef] = None
+        for n in ast.walk(tree):
+            if isinstance(n, ast.ClassDef) and n.name == class_name:
+                target_node = n
+                break
+        if target_node is None:
+            raise ValueError(f&#34;Class {class_name!r} not found in {file_path}&#34;)
+
+        # Collect info for the target
+        target_info = self._collect_class_info_from_ast(src, target_node)
+
+        if not include_inherited:
+            return self._merge_class_infos([(target_info, base_path, class_name)])
+
+        # Build search path list
+        paths: List[Path] = [base_path.parent]
+        paths.extend(self.default_search_paths)
+        if extra_search_paths:
+            paths.extend([Path(p) for p in extra_search_paths])
+
+        py_files = self._iter_python_files(paths)
+
+        # Index classes across the project area (plus current file)
+        if base_path not in py_files:
+            py_files.append(base_path)
+        idx = self._index_classes(py_files)
+
+        # Build a best-effort MRO list: [derived, base1, base1_base, base2, ...]
+        mro_infos: List[Tuple[Dict[str, Any], Path, str]] = [
+            (target_info, base_path, class_name)
+        ]
+
+        # BFS over bases, skip builtins
+        queue: List[Tuple[str, Optional[Path]]] = []
+        seen_class_names = {class_name, &#34;object&#34;}
+
+        for b in target_node.bases:
+            bn = self._base_name(b)
+            if bn and bn not in seen_class_names:
+                queue.append((bn, base_path))
+                seen_class_names.add(bn)
+
+        while queue:
+            bn, preferred = queue.pop(0)
+            rec = self._choose_class_record(idx, bn, preferred)
+            if rec is None:
+                continue  # unknown / external base
+            b_info = self._collect_class_info_from_ast(rec[&#34;src&#34;], rec[&#34;node&#34;])
+            mro_infos.append((b_info, rec[&#34;file&#34;], rec[&#34;node&#34;].name))
+            # enqueue that base&#39;s bases
+            for bb in rec[&#34;node&#34;].bases:
+                name2 = self._base_name(bb)
+                if name2 and name2 not in seen_class_names:
+                    queue.append((name2, rec[&#34;file&#34;]))
+                    seen_class_names.add(name2)
+
+        # Merge child over bases
+        return self._merge_class_infos(mro_infos)
+
+    # ---------- helpers ----------
+
+    def _read_parse(self, path: Path) -&gt; Tuple[str, ast.AST]:
+        src = path.read_text(encoding=&#34;utf-8&#34;)
+        tree = ast.parse(src, filename=str(path))
+        return src, tree
+
+    def _safe_unparse(self, node: Optional[ast.AST]) -&gt; Optional[str]:
+        if node is None:
+            return None
+        try:
+            return ast.unparse(node)
+        except Exception:
+            return None
+
+    def _segment(self, src: str, node: ast.AST) -&gt; Optional[str]:
+        try:
+            s = ast.get_source_segment(src, node)
+            if s is not None:
+                return s
+        except Exception:
+            pass
+        return self._safe_unparse(node)
+
+    def _iter_python_files(self, paths: List[Path]) -&gt; List[Path]:
+        files: List[Path] = []
+        seen: set[Path] = set()
+        for p in paths:
+            p = p.resolve()
+            if p in seen:
+                continue
+            seen.add(p)
+            if p.is_file() and p.suffix == &#34;.py&#34;:
+                files.append(p)
+            elif p.is_dir():
+                for q in p.rglob(&#34;*.py&#34;):
+                    qp = q.resolve()
+                    if qp not in seen:
+                        files.append(qp)
+                        seen.add(qp)
+        return files
+
+    def _index_classes(self, py_files: List[Path]) -&gt; Dict[str, List[Dict[str, Any]]]:
+        &#34;&#34;&#34;
+        class_name -&gt; [ {file, src, tree, node}, ... ]
+        Names are unqualified. If duplicates exist, we keep all and prefer same-file matches later.
+        &#34;&#34;&#34;
+        idx: Dict[str, List[Dict[str, Any]]] = {}
+        for f in py_files:
+            try:
+                src = f.read_text(encoding=&#34;utf-8&#34;)
+                tree = ast.parse(src, filename=str(f))
+            except Exception:
+                continue
+            for n in ast.walk(tree):
+                if isinstance(n, ast.ClassDef):
+                    idx.setdefault(n.name, []).append(
+                        {&#34;file&#34;: f, &#34;src&#34;: src, &#34;tree&#34;: tree, &#34;node&#34;: n}
+                    )
+        return idx
+
+    def _base_name(self, b: ast.expr) -&gt; Optional[str]:
+        &#34;&#34;&#34;
+        Extract a best-effort class name from a base expression.
+        - Name: Foo -&gt; &#34;Foo&#34;
+        - Attribute: pkg.Foo -&gt; &#34;Foo&#34;
+        - Subscript: Generic[Foo] -&gt; &#34;Generic&#34;
+        Fallback: last token after dot in unparse.
+        &#34;&#34;&#34;
+        if isinstance(b, ast.Name):
+            return b.id
+        if isinstance(b, ast.Attribute):
+            return b.attr
+        if isinstance(b, ast.Subscript):
+            return self._base_name(b.value)
+        s = self._safe_unparse(b) or &#34;&#34;
+        if &#34;.&#34; in s:
+            return s.split(&#34;.&#34;)[-1]
+        return s or None
+
+    def _choose_class_record(
+        self,
+        idx: Dict[str, List[Dict[str, Any]]],
+        name: str,
+        preferred_file: Optional[Path],
+    ) -&gt; Optional[Dict[str, Any]]:
+        &#34;&#34;&#34;
+        Choose a class record by name. Prefer one defined in preferred_file, else the first.
+        &#34;&#34;&#34;
+        items = idx.get(name) or []
+        if not items:
+            return None
+        if preferred_file is not None:
+            for rec in items:
+                if rec[&#34;file&#34;].resolve() == preferred_file.resolve():
+                    return rec
+        return items[0]
+
+    def _collect_class_info_from_ast(
+        self, src: str, cls_node: ast.ClassDef
+    ) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;
+        Collect methods, class attrs, and instance attrs for a single ClassDef node.
+        &#34;&#34;&#34;
+        info: Dict[str, Any] = {
+            &#34;name&#34;: cls_node.name,
+            &#34;bases&#34;: [self._safe_unparse(b) for b in cls_node.bases],
+            &#34;decorators&#34;: [
+                self._safe_unparse(d) for d in getattr(cls_node, &#34;decorator_list&#34;, [])
+            ],
+            &#34;source&#34;: self._segment(src, cls_node),
+            &#34;methods&#34;: {},
+            &#34;class_attributes&#34;: {},
+            &#34;instance_attributes&#34;: {},
+        }
+
+        for n in cls_node.body:
+            # ----- class attributes -----
+            if isinstance(n, (ast.Assign, ast.AnnAssign)):
+                names = []
+                if isinstance(n, ast.Assign):
+                    for t in n.targets:
+                        if isinstance(t, ast.Name):
+                            names.append(t.id)
+                else:  # AnnAssign
+                    if isinstance(n.target, ast.Name):
+                        names.append(n.target.id)
+                for nm in names:
+                    info[&#34;class_attributes&#34;][nm] = {
+                        &#34;source&#34;: self._segment(src, n),
+                        &#34;value_source&#34;: (
+                            self._segment(src, n.value)
+                            if getattr(n, &#34;value&#34;, None) is not None
+                            else None
+                        ),
+                    }
+
+            # ----- methods -----
+            elif isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef)):
+                method_name = n.name
+
+                # Determine kind
+                kind = &#34;instance&#34;
+                decorators_src = [self._safe_unparse(d) for d in n.decorator_list]
+                for d in n.decorator_list:
+                    if isinstance(d, ast.Name):
+                        if d.id == &#34;staticmethod&#34;:
+                            kind = &#34;static&#34;
+                            break
+                        if d.id == &#34;classmethod&#34;:
+                            kind = &#34;class&#34;
+                            break
+                        if d.id == &#34;property&#34;:
+                            kind = &#34;property&#34;
+                            break
+                    elif isinstance(d, ast.Attribute):
+                        # e.g. @prop.setter / @prop.deleter
+                        if d.attr in {&#34;setter&#34;, &#34;deleter&#34;}:
+                            kind = f&#34;property-{d.attr}&#34;
+                            break
+
+                info[&#34;methods&#34;][method_name] = {
+                    &#34;kind&#34;: kind,
+                    &#34;async&#34;: isinstance(n, ast.AsyncFunctionDef),
+                    &#34;decorators&#34;: decorators_src,
+                    &#34;args&#34;: [a.arg for a in n.args.args],
+                    &#34;returns&#34;: (
+                        self._safe_unparse(n.returns)
+                        if getattr(n, &#34;returns&#34;, None)
+                        else None
+                    ),
+                    &#34;source&#34;: self._segment(src, n),
+                }
+
+                # instance attributes in this method
+                for sub in ast.walk(n):
+                    if isinstance(sub, (ast.Assign, ast.AnnAssign, ast.AugAssign)):
+                        targets = []
+                        if isinstance(sub, ast.Assign):
+                            targets = sub.targets
+                        else:
+                            targets = [sub.target]
+                        for t in targets:
+                            if (
+                                isinstance(t, ast.Attribute)
+                                and isinstance(t.value, ast.Name)
+                                and t.value.id == &#34;self&#34;
+                            ):
+                                entry = {
+                                    &#34;method&#34;: method_name,
+                                    &#34;lineno&#34;: getattr(t, &#34;lineno&#34;, None),
+                                    &#34;source&#34;: self._segment(src, sub),
+                                }
+                                info[&#34;instance_attributes&#34;].setdefault(
+                                    t.attr, []
+                                ).append(entry)
+
+        return info
+
+    def _merge_class_infos(
+        self,
+        infos_in_mro_order: List[Tuple[Dict[str, Any], Path, str]],
+    ) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;
+        Merge child-first over bases. Each element is (info, file, class_name).
+        Child definitions win; inherited ones are added if missing.
+        Annotate each method/attr with origin.
+        &#34;&#34;&#34;
+        if not infos_in_mro_order:
+            return {}
+
+        # start with the most-derived
+        merged = {
+            &#34;name&#34;: infos_in_mro_order[0][0][&#34;name&#34;],
+            &#34;mro&#34;: [clsname for (_info, _file, clsname) in infos_in_mro_order],
+            &#34;methods&#34;: {},
+            &#34;class_attributes&#34;: {},
+            &#34;instance_attributes&#34;: {},
+            &#34;origins&#34;: {
+                &#34;methods&#34;: {},  # name -&gt; {&#34;class&#34;: str, &#34;file&#34;: str, &#34;inherited&#34;: bool}
+                &#34;class_attributes&#34;: {},  # name -&gt; {...}
+                &#34;instance_attributes&#34;: {},  # name -&gt; {...}
+            },
+            &#34;classes&#34;: {},  # per-class raw info (file, source, bases, decorators)
+        }
+
+        # Keep a copy of each class&#39;s info for reference
+        for info, file_path, clsname in infos_in_mro_order:
+            merged[&#34;classes&#34;][clsname] = {
+                &#34;file&#34;: str(file_path),
+                &#34;source&#34;: info.get(&#34;source&#34;),
+                &#34;bases&#34;: info.get(&#34;bases&#34;, []),
+                &#34;decorators&#34;: info.get(&#34;decorators&#34;, []),
+            }
+
+        for idx, (info, file_path, clsname) in enumerate(infos_in_mro_order):
+            inherited = idx != 0
+
+            # methods
+            for k, v in info[&#34;methods&#34;].items():
+                if k not in merged[&#34;methods&#34;]:
+                    merged[&#34;methods&#34;][k] = v | {
+                        &#34;defined_in&#34;: clsname,
+                        &#34;file&#34;: str(file_path),
+                        &#34;inherited&#34;: inherited,
+                    }
+                    merged[&#34;origins&#34;][&#34;methods&#34;][k] = {
+                        &#34;class&#34;: clsname,
+                        &#34;file&#34;: str(file_path),
+                        &#34;inherited&#34;: inherited,
+                    }
+
+            # class attrs
+            for k, v in info[&#34;class_attributes&#34;].items():
+                if k not in merged[&#34;class_attributes&#34;]:
+                    entry = v | {
+                        &#34;defined_in&#34;: clsname,
+                        &#34;file&#34;: str(file_path),
+                        &#34;inherited&#34;: inherited,
+                    }
+                    merged[&#34;class_attributes&#34;][k] = entry
+                    merged[&#34;origins&#34;][&#34;class_attributes&#34;][k] = {
+                        &#34;class&#34;: clsname,
+                        &#34;file&#34;: str(file_path),
+                        &#34;inherited&#34;: inherited,
+                    }
+
+            # instance attrs (union; keep per-attr list with entries annotated)
+            for k, lst in info[&#34;instance_attributes&#34;].items():
+                for item in lst:
+                    annotated = item | {
+                        &#34;defined_in&#34;: clsname,
+                        &#34;file&#34;: str(file_path),
+                        &#34;inherited&#34;: inherited,
+                    }
+                    merged[&#34;instance_attributes&#34;].setdefault(k, []).append(annotated)
+                    merged[&#34;origins&#34;][&#34;instance_attributes&#34;].setdefault(
+                        k,
+                        {
+                            &#34;class&#34;: clsname,
+                            &#34;file&#34;: str(file_path),
+                            &#34;inherited&#34;: inherited,
+                        },
+                    )
+
+        return merged
+
+    def example_printing(
+        self,
+        file_path: str,
+        classname: str,
+    ):
+        info = self.inspect(file_path, classname, include_inherited=True)
+
+        print(&#34;MRO (best-effort):&#34;, info[&#34;mro&#34;])
+        print(&#34;\n=== Methods (incl. inherited) ===&#34;)
+        for name, m in info[&#34;methods&#34;].items():
+            print(
+                f&#34;- {name:12s} kind={m[&#39;kind&#39;]:9s} inherited={m[&#39;inherited&#39;]} defined_in={m[&#39;defined_in&#39;]}&#34;
+            )
+
+        print(&#34;\n=== Class attributes (incl. inherited) ===&#34;)
+        for name, a in info[&#34;class_attributes&#34;].items():
+            print(
+                f&#34;- {name:12s} inherited={a[&#39;inherited&#39;]} defined_in={a[&#39;defined_in&#39;]}&#34;
+            )
+
+        print(&#34;\n=== Instance attributes (assignments to self.&lt;attr&gt;) ===&#34;)
+        for attr, occurrences in info[&#34;instance_attributes&#34;].items():
+            origins = {f&#34;{o[&#39;defined_in&#39;]}:{o[&#39;method&#39;]}&#34; for o in occurrences}
+            print(f&#34;- {attr:12s} set in -&gt; {sorted(origins)}&#34;)
+
+    def get_classes_in_file(self, file_path: str | Path) -&gt; list[str]:
+        &#34;&#34;&#34;
+        Opens a Python file and returns a list of class names defined in that file.
+
+        Args:
+            file_path (str | Path): Path to the Python source file.
+
+        Returns:
+            list[str]: List of class names found in the file.
+        &#34;&#34;&#34;
+        path = Path(file_path)
+        src = path.read_text(encoding=&#34;utf-8&#34;)
+        tree = ast.parse(src, filename=str(path))
+        return [node.name for node in ast.walk(tree) if isinstance(node, ast.ClassDef)]</code></pre>
+</details>
+<div class="desc"><p>Inspect Python classes in source files, including inherited members found in nearby files.</p>
+<h2 id="usage">Usage</h2>
+<p>inspector = ClassInspector(search_paths=["src", "package"])
+details = inspector.inspect("path/to/file.py", "MyClass", include_inherited=True)</p></div>
+<h3>Methods</h3>
+<dl>
+<dt id="ctfsolver.managers.manager_class.ManagerClass.example_printing"><code class="name flex">
+<span>def <span class="ident">example_printing</span></span>(<span>self, file_path: str, classname: str)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def example_printing(
+    self,
+    file_path: str,
+    classname: str,
+):
+    info = self.inspect(file_path, classname, include_inherited=True)
+
+    print(&#34;MRO (best-effort):&#34;, info[&#34;mro&#34;])
+    print(&#34;\n=== Methods (incl. inherited) ===&#34;)
+    for name, m in info[&#34;methods&#34;].items():
+        print(
+            f&#34;- {name:12s} kind={m[&#39;kind&#39;]:9s} inherited={m[&#39;inherited&#39;]} defined_in={m[&#39;defined_in&#39;]}&#34;
+        )
+
+    print(&#34;\n=== Class attributes (incl. inherited) ===&#34;)
+    for name, a in info[&#34;class_attributes&#34;].items():
+        print(
+            f&#34;- {name:12s} inherited={a[&#39;inherited&#39;]} defined_in={a[&#39;defined_in&#39;]}&#34;
+        )
+
+    print(&#34;\n=== Instance attributes (assignments to self.&lt;attr&gt;) ===&#34;)
+    for attr, occurrences in info[&#34;instance_attributes&#34;].items():
+        origins = {f&#34;{o[&#39;defined_in&#39;]}:{o[&#39;method&#39;]}&#34; for o in occurrences}
+        print(f&#34;- {attr:12s} set in -&gt; {sorted(origins)}&#34;)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="ctfsolver.managers.manager_class.ManagerClass.get_classes_in_file"><code class="name flex">
+<span>def <span class="ident">get_classes_in_file</span></span>(<span>self, file_path: str | pathlib._local.Path) ‑> list[str]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_classes_in_file(self, file_path: str | Path) -&gt; list[str]:
+    &#34;&#34;&#34;
+    Opens a Python file and returns a list of class names defined in that file.
+
+    Args:
+        file_path (str | Path): Path to the Python source file.
+
+    Returns:
+        list[str]: List of class names found in the file.
+    &#34;&#34;&#34;
+    path = Path(file_path)
+    src = path.read_text(encoding=&#34;utf-8&#34;)
+    tree = ast.parse(src, filename=str(path))
+    return [node.name for node in ast.walk(tree) if isinstance(node, ast.ClassDef)]</code></pre>
+</details>
+<div class="desc"><p>Opens a Python file and returns a list of class names defined in that file.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>file_path</code></strong> :&ensp;<code>str | Path</code></dt>
+<dd>Path to the Python source file.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list[str]</code></dt>
+<dd>List of class names found in the file.</dd>
+</dl></div>
+</dd>
+<dt id="ctfsolver.managers.manager_class.ManagerClass.inspect"><code class="name flex">
+<span>def <span class="ident">inspect</span></span>(<span>self,<br>file_path: str | pathlib._local.Path,<br>class_name: str,<br>include_inherited: bool = True,<br>extra_search_paths: List[str | pathlib._local.Path] | None = None) ‑> Dict[str, Any]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def inspect(
+    self,
+    file_path: str | Path,
+    class_name: str,
+    include_inherited: bool = True,
+    extra_search_paths: Optional[List[str | Path]] = None,
+) -&gt; Dict[str, Any]:
+    &#34;&#34;&#34;
+    Parse a Python file, locate `class_name`, and return its functions/attributes.
+    If `include_inherited` is True, also pulls in members from base classes found
+    within search paths (default: the file&#39;s directory + self.default_search_paths + extra_search_paths).
+
+    Returns:
+      {
+        &#34;name&#34;: str,
+        &#34;mro&#34;: [derived, base1, base2, ...],      # best-effort order
+        &#34;methods&#34;: { name: {..., defined_in, file, inherited } },
+        &#34;class_attributes&#34;: { name: {..., defined_in, file, inherited } },
+        &#34;instance_attributes&#34;: { name: [ {..., defined_in, file, inherited }, ...] },
+        &#34;origins&#34;: {...},                          # where each symbol came from
+        &#34;classes&#34;: { class_name: {&#34;file&#34;: str, &#34;source&#34;: str, &#34;bases&#34;: [...], &#34;decorators&#34;:[...]} }
+      }
+    &#34;&#34;&#34;
+    base_path = Path(file_path).resolve()
+    src, tree = self._read_parse(base_path)
+
+    # Find target class in this file
+    target_node: Optional[ast.ClassDef] = None
+    for n in ast.walk(tree):
+        if isinstance(n, ast.ClassDef) and n.name == class_name:
+            target_node = n
+            break
+    if target_node is None:
+        raise ValueError(f&#34;Class {class_name!r} not found in {file_path}&#34;)
+
+    # Collect info for the target
+    target_info = self._collect_class_info_from_ast(src, target_node)
+
+    if not include_inherited:
+        return self._merge_class_infos([(target_info, base_path, class_name)])
+
+    # Build search path list
+    paths: List[Path] = [base_path.parent]
+    paths.extend(self.default_search_paths)
+    if extra_search_paths:
+        paths.extend([Path(p) for p in extra_search_paths])
+
+    py_files = self._iter_python_files(paths)
+
+    # Index classes across the project area (plus current file)
+    if base_path not in py_files:
+        py_files.append(base_path)
+    idx = self._index_classes(py_files)
+
+    # Build a best-effort MRO list: [derived, base1, base1_base, base2, ...]
+    mro_infos: List[Tuple[Dict[str, Any], Path, str]] = [
+        (target_info, base_path, class_name)
+    ]
+
+    # BFS over bases, skip builtins
+    queue: List[Tuple[str, Optional[Path]]] = []
+    seen_class_names = {class_name, &#34;object&#34;}
+
+    for b in target_node.bases:
+        bn = self._base_name(b)
+        if bn and bn not in seen_class_names:
+            queue.append((bn, base_path))
+            seen_class_names.add(bn)
+
+    while queue:
+        bn, preferred = queue.pop(0)
+        rec = self._choose_class_record(idx, bn, preferred)
+        if rec is None:
+            continue  # unknown / external base
+        b_info = self._collect_class_info_from_ast(rec[&#34;src&#34;], rec[&#34;node&#34;])
+        mro_infos.append((b_info, rec[&#34;file&#34;], rec[&#34;node&#34;].name))
+        # enqueue that base&#39;s bases
+        for bb in rec[&#34;node&#34;].bases:
+            name2 = self._base_name(bb)
+            if name2 and name2 not in seen_class_names:
+                queue.append((name2, rec[&#34;file&#34;]))
+                seen_class_names.add(name2)
+
+    # Merge child over bases
+    return self._merge_class_infos(mro_infos)</code></pre>
+</details>
+<div class="desc"><p>Parse a Python file, locate <code>class_name</code>, and return its functions/attributes.
+If <code>include_inherited</code> is True, also pulls in members from base classes found
+within search paths (default: the file's directory + self.default_search_paths + extra_search_paths).</p>
+<h2 id="returns">Returns</h2>
+<p>{
+"name": str,
+"mro": [derived, base1, base2, &hellip;],
+# best-effort order
+"methods": { name: {&hellip;, defined_in, file, inherited } },
+"class_attributes": { name: {&hellip;, defined_in, file, inherited } },
+"instance_attributes": { name: [ {&hellip;, defined_in, file, inherited }, &hellip;] },
+"origins": {&hellip;},
+# where each symbol came from
+"classes": { class_name: {"file": str, "source": str, "bases": [&hellip;], "decorators":[&hellip;]} }
+}</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul>
+<li><a href="#because-class-is-a-reserved-word-in-python-we-store-it-in-the-dict-as-class">Because 'class' is a reserved word in Python, we store it in the dict as 'class'</a></li>
+<li><a href="#but-expose-a-typing-alias-that-maps-to-class-at-runtime-type-checkers-accept-this-pattern">but expose a typing alias that maps to 'class' at runtime. Type checkers accept this pattern:</a></li>
+</ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="ctfsolver.managers" href="index.html">ctfsolver.managers</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="ctfsolver.managers.manager_class.ManagerClass" href="#ctfsolver.managers.manager_class.ManagerClass">ManagerClass</a></code></h4>
+<ul class="">
+<li><code><a title="ctfsolver.managers.manager_class.ManagerClass.example_printing" href="#ctfsolver.managers.manager_class.ManagerClass.example_printing">example_printing</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_class.ManagerClass.get_classes_in_file" href="#ctfsolver.managers.manager_class.ManagerClass.get_classes_in_file">get_classes_in_file</a></code></li>
+<li><code><a title="ctfsolver.managers.manager_class.ManagerClass.inspect" href="#ctfsolver.managers.manager_class.ManagerClass.inspect">inspect</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,77 @@
+ctfsolver.cli.subcli.ctf
+========================
+
+.. py:module:: ctfsolver.cli.subcli.ctf
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   ctfsolver.cli.subcli.ctf.ctf_app
+   ctfsolver.cli.subcli.ctf.manager_error
+   ctfsolver.cli.subcli.ctf.manager_file
+   ctfsolver.cli.subcli.ctf.challenge_config
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   ctfsolver.cli.subcli.ctf.folders
+   ctfsolver.cli.subcli.ctf.create
+   ctfsolver.cli.subcli.ctf.automove
+   ctfsolver.cli.subcli.ctf.show
+   ctfsolver.cli.subcli.ctf.link
+   ctfsolver.cli.subcli.ctf.find_usage
+   ctfsolver.cli.subcli.ctf.init_challenge
+
+
+Module Contents
+---------------
+
+.. py:data:: ctf_app
+
+.. py:data:: manager_error
+
+.. py:data:: manager_file
+
+.. py:data:: challenge_config
+
+.. py:function:: folders()
+
+   Create the folder structure as specified by the global configuration.
+
+
+.. py:function:: create(category = typer.Option(..., '-c', '--category', help='Category for the operation'), site = typer.Option(..., '-s', '--site', help='Site inside the category'), name = typer.Option(..., '-n', '--name', help='Name of the CTF challenge'), checker = typer.Option(False, '-y', '--checker', help='Checker for the CTF challenge'), download = typer.Option(False, '-d', '--download', help='Auto move downloaded files'), verbose = typer.Option(False, '-v', '--verbose', help='Verbose output'))
+
+   Create a new CTF challenge structure.
+
+
+.. py:function:: automove(checker = typer.Option(False, '-y', '--no-check', help='No checking'), verbose = typer.Option(False, '-v', '--verbose', help='Verbose output'))
+
+   Automatically move downloaded CTF files to their respective challenge folders.
+
+
+.. py:function:: show(category = typer.Option(..., '-c', '--category', help='Category for the operation'), site = typer.Option(..., '-s', '--site', help='Site inside the category'))
+
+   Navigate CTF categories/sites and list subdirectories.
+
+
+.. py:function:: link()
+
+   Link CTF folders (implementation TBD).
+
+
+.. py:function:: find_usage(directory = typer.Option(None, help='Directory for the operation'))
+
+   Find usage of a specific import statement in project files.
+
+
+.. py:function:: init_challenge()
+
+   Initialize challenge configuration in the current directory.
+
+

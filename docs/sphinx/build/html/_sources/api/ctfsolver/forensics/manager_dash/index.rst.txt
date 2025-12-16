@@ -123,7 +123,7 @@ Module Contents
    .. py:attribute:: title
 
 
-   .. py:method:: pcap_to_element_converter(packets: list[scapy.all.packet.Packet], save: bool = False) -> list[dict]
+   .. py:method:: pcap_to_element_converter(packets, save = False)
 
       Converts a list of scapy Packet objects into a list of elements suitable for visualization,
       extracting source and destination IPs and protocol information.
@@ -142,7 +142,7 @@ Module Contents
 
 
 
-   .. py:method:: pcap_to_element_converter_timestamp(packets: list[scapy.all.packet.Packet], save: bool = False) -> list[dict]
+   .. py:method:: pcap_to_element_converter_timestamp(packets, save = False)
 
       Description:
           Converts a list of scapy Packet objects from a pcap file into a list of elements suitable for graph visualization.
@@ -165,7 +165,7 @@ Module Contents
 
 
 
-   .. py:method:: elements_checker(elements: list[dict]) -> bool
+   .. py:method:: elements_checker(elements)
 
       Description:
           Validates a list of dictionaries to ensure they meet specific structural and content requirements.

@@ -1,0 +1,220 @@
+ctfsolver.venv.manager_venv
+===========================
+
+.. py:module:: ctfsolver.venv.manager_venv
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   ctfsolver.venv.manager_venv.manager
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   ctfsolver.venv.manager_venv.ManagerVenv
+
+
+Module Contents
+---------------
+
+.. py:class:: ManagerVenv(*args, **kwargs)
+
+   Bases: :py:obj:`ctfsolver.managers.manager_folder.ManagerFolder`
+
+
+   ManagerFolder provides utilities for managing folder structures and files for CTF (Capture The Flag) challenges.
+   This class handles the creation, organization, and manipulation of challenge-related directories and files,
+   including payloads, data, and solution scripts. It offers methods for searching files, executing functions
+   on files, cleaning up empty directories, and extracting function definitions from Python files.
+       verbose (bool): Enables verbose output for debugging and logging.
+       Path (type): Reference to the pathlib.Path class for file system operations.
+       parent (Path): The resolved parent directory of the calling file.
+       file (str): The filename associated with the challenge.
+       folders_name_list (list): List of folder names to be managed.
+       folders (defaultdict): Mapping of folder names to their Path objects.
+       folder_payloads (Path): Path to the payloads folder.
+       folder_data (Path): Path to the data folder.
+       folder_files (Path): Path to the files folder.
+       challenge_file (Path): Path to the challenge file.
+       solution_file (Path): Path to the solution file.
+   .. method:: __init__(*args, **kwargs)
+
+      Initializes the ManagerFolder instance.
+
+   .. method:: init_for_challenge(*args, **kwargs)
+
+      Sets up attributes and folders for a challenge.
+
+   .. method:: handling_global_config()
+
+      Loads global configuration for folder names.
+
+   .. method:: initializing_all_ancestors(*args, **kwargs)
+
+      Initializes ancestor classes (placeholder).
+
+   .. method:: get_parent()
+
+      Determines and sets the parent directory of the calling file.
+
+   .. method:: setup_named_folders()
+
+      Creates and assigns paths for named folders.
+
+   .. method:: create_parent_folder()
+
+      Creates parent folders if they do not exist.
+
+   .. method:: prepare_space(files=None, folder=None, test_text="flag{test}")
+
+      Prepares challenge space by creating files and folders.
+
+   .. method:: clean_folders(folders
+
+      list = None): Removes empty folders.
+
+   .. method:: check_empty_folder(folder)
+
+      Checks if a folder is empty.
+
+   .. method:: get_challenge_file()
+
+      Assigns the challenge file path.
+
+   .. method:: get_solution_file(*args, solution_name="solution.py", save=False, display=False, **kwargs)
+
+      Retrieves the solution file path.
+
+   .. method:: search_for_pattern_in_file(file, func=None, display=False, save=False, *args, **kwargs)
+
+      Searches for a pattern in a file.
+
+   .. method:: exec_on_files(folder, func, *args, **kwargs)
+
+      Executes a function on all files in a folder.
+
+   .. method:: search_files(directory, exclude_dirs, search_string, save=False, display=False)
+
+      Searches for a string in files within a directory.
+
+   .. method:: get_self_functions()
+
+      Returns a list of callable methods of the class.
+
+   .. method:: get_function_reference(function, file)
+
+      Finds references to a function in a file.
+
+   .. method:: find_function_from_file(file_path, function_name)
+
+      Finds and returns the source code of a function from a file.
+
+   .. method:: folfil(folder, file)
+
+      Returns the full path of a file within a folder.
+
+   .. method:: folders_file(*folders, file)
+
+      Returns the full path of a file within nested folders.
+
+   .. method:: challenge_folder_structure(*args, **kwargs)
+
+      Checks the structure of challenge folders.
+
+   .. method:: recursive_folder_search(function, *args, path=None, **kwargs)
+
+      Recursively applies a function to folders and files.
+
+   .. method:: single_folder_search(*args, **kwargs)
+
+      Applies a function to the contents of a single folder.
+
+   .. rubric:: Example
+
+   manager = ManagerFolder(file="challenge.txt", verbose=True)
+   manager.prepare_space(files=["input.txt", "output.txt"])
+
+
+   .. py:attribute:: venv_dir
+
+
+   .. py:attribute:: venv_to_check
+      :value: None
+
+
+
+   .. py:method:: check_global_venv_dir()
+
+
+   .. py:method:: check_venv_dir(filepath)
+
+
+   .. py:method:: activate(filepath)
+
+
+   .. py:method:: system_translator()
+
+
+   .. py:method:: get_python_executable()
+
+
+   .. py:method:: get_dependencies()
+
+
+   .. py:method:: install_pipdeptree()
+
+
+   .. py:method:: get_pipdeptree()
+
+
+   .. py:method:: look_for_venvs(filepath = None)
+
+      Recursively searches for Python virtual environments within a specified directory.
+      :param filepath: The path to the directory in which to search for virtual environments.
+                       If not provided, the search will be performed in the instance's `venv_dir` attribute.
+      :type filepath: str, optional
+
+      :returns: A list of Path objects representing directories identified as Python virtual environments.
+      :rtype: list[Path]
+
+      :raises FileNotFoundError: If the specified path does not exist or is not a directory.
+
+      .. rubric:: Notes
+
+      - A directory is considered a virtual environment if `self.check_venv_dir(item)` returns True.
+      - The search is performed recursively using `Path.rglob("*")`.
+
+
+
+   .. py:method:: save_dependencies()
+
+
+   .. py:method:: clean_venv()
+
+
+   .. py:method:: move_venv(folder = None)
+
+
+   .. py:method:: create_shortcut()
+
+
+   .. py:method:: delete_venv(folder)
+
+      Deletes the virtual environment directory.
+
+      :param folder: The path to the virtual environment folder to delete.
+      :type folder: Path
+
+
+
+   .. py:method:: testing()
+
+
+.. py:data:: manager
+

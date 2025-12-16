@@ -165,7 +165,11 @@ content if necessary) and accessing configuration values via attribute or dictio
         &#34;&#34;&#34;
 
         # Load the template content from config_template.json
-        template_path = Path(Path(__file__).parent, &#34;config_template.json&#34;)
+        # Changed the location of the config_template, to keep all the data files together.
+        # template_path = Path(Path(__file__).parent, &#34;config_template.json&#34;)
+        template_path = Path(
+            Path(__file__).parent.parent, &#34;data&#34;, &#34;config_template.json&#34;
+        )
         if template_path.exists():
             with open(template_path, &#34;r&#34;) as template_file:
                 initial_content = json.load(template_file)
@@ -232,7 +236,12 @@ content if necessary) and accessing configuration values via attribute or dictio
         &#34;&#34;&#34;
         if key in self.content:
             return self.content[key]
-        raise KeyError(f&#34;&#39;GlobalConfig&#39; object has no key &#39;{key}&#39;&#34;)</code></pre>
+        raise KeyError(f&#34;&#39;GlobalConfig&#39; object has no key &#39;{key}&#39;&#34;)
+
+    def check_config_content(self):
+        # !TODO Checks the current config if it exists,
+        # and the keys of the template config
+        pass</code></pre>
 </details>
 <div class="desc"><p>Initializes the global configuration for the CTF solver application.
 This constructor sets the path to the global configuration file and loads its content.</p>
@@ -245,6 +254,21 @@ This constructor sets the path to the global configuration file and loads its co
 <p>Any exceptions raised by <code>get_content()</code> will propagate.</p></div>
 <h3>Methods</h3>
 <dl>
+<dt id="ctfsolver.config.global_config.GlobalConfig.check_config_content"><code class="name flex">
+<span>def <span class="ident">check_config_content</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_config_content(self):
+    # !TODO Checks the current config if it exists,
+    # and the keys of the template config
+    pass</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
 <dt id="ctfsolver.config.global_config.GlobalConfig.creating"><code class="name flex">
 <span>def <span class="ident">creating</span></span>(<span>self)</span>
 </code></dt>
@@ -366,7 +390,11 @@ settings for use in the inline tool or other parts of the application.</p>
     &#34;&#34;&#34;
 
     # Load the template content from config_template.json
-    template_path = Path(Path(__file__).parent, &#34;config_template.json&#34;)
+    # Changed the location of the config_template, to keep all the data files together.
+    # template_path = Path(Path(__file__).parent, &#34;config_template.json&#34;)
+    template_path = Path(
+        Path(__file__).parent.parent, &#34;data&#34;, &#34;config_template.json&#34;
+    )
     if template_path.exists():
         with open(template_path, &#34;r&#34;) as template_file:
             initial_content = json.load(template_file)
@@ -444,6 +472,7 @@ required by the inline tool.</p></div>
 <li>
 <h4><code><a title="ctfsolver.config.global_config.GlobalConfig" href="#ctfsolver.config.global_config.GlobalConfig">GlobalConfig</a></code></h4>
 <ul class="">
+<li><code><a title="ctfsolver.config.global_config.GlobalConfig.check_config_content" href="#ctfsolver.config.global_config.GlobalConfig.check_config_content">check_config_content</a></code></li>
 <li><code><a title="ctfsolver.config.global_config.GlobalConfig.creating" href="#ctfsolver.config.global_config.GlobalConfig.creating">creating</a></code></li>
 <li><code><a title="ctfsolver.config.global_config.GlobalConfig.get_content" href="#ctfsolver.config.global_config.GlobalConfig.get_content">get_content</a></code></li>
 <li><code><a title="ctfsolver.config.global_config.GlobalConfig.initial_content" href="#ctfsolver.config.global_config.GlobalConfig.initial_content">initial_content</a></code></li>
