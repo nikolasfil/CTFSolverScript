@@ -5,7 +5,7 @@
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="ctfsolver.managers.manager_connections" href="../manager_connections/index.html" /><link rel="prev" title="ctfsolver.managers" href="../index.html" />
 
-    <!-- Generated with Sphinx 9.0.4 and Furo 2025.07.19 -->
+    <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
         <title>ctfsolver.managers.manager_class - ctfsolver 0.0.14 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=25af2a20" />
@@ -357,7 +357,7 @@ where understanding the structure and inheritance of Python classes is required.
 <p>inspector = ManagerClass(search_paths=[“src”, “package”])</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctfsolver.managers.manager_class.None">
-<span class="sig-name descname"><span class="pre">None</span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolver/blob/main/ctfsolver/managers/manager_class.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_class.None" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">None</span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/managers/manager_class.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_class.None" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p>About self.inspect return :</p>
@@ -442,7 +442,7 @@ classes: Dict[str, ClassRefInfo]                    # per-class summary (derived
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="ctfsolver.managers.manager_class.ManagerClass">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">ManagerClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_paths</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolver/blob/main/ctfsolver/managers/manager_class.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_class.ManagerClass" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ManagerClass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_paths</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/managers/manager_class.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_class.ManagerClass" title="Link to this definition">¶</a></dt>
 <dd><p>Inspect Python classes in source files, including inherited members found in nearby files.</p>
 <dl class="simple">
 <dt>Usage:</dt><dd><p>inspector = ClassInspector(search_paths=[“src”, “package”])
@@ -456,12 +456,12 @@ details = inspector.inspect(“path/to/file.py”, “MyClass”, include_inheri
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctfsolver.managers.manager_class.ManagerClass.default_search_paths">
-<span class="sig-name descname"><span class="pre">default_search_paths</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.14)"><span class="pre">pathlib.Path</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolver/blob/main/ctfsolver/managers/manager_class.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_class.ManagerClass.default_search_paths" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">default_search_paths</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.14)"><span class="pre">pathlib.Path</span></a><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/managers/manager_class.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_class.ManagerClass.default_search_paths" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.managers.manager_class.ManagerClass.inspect">
-<span class="sig-name descname"><span class="pre">inspect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_inherited</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_search_paths</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolver/blob/main/ctfsolver/managers/manager_class.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_class.ManagerClass.inspect" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">inspect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_inherited</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extra_search_paths</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/managers/manager_class.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_class.ManagerClass.inspect" title="Link to this definition">¶</a></dt>
 <dd><p>Parse a Python file, locate <cite>class_name</cite>, and return its functions/attributes.
 If <cite>include_inherited</cite> is True, also pulls in members from base classes found
 within search paths (default: the file’s directory + self.default_search_paths + extra_search_paths).</p>
@@ -496,7 +496,7 @@ within search paths (default: the file’s directory + self.default_search_paths
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.managers.manager_class.ManagerClass.example_printing">
-<span class="sig-name descname"><span class="pre">example_printing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classname</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolver/blob/main/ctfsolver/managers/manager_class.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_class.ManagerClass.example_printing" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">example_printing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classname</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/managers/manager_class.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_class.ManagerClass.example_printing" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -509,11 +509,11 @@ within search paths (default: the file’s directory + self.default_search_paths
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.managers.manager_class.ManagerClass.get_classes_in_file">
-<span class="sig-name descname"><span class="pre">get_classes_in_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolver/blob/main/ctfsolver/managers/manager_class.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_class.ManagerClass.get_classes_in_file" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_classes_in_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/managers/manager_class.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_class.ManagerClass.get_classes_in_file" title="Link to this definition">¶</a></dt>
 <dd><p>Opens a Python file and returns a list of class names defined in that file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>file_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><a class="reference internal" href="../manager_folder/index.html#ctfsolver.managers.manager_folder.ManagerFolder.Path" title="ctfsolver.managers.manager_folder.ManagerFolder.Path"><em>Path</em></a>) – Path to the Python source file.</p>
+<dd class="field-odd"><p><strong>file_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em> | </em><em>Path</em>) – Path to the Python source file.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>List of class names found in the file.</p>
@@ -528,7 +528,7 @@ within search paths (default: the file’s directory + self.default_search_paths
 
 <dl class="py data">
 <dt class="sig sig-object py" id="ctfsolver.managers.manager_class.root">
-<span class="sig-name descname"><span class="pre">root</span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolver/blob/main/ctfsolver/managers/manager_class.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_class.root" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">root</span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/managers/manager_class.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_class.root" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </section>
@@ -616,8 +616,8 @@ within search paths (default: the file’s directory + self.default_search_paths
     </aside>
   </div>
 </div><script src="../../../../_static/documentation_options.js?v=544df88d"></script>
-    <script src="../../../../_static/doctools.js?v=fd6eb6e6"></script>
-    <script src="../../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../../../_static/copybutton.js?v=f281be69"></script>

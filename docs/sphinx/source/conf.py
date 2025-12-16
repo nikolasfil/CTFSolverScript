@@ -93,7 +93,7 @@ def linkcode_resolve(domain, info):
         return None
 
     filename = info["module"].replace(".", "/")
-    return f"https://github.com/nikolasfil/CTFSolver/blob/main/{filename}.py"
+    return f"https://github.com/nikolasfil/CTFSolverScript/blob/main/{filename}.py"
 
 
 project_path = Path(root_path, "app", "ctfsolver")
