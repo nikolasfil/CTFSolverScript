@@ -61,7 +61,6 @@ Classes
 
     ### Descendants
 
-    * ctfsolver.find_usage.gathering.Gathering
     * ctfsolver.folders.finding_writeups.Folder_Structure
     * ctfsolver.template.gathering_template.Gathering
     * ctfsolver.template.solution_template.Solution

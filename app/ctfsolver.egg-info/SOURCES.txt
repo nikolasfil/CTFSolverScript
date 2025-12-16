@@ -29,7 +29,6 @@ app/ctfsolver/feature_test/testing_files.py
 app/ctfsolver/find_usage/__init__.py
 app/ctfsolver/find_usage/__main__.py
 app/ctfsolver/find_usage/function_definition_class.py
-app/ctfsolver/find_usage/gathering.py
 app/ctfsolver/find_usage/manager_gathering.py
 app/ctfsolver/folders/__init__.py
 app/ctfsolver/folders/__main__.py

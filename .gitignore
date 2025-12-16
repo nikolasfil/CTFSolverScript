@@ -3,3 +3,4 @@ __pycache__
 temp/*
 venv_*
 .env
+app/ctfsolver/find_usage/gathering.py
