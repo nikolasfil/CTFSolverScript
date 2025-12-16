@@ -92,7 +92,7 @@ class ManagerError:
         """
 
         try:
-            function(*args, **kwargs)
+            return function(*args, **kwargs)
         except Exception as e:
             self.handle(e)
         except KeyboardInterrupt:

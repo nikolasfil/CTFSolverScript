@@ -17,12 +17,13 @@ Note:
 from ctfsolver.managers.manager_files_pcap import ManagerFilePcap
 from ctfsolver.managers.manager_files_re import ManagerFileRegex
 from ctfsolver.managers.manager_folder import ManagerFolder
+from ctfsolver.managers.manager_functions import ManagerFunction
 
 
-class ManagerFile(ManagerFilePcap, ManagerFileRegex, ManagerFolder):
+class ManagerFile(ManagerFilePcap, ManagerFileRegex, ManagerFolder, ManagerFunction):
     """
     ManagerFile class for handling file operations in CTF solving context.
-    This class inherits from ManagerFilePcap, ManagerFileRegex, and ManagerFolder,
+    This class inherits from ManagerFilePcap, ManagerFileRegex, ManagerFolder, and ManagerFunction,
     providing methods for initializing file-related ancestors and searching for base64
     strings within files.
     Attributes:

@@ -113,7 +113,11 @@ class GlobalConfig:
         """
 
         # Load the template content from config_template.json
-        template_path = Path(Path(__file__).parent, "config_template.json")
+        # Changed the location of the config_template, to keep all the data files together.
+        # template_path = Path(Path(__file__).parent, "config_template.json")
+        template_path = Path(
+            Path(__file__).parent.parent, "data", "config_template.json"
+        )
         if template_path.exists():
             with open(template_path, "r") as template_file:
                 initial_content = json.load(template_file)
@@ -181,6 +185,11 @@ class GlobalConfig:
         if key in self.content:
             return self.content[key]
         raise KeyError(f"'GlobalConfig' object has no key '{key}'")
+
+    def check_config_content(self):
+        # !TODO Checks the current config if it exists,
+        # and the keys of the template config
+        pass
 
 
 # Creates an instance of GlobalConfig to be accessed by all the other files

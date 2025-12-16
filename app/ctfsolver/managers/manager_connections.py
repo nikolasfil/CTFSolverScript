@@ -150,7 +150,7 @@ class ManagerConnections:
     def recv_menu(self, number=1, display=False, save=False):
         raise DeprecationWarning("Depracated function. Use recv_lines instead.")
 
-    def recv_lines(self, number=1, display=False, save=False):
+    def recv_lines(self, number=1, display=False, save=False, *args, **kwargs):
         """
         Description:
             Receives the output of the menu based on the number of lines provided.
@@ -168,7 +168,7 @@ class ManagerConnections:
         if save:
             result = []
         for _ in range(number):
-            out = self.conn.recvline()
+            out = self.conn.recvline(*args, **kwargs)
             if display:
                 print(out)
             if save:

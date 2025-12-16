@@ -13,7 +13,6 @@ Typical usage example:
     manager = ManagerFolder(file="challenge.py", verbose=True)
     manager.create_parent_folder()
     manager.prepare_space(files=["input.txt", "output.txt"])
-    functions = manager.get_functions_from_file("challenge.py")
 
     CONFIG (dict): Global configuration dictionary imported from ctfsolver.config.
 
@@ -25,9 +24,10 @@ Dependencies:
 from pathlib import Path
 import inspect
 import os
-import ast
 from collections import defaultdict
 from ctfsolver.config import CONFIG
+import shutil
+import pyperclip
 
 
 class ManagerFolder:
@@ -66,7 +66,6 @@ class ManagerFolder:
         search_files(directory, exclude_dirs, search_string, save=False, display=False): Searches for a string in files within a directory.
         get_self_functions(): Returns a list of callable methods of the class.
         get_function_reference(function, file): Finds references to a function in a file.
-        get_functions_from_file(file_path): Extracts function names from a Python file.
         find_function_from_file(file_path, function_name): Finds and returns the source code of a function from a file.
         folfil(folder, file): Returns the full path of a file within a folder.
         folders_file(*folders, file): Returns the full path of a file within nested folders.
@@ -85,8 +84,8 @@ class ManagerFolder:
         self.verbose = kwargs.get("verbose", False)
         self.Path = Path
         self.handling_global_config()
-        self.get_parent()
         init_challenge = kwargs.get("init_for_challenge", True)
+        self.get_parent()
         if init_challenge:
             self.init_for_challenge(*args, **kwargs)
 
@@ -127,6 +126,12 @@ class ManagerFolder:
         """
         pass
 
+    def get_current_dir(self):
+        # TODO: This should move to ManagerFolder
+        # Gets the current working directory that the command gets called in
+        self.file_called_frame = inspect.stack()
+        self.parent = Path(os.getcwd()).resolve()
+
     def get_parent(self):
         """
         Description:
@@ -155,7 +160,10 @@ class ManagerFolder:
         self.file_called_path = Path(self.file_called_frame[-1].filename)
         self.parent = Path(self.file_called_path).parent.resolve()
 
-        if self.parent.name in self.folders_name_list:
+        if (
+            hasattr(self, "folders_name_list")
+            and self.parent.name in self.folders_name_list
+        ):
             self.parent = self.parent.parent
 
     def setup_named_folders(self):
@@ -206,6 +214,37 @@ class ManagerFolder:
             if not folder.exists():
                 folder.mkdir()
 
+    def create_ctf_structure(
+        self, category, site, name, verbose=False, download=False, **kwargs
+    ):
+        """
+        Description:
+            Create the CTF folder structure
+        """
+
+        ctf_data_dir = CONFIG["directories"]["ctf_data"]
+        base_path = Path(Path.home(), ctf_data_dir, category, site, name)
+        checker = kwargs.get("checker", False)
+
+        if not base_path.exists():
+            base_path.mkdir(parents=True)
+
+        for folder in self.folders_name_list:
+            folder_path = Path(base_path, folder)
+            if not folder_path.exists():
+                folder_path.mkdir()
+
+        # Copy folder path in clipboard
+        pyperclip.copy(str(base_path))
+        if download:
+            self.download_automove(
+                category=category,
+                challenge_name=name,
+                challenge_path=base_path,
+                checker=checker,
+                verbose=verbose,
+            )
+
     def prepare_space(self, files=None, folder=None, test_text="flag{test}"):
         """
         Creates files with specified content in a given folder if they do not already exist.
@@ -249,6 +288,13 @@ class ManagerFolder:
             if self.verbose:
                 print(folder.iterdir())
             return not any(folder.iterdir())
+        return False
+
+    def check_folder_exists(self, folder: str) -> str | bool:
+        if Path(folder).exists():
+            return str(folder)
+        if Path(Path.home(), folder).exists():
+            return str(Path(Path.home(), folder))
         return False
 
     def get_challenge_file(self):
@@ -321,7 +367,7 @@ class ManagerFolder:
         if save:
             return output
 
-    def exec_on_files(self, folder, func, *args, **kwargs):
+    def exec_on_folder(self, folder: Path, func: callable, *args, **kwargs):
         """
         Description:
         Execute a function on all the files in the folder with the arguments provided
@@ -339,6 +385,67 @@ class ManagerFolder:
         if save:
             output = []
         for file in folder.iterdir():
+            out = func(file, *args, **kwargs)
+            if save and out is not None:
+                output.extend(out)
+            if display and out is not None:
+                print(out)
+        if save:
+            return output
+
+    # Attempt to change the way I use this function
+    def exec_on_folder_files(
+        self,
+        folder: Path,
+        func: callable,
+        func_args=[],
+        func_kwargs={},
+        *args,
+        **kwargs,
+    ):
+        """
+        Description:
+        Execute a function on all the files in the folder with the arguments provided
+
+        Args:
+            folder (str): Folder to execute the function
+            func (function): Function to execute
+
+        Returns:
+            list: List of output of the function
+        """
+
+        save = kwargs.get("save", False)
+        display = kwargs.get("display", False)
+        if save:
+            output = []
+        files = folder.iterdir()
+        out = func(files, *func_args, **func_kwargs)
+        if save and out is not None:
+            output.extend(out)
+        if display and out is not None:
+            print(out)
+        if save:
+            return output
+
+    def exec_on_files(self, files: list[str], func: callable, *args, **kwargs):
+        """
+        Description:
+        Execute a function on all the file list with the arguments provided
+
+        Args:
+            files (list): List of files to execute the function
+            func (function): Function to execute
+
+        Returns:
+            list: List of output of the function
+        """
+
+        save = kwargs.get("save", False)
+        display = kwargs.get("display", False)
+        if save:
+            output = []
+        for file in files:
             out = func(file, *args, **kwargs)
             if save and out is not None:
                 output.extend(out)
@@ -387,99 +494,6 @@ class ManagerFolder:
 
         if save:
             return output
-
-    def get_self_functions(self):
-        """
-        Description:
-        Get the functions of the class
-        """
-
-        return [
-            func
-            for func in dir(self)
-            if callable(getattr(self, func)) and not func.startswith("__")
-        ]
-
-    def get_function_reference(self, function, file):
-        """
-        Description:
-        Get the reference of the function in the file
-        """
-
-        if function not in self.get_self_functions():
-            raise ValueError(f"Function {function} not found in the class")
-
-        output = []
-
-        with open(file, "r") as f:
-            lines = f.readlines()
-            for i, line in enumerate(lines):
-                if function in line:
-                    output.append(line)
-        return output
-
-    def get_functions_from_file(self, file_path):
-        """
-        Description:
-        Get the functions from the file
-        """
-
-        output = []
-        with open(file_path, "r") as file_path:
-            file_content = file_path.read()
-
-        # Parse the file content into an AST
-        tree = ast.parse(file_content)
-
-        # Define a visitor class to find the function definition
-        class FunctionDefFinder(ast.NodeVisitor):
-            def __init__(self):
-                self.function_def = None
-
-            def visit_FunctionDef(self, node):
-                output.append(node.name)
-                # Continue visiting other nodes
-                self.generic_visit(node)
-
-        # Create an instance of the visitor and visit the AST
-        finder = FunctionDefFinder()
-        finder.visit(tree)
-
-        # If the function was found, return its definition
-        return output
-
-    def find_function_from_file(self, file_path, function_name):
-        """
-        Description:
-        Get the functions from the file
-        """
-
-        with open(file_path, "r") as file_path:
-            file_content = file_path.read()
-
-        # Parse the file content into an AST
-        tree = ast.parse(file_content)
-
-        # Define a visitor class to find the function definition
-        class FunctionDefFinder(ast.NodeVisitor):
-            def __init__(self):
-                self.function_def = None
-
-            def visit_FunctionDef(self, node):
-                if node.name == function_name:
-                    self.function_def = node
-                # Continue visiting other nodes
-                self.generic_visit(node)
-
-        # Create an instance of the visitor and visit the AST
-        finder = FunctionDefFinder()
-        finder.visit(tree)
-
-        # If the function was found, return its definition
-        if finder.function_def:
-            return ast.unparse(finder.function_def)
-        else:
-            return None
 
     def folfil(self, folder, file):
         """
@@ -599,3 +613,82 @@ class ManagerFolder:
             function(root, dirs, files, *args, **kwargs)
 
         return root, dirs, files
+
+    def delete_folder(self, folder):
+        """
+        Description:
+        Deletes the folder and all its contents.
+
+        Args:
+            folder (str): Folder to delete
+
+        Returns:
+            None
+        """
+        shutil.rmtree(folder)
+
+    def copy_folder(self, source, destination):
+        """
+        Description:
+        Copies the folder and all its contents to the destination.
+
+        Args:
+            source (str): Source folder to copy
+            destination (str): Destination folder to copy to
+
+        Returns:
+            None
+        """
+        shutil.copytree(source, destination)
+
+    def download_automove(
+        self,
+        category: str,
+        challenge_name: str,
+        challenge_path,
+        checker: bool = False,
+        verbose: bool = False,
+    ):
+        """
+        Description:
+        Moves the downloaded files to the challenge folder structure
+
+        Args:
+            category (str): Category of the challenge
+            challenge_name (str): Name of the challenge to search in the downloads
+            challenge_path (str): Path of the challenge to move
+        """
+        download_folder = CONFIG.content.get("directories").get("downloads")
+
+        if not download_folder:
+            raise ValueError("Download folder not specified in the configuration")
+
+        matched_files = self.exec_on_folder_files(
+            Path(download_folder),
+            self.check_name_similarity_in_files,
+            func_kwargs={"information": [category, challenge_name]},
+            save=True,
+        )
+        # print(matched_files)
+        # Get the files that match the challenge name or the category
+        target_path = Path(challenge_path, "files")
+
+        if (self.verbose or verbose) and len(matched_files) == 0:
+            print("No matched files found for automove.")
+
+        for file in matched_files:
+            if checker:
+                # Here would be best to add a checker function to check if the file is correct
+                anws = input(f"Move file {file} to {target_path}? (y/N): ")
+                if anws.lower() != "y":
+                    if self.verbose or verbose:
+                        print(f"Skipping file {file}")
+                    continue
+                elif anws.lower() == "y":
+                    if self.verbose or verbose:
+                        print(f"Moving file {file} to {target_path}")
+
+            if file.exists():
+                if self.verbose or verbose:
+                    print(f"Moving file {file} to {target_path}")
+            shutil.move(file, target_path)

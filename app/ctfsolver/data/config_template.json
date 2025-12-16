@@ -1,0 +1,64 @@
+{
+  "directories": {
+    "ctf_data": null,
+    "documentation": null,
+    "venvs": null,
+    "exclude": []
+  },
+  "structures": {
+    "ctf_folder": ["data", "files", "payloads", "docs"]
+  },
+  "data": {
+    "categories": [
+      "Coding",
+      "Notes",
+      "Osint",
+      "Resources",
+      "Stego",
+      "Binary",
+      "Blockchain",
+      "Cryptography",
+      "Events",
+      "Forensics",
+      "General",
+      "Hardware",
+      "indexes",
+      "Learning",
+      "Miscellaneous",
+      "Programming",
+      "Pwn",
+      "ReverseEngineering",
+      "Uncategorized",
+      "Web",
+      "FullPwn"
+    ],
+    "sites": [
+      "ECSC",
+      "ctflearn",
+      "picoCTF",
+      "TryHackMe",
+      "HackTheBox",
+      "OverTheWire",
+      "RootMe",
+      "HTB",
+      "google",
+      "youtube",
+      "cybersecurityChallenge",
+      "gtbq",
+      "Own",
+      "Obsidian",
+      "NTUA",
+      "CSCG",
+      "Various"
+    ]
+  },
+  "settings": {
+    "auto_update": true,
+    "check_for_updates_on_startup": true,
+    "default_venv": "base",
+    "preferred_editor": null,
+    "log_level": "INFO",
+    "max_log_file_size": 1048576,
+    "backup_count": 5
+  }
+}

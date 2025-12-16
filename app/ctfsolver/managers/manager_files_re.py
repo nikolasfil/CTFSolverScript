@@ -20,7 +20,9 @@ Attributes:
 
 """
 
+from email import utils
 import re
+from rapidfuzz import fuzz
 
 
 class ManagerFileRegex:
@@ -59,3 +61,64 @@ class ManagerFileRegex:
 
             # Decode the byte strings to regular strings
             return [s.decode("utf-8", errors="ignore") for s in strings]
+
+    def normalize_name(self, name: str) -> str:
+        """
+        Normalize a file or folder name so different naming styles correlate.
+        """
+        name = name.lower()
+
+        # Remove archive extensions
+        name = re.sub(r"\.(zip|tar|gz|7z)$", "", name)
+
+        # Split on common separators
+        parts = re.split(r"[_\- ]+", name)
+
+        # Join and remove non-alphanumerics
+        normalized = "".join(parts)
+        normalized = re.sub(r"[^a-z0-9]", "", normalized)
+
+        return normalized
+
+    def string_similarity(self, str1: str, str2: str) -> float:
+        """
+        Calculate the similarity ratio between two strings using rapidfuzz.
+
+        Args:
+            str1 (str): The first string.
+            str2 (str): The second string.
+
+        Returns:
+            float: Similarity ratio between 0 and 100.
+        """
+        # return fuzz.ratio(str1, str2)
+        return fuzz.WRatio(str1, str2)
+
+    def check_name_similarity_in_files(
+        self, files: list, information: list, threshold: float = 70.0
+    ) -> list:
+        """
+        Check for similar names in a list of files based on provided information.
+
+        Args:
+            information (list): List of strings to compare against file names.
+            files (list): List of file names to check.
+            threshold (float): Similarity threshold (0-100) to consider a match.
+
+        Returns:
+            list: List of files that have similar names above the threshold.
+        """
+        matched_files = []
+
+        for file in files:
+            normalized_file_name = self.normalize_name(file.name)
+            for info in information:
+                normalized_info = self.normalize_name(info)
+                similarity = self.string_similarity(
+                    normalized_file_name, normalized_info
+                )
+                if similarity >= threshold:
+                    matched_files.append(file)
+                    break  # No need to check other information strings
+
+        return matched_files
