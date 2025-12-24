@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="ctfsolver.managers.manager_files_re" href="../manager_files_re/index.html" /><link rel="prev" title="ctfsolver.managers.manager_files_evtx" href="../manager_files_evtx/index.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
-        <title>ctfsolver.managers.manager_files_pcap - ctfsolver 0.0.14 documentation</title>
+        <title>ctfsolver.managers.manager_files_pcap - ctfsolver 0.0.15 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=25af2a20" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
@@ -168,7 +168,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../../index.html"><div class="brand">ctfsolver 0.0.14 documentation</div></a>
+      <a href="../../../../index.html"><div class="brand">ctfsolver 0.0.15 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -191,7 +191,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../../index.html">
   
-  <span class="sidebar-brand-text">ctfsolver 0.0.14 documentation</span>
+  <span class="sidebar-brand-text">ctfsolver 0.0.15 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -368,7 +368,7 @@ found_text = manager.searching_text_in_packets(“flag”, packets)</p>
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="ctfsolver.managers.manager_files_pcap.ManagerFilePcap">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ManagerFilePcap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ManagerFilePcap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap" title="Link to this definition">¶</a></dt>
 <dd><p>ManagerFilePcap provides methods for handling and analyzing PCAP files using Scapy.
 This class allows you to open PCAP files, filter packets by protocol (such as ICMP),
 extract specific packet attributes (like TTL), and search for text within packet payloads.
@@ -383,7 +383,7 @@ extract specific packet attributes (like TTL), and search for text within packet
 </div></blockquote>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctfsolver.managers.manager_files_pcap.ManagerFilePcap.challenge_file">
-<span class="sig-name descname"><span class="pre">challenge_file</span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.challenge_file" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">challenge_file</span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.challenge_file" title="Link to this definition">¶</a></dt>
 <dd><p>Default file path for PCAP operations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
@@ -394,13 +394,13 @@ extract specific packet attributes (like TTL), and search for text within packet
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.managers.manager_files_pcap.ManagerFilePcap.initializing_all_ancestors">
-<span class="sig-name descname"><span class="pre">initializing_all_ancestors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.initializing_all_ancestors" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">initializing_all_ancestors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.initializing_all_ancestors" title="Link to this definition">¶</a></dt>
 <dd><p>Initializes all ancestors of the class.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.managers.manager_files_pcap.ManagerFilePcap.pcap_open">
-<span class="sig-name descname"><span class="pre">pcap_open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://scapy.readthedocs.io/en/latest/api/scapy.packet.html#scapy.packet.Packet" title="(in Scapy v2.7.0rc1.dev7)"><span class="pre">scapy.packet.Packet</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="../manager_class/index.html#ctfsolver.managers.manager_class.None" title="ctfsolver.managers.manager_class.None"><span class="pre">None</span></a></span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.pcap_open" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">pcap_open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://scapy.readthedocs.io/en/latest/api/scapy.packet.html#scapy.packet.Packet" title="(in Scapy v2.7.0rc1.dev9)"><span class="pre">scapy.packet.Packet</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="../manager_class/index.html#ctfsolver.managers.manager_class.None" title="ctfsolver.managers.manager_class.None"><span class="pre">None</span></a></span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.pcap_open" title="Link to this definition">¶</a></dt>
 <dd><p>Opens a PCAP file and loads packets using Scapy.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -411,25 +411,25 @@ extract specific packet attributes (like TTL), and search for text within packet
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.managers.manager_files_pcap.ManagerFilePcap.get_packets_icmp">
-<span class="sig-name descname"><span class="pre">get_packets_icmp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a></span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.get_packets_icmp" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_packets_icmp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a></span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.get_packets_icmp" title="Link to this definition">¶</a></dt>
 <dd><p>Retrieves all ICMP packets from the loaded packets.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.managers.manager_files_pcap.ManagerFilePcap.get_packet_ttl">
-<span class="sig-name descname"><span class="pre">get_packet_ttl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a></span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.get_packet_ttl" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_packet_ttl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><span class="pre">list</span></a></span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.get_packet_ttl" title="Link to this definition">¶</a></dt>
 <dd><p>Extracts the TTL values from the provided packets.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.managers.manager_files_pcap.ManagerFilePcap.searching_text_in_packets">
-<span class="sig-name descname"><span class="pre">searching_text_in_packets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">packets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.searching_text_in_packets" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">searching_text_in_packets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">packets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.managers.manager_files_pcap.ManagerFilePcap.searching_text_in_packets" title="Link to this definition">¶</a></dt>
 <dd><p>Searches for a specific text in packet payloads and optionally displays matching packets.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">initializing_all_ancestors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">initializing_all_ancestors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id0" title="Link to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>Description:</dt><dd><p>Initializes all the ancestors of the class
 Placeholder for overwrite</p>
@@ -439,7 +439,7 @@ Placeholder for overwrite</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="id1">
-<span class="sig-name descname"><span class="pre">pcap_open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">pcap_open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id1" title="Link to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>Description:</dt><dd><p>Open the pcap file with scapy and saves it in self.packets</p>
 </dd>
@@ -459,7 +459,7 @@ Placeholder for overwrite</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="id2">
-<span class="sig-name descname"><span class="pre">get_packets_icmp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_packets_icmp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id2" title="Link to this definition">¶</a></dt>
 <dd><p>Description:
 Get all the ICMP packets from the packets</p>
 <dl class="field-list simple">
@@ -477,7 +477,7 @@ Get all the ICMP packets from the packets</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="id3">
-<span class="sig-name descname"><span class="pre">get_packet_ttl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id3" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_packet_ttl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id3" title="Link to this definition">¶</a></dt>
 <dd><p>Description:
 Get the TTL of all the ICMP packets</p>
 <dl class="field-list simple">
@@ -495,7 +495,7 @@ Get the TTL of all the ICMP packets</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="id4">
-<span class="sig-name descname"><span class="pre">searching_text_in_packets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">packets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id4" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">searching_text_in_packets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">packets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/managers/manager_files_pcap.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#id4" title="Link to this definition">¶</a></dt>
 <dd><p>Description:
 Search for a text in the packets that have been opened with scapy</p>
 <dl class="field-list simple">
@@ -605,7 +605,7 @@ Search for a text in the packets that have been opened with scapy</p>
       
     </aside>
   </div>
-</div><script src="../../../../_static/documentation_options.js?v=544df88d"></script>
+</div><script src="../../../../_static/documentation_options.js?v=f0357c94"></script>
     <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/scripts/furo.js?v=46bd48cc"></script>

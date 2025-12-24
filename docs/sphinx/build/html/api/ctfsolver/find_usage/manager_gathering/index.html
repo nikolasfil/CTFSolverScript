@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="ctfsolver.folders" href="../../folders/index.html" /><link rel="prev" title="ctfsolver.find_usage.function_definition_class" href="../function_definition_class/index.html" />
 
     <!-- Generated with Sphinx 8.2.3 and Furo 2025.07.19 -->
-        <title>ctfsolver.find_usage.manager_gathering - ctfsolver 0.0.14 documentation</title>
+        <title>ctfsolver.find_usage.manager_gathering - ctfsolver 0.0.15 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo.css?v=25af2a20" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css?v=76b2166b" />
@@ -168,7 +168,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../../../../index.html"><div class="brand">ctfsolver 0.0.14 documentation</div></a>
+      <a href="../../../../index.html"><div class="brand">ctfsolver 0.0.15 documentation</div></a>
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
@@ -191,7 +191,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../../index.html">
   
-  <span class="sidebar-brand-text">ctfsolver 0.0.14 documentation</span>
+  <span class="sidebar-brand-text">ctfsolver 0.0.15 documentation</span>
   
 </a><form class="sidebar-search-container" method="get" action="../../../../search.html" role="search">
   <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
@@ -367,7 +367,7 @@
 <h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="ctfsolver.find_usage.manager_gathering.ManagerGathering">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ManagerGathering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ManagerGathering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../../managers/manager_functions/index.html#ctfsolver.managers.manager_functions.ManagerFunction" title="ctfsolver.managers.manager_functions.ManagerFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ctfsolver.managers.manager_functions.ManagerFunction</span></code></a>, <a class="reference internal" href="../../managers/manager_folder/index.html#ctfsolver.managers.manager_folder.ManagerFolder" title="ctfsolver.managers.manager_folder.ManagerFolder"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ctfsolver.managers.manager_folder.ManagerFolder</span></code></a></p>
 <p>ManagerFunction provides utility methods for introspecting and managing functions within a class and Python source files.</p>
 <dl class="simple">
@@ -380,13 +380,13 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.find_usage.manager_gathering.ManagerGathering.get_self_functions">
-<span class="sig-name descname"><span class="pre">get_self_functions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.get_self_functions" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_self_functions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.get_self_functions" title="Link to this definition">¶</a></dt>
 <dd><p>Lists all callable functions of the class instance, excluding special methods.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.find_usage.manager_gathering.ManagerGathering.get_function_reference">
-<span class="sig-name descname"><span class="pre">get_function_reference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.get_function_reference" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_function_reference</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.get_function_reference" title="Link to this definition">¶</a></dt>
 <dd><p>Finds and returns all lines in the specified file where the given function name appears.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -409,7 +409,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.find_usage.manager_gathering.ManagerGathering.get_functions_from_file">
-<span class="sig-name descname"><span class="pre">get_functions_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.get_functions_from_file" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_functions_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.get_functions_from_file" title="Link to this definition">¶</a></dt>
 <dd><p>Parses the given Python file and returns function definitions using AST.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -429,28 +429,28 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.find_usage.manager_gathering.ManagerGathering.find_function_from_file">
-<span class="sig-name descname"><span class="pre">find_function_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.find_function_from_file" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">find_function_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.find_function_from_file" title="Link to this definition">¶</a></dt>
 <dd><p>Deprecated. Use get_functions_from_file instead.</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctfsolver.find_usage.manager_gathering.ManagerGathering.gathering_target">
-<span class="sig-name descname"><span class="pre">gathering_target</span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.gathering_target" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">gathering_target</span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.gathering_target" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctfsolver.find_usage.manager_gathering.ManagerGathering.manager_error">
-<span class="sig-name descname"><span class="pre">manager_error</span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.manager_error" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">manager_error</span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.manager_error" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ctfsolver.find_usage.manager_gathering.ManagerGathering.manager_class">
-<span class="sig-name descname"><span class="pre">manager_class</span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.manager_class" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">manager_class</span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.manager_class" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.find_usage.manager_gathering.ManagerGathering.initializing_all_ancestors">
-<span class="sig-name descname"><span class="pre">initializing_all_ancestors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.initializing_all_ancestors" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">initializing_all_ancestors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.initializing_all_ancestors" title="Link to this definition">¶</a></dt>
 <dd><dl class="simple">
 <dt>Description:</dt><dd><p>Initializes all the ancestors of the class</p>
 </dd>
@@ -459,27 +459,27 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.find_usage.manager_gathering.ManagerGathering.handling_global_config">
-<span class="sig-name descname"><span class="pre">handling_global_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.handling_global_config" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">handling_global_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.handling_global_config" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.find_usage.manager_gathering.ManagerGathering.get_gathering_target">
-<span class="sig-name descname"><span class="pre">get_gathering_target</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.get_gathering_target" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_gathering_target</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.get_gathering_target" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.find_usage.manager_gathering.ManagerGathering.get_org_information">
-<span class="sig-name descname"><span class="pre">get_org_information</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.get_org_information" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_org_information</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.get_org_information" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.find_usage.manager_gathering.ManagerGathering.renaming_method">
-<span class="sig-name descname"><span class="pre">renaming_method</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.renaming_method" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">renaming_method</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.renaming_method" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.find_usage.manager_gathering.ManagerGathering.adding_to_file">
-<span class="sig-name descname"><span class="pre">adding_to_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_source</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.adding_to_file" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">adding_to_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_source</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.adding_to_file" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -492,7 +492,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.find_usage.manager_gathering.ManagerGathering.tabbing">
-<span class="sig-name descname"><span class="pre">tabbing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space_num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.tabbing" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">tabbing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space_num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.tabbing" title="Link to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -505,31 +505,31 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.find_usage.manager_gathering.ManagerGathering.gathering_all_solution_files">
-<span class="sig-name descname"><span class="pre">gathering_all_solution_files</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.gathering_all_solution_files" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">gathering_all_solution_files</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.gathering_all_solution_files" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.find_usage.manager_gathering.ManagerGathering.check_functions">
-<span class="sig-name descname"><span class="pre">check_functions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solution_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solution_name</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.check_functions" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">check_functions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solution_info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">solution_name</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.check_functions" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.find_usage.manager_gathering.ManagerGathering.method_enumeration">
-<span class="sig-name descname"><span class="pre">method_enumeration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_methods</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_name</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.method_enumeration" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">method_enumeration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_methods</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_name</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.method_enumeration" title="Link to this definition">¶</a></dt>
 <dd><p>Enumerates methods in target_methods that match method_name
 with optional numbering (e.g., foo, foo_1, foo_2).</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ctfsolver.find_usage.manager_gathering.ManagerGathering.main">
-<span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.main" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.ManagerGathering.main" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py data">
 <dt class="sig sig-object py" id="ctfsolver.find_usage.manager_gathering.manager">
-<span class="sig-name descname"><span class="pre">manager</span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.manager" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">manager</span></span><a class="reference external" href="https://github.com/nikolasfil/CTFSolverScript/blob/main/app/ctfsolver/find_usage/manager_gathering.py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ctfsolver.find_usage.manager_gathering.manager" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </section>
@@ -629,7 +629,7 @@ with optional numbering (e.g., foo, foo_1, foo_2).</p>
       
     </aside>
   </div>
-</div><script src="../../../../_static/documentation_options.js?v=544df88d"></script>
+</div><script src="../../../../_static/documentation_options.js?v=f0357c94"></script>
     <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../../_static/scripts/furo.js?v=46bd48cc"></script>
